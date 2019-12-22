@@ -7,27 +7,19 @@
   <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
-  <title>MATLAB数字图像处理学习（二）|常用函数 | inkbottle&#39;s blog</title>
+  <title>Archives: 2019/12 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》">
+  <meta name="description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
 <meta name="keywords" content="inkbottle">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MATLAB数字图像处理学习（二）|常用函数">
-<meta property="og:url" content="https://ink-bottle.github.io/2019/03/02/MATLAB数字图像处理学习（二）-常用函数/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="inkbottle&#39;s blog">
+<meta property="og:url" content="https://ink-bottle.github.io/archives/2019/12/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》">
+<meta property="og:description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a1d6b3fafa.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a207a79d61.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a28ec7cdc7.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a2c37060db.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a2e3e30923.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a2f7bbae07.png">
-<meta property="og:updated_time" content="2019-03-02T07:44:27.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MATLAB数字图像处理学习（二）|常用函数">
-<meta name="twitter:description" content="以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》">
-<meta name="twitter:image" content="https://i.loli.net/2019/03/02/5c7a1d6b3fafa.png">
+<meta name="twitter:title" content="inkbottle&#39;s blog">
+<meta name="twitter:description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -185,306 +177,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-MATLAB数字图像处理学习（二）-常用函数" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      MATLAB数字图像处理学习（二）|常用函数
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/12/22/midwinter/" class="archive-article-date">
+  	<time datetime="2019-12-22T14:58:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/12/22/midwinter/">冬至</a>
     </h1>
   
 
-        
-        <a href="/2019/03/02/MATLAB数字图像处理学习（二）-常用函数/" class="archive-article-date">
-  	<time datetime="2019-03-02T05:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》</p>
-<a id="more"></a>
-<h2 id="im2bw">im2bw</h2>
-<p>功能：将索引图象、灰度图像和RGB彩色图像转换为二值图像<br>
-调用形式：</p>
-<blockquote>
-<p>BW = im2bw(I,level)<br>
-BW = im2bw(X,cmap,level)<br>
-BW = im2bw(RGB,level)</p>
-</blockquote>
-<p>其中level用于设置阈值。level取值范围[0, 1]。<br>
-示例：<br>
-<img src="https://i.loli.net/2019/03/02/5c7a1d6b3fafa.png" alt="示例图片"></p>
-<h2 id="edge">edge</h2>
-<p>功能：功能是采用I作为它的输入，并返回一个与I相同大小的二值化图像BW，在函数检测到边缘的地方为1，其他地方为0。采用灰度或一个二值化图像I作为它的输入，并返回一个与I相同大小的二值化图像BW，在函数检测到边缘的地方为1，其他地方为0。</p>
-<p>调用形式：</p>
-<blockquote>
-<p>BW = edge(I)<br>
-BW = edge(I,method)<br>
-BW = edge(I,‘sobel’)%自动选择阈值用Sobel算子进行边缘检测。<br>
-BW = edge(I,method,threshold)<br>
-BW = edge(I,method,threshold,direction)<br>
-BW = edge(—,‘nothinning’)<br>
-BW = edge(I,method,threshold,sigma)<br>
-BW = edge(I,method,threshold,h)<br>
-[BW,threshOut] = edge(—)<br>
-[BW,threshOut,Gv,Gh] = edge(—)</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">% 将索引彩色图象转换为灰度图像</span><br><span class="line">bw1=edge(I,&apos;roberts&apos;);</span><br><span class="line">bw2=edge(I,&apos;sobel&apos;);</span><br><span class="line">bw3=edge(I,&apos;prewitt&apos;);</span><br><span class="line">bw4=edge(I,&apos;log&apos;);</span><br><span class="line">bw5=edge(I,&apos;canny&apos;,[0.032,0.08],1);</span><br><span class="line">figure</span><br><span class="line">subplot(2,3,1),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(2,3,2),imshow(bw1);</span><br><span class="line">title(&apos;roberts&apos;);</span><br><span class="line">subplot(2,3,3),imshow(bw2);</span><br><span class="line">title(&apos;sobel&apos;);</span><br><span class="line">subplot(2,3,4),imshow(bw3);</span><br><span class="line">title(&apos;prewitt&apos;);</span><br><span class="line">subplot(2,3,5),imshow(bw4);</span><br><span class="line">title(&apos;log&apos;);</span><br><span class="line">subplot(2,3,6),imshow(bw5);</span><br><span class="line">title(&apos;canny&apos;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a207a79d61.png" alt="2333"></p>
-<h2 id="strel">strel</h2>
-<p>功能：构造结构元素（Structuring element）。所谓结构元素，可以看做是一张小图像，它通常用于图像的形态学运算（如膨胀、腐蚀、开运算、闭运算）。<br>
-调用形式：</p>
-<blockquote>
-<p>SE = strel(shape, parameters)%根据shape指定的类型创建一个结构元素SE。<br>
-SE = strel(‘ball’, R, H, N)<br>
-SE = strel(‘diamond’, R)<br>
-SE = strel(‘disk’, R, N)<br>
-SE = strel(‘line’, LEN, DEG)<br>
-SE = strel(‘octagon’, R)<br>
-SE = strel(‘pair’, OFFSET)<br>
-SE = strel(‘periodicline’, P, V)<br>
-SE = strel(‘rectangle’, MN)<br>
-SE = strel(‘square’, W)</p>
-</blockquote>
-<p>示例：<br>
-见下一例。</p>
-<h2 id="imdilate与imerode">imdilate与imerode</h2>
-<p>功能：可以使用imdilate函数进行图像膨胀；可以使用imerode函数进行图像腐蚀。<br>
-调用形式：</p>
-<blockquote>
-<p>J = imdilate(I,SE)<br>
-J = imdilate(I,nhood)<br>
-J = imdilate(—,packopt)<br>
-J = imdilate(—,shape)<br>
-J = imerode(I,SE)<br>
-J = imerode(I,nhood)<br>
-J = imerode(—,packopt,m)<br>
-J = imerode(—,shape)</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">sel1=strel(&apos;disk&apos;,2);%创建一个指定半径1的平面圆盘形的结构元素</span><br><span class="line">im1=imdilate(I,sel1);</span><br><span class="line">im2=imerode(I,sel1);</span><br><span class="line">subplot(2,2,1),imshow(I1);</span><br><span class="line">title(&apos;彩色图像&apos;);</span><br><span class="line">subplot(2,2,2),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(2,2,3),imshow(im1);</span><br><span class="line">title(&apos;图像膨胀&apos;);</span><br><span class="line">subplot(2,2,4),imshow(im2);</span><br><span class="line">title(&apos;图像腐蚀&apos;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a28ec7cdc7.png" alt="23333"></p>
-<h2 id="imfill">imfill</h2>
-<p>功能：该函数用于填充图像区域和“空洞”。<br>
-调用形式：</p>
-<blockquote>
-<p>BW2 = imfill(BW)<br>
-这种格式将一张二值图像显示在屏幕上， 允许用户使用鼠标在图像上点几个点， 这几个点围成的区域即要填充的区域。要以这种交互方式操作， BW必须是一个二维的图像。用户可以通过按Backspace键或者Delete键来取消之前选择的区域；通过shift+鼠标左键单击或者鼠标右键单击或双击可以确定选择区域。<br>
-[BW2,locations] = imfill(BW)<br>
-这种方式， 将返回用户的取样点索引值。注意这里索引值不是选取样点的坐标。<br>
-BW2 = imfill(BW,locations)<br>
-这种格式允许用户编程时指定选取样点的索引。locations是个多维数组时， 数组每一行指定一个区域。<br>
-BW2 = imfill(BW,‘holes’)<br>
-填充二值图像中的空洞区域。 如， 黑色的背景上有个白色的圆圈。 则这个圆圈内区域将被填充。<br>
-I2 = imfill(I)<br>
-这种调用格式将填充灰度图像中所有的空洞区域。</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">im3=imfill(I,&apos;hole&apos;);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(1,2,2),imshow(im3);</span><br><span class="line">title(&apos;图像填充&apos;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a2c37060db.png" alt="2333"></p>
-<h2 id="bwareaopen">bwareaopen</h2>
-<p>功能：删除二值图像BW中小面积对象，默认情况下使用8邻域。<br>
-调用形式：</p>
-<blockquote>
-<p>BW2 = bwareaopen(BW,P)<br>
-BW2 = bwareaopen(BW,P,conn)</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">im1=bwareaopen(I,1200);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(1,2,2),imshow(im1);</span><br><span class="line">title(&apos;删除对象&apos;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a2e3e30923.png" alt="23333"></p>
-<p>关于matlab函数_连通区域得详解，可参考<a href="https://www.cnblogs.com/saliency/p/3593308.html" target="_blank" rel="noopener">matlab函数bwareaopen的详解</a><br>
-关于matlab图像处理的更多知识，可参考<a href="https://cristal-yin.github.io/2017/06/21/%E5%BD%A2%E6%80%81%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" target="_blank" rel="noopener">形态学图像处理</a><br>
-最后，再奉上一个表情包用于测试：</p>
-<p><img src="https://i.loli.net/2019/03/02/5c7a2f7bbae07.png" alt="23333"></p>
+        <div class="article-info info-on-right">
+          
+          
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/心记//" class="article-tag-list-link color3">心记</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-      
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a5b43f232.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a59fef129.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2019/03/02/MATLAB数字图像处理学习（二）-常用函数/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/03/hexo-博客增加Valine-gitalk评论插件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          hexo 博客增加Valine/gitalk评论插件
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/02/28/MATLAB数字图像处理学习（一）-MATLAB中图像的基本操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">MATLAB数字图像处理学习（一）|MATLAB中图像的基本操作</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#im2bw"><span class="toc-number">1.</span> <span class="toc-text">im2bw</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#edge"><span class="toc-number">2.</span> <span class="toc-text">edge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strel"><span class="toc-number">3.</span> <span class="toc-text">strel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#imdilate与imerode"><span class="toc-number">4.</span> <span class="toc-text">imdilate与imerode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#imfill"><span class="toc-number">5.</span> <span class="toc-text">imfill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bwareaopen"><span class="toc-number">6.</span> <span class="toc-text">bwareaopen</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-
-  
-    <div id="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-new Valine({
-    el: '#comment' ,
-    notify:false, 
-    verify:false, 
-    appId: 'gQVYTNyv4vsbPbERTDG1erab-gzGzoHsz',
-    appKey: 'qyhbnJu7Wc96RJczz8KTyCDG',
-    placeholder: '吾以为inkbottle必有高论，岂期出此鄙言！吾有一言，诸军静听',
-    path:window.location.pathname, 
-    avatar:'mm' 
-});
-</script>
     
-
-  
-
-
-
 
 
           </div>
@@ -534,8 +280,8 @@ setInterval("createtime()",250);
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
