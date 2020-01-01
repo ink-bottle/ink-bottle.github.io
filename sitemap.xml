@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ink-bottle.github.io/message-boards/index.html</loc>
+    
+    <lastmod>2020-01-01T06:30:21.153Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ink-bottle.github.io/2019/12/31/2020-new-year/</loc>
     
     <lastmod>2020-01-01T05:51:40.151Z</lastmod>
@@ -341,13 +348,6 @@
     <loc>https://ink-bottle.github.io/2019/06/07/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0emoji%E8%A1%A8%E6%83%85/</loc>
     
     <lastmod>2020-01-01T04:38:10.129Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ink-bottle.github.io/message-boards/index.html</loc>
-    
-    <lastmod>2020-01-01T04:36:55.364Z</lastmod>
     
   </url>
   
