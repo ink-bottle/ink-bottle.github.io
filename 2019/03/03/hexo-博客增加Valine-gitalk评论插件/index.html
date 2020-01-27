@@ -21,8 +21,8 @@
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b4ca85deef.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b4fc25d25d.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b50ceb9feb.png">
-<meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b51d102755.png">
-<meta property="og:updated_time" content="2020-01-01T04:39:49.897Z">
+<meta property="og:image" content="https://i.loli.net/2019/06/21/5d0c9a81bf9e219729.jpg">
+<meta property="og:updated_time" content="2020-01-27T04:38:52.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo 博客增加Valine&#x2F;gitalk评论插件">
 <meta name="twitter:description" content="hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine/gitalk这两款评论插件，大家可以看到，我现在的博客使用的是Valine这款评论插件。">
@@ -264,7 +264,43 @@ var _hmt = _hmt || [];
 <p>配置完毕后，重新部署，即可看到效果。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/03/5c7b50ceb9feb.png" alt="2333"></p>
-<p><img src="https://i.loli.net/2019/03/03/5c7b51d102755.png" alt="2333"></p>
+<h3 id="valine-评论系统中的邮件提醒设置">Valine 评论系统中的邮件提醒设置</h3>
+<ul>
+<li>
+<p>进入Leancloud&gt;选择你的评论所存放的应用&gt;设置&gt;邮件模板，按下图设置好用于重置密码的邮件主题&gt;然后保存:<br>
+<img src="https://i.loli.net/2019/06/21/5d0c9a81bf9e219729.jpg" alt="6.png"></p>
+</li>
+<li>
+<p>修改邮件主题：你在的评论收到了新的评论</p>
+</li>
+<li>
+<p>修改内容：将下面的代码复制到“内容”中，并将其中的你的网址首页链接改为你的网址首页链接。</p>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hi, &#123;&#123;username&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">你在 &#123;&#123;appname&#125;&#125; 的评论收到了新的回复，请点击查看：</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"你的网址首页链接"</span> <span class="attr">style</span>=<span class="string">"display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;"</span>&gt;</span>马上查看<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>点击“保存”按钮。</li>
+<li>修改yilia主题配置文件，位置：你的网站根目录\themes\yilia\layout_partial\post\valine.ejs，将notify和verify的属性修改为true。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'//unpkg.com/valine/dist/Valine.min.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">new</span> Valine(&#123;</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#comment'</span> ,</span></span><br><span class="line"><span class="actionscript">    notify:<span class="literal">true</span>, </span></span><br><span class="line"><span class="actionscript">    verify:<span class="literal">true</span>, </span></span><br><span class="line"><span class="actionscript">    appId: <span class="string">'&lt;%=theme.valine_appid%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">    appKey: <span class="string">'&lt;%=theme.valine_appkey%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">    placeholder: <span class="string">'吾以为inkbottle必有高论，岂期出此鄙言！吾有一言，诸军静听'</span>,</span></span><br><span class="line"><span class="javascript">    path:<span class="built_in">window</span>.location.pathname, </span></span><br><span class="line"><span class="actionscript">    avatar:<span class="string">'mm'</span> </span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>配置完毕后，重新部署，需等待一段时间。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进行测试，查看自己评论的回复能否收到邮件提醒。</li>
+<li>配置完成！</li>
+</ul>
+<blockquote>
+<p>注意事项：</p>
+<ul>
+<li>发送次数过多，可能会暂时被Leancloud 屏蔽邮件发送功能</li>
+<li>由于邮件提醒功能使用的Leancloud的密码重置邮件提醒，只能传递昵称、邮箱两个属性，所以邮件提醒链&gt; 接无法直达指定文章页。请悉知。</li>
+<li>开启邮件提醒会默认开启验证码选项。</li>
+<li>该功能目前还在测试阶段，谨慎使用。</li>
+<li>目前邮件提醒正处于测试阶段，仅在子级对存在邮件地址的父级发表评论时发送邮件</li>
+</ul>
+</blockquote>
 
       
 
@@ -417,7 +453,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gitalk"><span class="toc-number">1.</span> <span class="toc-text">gitalk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#valine"><span class="toc-number">2.</span> <span class="toc-text">Valine</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gitalk"><span class="toc-number">1.</span> <span class="toc-text">gitalk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#valine"><span class="toc-number">2.</span> <span class="toc-text">Valine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#valine-评论系统中的邮件提醒设置"><span class="toc-number">2.1.</span> <span class="toc-text">Valine 评论系统中的邮件提醒设置</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

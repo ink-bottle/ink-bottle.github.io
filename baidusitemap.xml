@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://ink-bottle.github.io/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2020-01-27</lastmod>
+  </url>  <url>
     <loc>https://ink-bottle.github.io/2020/01/24/child-of-light/</loc>
     <lastmod>2020-01-26</lastmod>
   </url>  <url>
@@ -137,9 +140,6 @@
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
     <loc>https://ink-bottle.github.io/2019/10/15/Python/</loc>
-    <lastmod>2020-01-01</lastmod>
-  </url>  <url>
-    <loc>https://ink-bottle.github.io/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/</loc>
     <lastmod>2020-01-01</lastmod>
   </url>  <url>
     <loc>https://ink-bottle.github.io/2019/04/03/%E5%A6%82%E4%BD%95%E5%9C%A8ipv4%E7%8E%AF%E5%A2%83%E4%B8%8B%E6%8E%A5%E5%85%A5ipv6/</loc>
