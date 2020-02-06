@@ -22,7 +22,11 @@
 <meta property="og:image" content="https://i.loli.net/2019/06/30/5d18603d9c9a625329.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/07/11/5d26fb556acdb84990.png">
 <meta property="og:image" content="https://i.loli.net/2019/07/11/5d26fbb702c9065214.png">
-<meta property="og:updated_time" content="2020-01-01T04:43:24.585Z">
+<meta property="og:image" content="https://i.loli.net/2020/02/06/qIbFHxscpoy2PS1.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/06/hfiJvENZSu6AcWq.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/06/HANVIcaGTtUpw8h.png">
+<meta property="og:image" content="https://i.loli.net/2020/02/06/JbBuVPZos7NfO3l.png">
+<meta property="og:updated_time" content="2020-02-06T14:29:18.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ICEM学习笔记">
 <meta name="twitter:description" content="ICEMCFD(The Integrated Computer Engineering and Manufacturing code for Computational Fluid Dynamics)是一种专业的CAE前处理软件。作为专业的前处理软件ICEMCFD为所有世界流行的CAE软件提供高效可靠的分析模型。它拥有强大的CAD模型修复能力、自动中面抽取、独特的网格“雕塑”技术、网格编辑技术以及">
@@ -263,9 +267,23 @@ var _hmt = _hmt || [];
 <p><img src="https://i.loli.net/2019/07/11/5d26fbb702c9065214.png" alt="w186h3304459_1413436341_502.png"></p>
 <h3 id="进入选择状态时怎样旋转被选择体">进入选择状态时怎样旋转被选择体</h3>
 <p>按F9，就可以对几何体进行旋转和拖动，再按F9就退出这个模式，可以对几何体进行选择。</p>
+<h3 id="网格组装">网格组装</h3>
+<p>ICEM划分网格，对于简单的几何模型能够简单的处理，但是对于稍微复杂的模型或者没办法一次性划分高质量的网格的情况下，我们希望能够对模型进行分解，对单独的块进行网格划分，然后在ICEM中对网格进行重新组装，当然这是可以实现的。</p>
+<p>网格划分完成后必须要保存，确认不要覆盖。例如，一个保存为“prt0001.prj”另一个保为“prt0002.prj”，这样对应的也就生成了“prt0001.uns”和“prt0002.uns”两个网格。（同时打开两个网格打开，或者分别在一个工程中打开模型，会出现如下提示：</p>
+<p><img src="https://i.loli.net/2020/02/06/qIbFHxscpoy2PS1.png" alt="1.png"><br>
+<img src="https://i.loli.net/2020/02/06/hfiJvENZSu6AcWq.png" alt="2.png"><br>
+<img src="https://i.loli.net/2020/02/06/HANVIcaGTtUpw8h.png" alt="3.png"></p>
+<p>这时需要选择“merge files”或者“merge”按钮，注意不要选择“replace”，这样ICEM就完成了对网格的装配。</p>
+<h3 id="网格组装时的交界面设置">网格组装时的交界面设置</h3>
+<p>如模型是由2部分组成，如果2部分是用同样的方式划的网格，那么在FLUENT里其交接面设置为interior，如果2个部分分别用不同的方式划网格，那么在fluent里其交接面设置为interface。</p>
+<p>网格组装完成后，在拼接处会存在两个面，这时候需要对两个交界面进行配对，可以在fluent里面的mesh interface里面创建。</p>
+<p><img src="https://i.loli.net/2020/02/06/JbBuVPZos7NfO3l.png" alt="5.png"></p>
+<h2 id="参考链接">参考链接</h2>
 <p><a href="https://sites.google.com/site/abrahamgxcfd/Home/ansys-fluent/xiegeigangjiechufluentdexinshou#TOC--" target="_blank" rel="noopener">写给刚接触Fluent的新手</a><br>
 <a href="http://www.fangzhenxiuxiu.com/html/post_detail_119128.html?id=119128" target="_blank" rel="noopener">ICEM使用经验与网格划分错误分析</a><br>
-<a href="https://jingyan.baidu.com/article/fcb5aff76ddfebedaa4a71f1.html" target="_blank" rel="noopener">结构化网格中各种类型的Block创建攻略</a></p>
+<a href="https://jingyan.baidu.com/article/fcb5aff76ddfebedaa4a71f1.html" target="_blank" rel="noopener">结构化网格中各种类型的Block创建攻略</a><br>
+<a href="https://zhuanlan.zhihu.com/p/21338549" target="_blank" rel="noopener">如何正确选择湍流 CFD 模型？</a><br>
+<a href="http://www.lanmaowang.com/?p=36116" target="_blank" rel="noopener">ICEM网格装配</a></p>
 
       
 
@@ -418,7 +436,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件格式介绍"><span class="toc-number">1.</span> <span class="toc-text">文件格式介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主界面"><span class="toc-number">2.</span> <span class="toc-text">主界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要功能栏"><span class="toc-number">3.</span> <span class="toc-text">主要功能栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要工作流程"><span class="toc-number">4.</span> <span class="toc-text">主要工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icem网格生成基本流程："><span class="toc-number">5.</span> <span class="toc-text">ICEM网格生成基本流程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#壳-面网格生成方法"><span class="toc-number">6.</span> <span class="toc-text">壳/面网格生成方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的一些问题"><span class="toc-number">7.</span> <span class="toc-text">遇到的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入选择状态时怎样旋转被选择体"><span class="toc-number">7.1.</span> <span class="toc-text">进入选择状态时怎样旋转被选择体</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#文件格式介绍"><span class="toc-number">1.</span> <span class="toc-text">文件格式介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主界面"><span class="toc-number">2.</span> <span class="toc-text">主界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要功能栏"><span class="toc-number">3.</span> <span class="toc-text">主要功能栏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要工作流程"><span class="toc-number">4.</span> <span class="toc-text">主要工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#icem网格生成基本流程："><span class="toc-number">5.</span> <span class="toc-text">ICEM网格生成基本流程：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#壳-面网格生成方法"><span class="toc-number">6.</span> <span class="toc-text">壳/面网格生成方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遇到的一些问题"><span class="toc-number">7.</span> <span class="toc-text">遇到的一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入选择状态时怎样旋转被选择体"><span class="toc-number">7.1.</span> <span class="toc-text">进入选择状态时怎样旋转被选择体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网格组装"><span class="toc-number">7.2.</span> <span class="toc-text">网格组装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网格组装时的交界面设置"><span class="toc-number">7.3.</span> <span class="toc-text">网格组装时的交界面设置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">8.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
