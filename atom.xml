@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ink-bottle.github.io/"/>
-  <updated>2020-02-01T02:58:15.378Z</updated>
+  <updated>2020-02-11T11:36:36.570Z</updated>
   <id>https://ink-bottle.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MATLAB对excel文件数据的读写</title>
+    <link href="https://ink-bottle.github.io/2020/02/11/matlab-change-excel/"/>
+    <id>https://ink-bottle.github.io/2020/02/11/matlab-change-excel/</id>
+    <published>2020-02-11T09:39:51.000Z</published>
+    <updated>2020-02-11T11:36:36.570Z</updated>
+    
+    <content type="html"><![CDATA[<p>平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。</p><a id="more"></a><h2 id="matlab读入excel表格">MATLAB读入excel表格</h2><p>所使用函数：xlsread。</p><blockquote><p>调用形式：</p></blockquote><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = xlsread(filename)</span><br><span class="line">num = xlsread(filename,sheet)</span><br><span class="line">num = xlsread(filename,xlRange)</span><br><span class="line">num = xlsread(filename,sheet,xlRange)</span><br><span class="line">num = xlsread(filename,sheet,xlRange,<span class="string">'basic'</span>)</span><br><span class="line">[num,txt,raw] = xlsread(___)</span><br><span class="line">[num,txt,raw,custom] = xlsread(filename,sheet,xlRange,<span class="string">''</span>,processFcn)</span><br></pre></td></tr></table></figure><p>其中，输入参数有：</p><ul><li>filename：excel文件名，当然在这之前先定义好文件路径。</li><li>sheet：表格文件中的表格编号或名字，如sheet1，sheet2，sheet3，默认为1。</li><li>xlRange：要读取的数据区域，如‘B2:U102’，就是读取excel中B2到U102这一范围内的数据。</li><li>‘basic’：标记请求在基本模式下读取，基本模式是没有Excel的Windows电脑的默认模式。</li><li>processFcn：自定义函数的句柄。此参数仅在使用Excel软件的Windows计算机上受支持。xlsread从电子表格中读取数据，在数据副本上执行函数，并返回最终结果。<br>输出参数有：</li><li>num：数值数据，输出为double型的数组。</li><li>txt：文本数据，输出为元胞数组。</li><li>raw：表格中的数字和文本数据，输出为元胞数组。</li><li>custom：与processFcn对应的函数的第二个输出。自定义的值和数据类型由函数决定。</li></ul><p>使用举例(读取相对路径下“data1”下的sheet1中的D2：D306的数据)：</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[a1,txt2,A1] = xlsread(<span class="string">'data1.xlsx'</span>,<span class="number">1</span>,<span class="string">'D2:D306'</span>)</span><br></pre></td></tr></table></figure><h2 id="matlab写入excel表格">MATLAB写入excel表格</h2><p>所使用函数：xlswrite。</p><blockquote><p>调用形式：</p></blockquote><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xlswrite(filename,A)</span><br><span class="line">xlswrite(filename,A,sheet)</span><br><span class="line">xlswrite(filename,A,xlRange)</span><br><span class="line">xlswrite(filename,A,sheet,xlRange)</span><br><span class="line">status = xlswrite(___)</span><br><span class="line">[status,message] = xlswrite(___)</span><br></pre></td></tr></table></figure><p>输入参数同理，输出参数有：</p><ul><li>status：写操作的状态，以1(真)或0(假)的形式返回。当写操作成功时，状态为1。否则，状态为0。</li><li>message：写操作过程中产生的错误或警告，以包含两个字段的结构数组形式返回。</li></ul><p>使用举例：</p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlswrite(<span class="string">'data1.xlsx'</span>,ARecd,<span class="number">3</span>,<span class="string">'G2:G1733'</span>)</span><br></pre></td></tr></table></figure><h2 id="参考链接">参考链接</h2><p><a href="https://jingyan.baidu.com/article/d621e8da7861572864913f43.html" target="_blank" rel="noopener">matlab中怎么将字符写入excel表格</a><br><a href="https://blog.csdn.net/qq_26552071/article/details/82780055" target="_blank" rel="noopener">使用MATLAB对excel文件数据的读写操作</a><br><a href="https://jingyan.baidu.com/article/b907e627673d6146e7891c98.html" target="_blank" rel="noopener">Excel函数—VLOOKUP查找数据并返回（提取）内容</a><br><a href="https://blog.csdn.net/zllljf/article/details/78881081" target="_blank" rel="noopener">matlab中double、char和cell的互转</a><br><a href="https://blog.csdn.net/thy19988/article/details/78489623" target="_blank" rel="noopener">MATLAB怎样有效读取excel文件中的数据？</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="教程" scheme="https://ink-bottle.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>child of light | 光之子</title>
@@ -392,26 +412,6 @@
     </summary>
     
       <category term="资源" scheme="https://ink-bottle.github.io/categories/%E8%B5%84%E6%BA%90/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>照金游记</title>
-    <link href="https://ink-bottle.github.io/2019/04/15/%E7%85%A7%E9%87%91%E6%B8%B8%E8%AE%B0/"/>
-    <id>https://ink-bottle.github.io/2019/04/15/照金游记/</id>
-    <published>2019-04-15T14:19:14.000Z</published>
-    <updated>2020-01-01T04:46:42.460Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天教研室组织了一次照金踏青活动，原来想着我还不是正式进入教研室，而且由于我自身也比较容易晕车，对于行程较远的活动一向是拒绝的，也就没有报名，没想到老师直接私聊我，让我也跟着去。不过想想不仅可以熟悉一下师兄师姐们又可以放松一下自己顺便增长一点见识，于是也就一起坐上旅游大巴去照金了，也算是很不错的一天呢。</p><a id="more"></a><p>早上八点半的大巴坐了将近两个小时，为了防止晕车，一上车我便开始做好入睡的姿势，毕竟入睡之后，大脑也不会想着晕车这一回事了，而且身体也能适应颠簸的感觉。</p><p>到达目的地后，我们首先参观的是陕甘边革命根据地照金纪念馆。</p><p><img src="https://i.loli.net/2019/04/15/5cb49cf21d0c8.jpg" alt></p><p>入门后跟随讲解员一步步了解陕甘边革命根据地的建立，发展和历史中为之奋斗的英雄。</p><blockquote><p>1935年1月21日，陕北根据地创建者刘志丹与谢子长会面，两人对陕北根据地与陕甘边根据地的统一领导达成一致。2月5日，在赤源县（今陕西省子长县）周家崄的刺儿圪塔村举行中共陕甘边特委和陕北特委联席会议，成立中共西北工委和西北军委。惠子俊任工委书记，刘志丹任军委主席。标志两个根据地的政治领导权、军事指挥权的统一。同年，在刘志丹的领导下，西北红军攻占安定县、延长县、延川县、安塞县、靖边县、保安县六座县城，使陕北根据地与陕甘边根据地连成一体，形成陕甘根据地。</p></blockquote><p>在多次左倾错误思想的影响下，许多革命根据地遭到围剿以致覆灭，而陕北根据地是当时唯一保存下来的根据地。当年井冈山根据地反围剿失败后，毛泽东在国民党的报纸上了解到我党还留存有陕北的根据地，当即决定去那里和他们汇合。如彭德怀在其《自述》中说：“在哈达铺约休息了四五天，从报纸上看到陕北有刘志丹苏区根据地，很高兴。”聂荣臻也在回忆录中称：“９月１９日，我和林彪随二师部队进驻哈达铺。在这里我们得到一张国民党的《山西日报》，其中载有一条阎锡山的部队进攻陕北红军刘志丹的消息。我说，赶紧派骑兵通信员把这张报纸给毛泽东同志送去，陕北还有一个根据地哩！这真是天大的喜讯！”</p><p>正是这一缕火苗，保存了革命的火种，陕甘边革命根据地后来在多次反“围剿”斗争中与陕北革命根据地连成一片，形成西北革命根据地，成为土地革命战争后期全国“硕果仅存”的革命根据地，为党中央和红军长征提供了落脚点，又是抗日战争的出发地和解放大西北的战略基地，为中国革命的胜利做出了重大贡献。</p><p>历史正是种种机缘巧合，才能有我们现在的局面。可机缘巧合若没有英雄去奋力争夺，陕甘边革命根据地也不能成为全国“硕果仅存”的革命根据地。</p><p>在二楼的展厅中，记录着许多有名或无名的英雄，他们中很多人英年早逝，在最好的年纪里，把生命献给了自己所热爱的事业，令人肃然起敬。</p><p><img src="https://i.loli.net/2019/04/15/5cb4a11fa87ec.jpg" alt></p><p>展厅里还挂着许多巨大的油画，气势磅礴，让人不禁思考画中的人们当时的心境。是豪迈，还是乐观，还是忧虑，抑或是视死如归？</p><p><img src="https://i.loli.net/2019/04/15/5cb4a1f4a45ad.jpg" alt></p><p><img src="https://i.loli.net/2019/04/15/5cb4a29463b3f.jpg" alt></p><p>没有先辈们的前赴后继，也就没有今天的我在这和蔼的阳光下，熙熙攘攘的人群里，安心的享受这这一刻的安宁。对于网络上许多质疑，辱骂先烈者，这些人不是蠢，便是坏，妄图以现在的精致利己的价值观去蔑视当年抛头颅洒热血的英雄，令人可悲。</p><p>出了纪念馆后，在当地的饭馆进行了聚餐。之后我们坐大巴来到了薛家寨，这里原是一条河谷，干涸后形成了奇特的丹霞地貌。</p><p><img src="https://i.loli.net/2019/04/15/5cb4a50a503c4.jpg" alt></p><p>简单介绍一下薛家寨吧</p><blockquote><p>薛家寨革命旧址是薛家寨保卫战的战斗遗址，中国工农红军曾在此驻留。其位于陕西省铜川市耀州区照金镇政府东约5公里的田玉村秀房沟。传说薛刚反唐时曾屯兵于此，因以得名。</p><p>这里处于桥山山脉南端，海拔1600多米(其中箭穿崖最高)，这里重峦叠嶂，密林如海，中心地带壁立千仞，地势十分险峻。山寨形似葫芦，东南西三面为悬崖绝壁，山坡灌木丛生，仰视不见寨形，细看仅见草丛小道。整座山寨走势雄奇，军事上易守难攻。1933年春，刘志丹、习仲勋、谢子长率领中国工农红军党政领导机关迁驻红军上寨后，在4个岩洞中分别设立了军医院、修械厂、被服厂、仓库等后勤单位，建了寨楼、堞墙、战壕、哨卡、碉堡、吊桥等。</p></blockquote><p>之后，就是开始了我们的爬山活动。经过一番努力，拖着自己不经常锻炼的身体终于上了山，感觉自己的大腿都开始微微酸痛。不过，山上的风景也是独特而壮美的。</p><p><img src="https://i.loli.net/2019/04/15/5cb4a61d54bcd.jpg" alt></p><p><img src="https://i.loli.net/2019/04/15/5cb4a72faf446.jpg" alt></p><p>游行小结到此结束，除了在车上睡得有些头痛，以及得到第二天就要开始毕设中期答辩的消息外，一切都很好。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;昨天教研室组织了一次照金踏青活动，原来想着我还不是正式进入教研室，而且由于我自身也比较容易晕车，对于行程较远的活动一向是拒绝的，也就没有报名，没想到老师直接私聊我，让我也跟着去。不过想想不仅可以熟悉一下师兄师姐们又可以放松一下自己顺便增长一点见识，于是也就一起坐上旅游大巴去照金了，也算是很不错的一天呢。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="心记" scheme="https://ink-bottle.github.io/categories/%E5%BF%83%E8%AE%B0/"/>
     
     
   </entry>
