@@ -7,12 +7,12 @@
   <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
-  <title>Region Boundaries | inkbottle&#39;s blog</title>
+  <title>封闭离散点的边界寻找方法 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
 <meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Region Boundaries">
+<meta property="og:title" content="封闭离散点的边界寻找方法">
 <meta property="og:url" content="https://ink-bottle.github.io/2020/03/30/Region-Boundaries/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
@@ -27,9 +27,9 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/30/QpRSbcmn6INCJhG.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/GvqSQ21l53LkeKi.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/FH6DcdCQ8TtlkWp.png">
-<meta property="og:updated_time" content="2020-03-30T09:41:46.490Z">
+<meta property="og:updated_time" content="2020-03-30T09:45:10.832Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Region Boundaries">
+<meta name="twitter:title" content="封闭离散点的边界寻找方法">
 <meta name="twitter:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
 <meta name="twitter:image" content="https://i.loli.net/2020/03/30/fZUSd9e765rtocK.png">
   
@@ -200,7 +200,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      Region Boundaries
+      封闭离散点的边界寻找方法
     </h1>
   
 
