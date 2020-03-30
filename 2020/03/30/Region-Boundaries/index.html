@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/30/hZEKaz8gGw9V7MO.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/I8QrpSK4cgJnlBi.png">
-<meta property="og:updated_time" content="2020-03-30T08:50:38.397Z">
+<meta property="og:updated_time" content="2020-03-30T08:53:59.667Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Region Boundaries">
 <meta name="twitter:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
@@ -233,7 +233,7 @@ var _hmt = _hmt || [];
 <p>Alpha Shapes可以用来从一堆无序的点集中提取边缘，这个边界不一定是凸的，也不一定是联通的，但是其一定程度上表示了这一组离散点的轮廓。通过调节参数可以使边界更加精细或粗糙。设有一点集S的Alpha-Shapes是一个多边形，这个多边形是由点集S和半径参数α决定的且唯一。它的原理如图所示。<br>
 <img src="https://i.loli.net/2020/03/30/I8QrpSK4cgJnlBi.png" alt="20200330163550.png"></p>
 <p>可以想象成一个半径为α的圆在点集S外滚动，当α足够大时，这个圆就不会滚到点集内部，其滚动的痕迹就是这个点集的边界线。因此，当α值很小，则每个点都是边界；如果α很大（α→∞）时，则求出的边界线为点集S的凸包。</p>
-<p>$$ $$</p>
+<p>$$ J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha} \text {，独立公式示例} $$</p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=" target="_blank" rel="noopener">截面最短连通路径法的散点轮廓曲面拟合</a><br>
 <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjIyMTNvOUNaSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sV3J2TEx6N0JiN0c0SDlETXE=" target="_blank" rel="noopener">离散点云原始形状及边界曲线提取算法</a><br>
