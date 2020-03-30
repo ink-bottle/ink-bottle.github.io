@@ -26,7 +26,8 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/30/62sgDUHbWTLlcju.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/QpRSbcmn6INCJhG.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/GvqSQ21l53LkeKi.png">
-<meta property="og:updated_time" content="2020-03-30T09:13:21.185Z">
+<meta property="og:image" content="https://i.loli.net/2020/03/30/FH6DcdCQ8TtlkWp.png">
+<meta property="og:updated_time" content="2020-03-30T09:32:17.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Region Boundaries">
 <meta name="twitter:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
@@ -230,6 +231,8 @@ var _hmt = _hmt || [];
 <img src="https://i.loli.net/2020/03/30/KnVEORPt34CQcaA.png" alt="20150623225921049.jpg"><br>
 <img src="https://i.loli.net/2020/03/30/zZVUB8qG3uT9FkI.png" alt="20150623230149494.jpg"><br>
 <img src="https://i.loli.net/2020/03/30/hZEKaz8gGw9V7MO.png" alt="20150623230500257.jpg"></p>
+<p>Matlab已将凸包算法集成于convhull这个函数中，其语法如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">k = convhull(P) <span class="comment">%计算矩阵P中点的二维或三维凸包。</span></span><br><span class="line">k = convhull(x,y) <span class="comment">%计算列向量x和y中点的二维凸包。</span></span><br><span class="line">k = convhull(x,y,z) <span class="comment">%计算列向量x、y和z中点的三维凸包。</span></span><br><span class="line">k = convhull(___,<span class="string">'Simplify'</span>,tf) <span class="comment">%指定是否删除不影响凸包面积或体积的顶点。默认情况下，tf 为 false。</span></span><br><span class="line">[k,av] = convhull(___) <span class="comment">%也计算凸包的面积或体积。</span></span><br></pre></td></tr></table></figure>
 <h2 id="alpha-shapes">Alpha Shapes</h2>
 <p>对于凸包算法往往只能用于勾勒凸多边形，在非凸多边形中往往不能取得预期的结果，比如我需要求下图（a）中的边界，但是用凸包算法得到的是（b）中的结果，我们理想的结果是（c）中得到的边界，这时候就要寻求另一种算法。<br>
 <img src="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png" alt="20200215230543904.png"></p>
@@ -254,6 +257,13 @@ $$ lim_{α→0}S_{α}=S and lim_{α→∞}S_{α}=convS $$<br>
 </ol>
 </blockquote>
 <h3 id="alpha-shapes算法在matlab中实现">Alpha Shapes算法在MATLAB中实现</h3>
+<p>MATLAB在R2014b中推出alphaShape功能函数，其语法如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">shp = alphaShape(x,y) <span class="comment">%使用默认alpha半径创建一个包含点 (x,y) 的二维 alpha 形状。默认 alpha 半径将生成最紧凑的拟合 alpha 形状，将所有点包括在内。</span></span><br><span class="line">shp = alphaShape(x,y,z)</span><br><span class="line">shp = alphaShape(P) <span class="comment">%指定矩阵P的各列中的点 (x,y) 或 (x,y,z)。</span></span><br><span class="line">shp = alphaShape(___,a) <span class="comment">%使用上述语法中的任何参数创建一个alpha半径为a的 alpha 形状。</span></span><br><span class="line">shp = alphaShape(___,Name,Value) <span class="comment">%使用一个或多个Name,Value对组参数指定的其他选项。例如，您可以使用 'HoleThreshold' 隐藏内部孔或空隙。</span></span><br></pre></td></tr></table></figure>
+<p>若只是对二维或三维空间内的一组点的边界进行寻找，可以使用boundary功能函数，其语法如下：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">k = boundary(x,y) <span class="comment">%返回一个表示包围点 (x,y) 的单个相容二维边界的点索引向量。点 (x(k),y(k)) 构成边界。与凸包不同，边界可以向内部收缩以包围这些点。</span></span><br><span class="line">k = boundary(x,y,z)</span><br><span class="line">k = boundary(P) <span class="comment">%指定矩阵 P 的各列中的点 (x,y) 或 (x,y,z)。</span></span><br><span class="line">k = boundary(___,s) <span class="comment">%结合上述语法指定收缩因子s。s是一个介于0和1之间的标量。将s设置为0可生成凸包，将s设置为1可生成包围这些点的紧凑边界。默认收缩因子是0.5。</span></span><br><span class="line">[k,v] = boundary(___) <span class="comment">%还返回一个标量 v，它是边界 k 围住的面积（二维）或体积（三维）。</span></span><br></pre></td></tr></table></figure>
+<p>下面是一个例子</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">%创建并绘制一个随机二维点集。</span></span><br><span class="line">x = <span class="built_in">gallery</span>(<span class="string">'uniformdata'</span>,<span class="number">30</span>,<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">y = <span class="built_in">gallery</span>(<span class="string">'uniformdata'</span>,<span class="number">30</span>,<span class="number">1</span>,<span class="number">10</span>);</span><br><span class="line"><span class="built_in">plot</span>(x,y,<span class="string">'.'</span>)</span><br><span class="line">xlim([<span class="number">-0.2</span> <span class="number">1.2</span>])</span><br><span class="line">ylim([<span class="number">-0.2</span> <span class="number">1.2</span>])</span><br><span class="line"><span class="comment">%使用默认收缩因子计算包围这些点的边界。</span></span><br><span class="line">k = boundary(x,y);</span><br><span class="line"><span class="built_in">hold</span> on;</span><br><span class="line"><span class="built_in">plot</span>(x(k),y(k));</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2020/03/30/FH6DcdCQ8TtlkWp.png" alt="boundaryof2dpointcloudexample_02_zh_CN.png"></p>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=" target="_blank" rel="noopener">截面最短连通路径法的散点轮廓曲面拟合</a><br>
 <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjIyMTNvOUNaSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sV3J2TEx6N0JiN0c0SDlETXE=" target="_blank" rel="noopener">离散点云原始形状及边界曲线提取算法</a><br>
@@ -262,7 +272,11 @@ $$ lim_{α→0}S_{α}=S and lim_{α→∞}S_{α}=convS $$<br>
 <a href="https://blog.csdn.net/manerfan/article/details/46610683" target="_blank" rel="noopener">离散点最小（凸）包围边界查找</a><br>
 <a href="https://blog.csdn.net/Quason/article/details/104336524" target="_blank" rel="noopener">散点轮廓算法——Alpha Shapes</a><br>
 <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=HGDB201002090&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzZ2NXJ6Mi9zOGZZU21TMDF5Zz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MDA0ODc0SDlITXJZOU1aSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeS9uVWI3UExTclBiTEc=" target="_blank" rel="noopener">利用Alpha Shapes算法提取离散点轮廓线</a><br>
-<a href="https://kns.cnki.net/kcms/detail/detail.aspx?filename=JSJZ200403007&amp;dbcode=CJFQ&amp;dbname=CJFD2004&amp;v=" target="_blank" rel="noopener">平面离散点集的边界搜索算法</a></p>
+<a href="https://kns.cnki.net/kcms/detail/detail.aspx?filename=JSJZ200403007&amp;dbcode=CJFQ&amp;dbname=CJFD2004&amp;v=" target="_blank" rel="noopener">平面离散点集的边界搜索算法</a><br>
+<a href="https://ww2.mathworks.cn/help/matlab/ref/alphashape.html#namevaluepairarguments" target="_blank" rel="noopener">依据二维和三维中的点构建的多边形和多面体</a><br>
+<a href="https://ww2.mathworks.cn/help/matlab/math/types-of-region-boundaries.html#bui8zx5" target="_blank" rel="noopener">区域边界的类型</a><br>
+<a href="https://ww2.mathworks.cn/help/matlab/ref/boundary.html" target="_blank" rel="noopener">二维或三维空间内的一组点的边界</a><br>
+<a href="https://ww2.mathworks.cn/help/matlab/ref/convhull.html" target="_blank" rel="noopener">凸包</a></p>
 
       
 
