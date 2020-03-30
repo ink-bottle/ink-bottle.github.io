@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/30/62sgDUHbWTLlcju.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/QpRSbcmn6INCJhG.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/GvqSQ21l53LkeKi.png">
-<meta property="og:updated_time" content="2020-03-30T09:11:59.171Z">
+<meta property="og:updated_time" content="2020-03-30T09:13:21.185Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Region Boundaries">
 <meta name="twitter:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
@@ -248,13 +248,11 @@ $$ lim_{α→0}S_{α}=S and lim_{α→∞}S_{α}=convS $$<br>
 <blockquote>
 <ol>
 <li>根据点集s 建立Delaunay三角网；</li>
-</ol>
-</blockquote>
-<ol start="2">
 <li>在三角网上删除不符合Alpha-Shapes要求的三角型。先删除边长大于2α的三角形；再递归判断要删除的边缘三角型，若通过三角形外边两点并且半径为α的圆包含其他点，则删除此边缘三角形。如图所示，当前所要判断的三角型为ΔABC，外边两点A和B，半径为α并且通过A，B两点的圆包含点C，则从三角网上删除ΔABC。添加新出现的边缘三角型ΔACE和ΔABC到待处理堆栈中。</li>
 <li>在删除不符合Alpha-Shapes要求的三角型后所得到的三角网上求出三角网的边缘。该边缘即为点集s的边缘线。<br>
 <img src="https://i.loli.net/2020/03/30/GvqSQ21l53LkeKi.png" alt="20200330170636.png"></li>
 </ol>
+</blockquote>
 <h3 id="alpha-shapes算法在matlab中实现">Alpha Shapes算法在MATLAB中实现</h3>
 <h2 id="参考文献">参考文献</h2>
 <p><a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=" target="_blank" rel="noopener">截面最短连通路径法的散点轮廓曲面拟合</a><br>
