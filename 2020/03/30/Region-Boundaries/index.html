@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/30/hZEKaz8gGw9V7MO.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/I8QrpSK4cgJnlBi.png">
-<meta property="og:updated_time" content="2020-03-30T08:42:52.301Z">
+<meta property="og:updated_time" content="2020-03-30T08:48:09.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Region Boundaries">
 <meta name="twitter:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
@@ -232,8 +232,7 @@ var _hmt = _hmt || [];
 <img src="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png" alt="20200215230543904.png"></p>
 <p>Alpha Shapes可以用来从一堆无序的点集中提取边缘，这个边界不一定是凸的，也不一定是联通的，但是其一定程度上表示了这一组离散点的轮廓。通过调节参数可以使边界更加精细或粗糙。设有一点集S的Alpha-Shapes是一个多边形，这个多边形是由点集S和半径参数α决定的且唯一。它的原理如图所示。<br>
 <img src="https://i.loli.net/2020/03/30/I8QrpSK4cgJnlBi.png" alt="20200330163550.png"></p>
-<p>可以想象成一个半径为α的圆在点集S外滚动，当α足够大时，这个圆就不会滚到点集内部，其滚动的痕迹就是这个点集的边界线。因此，当α值很小，则每个点都是边界；如果α很大（α→∞）时，则求出的边界线为点集S的凸包。<br>
-$$\Gamma(z) = \int_0^\infty t<sup>{z-1}e</sup>{-t}dt,.$$</p>
+<p>可以想象成一个半径为α的圆在点集S外滚动，当α足够大时，这个圆就不会滚到点集内部，其滚动的痕迹就是这个点集的边界线。因此，当α值很小，则每个点都是边界；如果α很大（α→∞）时，则求出的边界线为点集S的凸包。</p>
 <h2 id="参考文献">参考文献</h2>
 <p>[截面最短连通路径法的散点轮廓曲面拟合][1]<br>
 [离散点云原始形状及边界曲线提取算法][2]<br>
