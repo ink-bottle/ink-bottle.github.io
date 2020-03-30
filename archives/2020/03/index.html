@@ -7,20 +7,19 @@
   <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
-  <title>MATLAB对excel文件数据的读写 | inkbottle&#39;s blog</title>
+  <title>Archives: 2020/3 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。">
+  <meta name="description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
 <meta name="keywords" content="inkbottle">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MATLAB对excel文件数据的读写">
-<meta property="og:url" content="https://ink-bottle.github.io/2020/02/11/matlab-change-excel/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="inkbottle&#39;s blog">
+<meta property="og:url" content="https://ink-bottle.github.io/archives/2020/03/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。">
+<meta property="og:description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-11T12:27:29.478Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MATLAB对excel文件数据的读写">
-<meta name="twitter:description" content="平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。">
+<meta name="twitter:title" content="inkbottle&#39;s blog">
+<meta name="twitter:description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -182,261 +181,60 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-matlab-change-excel" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      MATLAB对excel文件数据的读写
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/03/30/Region-Boundaries/" class="archive-article-date">
+  	<time datetime="2020-03-30T01:21:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2020/03/30/Region-Boundaries/">Region Boundaries</a>
     </h1>
   
 
-        
-        <a href="/2020/02/11/matlab-change-excel/" class="archive-article-date">
-  	<time datetime="2020-02-11T09:39:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。</p>
-<a id="more"></a>
-<h2 id="matlab读入excel表格">MATLAB读入excel表格</h2>
-<p>所使用函数：xlsread。</p>
-<p>调用形式：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = xlsread(filename)</span><br><span class="line">num = xlsread(filename,sheet)</span><br><span class="line">num = xlsread(filename,xlRange)</span><br><span class="line">num = xlsread(filename,sheet,xlRange)</span><br><span class="line">num = xlsread(filename,sheet,xlRange,<span class="string">'basic'</span>)</span><br><span class="line">[num,txt,raw] = xlsread(___)</span><br><span class="line">[num,txt,raw,custom] = xlsread(filename,sheet,xlRange,<span class="string">''</span>,processFcn)</span><br></pre></td></tr></table></figure>
-<p>其中，输入参数有：</p>
-<ul>
-<li>filename：excel文件名，当然在这之前先定义好文件路径。</li>
-<li>sheet：表格文件中的表格编号或名字，如sheet1，sheet2，sheet3，默认为1。</li>
-<li>xlRange：要读取的数据区域，如‘B2:U102’，就是读取excel中B2到U102这一范围内的数据。</li>
-<li>‘basic’：标记请求在基本模式下读取，基本模式是没有Excel的Windows电脑的默认模式。</li>
-<li>processFcn：自定义函数的句柄。此参数仅在使用Excel软件的Windows计算机上受支持。xlsread从电子表格中读取数据，在数据副本上执行函数，并返回最终结果。<br>
-输出参数有：</li>
-<li>num：数值数据，输出为double型的数组。</li>
-<li>txt：文本数据，输出为元胞数组。</li>
-<li>raw：表格中的数字和文本数据，输出为元胞数组。</li>
-<li>custom：与processFcn对应的函数的第二个输出。自定义的值和数据类型由函数决定。</li>
-</ul>
-<p>使用举例(读取相对路径下“data1”下的sheet1中的D2：D306的数据)：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[a1,txt2,A1] = xlsread(<span class="string">'data1.xlsx'</span>,<span class="number">1</span>,<span class="string">'D2:D306'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="matlab写入excel表格">MATLAB写入excel表格</h2>
-<p>所使用函数：xlswrite。</p>
-<p>调用形式：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xlswrite(filename,A)</span><br><span class="line">xlswrite(filename,A,sheet)</span><br><span class="line">xlswrite(filename,A,xlRange)</span><br><span class="line">xlswrite(filename,A,sheet,xlRange)</span><br><span class="line">status = xlswrite(___)</span><br><span class="line">[status,message] = xlswrite(___)</span><br></pre></td></tr></table></figure>
-<p>输入参数同理，输出参数有：</p>
-<ul>
-<li>status：写操作的状态，以1(真)或0(假)的形式返回。当写操作成功时，状态为1。否则，状态为0。</li>
-<li>message：写操作过程中产生的错误或警告，以包含两个字段的结构数组形式返回。</li>
-</ul>
-<p>使用举例：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlswrite(<span class="string">'data1.xlsx'</span>,ARecd,<span class="number">3</span>,<span class="string">'G2:G1733'</span>)</span><br></pre></td></tr></table></figure>
-<p>如何将分离的数值数据和文本数据拼接为一个元胞数组：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">filepath=<span class="string">'D:\Personal Files\course\yuleilixue\';</span></span><br><span class="line"><span class="string">[data,str] = xlsread([filepath '</span>GLM input data.xlsx']);</span><br><span class="line"><span class="comment">%拼接data数值和str字符串元胞矩阵</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : <span class="built_in">size</span>(data, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span> : <span class="built_in">size</span>(data, <span class="number">2</span>)</span><br><span class="line">    str(<span class="built_in">i</span>,<span class="built_in">j</span>)=<span class="built_in">num2cell</span>(data(<span class="built_in">i</span>,<span class="built_in">j</span>));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">xlswrite([filepath <span class="string">'GLM input data.xlsx'</span>],str);<span class="comment">%写入表格文件</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://jingyan.baidu.com/article/d621e8da7861572864913f43.html" target="_blank" rel="noopener">matlab中怎么将字符写入excel表格</a><br>
-<a href="https://blog.csdn.net/qq_26552071/article/details/82780055" target="_blank" rel="noopener">使用MATLAB对excel文件数据的读写操作</a><br>
-<a href="https://jingyan.baidu.com/article/b907e627673d6146e7891c98.html" target="_blank" rel="noopener">Excel函数—VLOOKUP查找数据并返回（提取）内容</a><br>
-<a href="https://blog.csdn.net/zllljf/article/details/78881081" target="_blank" rel="noopener">matlab中double、char和cell的互转</a><br>
-<a href="https://blog.csdn.net/thy19988/article/details/78489623" target="_blank" rel="noopener">MATLAB怎样有效读取excel文件中的数据？</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a5b43f232.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a59fef129.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+        <div class="article-info info-on-right">
+          
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
+        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/02/11/matlab-change-excel/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/03/30/Region-Boundaries/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Region Boundaries
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/01/24/child-of-light/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">child of light | 光之子</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab读入excel表格"><span class="toc-number">1.</span> <span class="toc-text">MATLAB读入excel表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab写入excel表格"><span class="toc-number">2.</span> <span class="toc-text">MATLAB写入excel表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
-
-  
-    <div id="comment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script>
-new Valine({
-    el: '#comment' ,
-    notify:true, 
-    verify:true, 
-    appId: 'gQVYTNyv4vsbPbERTDG1erab-gzGzoHsz',
-    appKey: 'qyhbnJu7Wc96RJczz8KTyCDG',
-    placeholder: '吾以为inkbottle必有高论，岂期出此鄙言！吾有一言，诸军静听',
-    path:window.location.pathname, 
-    avatar:'mm' 
-});
-</script>
     
-
-  
-
-
-
 
 
           </div>
@@ -487,8 +285,8 @@ new Valine({
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

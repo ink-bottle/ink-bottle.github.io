@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/02/06/hfiJvENZSu6AcWq.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/06/HANVIcaGTtUpw8h.png">
 <meta property="og:image" content="https://i.loli.net/2020/02/06/JbBuVPZos7NfO3l.png">
-<meta property="og:updated_time" content="2020-02-06T14:29:18.822Z">
+<meta property="og:updated_time" content="2020-02-25T13:33:31.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ICEM学习笔记">
 <meta name="twitter:description" content="ICEMCFD(The Integrated Computer Engineering and Manufacturing code for Computational Fluid Dynamics)是一种专业的CAE前处理软件。作为专业的前处理软件ICEMCFD为所有世界流行的CAE软件提供高效可靠的分析模型。它拥有强大的CAD模型修复能力、自动中面抽取、独特的网格“雕塑”技术、网格编辑技术以及">
@@ -276,7 +276,7 @@ var _hmt = _hmt || [];
 <p>这时需要选择“merge files”或者“merge”按钮，注意不要选择“replace”，这样ICEM就完成了对网格的装配。</p>
 <h3 id="网格组装时的交界面设置">网格组装时的交界面设置</h3>
 <p>如模型是由2部分组成，如果2部分是用同样的方式划的网格，那么在FLUENT里其交接面设置为interior，如果2个部分分别用不同的方式划网格，那么在fluent里其交接面设置为interface。</p>
-<p>网格组装完成后，在拼接处会存在两个面，这时候需要对两个交界面进行配对，可以在fluent里面的mesh interface里面创建。</p>
+<p>网格组装完成后，在拼接处会存在两个面，这时候需要对两个交界面进行配对，可以在fluent里面的mesh interface里面创建。若不进行交界面配对，在fluent计算中可能会出现“unassigned interface zone detected for inrerface 4”字眼的提示错误。</p>
 <p><img src="https://i.loli.net/2020/02/06/JbBuVPZos7NfO3l.png" alt="5.png"></p>
 <h2 id="参考链接">参考链接</h2>
 <p><a href="https://sites.google.com/site/abrahamgxcfd/Home/ansys-fluent/xiegeigangjiechufluentdexinshou#TOC--" target="_blank" rel="noopener">写给刚接触Fluent的新手</a><br>

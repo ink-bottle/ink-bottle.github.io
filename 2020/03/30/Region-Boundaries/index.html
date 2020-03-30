@@ -7,20 +7,26 @@
   <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
-  <title>MATLAB对excel文件数据的读写 | inkbottle&#39;s blog</title>
+  <title>Region Boundaries | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。">
+  <meta name="description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
 <meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MATLAB对excel文件数据的读写">
-<meta property="og:url" content="https://ink-bottle.github.io/2020/02/11/matlab-change-excel/index.html">
+<meta property="og:title" content="Region Boundaries">
+<meta property="og:url" content="https://ink-bottle.github.io/2020/03/30/Region-Boundaries/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。">
+<meta property="og:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-11T12:27:29.478Z">
+<meta property="og:image" content="https://i.loli.net/2020/03/30/fZUSd9e765rtocK.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/30/KnVEORPt34CQcaA.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/30/zZVUB8qG3uT9FkI.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/30/hZEKaz8gGw9V7MO.png">
+<meta property="og:image" content="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png">
+<meta property="og:updated_time" content="2020-03-30T03:07:33.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MATLAB对excel文件数据的读写">
-<meta name="twitter:description" content="平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。">
+<meta name="twitter:title" content="Region Boundaries">
+<meta name="twitter:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
+<meta name="twitter:image" content="https://i.loli.net/2020/03/30/fZUSd9e765rtocK.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -182,66 +188,54 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-matlab-change-excel" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Region-Boundaries" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      MATLAB对excel文件数据的读写
+      Region Boundaries
     </h1>
   
 
         
-        <a href="/2020/02/11/matlab-change-excel/" class="archive-article-date">
-  	<time datetime="2020-02-11T09:39:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
+        <a href="/2020/03/30/Region-Boundaries/" class="archive-article-date">
+  	<time datetime="2020-03-30T01:21:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>平日有很多时候需要对excel表格进行批量读取和修改与处理，故对于常用操作进行一个基本的总结。</p>
+        <p>在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。</p>
 <a id="more"></a>
-<h2 id="matlab读入excel表格">MATLAB读入excel表格</h2>
-<p>所使用函数：xlsread。</p>
-<p>调用形式：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = xlsread(filename)</span><br><span class="line">num = xlsread(filename,sheet)</span><br><span class="line">num = xlsread(filename,xlRange)</span><br><span class="line">num = xlsread(filename,sheet,xlRange)</span><br><span class="line">num = xlsread(filename,sheet,xlRange,<span class="string">'basic'</span>)</span><br><span class="line">[num,txt,raw] = xlsread(___)</span><br><span class="line">[num,txt,raw,custom] = xlsread(filename,sheet,xlRange,<span class="string">''</span>,processFcn)</span><br></pre></td></tr></table></figure>
-<p>其中，输入参数有：</p>
-<ul>
-<li>filename：excel文件名，当然在这之前先定义好文件路径。</li>
-<li>sheet：表格文件中的表格编号或名字，如sheet1，sheet2，sheet3，默认为1。</li>
-<li>xlRange：要读取的数据区域，如‘B2:U102’，就是读取excel中B2到U102这一范围内的数据。</li>
-<li>‘basic’：标记请求在基本模式下读取，基本模式是没有Excel的Windows电脑的默认模式。</li>
-<li>processFcn：自定义函数的句柄。此参数仅在使用Excel软件的Windows计算机上受支持。xlsread从电子表格中读取数据，在数据副本上执行函数，并返回最终结果。<br>
-输出参数有：</li>
-<li>num：数值数据，输出为double型的数组。</li>
-<li>txt：文本数据，输出为元胞数组。</li>
-<li>raw：表格中的数字和文本数据，输出为元胞数组。</li>
-<li>custom：与processFcn对应的函数的第二个输出。自定义的值和数据类型由函数决定。</li>
-</ul>
-<p>使用举例(读取相对路径下“data1”下的sheet1中的D2：D306的数据)：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[a1,txt2,A1] = xlsread(<span class="string">'data1.xlsx'</span>,<span class="number">1</span>,<span class="string">'D2:D306'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="matlab写入excel表格">MATLAB写入excel表格</h2>
-<p>所使用函数：xlswrite。</p>
-<p>调用形式：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xlswrite(filename,A)</span><br><span class="line">xlswrite(filename,A,sheet)</span><br><span class="line">xlswrite(filename,A,xlRange)</span><br><span class="line">xlswrite(filename,A,sheet,xlRange)</span><br><span class="line">status = xlswrite(___)</span><br><span class="line">[status,message] = xlswrite(___)</span><br></pre></td></tr></table></figure>
-<p>输入参数同理，输出参数有：</p>
-<ul>
-<li>status：写操作的状态，以1(真)或0(假)的形式返回。当写操作成功时，状态为1。否则，状态为0。</li>
-<li>message：写操作过程中产生的错误或警告，以包含两个字段的结构数组形式返回。</li>
-</ul>
-<p>使用举例：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xlswrite(<span class="string">'data1.xlsx'</span>,ARecd,<span class="number">3</span>,<span class="string">'G2:G1733'</span>)</span><br></pre></td></tr></table></figure>
-<p>如何将分离的数值数据和文本数据拼接为一个元胞数组：</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">clc;</span><br><span class="line">filepath=<span class="string">'D:\Personal Files\course\yuleilixue\';</span></span><br><span class="line"><span class="string">[data,str] = xlsread([filepath '</span>GLM input data.xlsx']);</span><br><span class="line"><span class="comment">%拼接data数值和str字符串元胞矩阵</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span> = <span class="number">1</span> : <span class="built_in">size</span>(data, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span> : <span class="built_in">size</span>(data, <span class="number">2</span>)</span><br><span class="line">    str(<span class="built_in">i</span>,<span class="built_in">j</span>)=<span class="built_in">num2cell</span>(data(<span class="built_in">i</span>,<span class="built_in">j</span>));</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">xlswrite([filepath <span class="string">'GLM input data.xlsx'</span>],str);<span class="comment">%写入表格文件</span></span><br></pre></td></tr></table></figure>
-<h2 id="参考链接">参考链接</h2>
-<p><a href="https://jingyan.baidu.com/article/d621e8da7861572864913f43.html" target="_blank" rel="noopener">matlab中怎么将字符写入excel表格</a><br>
-<a href="https://blog.csdn.net/qq_26552071/article/details/82780055" target="_blank" rel="noopener">使用MATLAB对excel文件数据的读写操作</a><br>
-<a href="https://jingyan.baidu.com/article/b907e627673d6146e7891c98.html" target="_blank" rel="noopener">Excel函数—VLOOKUP查找数据并返回（提取）内容</a><br>
-<a href="https://blog.csdn.net/zllljf/article/details/78881081" target="_blank" rel="noopener">matlab中double、char和cell的互转</a><br>
-<a href="https://blog.csdn.net/thy19988/article/details/78489623" target="_blank" rel="noopener">MATLAB怎样有效读取excel文件中的数据？</a></p>
+<h2 id="研究现状">研究现状</h2>
+<p>由于干扰因素的存在和测量条件的限制，得到的目标边缘散点或表面散点会出现强噪声，边缘断裂，表面孔洞，异常数据点等现象。针对这些现象，许多学者都提出了相应的求解方法，如二维轮廓离散点的局部连接法、最小二乘法曲线拟合、Hough变换、基于视觉感知边缘连接（Visual Perception Edge Linking，VPEL）算法、基于顺序边缘连接（Sequential Edge Linking，SEL）算法以及基于模糊判定的边缘连接方法等；还有三维表面离散点的隐式曲面方法、最小移动二乘法、单元多层次分解方法、(泊松流)曲面重构、变分方法、机器学习／统计学方法等。</p>
+<p>其中<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=" target="_blank" rel="noopener">赵亮</a>等人提出一种由截面上散点生成的最短路径拟合轮廓曲面的方法，通过构造最短截面路径，得到多层截面的轮廓线，从而在相邻的截面间生成轮廓曲面，最后基于曲率流的光顺方法对曲面进行光顺处理，在三维地震体数据可视化的具体应用实验中获得了较好的效果。<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjIyMTNvOUNaSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sV3J2TEx6N0JiN0c0SDlETXE=" target="_blank" rel="noopener">刘光帅</a>等人提出了一种点云重构算法，通过候选筛分边界点进行拓扑初始化，利用泛洪(flooding)算法进行边界封闭环提取，基于统计学方法对边界进行优化，获得分段光滑的网格曲面。<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2014&amp;filename=JSGG201407039&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MzE3OTJGeW5uVUxyTEx6N01hYkc0SDlYTXFJOUdiWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnY=" target="_blank" rel="noopener">徐毅</a>等人提出一种基于路径形态学的断裂边缘修复技术，通过考虑等照度线曲率、梯度值、边缘端点前进方向等多重判据构建形态学闭算子，对边缘图进行路径闭运算，从而完成对断裂边缘的连接。<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MDM5NzZZWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5nVUwvSkx5SE1kN0c0SDlUTXJZOUU=" target="_blank" rel="noopener">顾天奇</a>等人提出一种基于移动最小二乘法构造了一种新的封闭离散点拟合方法，基于封闭离散点的几何特征，提出一种新的权值确定方法，该方法通过构造一个与弦长有关的点，赋予支持域内各点的权值，使临近点的权值变化逐步衰减，实现了拟合曲线的局部逼近，在叶片截面形线离散点拟合中取得了很好的效果。</p>
+<h2 id="凸包算法">凸包算法</h2>
+<p>对于二维离散点密度较小的情况下，进行凸多边形勾勒往往可以采用凸包算法，该算法的实现思路如下：</p>
+<ol>
+<li>找到离散点中，保证y坐标最大的情况下，x坐标最小的点，记做A点</li>
+<li>以A点为原点，x轴正反向射线（Ax）顺时针扫描，找到旋转角最小时扫描到的点，记做B点</li>
+<li>以B点为原点，AB方向射线（AB）顺时针扫描，找到旋转角最小时扫描到的点，记做C点</li>
+<li>以C点为原点，BC方向射线（BC）顺时针扫描，找到旋转角最小时扫描到的点，记做D点</li>
+<li>以此类推，直到找到起始点A</li>
+</ol>
+<p><img src="https://i.loli.net/2020/03/30/fZUSd9e765rtocK.png" alt="20150623225525008.jpg"><br>
+<img src="https://i.loli.net/2020/03/30/KnVEORPt34CQcaA.png" alt="20150623225921049.jpg"><br>
+<img src="https://i.loli.net/2020/03/30/zZVUB8qG3uT9FkI.png" alt="20150623230149494.jpg"><br>
+<img src="https://i.loli.net/2020/03/30/hZEKaz8gGw9V7MO.png" alt="20150623230500257.jpg"></p>
+<h2 id="alpha-shapes">Alpha Shapes</h2>
+<p>对于凸包算法往往只能用于勾勒凸多边形，在非凸多边形中往往不能取得预期的结果，比如我需要求下图（a）中的边界，但是用凸包算法得到的是（b）中的结果，我们理想的结果是（c）中得到的边界，这时候就要寻求另一种算法。<br>
+<img src="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png" alt="20200215230543904.png"></p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=" target="_blank" rel="noopener">截面最短连通路径法的散点轮廓曲面拟合</a><br>
+<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjIyMTNvOUNaSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sV3J2TEx6N0JiN0c0SDlETXE=" target="_blank" rel="noopener">离散点云原始形状及边界曲线提取算法</a><br>
+<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2014&amp;filename=JSGG201407039&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MzE3OTJGeW5uVUxyTEx6N01hYkc0SDlYTXFJOUdiWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnY=" target="_blank" rel="noopener">基于路径形态学的图像边缘连接方法</a><br>
+<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MDM5NzZZWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5nVUwvSkx5SE1kN0c0SDlUTXJZOUU=" target="_blank" rel="noopener">封闭离散点的曲线拟合方法</a><br>
+<a href="https://blog.csdn.net/manerfan/article/details/46610683" target="_blank" rel="noopener">离散点最小（凸）包围边界查找</a><br>
+<a href="https://blog.csdn.net/Quason/article/details/104336524" target="_blank" rel="noopener">散点轮廓算法——Alpha Shapes</a></p>
 
       
 
@@ -287,7 +281,7 @@ var _hmt = _hmt || [];
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
+        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
         		</li>
       		
 		</ul>
@@ -342,7 +336,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/02/11/matlab-change-excel/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/03/30/Region-Boundaries/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -356,18 +350,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/03/30/Region-Boundaries/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Region Boundaries
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/24/child-of-light/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">child of light | 光之子</div>
+    <a href="/2020/02/11/matlab-change-excel/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MATLAB对excel文件数据的读写</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -394,7 +379,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab读入excel表格"><span class="toc-number">1.</span> <span class="toc-text">MATLAB读入excel表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab写入excel表格"><span class="toc-number">2.</span> <span class="toc-text">MATLAB写入excel表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#研究现状"><span class="toc-number">1.</span> <span class="toc-text">研究现状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#凸包算法"><span class="toc-number">2.</span> <span class="toc-text">凸包算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#alpha-shapes"><span class="toc-number">3.</span> <span class="toc-text">Alpha Shapes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考文献"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
