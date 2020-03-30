@@ -22,7 +22,8 @@
 <meta property="og:image" content="https://i.loli.net/2020/03/30/zZVUB8qG3uT9FkI.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/hZEKaz8gGw9V7MO.png">
 <meta property="og:image" content="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png">
-<meta property="og:updated_time" content="2020-03-30T03:07:33.008Z">
+<meta property="og:image" content="https://i.loli.net/2020/03/30/I8QrpSK4cgJnlBi.png">
+<meta property="og:updated_time" content="2020-03-30T08:42:52.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Region Boundaries">
 <meta name="twitter:description" content="在很多情况下我们需要对离散点进行封闭拟合，比如在图像识别领域中的物体轮廓提取，逆向工程中的三维扫描重建等等，完成对目标的轮廓提取或扫描后往往得到的是具有大量的离散点云。本文主要给出基于MATLAB的依据二维和三维中的点构建的多边形和多面体的功能函数总结。">
@@ -212,7 +213,7 @@ var _hmt = _hmt || [];
 <a id="more"></a>
 <h2 id="研究现状">研究现状</h2>
 <p>由于干扰因素的存在和测量条件的限制，得到的目标边缘散点或表面散点会出现强噪声，边缘断裂，表面孔洞，异常数据点等现象。针对这些现象，许多学者都提出了相应的求解方法，如二维轮廓离散点的局部连接法、最小二乘法曲线拟合、Hough变换、基于视觉感知边缘连接（Visual Perception Edge Linking，VPEL）算法、基于顺序边缘连接（Sequential Edge Linking，SEL）算法以及基于模糊判定的边缘连接方法等；还有三维表面离散点的隐式曲面方法、最小移动二乘法、单元多层次分解方法、(泊松流)曲面重构、变分方法、机器学习／统计学方法等。</p>
-<p>其中<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=" target="_blank" rel="noopener">赵亮</a>等人提出一种由截面上散点生成的最短路径拟合轮廓曲面的方法，通过构造最短截面路径，得到多层截面的轮廓线，从而在相邻的截面间生成轮廓曲面，最后基于曲率流的光顺方法对曲面进行光顺处理，在三维地震体数据可视化的具体应用实验中获得了较好的效果。<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjIyMTNvOUNaSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sV3J2TEx6N0JiN0c0SDlETXE=" target="_blank" rel="noopener">刘光帅</a>等人提出了一种点云重构算法，通过候选筛分边界点进行拓扑初始化，利用泛洪(flooding)算法进行边界封闭环提取，基于统计学方法对边界进行优化，获得分段光滑的网格曲面。<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2014&amp;filename=JSGG201407039&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MzE3OTJGeW5uVUxyTEx6N01hYkc0SDlYTXFJOUdiWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnY=" target="_blank" rel="noopener">徐毅</a>等人提出一种基于路径形态学的断裂边缘修复技术，通过考虑等照度线曲率、梯度值、边缘端点前进方向等多重判据构建形态学闭算子，对边缘图进行路径闭运算，从而完成对断裂边缘的连接。<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MDM5NzZZWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5nVUwvSkx5SE1kN0c0SDlUTXJZOUU=" target="_blank" rel="noopener">顾天奇</a>等人提出一种基于移动最小二乘法构造了一种新的封闭离散点拟合方法，基于封闭离散点的几何特征，提出一种新的权值确定方法，该方法通过构造一个与弦长有关的点，赋予支持域内各点的权值，使临近点的权值变化逐步衰减，实现了拟合曲线的局部逼近，在叶片截面形线离散点拟合中取得了很好的效果。</p>
+<p>其中[赵亮][1]等人提出一种由截面上散点生成的最短路径拟合轮廓曲面的方法，通过构造最短截面路径，得到多层截面的轮廓线，从而在相邻的截面间生成轮廓曲面，最后基于曲率流的光顺方法对曲面进行光顺处理，在三维地震体数据可视化的具体应用实验中获得了较好的效果。[刘光帅][2]等人提出了一种点云重构算法，通过候选筛分边界点进行拓扑初始化，利用泛洪(flooding)算法进行边界封闭环提取，基于统计学方法对边界进行优化，获得分段光滑的网格曲面。[徐毅][3]等人提出一种基于路径形态学的断裂边缘修复技术，通过考虑等照度线曲率、梯度值、边缘端点前进方向等多重判据构建形态学闭算子，对边缘图进行路径闭运算，从而完成对断裂边缘的连接。[顾天奇][4]等人提出一种基于移动最小二乘法构造了一种新的封闭离散点拟合方法，基于封闭离散点的几何特征，提出一种新的权值确定方法，该方法通过构造一个与弦长有关的点，赋予支持域内各点的权值，使临近点的权值变化逐步衰减，实现了拟合曲线的局部逼近，在叶片截面形线离散点拟合中取得了很好的效果。</p>
 <h2 id="凸包算法">凸包算法</h2>
 <p>对于二维离散点密度较小的情况下，进行凸多边形勾勒往往可以采用凸包算法，该算法的实现思路如下：</p>
 <ol>
@@ -229,13 +230,25 @@ var _hmt = _hmt || [];
 <h2 id="alpha-shapes">Alpha Shapes</h2>
 <p>对于凸包算法往往只能用于勾勒凸多边形，在非凸多边形中往往不能取得预期的结果，比如我需要求下图（a）中的边界，但是用凸包算法得到的是（b）中的结果，我们理想的结果是（c）中得到的边界，这时候就要寻求另一种算法。<br>
 <img src="https://i.loli.net/2020/03/30/zfVPAyL7eZmgME4.png" alt="20200215230543904.png"></p>
+<p>Alpha Shapes可以用来从一堆无序的点集中提取边缘，这个边界不一定是凸的，也不一定是联通的，但是其一定程度上表示了这一组离散点的轮廓。通过调节参数可以使边界更加精细或粗糙。设有一点集S的Alpha-Shapes是一个多边形，这个多边形是由点集S和半径参数α决定的且唯一。它的原理如图所示。<br>
+<img src="https://i.loli.net/2020/03/30/I8QrpSK4cgJnlBi.png" alt="20200330163550.png"></p>
+<p>可以想象成一个半径为α的圆在点集S外滚动，当α足够大时，这个圆就不会滚到点集内部，其滚动的痕迹就是这个点集的边界线。因此，当α值很小，则每个点都是边界；如果α很大（α→∞）时，则求出的边界线为点集S的凸包。<br>
+$$\Gamma(z) = \int_0^\infty t<sup>{z-1}e</sup>{-t}dt,.$$</p>
 <h2 id="参考文献">参考文献</h2>
-<p><a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=" target="_blank" rel="noopener">截面最短连通路径法的散点轮廓曲面拟合</a><br>
-<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MjIyMTNvOUNaSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sV3J2TEx6N0JiN0c0SDlETXE=" target="_blank" rel="noopener">离散点云原始形状及边界曲线提取算法</a><br>
-<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2014&amp;filename=JSGG201407039&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MzE3OTJGeW5uVUxyTEx6N01hYkc0SDlYTXFJOUdiWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnY=" target="_blank" rel="noopener">基于路径形态学的图像边缘连接方法</a><br>
-<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw!!&amp;v=MDM5NzZZWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5nVUwvSkx5SE1kN0c0SDlUTXJZOUU=" target="_blank" rel="noopener">封闭离散点的曲线拟合方法</a><br>
+<p>[截面最短连通路径法的散点轮廓曲面拟合][1]<br>
+[离散点云原始形状及边界曲线提取算法][2]<br>
+[基于路径形态学的图像边缘连接方法][3]<br>
+[封闭离散点的曲线拟合方法][4]<br>
 <a href="https://blog.csdn.net/manerfan/article/details/46610683" target="_blank" rel="noopener">离散点最小（凸）包围边界查找</a><br>
-<a href="https://blog.csdn.net/Quason/article/details/104336524" target="_blank" rel="noopener">散点轮廓算法——Alpha Shapes</a></p>
+<a href="https://blog.csdn.net/Quason/article/details/104336524" target="_blank" rel="noopener">散点轮廓算法——Alpha Shapes</a><br>
+[利用Alpha Shapes算法提取离散点轮廓线][5]<br>
+[平面离散点集的边界搜索算法][6]<br>
+[1]: <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw" target="_blank" rel="noopener">https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=JSJC201024073&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw</a>!!&amp;v=MjY0MDF6N0JiYkc0SDlIT3E0OUNaNFI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sVjc3Qkw=<br>
+[2]: <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw" target="_blank" rel="noopener">https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2011&amp;filename=JSJA201105070&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw</a>!!&amp;v=MjIyMTNvOUNaSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5sV3J2TEx6N0JiN0c0SDlETXE=<br>
+[3]: <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2014&amp;filename=JSGG201407039&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw" target="_blank" rel="noopener">https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2014&amp;filename=JSGG201407039&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw</a>!!&amp;v=MzE3OTJGeW5uVUxyTEx6N01hYkc0SDlYTXFJOUdiWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnY=<br>
+[4]: <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw" target="_blank" rel="noopener">https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzYxVXg4QW5iZ3I5OXJwN3lUMD0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw</a>!!&amp;v=MDM5NzZZWVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeW5nVUwvSkx5SE1kN0c0SDlUTXJZOUU=<br>
+[5]: <a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=HGDB201002090&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzZ2NXJ6Mi9zOGZZU21TMDF5Zz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw" target="_blank" rel="noopener">https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFD2010&amp;filename=HGDB201002090&amp;uid=WEEvREcwSlJHSldRa1Fhb09pSnNvVXZRQzZ2NXJ6Mi9zOGZZU21TMDF5Zz0=$9A4hF_YAuvQ5obgVAqNKPCYcEjKensW4ggI8Fm4gTkoUKaID8j8gFw</a>!!&amp;v=MDA0ODc0SDlITXJZOU1aSVI4ZVgxTHV4WVM3RGgxVDNxVHJXTTFGckNVUjdxZlpPVnZGeS9uVWI3UExTclBiTEc=<br>
+[6]: <a href="https://kns.cnki.net/kcms/detail/detail.aspx?filename=JSJZ200403007&amp;dbcode=CJFQ&amp;dbname=CJFD2004&amp;v=" target="_blank" rel="noopener">https://kns.cnki.net/kcms/detail/detail.aspx?filename=JSJZ200403007&amp;dbcode=CJFQ&amp;dbname=CJFD2004&amp;v=</a></p>
 
       
 
