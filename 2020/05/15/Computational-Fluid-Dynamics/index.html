@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/05/15/WQemPFsfaJNSRz3.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/15/UDLPr7c5hC4sKRJ.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/15/KvspiLURSeqr2AP.png">
-<meta property="og:updated_time" content="2020-05-15T13:53:13.961Z">
+<meta property="og:updated_time" content="2020-05-15T13:55:40.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算流体力学总结">
 <meta name="twitter:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
@@ -239,13 +239,15 @@ x方向表达式：<br>
 $$<br>
 \begin{align}<br>
 \rho \frac{D}{Dt}\left ( e+\frac{V^{2}}{2} \right )&amp;=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}\\<br>
-&amp;+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}<br>
+&amp;+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}\\<br>
+&amp;+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}<br>
 \end{align}<br>
 $$</p>
 <p>守恒型<br>
 $$<br>
-\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{V^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{V^{2}}{2}\right )\boldsymbol{V} \right ]=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}\\<br>
-+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}<br>
+\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{V^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{V^{2}}{2}\right )\boldsymbol{V} \right ]&amp;=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}\\<br>
+&amp;+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}\\<br>
+&amp;+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}<br>
 $$</p>
 <h3 id="无黏流动方程-欧拉方程">无黏流动方程（欧拉方程）</h3>
 <p>对于非定常、三维可压缩无黏流动，其控制方程为<br>
