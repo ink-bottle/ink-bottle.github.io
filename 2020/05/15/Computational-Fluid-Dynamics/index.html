@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/05/15/WQemPFsfaJNSRz3.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/15/UDLPr7c5hC4sKRJ.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/15/KvspiLURSeqr2AP.png">
-<meta property="og:updated_time" content="2020-05-15T13:26:31.239Z">
+<meta property="og:updated_time" content="2020-05-15T13:33:40.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算流体力学总结">
 <meta name="twitter:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
@@ -236,9 +236,9 @@ x方向表达式：<br>
 <img src="https://i.loli.net/2020/05/15/KvspiLURSeqr2AP.png" alt="CodeCogsEqn6.png"></p>
 <p><strong>能量方程</strong><br>
 非守恒型<br>
-$$\rho \frac{D}{Dt}\left ( e+\frac{V^{2}}{2} \right )=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}$$</p>
+$$\rho \frac{D}{Dt}\left ( e+\frac{V^{2}}{2} \right )=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )\-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}$$</p>
 <p>守恒型<br>
-$$\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{V^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{V^{2}}{2}\right )\boldsymbol{V} \right ]=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}$$</p>
+$$\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{V^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{V^{2}}{2}\right )\boldsymbol{V} \right ]=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )\-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}$$</p>
 <h3 id="无黏流动方程-欧拉方程">无黏流动方程（欧拉方程）</h3>
 <p>对于非定常、三维可压缩无黏流动，其控制方程为<br>
 <strong>连续方程</strong><br>
@@ -264,13 +264,15 @@ $$\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{V^{2}}{2}\right ) \ri
 <p>守恒型的连续、动量和能量方程均可以表示成统一的形式。由下式给出：<br>
 $$\frac{\partial \boldsymbol{U}}{\partial t}+\frac{\partial \boldsymbol{F}}{\partial x}+\frac{\partial \boldsymbol{G}}{\partial y}+\frac{\partial \boldsymbol{H}}{\partial z}=\boldsymbol{J}$$</p>
 <p>其中<br>
-$$\boldsymbol{U}=\begin{pmatrix}<br>
+$$<br>
+\boldsymbol{U}=\begin{pmatrix}<br>
 \rho \<br>
 \rho u\<br>
 \rho \upsilon \<br>
 \rho \omega \<br>
 \rho \left ( e+\frac{V^{2}}{2} \right )<br>
-\end{pmatrix}$$</p>
+\end{pmatrix}<br>
+$$</p>
 <h2 id="参考链接">参考链接</h2>
 <p><a href="https://www.jianshu.com/p/e74eb43960a1" target="_blank" rel="noopener">Markdown数学公式语法</a><br>
 <a href="https://blog.csdn.net/katherine_hsr/article/details/79179622" target="_blank" rel="noopener">Markdown数学符号&amp;公式</a><br>
