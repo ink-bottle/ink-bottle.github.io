@@ -23,7 +23,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/05/15/WQemPFsfaJNSRz3.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/15/UDLPr7c5hC4sKRJ.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/15/KvspiLURSeqr2AP.png">
-<meta property="og:updated_time" content="2020-05-15T14:25:30.328Z">
+<meta property="og:updated_time" content="2020-05-16T11:27:07.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算流体力学总结">
 <meta name="twitter:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
@@ -222,6 +222,9 @@ $$\frac{\partial \rho }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \bolds
 <p><strong>动量方程</strong><br>
 非守恒型<br>
 x方向表达式：<br>
+\begin{align}<br>
+\rho \frac{Du}{Dt}= -\frac{\partial p}{\partial x}+\frac{\partial \tau _{xx}}{\partial x}+\frac{\partial \tau _{yx}}{\partial y}+\frac{\partial \tau <em>{zx}}{\partial z}+\rho f</em>{x}<br>
+\end{align}<br>
 <img src="https://i.loli.net/2020/05/15/co9hqLTS7JCVel8.png" alt="CodeCogsEqn1.png"></p>
 <p>y方向表达式：<br>
 <img src="https://i.loli.net/2020/05/15/lVRmMd8wfEDxWh3.png" alt="CodeCogsEqn2.png"></p>
