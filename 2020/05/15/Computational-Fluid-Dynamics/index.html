@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-16T11:37:47.579Z">
+<meta property="og:updated_time" content="2020-05-16T12:18:19.496Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算流体力学总结">
 <meta name="twitter:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
@@ -306,6 +306,24 @@ $$</p>
 \rho \upsilon^{2} +p-\tau _{yy} \\<br>
 \rho \omega \upsilon -\tau _{yz} \\<br>
 \rho \left ( e+\frac{V^{2}}{2} \right )\omega +p\upsilon -K\frac{\partial T}{\partial y}-u\tau _{yx}-\upsilon \tau _{yy}-\omega \tau _{yz}<br>
+\end{pmatrix}<br>
+$$</p>
+<p>$$<br>
+\boldsymbol{H}=\begin{pmatrix}<br>
+\rho \omega  \\<br>
+\rho u\omega -\tau _{zx}\\<br>
+\rho \upsilon\omega -\tau _{zy} \\<br>
+\rho \omega^{2} +p -\tau _{zz} \\<br>
+\rho \left ( e+\frac{V^{2}}{2} \right )\omega +p\omega -K\frac{\partial T}{\partial z}-u\tau _{zx}-\upsilon \tau _{zy}-\omega \tau _{zz}<br>
+\end{pmatrix}<br>
+$$</p>
+<p>$$<br>
+\boldsymbol{J}=\begin{pmatrix}<br>
+0  \\<br>
+\rho f_{x}\\<br>
+\rho f_{y} \\<br>
+\rho f_{z} \\<br>
+\rho\left ( uf_{x}+\upsilon f_{y}+\omega f_{z} \right )+\rho \dot{q}<br>
 \end{pmatrix}<br>
 $$</p>
 <h2 id="参考链接">参考链接</h2>
