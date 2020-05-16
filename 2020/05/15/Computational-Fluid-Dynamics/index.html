@@ -17,17 +17,10 @@
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2020/05/15/co9hqLTS7JCVel8.png">
-<meta property="og:image" content="https://i.loli.net/2020/05/15/lVRmMd8wfEDxWh3.png">
-<meta property="og:image" content="https://i.loli.net/2020/05/15/nK9MeJ5cYg1PCH2.png">
-<meta property="og:image" content="https://i.loli.net/2020/05/15/WQemPFsfaJNSRz3.png">
-<meta property="og:image" content="https://i.loli.net/2020/05/15/UDLPr7c5hC4sKRJ.png">
-<meta property="og:image" content="https://i.loli.net/2020/05/15/KvspiLURSeqr2AP.png">
-<meta property="og:updated_time" content="2020-05-16T11:31:09.579Z">
+<meta property="og:updated_time" content="2020-05-16T11:37:47.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算流体力学总结">
 <meta name="twitter:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
-<meta name="twitter:image" content="https://i.loli.net/2020/05/15/co9hqLTS7JCVel8.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -224,19 +217,28 @@ $$\frac{\partial \rho }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \bolds
 x方向表达式：<br>
 \begin{align}<br>
 \rho \frac{Du}{Dt}= -\frac{\partial p}{\partial x}+\frac{\partial \tau _{xx}}{\partial x}+\frac{\partial \tau _{yx}}{\partial y}+\frac{\partial \tau _{zx}}{\partial z}+\rho f_{x}<br>
-\end{align}<br>
-<img src="https://i.loli.net/2020/05/15/co9hqLTS7JCVel8.png" alt="CodeCogsEqn1.png"></p>
+\end{align}</p>
 <p>y方向表达式：<br>
-<img src="https://i.loli.net/2020/05/15/lVRmMd8wfEDxWh3.png" alt="CodeCogsEqn2.png"></p>
+\begin{align}<br>
+\rho \frac{D\upsilon }{Dt}= -\frac{\partial p}{\partial y}+\frac{\partial \tau _{xy}}{\partial x}+\frac{\partial \tau _{yy}}{\partial y}+\frac{\partial \tau _{zy}}{\partial z}+\rho f_{y}<br>
+\end{align}</p>
 <p>z方向表达式：<br>
-<img src="https://i.loli.net/2020/05/15/nK9MeJ5cYg1PCH2.png" alt="CodeCogsEqn3.png"></p>
+\begin{align}<br>
+\rho \frac{D\omega  }{Dt}= -\frac{\partial p}{\partial z}+\frac{\partial \tau _{xz}}{\partial x}+\frac{\partial \tau _{yz}}{\partial y}+\frac{\partial \tau _{zz}}{\partial z}+\rho f_{z}<br>
+\end{align}</p>
 <p>守恒型<br>
 x方向表达式：<br>
-<img src="https://i.loli.net/2020/05/15/WQemPFsfaJNSRz3.png" alt="CodeCogsEqn4.png"></p>
+\begin{align}<br>
+\frac{\partial\left (  \rho u\right ) }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho u \boldsymbol{V}\right )= -\frac{\partial p}{\partial x}+\frac{\partial \tau _{xx}}{\partial x}+\frac{\partial \tau _{yx}}{\partial y}+\frac{\partial \tau _{zx}}{\partial z}+\rho f_{x}<br>
+\end{align}</p>
 <p>y方向表达式：<br>
-<img src="https://i.loli.net/2020/05/15/UDLPr7c5hC4sKRJ.png" alt="CodeCogsEqn5.png"></p>
+\begin{align}<br>
+\frac{\partial \left (  \rho \upsilon\right ) }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \upsilon  \boldsymbol{V}\right )= -\frac{\partial p}{\partial y}+\frac{\partial \tau _{xy}}{\partial x}+\frac{\partial \tau _{yy}}{\partial y}+\frac{\partial \tau _{zy}}{\partial z}+\rho f_{y}<br>
+\end{align}</p>
 <p>z方向表达式：<br>
-<img src="https://i.loli.net/2020/05/15/KvspiLURSeqr2AP.png" alt="CodeCogsEqn6.png"></p>
+\begin{align}<br>
+\frac{\partial \left ( \rho \omega  \right ) }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \omega   \boldsymbol{V}\right )= -\frac{\partial p}{\partial z}+\frac{\partial \tau _{xz}}{\partial x}+\frac{\partial \tau _{yz}}{\partial y}+\frac{\partial \tau _{zz}}{\partial z}+\rho f_{z}<br>
+\end{align}</p>
 <p><strong>能量方程</strong><br>
 非守恒型<br>
 $$<br>
