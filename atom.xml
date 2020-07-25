@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ink-bottle.github.io/"/>
-  <updated>2020-06-25T13:58:15.545Z</updated>
+  <updated>2020-07-25T05:49:45.451Z</updated>
   <id>https://ink-bottle.github.io/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>远程控制软件</title>
+    <link href="https://ink-bottle.github.io/2020/07/25/Remote-control-software/"/>
+    <id>https://ink-bottle.github.io/2020/07/25/Remote-control-software/</id>
+    <published>2020-07-25T03:32:09.000Z</published>
+    <updated>2020-07-25T05:49:45.451Z</updated>
+    
+    <content type="html"><![CDATA[<p>每当回到住处一个电话打过来告诉你还有工作需要修改的时候，当外面下着倾盆大雨不方便出门却要工作时，当出差在外想要远程调用工作电脑上的文件时，当有人发消息给你需要你帮他处理电脑上出现的某个问题时，这些时候就会需要远程操控一台不在身边的电脑，现在市场上已经有很多款不同的远程控制软件，它们之间各有千秋，今天对这些软件做一个总结和评价。</p><a id="more"></a><h2 id="teamviewer">TeamViewer</h2><p>这款软件估计是很多人第一时间就想到的远程操控软件了，它的优点非常明显，只需两个设备同时开启 TeamViewer 即可，而且也不需要安装，可以跨平台使用，而且最重要的一点是，个人使用且非商业用途时，这个软件是可以免费使用的。</p><p>但是其缺点就是它会检测你是否商用，如果被检测为商用还是会被限制使用，而商业版价格又很贵。且teamviewer服务器在国外，网络服务不太稳定，可能碰到几分钟就断线一次的情况。</p><p>官网地址：<a href="https://www.teamviewer.cn/cn/" target="_blank" rel="noopener">TeamViewer</a></p><h2 id="windows-快速助手">Windows 快速助手</h2><p>使用快捷键Win + S，打开 Win10 自带的搜索功能，搜索「快速助手」并打开。在打开的页面中，可以看到「获取协助」和「提供协助」的选项，如果你的电脑遇到了问题，需要他人协助解决，可以使用获取协助，协助你解决问题的人则使用提供协助。提供协助的人使用微软帐号登录之后，可以获得一个安全代码，将其分享给需要帮助的人，安全代码的有效期为 10 分钟。获取协助的人输入安全代码后，提供协助的人可选择完全控制对方的电脑，也可选择在不完全控制的情况下查看对方的屏幕。</p><p><img src="https://i.loli.net/2020/07/25/PAibfmrv1RJDXTO.png" alt="微信图片_20200725130640.png"></p><p>快速助手不要求连接的两台电脑处于同个局域网下，使用起来也比较简单，唯一的缺点在于延迟较高，不够流畅。</p><h2 id="windows-远程桌面连接">Windows 远程桌面连接</h2><p>远程桌面连接，是Win10 专业版系统自带的远程连接功能，所以如果是其它版本的win10则不能使用这一功能。对于这个功能，微软在移动端上还推出了相应的 App：Microsoft 远程桌面，支持 iOS 和 Android，可以实现手机控制电脑。</p><p>但是该功能要求两台电脑都处在同一局域网下，如果你想使用这个功能连接家里和公司的电脑，则需要先进行内网穿透，才能实现真正意义上的远程连接。</p><h2 id="anydesk">AnyDesk</h2><p>AnyDesk是一个小巧实用的远程桌面控制软件，适用于多种平台和操作系统，使用简单，个人用户免费，目前还没有爆出隐私泄露问题和安全问题。但是由于服务器在国外，因此访问链接速度特别不友好，卡顿现象十分明显。</p><p>官网地址：<a href="https://anydesk.com/zhs" target="_blank" rel="noopener">AnyDesk</a><br><img src="https://i.loli.net/2020/07/25/T8jEiXuIQ2GMfYq.png" alt="微信图片_20200725131743.png"></p><h2 id="向日葵">向日葵</h2><p>向日葵远程控制软件支持多平台，而且跨网络，不用关心计算机IP地址之类的问题，使用阿里云服务器，链接速度尚可，现在最新版本还可以电脑控制手机。但是缺点是需要注册 Oray账号，强制登录使用，且免费版限速300Kbps。</p><p>官网地址：<a href="https://sunlogin.oray.com/" target="_blank" rel="noopener">向日葵</a></p><h2 id="qq-远程桌面">QQ 远程桌面</h2><p>腾讯QQ的附带产物，只要双方都安装了QQ或者TIM，加了好友，就能开始远程操作，非常方便，不用关心计算机IP地址之类的问题，只要是QQ好友，对方实时同意「被远程操作」，立刻就能动手。但是缺点是只能支持Windows，并且链接体验感人，卡到崩溃。<br><img src="https://i.loli.net/2020/07/25/T5VUmaKkoGIsQOl.png" alt="微信图片_20200725133445.png"></p><h2 id="todesk">ToDesk</h2><p>ToDesk 是一款新入局的电脑桌面远程控制软件，主打「流畅」以及「个人免费」的特点。软件的体积很小仅 3MB 左右，但麻雀虽小五脏俱全，ToDesk 的功能还是足够实用的：远程桌面控制、文件传输、语音沟通、文字聊天都一应俱全。不必考虑受控的机器是否位于内网、有无公网 IP、端口映射或者网络防火墙，操作延迟低。缺点是现在还处于测试阶段，支持windows和ios，但现在还不支持Android，MacOS，Linux等平台。</p><p>官网地址：<a href="https://www.todesk.com/" target="_blank" rel="noopener">ToDesk</a></p><p><img src="https://i.loli.net/2020/07/25/WU9pirqkzfjTGwQ.png" alt="微信图片_20200725133726.png"></p><p>从当前使用体验来看，ToDesk是最让人用的舒服的一款了。当然，除了以上介绍的远程控制软件，还有<a href="https://www.zerotier.com/download/" target="_blank" rel="noopener">ZeroTier</a>，<a href="https://www.radmin.cn/" target="_blank" rel="noopener">Radmin</a>，<a href="https://www.nomachine.com/" target="_blank" rel="noopener">nomachine</a>，<a href="https://www.cloudberry.com/" target="_blank" rel="noopener">CloudBerry Remote Assistance</a>等等软件，如果对以上软件都不太满意的话可以试试这些远程控制软件。</p><h2 id="参考链接">参考链接</h2><p><a href="https://www.zhihu.com/question/20780129/answer/1316886104" target="_blank" rel="noopener">请推荐好的远程控制软件？</a><br><a href="https://www.zhihu.com/question/372188717/answer/1345789801" target="_blank" rel="noopener">有哪些比较好用的远程控制软件？</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;每当回到住处一个电话打过来告诉你还有工作需要修改的时候，当外面下着倾盆大雨不方便出门却要工作时，当出差在外想要远程调用工作电脑上的文件时，当有人发消息给你需要你帮他处理电脑上出现的某个问题时，这些时候就会需要远程操控一台不在身边的电脑，现在市场上已经有很多款不同的远程控制软件，它们之间各有千秋，今天对这些软件做一个总结和评价。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>端午小记</title>
@@ -388,26 +406,6 @@
     <summary type="html">
     
       &lt;p&gt;最近忙于写毕设论文，写的过程中也遇到过大大小小的问题，最后也一一解决了。比较头疼的还是针对论文的一些排版与格式问题，于是想要将这些方法进行一个整理，也以便后面忘记的时候能够快速了解。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="教程" scheme="https://ink-bottle.github.io/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>笔记本装固态全过程</title>
-    <link href="https://ink-bottle.github.io/2019/05/11/%E7%AC%94%E8%AE%B0%E6%9C%AC%E8%A3%85%E5%9B%BA%E6%80%81%E5%85%A8%E8%BF%87%E7%A8%8B/"/>
-    <id>https://ink-bottle.github.io/2019/05/11/笔记本装固态全过程/</id>
-    <published>2019-05-11T05:33:50.000Z</published>
-    <updated>2020-01-01T04:44:35.688Z</updated>
-    
-    <content type="html"><![CDATA[<p>由于自己的笔记本需要装固态，也就是把新的固态硬盘装在原机械硬盘的位置上，旧机械硬盘装在原光驱位上，为了提前准备装系统的操作，先将笔记本装固态全过程记录下来。</p><a id="more"></a><h2 id="数据备份">数据备份</h2><p>拆电脑之前先备份好自己的所有数据，驱动提前下载好，最好去自己电脑品牌官网下载（其实可以不用提前下驱动，WIN10装好后一般自带网卡驱动并且会自动下载并安装驱动）。</p><h2 id="制作u盘启动盘">制作U盘启动盘</h2><p>工具准备：一个存储空间8G以上的U盘，一台电脑，可上网环境</p><p>首先，进入WIN10官网：<a href="https://www.microsoft.com/en-us/software-download/windows10" target="_blank" rel="noopener">WIN10官网</a></p><p><a href="https://i.loli.net/2019/05/10/5cd4f01d6d697.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4f01d6d697.jpg" alt="批注 2019-05-10 112843.jpg"></a></p><p>点击下载MediaCreationTool，随后双击启动该程序。</p><p><a href="https://i.loli.net/2019/05/10/5cd4f094916f1.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4f094916f1.jpg" alt="批注 2019-05-10 113117.jpg"></a></p><p>点击接受，之后选择为另一台电脑创建安装介质。</p><p><a href="https://i.loli.net/2019/05/10/5cd4f11c33a5b.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4f11c33a5b.jpg" alt="批注 2019-05-10 113332.jpg"></a></p><p>点击下一步，选择语言、体系结构和版本，默认即可。</p><p><a href="https://i.loli.net/2019/05/10/5cd4f179c3358.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4f179c3358.jpg" alt="批注 2019-05-10 113511.jpg"></a></p><p>点击下一步，选择U盘。</p><p><a href="https://i.loli.net/2019/05/10/5cd4f1bd92be8.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4f1bd92be8.jpg" alt="批注 2019-05-10 113617.jpg"></a></p><p>下一步，选择保存路径即选择你的U盘，点击下一步，工具就会开始下载或刻录，大概需要几十分钟的时间。</p><p><a href="https://i.loli.net/2019/05/10/5cd4f2e1dad4a.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4f2e1dad4a.jpg" alt="批注 2019-05-10 114107.jpg"></a></p><p><a href="https://i.loli.net/2019/05/10/5cd4f3120f812.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4f3120f812.jpg" alt="批注 2019-05-10 114155.jpg"></a></p><p><a href="https://i.loli.net/2019/05/10/5cd4fa77bc5d4.jpg" target="_blank" rel="noopener"><img src="https://i.loli.net/2019/05/10/5cd4fa77bc5d4.jpg" alt="批注 2019-05-10 121321.jpg"></a></p><h2 id="拆卸电脑">拆卸电脑</h2><p>工具准备:一套螺丝刀工具，一块光驱位硬盘托架，一个U盘启动盘，一块固态硬盘。</p><p><img src="https://i.loli.net/2019/05/11/5cd675c175f8a.jpg" alt="TIM图片20190511151143.jpg"></p><p><img src="https://i.loli.net/2019/05/11/5cd675f00cca6.jpg" alt="TIM图片20190511151232.jpg"></p><p><img src="https://i.loli.net/2019/05/11/5cd675fe99872.jpg" alt="TIM图片20190511151239.jpg"></p><p>如果电脑是后拆式的，直接拆开后盖打开装上去就行，如果是前拆式的，找找教程，或者自己试试，前拆式麻烦在于打开键盘盖比较难，而且键盘盖与主板有排线相连，稍有不注意可能会扯断排线，损坏卡扣。</p><ul><li><p>先确保断电，拆卸电脑电池，去除手上静电。</p></li><li><p>拆卸原有硬盘，将买的固态硬盘装在原硬盘位置上，把原硬盘装在新买的光驱位硬盘托架上放在一旁备用。</p></li><li><p>拆下光驱，小心卸下来，然后把装有原硬盘的光驱位硬盘托架装上去插好并固定。</p></li><li><p>装上电池，装好电脑并按原位上好螺丝。</p></li></ul><h2 id="安装系统">安装系统</h2><ul><li><p>插上U盘启动盘，开机点按F2（具体按什么键取决于自己电脑型号，可自行百度，大部分是按F2）进入BIOS中，在security选项卡中选择secure boot menu，secure boot control按Enter选择Disable，按F10保存；（这个过程中按F2可能进不了BIOS界面，可先进入系统，点开控制面板中更改电源按钮功能，取消勾选启用快速启动，然后重启电脑，开机按F2）</p></li><li><p>电脑重启后，点按F2进入BIOS中，在boot选项卡中选择Launch CSM，按Enter选择Enable，按F10保存；</p></li><li><p>重新开机点按esc选择启动项，选择U盘启动即可，该选项名字中一般会有U盘的英文品牌名，仔细找一下就能看到。</p></li><li><p>出现这个界面时请选择驱动器0，即安装在新的固态硬盘中。</p></li></ul><p><img src="https://i.loli.net/2019/05/11/5cd67bf82d183.jpg" alt="TIM图片20190511153518.jpg"></p><ul><li><p>接下来就是安装过程，大概10分钟左右，不过安装完进入系统时可能会出现选项询问进入卷2的WIN10还是卷5的WIN10，这是因为原硬盘中还存有原系统，也就是此时电脑中有双系统，这时选择卷2进入。</p></li><li><p>经过了一系列设置，进入桌面后，为了解决双系统问题（否则今后开机都会有选项询问），按下WIN+R，输入msconfig，进入系统配置→引导，删除D盘下的系统即可，如图：</p></li></ul><p><img src="https://i.loli.net/2019/05/11/5cd67e69c4358.png" alt="TIM图片20190511154847.png"></p><ul><li>此时D盘还存有原系统，如果需要释放空间，可以将其格式化。</li></ul><p>至此全部过程完成！</p><p>如果要查看自己新固态的性能和是否4K对齐，可以利用“SSD Benchmark”这款软件。这是一款由德国alex开发的小巧、绿色、实用的软件，软件运行比较简单，主界面也是一目了然。目前支持英文跟德文，暂无官方中文包，软件为免费软件。</p><p><img src="https://i.loli.net/2019/05/11/5cd67fa2b5a28.png" alt="TIM图片20190511155354.png"></p><p>一般常用的功能是2个，查看4K对齐、主板芯片驱动是否正常，二则测试性能。性能测试有如下小块：Seq、4K、4K-64Thrd、Acc.time ，及最后汇总的得分。</p><p>在硬盘型号处显示的2个绿色的OK则表示已经4K对齐、驱动无误。如有问题则会显示红色的Bad。4K对齐不在于这个K之前的数字的大小，只要显示绿色则对齐了。</p><p>下载地址：链接: <a href="https://pan.baidu.com/s/1Kv9nDZ8pq7AKNTPj3PQv4Q" target="_blank" rel="noopener">https://pan.baidu.com/s/1Kv9nDZ8pq7AKNTPj3PQv4Q</a> 提取码: 9pfp</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;由于自己的笔记本需要装固态，也就是把新的固态硬盘装在原机械硬盘的位置上，旧机械硬盘装在原光驱位上，为了提前准备装系统的操作，先将笔记本装固态全过程记录下来。&lt;/p&gt;
     
     </summary>
     
