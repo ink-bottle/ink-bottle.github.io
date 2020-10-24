@@ -7,25 +7,23 @@
   <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
-  <title>远程控制软件 | inkbottle&#39;s blog</title>
+  <title>鼠标点击获取图像/视频中某点像素坐标 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="每当回到住处一个电话打过来告诉你还有工作需要修改的时候，当外面下着倾盆大雨不方便出门却要工作时，当出差在外想要远程调用工作电脑上的文件时，当有人发消息给你需要你帮他处理电脑上出现的某个问题时，这些时候就会需要远程操控一台不在身边的电脑，现在市场上已经有很多款不同的远程控制软件，它们之间各有千秋，今天对这些软件做一个总结和评价。">
+  <meta name="description" content="在对图像进行精确裁剪分割时，或者是想要确定图片中某个特征点的具体位置时，往往我们希望得到鼠标点击处的像素点坐标。这样做还有一个好处，如果我们想要快速得到拍摄的画面中一个物体的运动轨迹点数据的话，通过获得不同帧画面的物体所在的像素点坐标即可。">
 <meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="远程控制软件">
-<meta property="og:url" content="https://ink-bottle.github.io/2020/07/25/Remote-control-software/index.html">
+<meta property="og:title" content="鼠标点击获取图像&#x2F;视频中某点像素坐标">
+<meta property="og:url" content="https://ink-bottle.github.io/2020/10/24/鼠标点击获取图像中某点像素坐标/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="每当回到住处一个电话打过来告诉你还有工作需要修改的时候，当外面下着倾盆大雨不方便出门却要工作时，当出差在外想要远程调用工作电脑上的文件时，当有人发消息给你需要你帮他处理电脑上出现的某个问题时，这些时候就会需要远程操控一台不在身边的电脑，现在市场上已经有很多款不同的远程控制软件，它们之间各有千秋，今天对这些软件做一个总结和评价。">
+<meta property="og:description" content="在对图像进行精确裁剪分割时，或者是想要确定图片中某个特征点的具体位置时，往往我们希望得到鼠标点击处的像素点坐标。这样做还有一个好处，如果我们想要快速得到拍摄的画面中一个物体的运动轨迹点数据的话，通过获得不同帧画面的物体所在的像素点坐标即可。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2020/07/25/PAibfmrv1RJDXTO.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/25/T8jEiXuIQ2GMfYq.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/25/T5VUmaKkoGIsQOl.png">
-<meta property="og:image" content="https://i.loli.net/2020/07/25/WU9pirqkzfjTGwQ.png">
-<meta property="og:updated_time" content="2020-07-28T02:18:56.785Z">
+<meta property="og:image" content="https://i.loli.net/2020/10/24/fdG739S4ji6Lqmb.png">
+<meta property="og:image" content="https://i.loli.net/2020/10/24/a6V95XyQhrg2cRS.gif">
+<meta property="og:updated_time" content="2020-10-24T10:17:35.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="远程控制软件">
-<meta name="twitter:description" content="每当回到住处一个电话打过来告诉你还有工作需要修改的时候，当外面下着倾盆大雨不方便出门却要工作时，当出差在外想要远程调用工作电脑上的文件时，当有人发消息给你需要你帮他处理电脑上出现的某个问题时，这些时候就会需要远程操控一台不在身边的电脑，现在市场上已经有很多款不同的远程控制软件，它们之间各有千秋，今天对这些软件做一个总结和评价。">
-<meta name="twitter:image" content="https://i.loli.net/2020/07/25/PAibfmrv1RJDXTO.png">
+<meta name="twitter:title" content="鼠标点击获取图像&#x2F;视频中某点像素坐标">
+<meta name="twitter:description" content="在对图像进行精确裁剪分割时，或者是想要确定图片中某个特征点的具体位置时，往往我们希望得到鼠标点击处的像素点坐标。这样做还有一个好处，如果我们想要快速得到拍摄的画面中一个物体的运动轨迹点数据的话，通过获得不同帧画面的物体所在的像素点坐标即可。">
+<meta name="twitter:image" content="https://i.loli.net/2020/10/24/fdG739S4ji6Lqmb.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -187,57 +185,45 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Remote-control-software" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-鼠标点击获取图像中某点像素坐标" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      远程控制软件
+      鼠标点击获取图像/视频中某点像素坐标
     </h1>
   
 
         
-        <a href="/2020/07/25/Remote-control-software/" class="archive-article-date">
-  	<time datetime="2020-07-25T03:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-25</time>
+        <a href="/2020/10/24/鼠标点击获取图像中某点像素坐标/" class="archive-article-date">
+  	<time datetime="2020-10-24T03:32:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>每当回到住处一个电话打过来告诉你还有工作需要修改的时候，当外面下着倾盆大雨不方便出门却要工作时，当出差在外想要远程调用工作电脑上的文件时，当有人发消息给你需要你帮他处理电脑上出现的某个问题时，这些时候就会需要远程操控一台不在身边的电脑，现在市场上已经有很多款不同的远程控制软件，它们之间各有千秋，今天对这些软件做一个总结和评价。</p>
+        <p>在对图像进行精确裁剪分割时，或者是想要确定图片中某个特征点的具体位置时，往往我们希望得到鼠标点击处的像素点坐标。这样做还有一个好处，如果我们想要快速得到拍摄的画面中一个物体的运动轨迹点数据的话，通过获得不同帧画面的物体所在的像素点坐标即可。</p>
 <a id="more"></a>
-<h2 id="teamviewer">TeamViewer</h2>
-<p>这款软件估计是很多人第一时间就想到的远程操控软件了，它的优点非常明显，只需两个设备同时开启 TeamViewer 即可，而且也不需要安装，可以跨平台使用，而且最重要的一点是，个人使用且非商业用途时，这个软件是可以免费使用的。</p>
-<p>但是其缺点就是它会检测你是否商用，如果被检测为商用还是会被限制使用，而商业版价格又很贵。且teamviewer服务器在国外，网络服务不太稳定，可能碰到几分钟就断线一次的情况。</p>
-<p>官网地址：<a href="https://www.teamviewer.cn/cn/" target="_blank" rel="noopener">TeamViewer</a></p>
-<h2 id="windows-快速助手">Windows 快速助手</h2>
-<p>使用快捷键Win + S，打开 Win10 自带的搜索功能，搜索「快速助手」并打开。在打开的页面中，可以看到「获取协助」和「提供协助」的选项，如果你的电脑遇到了问题，需要他人协助解决，可以使用获取协助，协助你解决问题的人则使用提供协助。提供协助的人使用微软帐号登录之后，可以获得一个安全代码，将其分享给需要帮助的人，安全代码的有效期为 10 分钟。获取协助的人输入安全代码后，提供协助的人可选择完全控制对方的电脑，也可选择在不完全控制的情况下查看对方的屏幕。</p>
-<p><img src="https://i.loli.net/2020/07/25/PAibfmrv1RJDXTO.png" alt="微信图片_20200725130640.png"></p>
-<p>快速助手不要求连接的两台电脑处于同个局域网下，使用起来也比较简单，唯一的缺点在于延迟较高，不够流畅。</p>
-<h2 id="windows-远程桌面连接">Windows 远程桌面连接</h2>
-<p>远程桌面连接，是Win10 专业版系统自带的远程连接功能，所以如果是其它版本的win10则不能使用这一功能。对于这个功能，微软在移动端上还推出了相应的 App：Microsoft 远程桌面，支持 iOS 和 Android，可以实现手机控制电脑。</p>
-<p>但是该功能要求两台电脑都处在同一局域网下，如果你想使用这个功能连接家里和公司的电脑，则需要先进行内网穿透，才能实现真正意义上的远程连接。</p>
-<h2 id="anydesk">AnyDesk</h2>
-<p>AnyDesk是一个小巧实用的远程桌面控制软件，适用于多种平台和操作系统，使用简单，个人用户免费，目前还没有爆出隐私泄露问题和安全问题。但是由于服务器在国外，因此访问链接速度特别不友好，卡顿现象十分明显。</p>
-<p>官网地址：<a href="https://anydesk.com/zhs" target="_blank" rel="noopener">AnyDesk</a><br>
-<img src="https://i.loli.net/2020/07/25/T8jEiXuIQ2GMfYq.png" alt="微信图片_20200725131743.png"></p>
-<h2 id="向日葵">向日葵</h2>
-<p>向日葵远程控制软件支持多平台，而且跨网络，不用关心计算机IP地址之类的问题，使用阿里云服务器，链接速度尚可，现在最新版本还可以电脑控制手机。但是缺点是需要注册 Oray账号，强制登录使用，且免费版限速300Kbps。</p>
-<p>官网地址：<a href="https://sunlogin.oray.com/" target="_blank" rel="noopener">向日葵</a></p>
-<h2 id="qq-远程桌面">QQ 远程桌面</h2>
-<p>腾讯QQ的附带产物，只要双方都安装了QQ或者TIM，加了好友，就能开始远程操作，非常方便，不用关心计算机IP地址之类的问题，只要是QQ好友，对方实时同意「被远程操作」，立刻就能动手。但是缺点是只能支持Windows，并且链接体验感人，卡到崩溃。<br>
-<img src="https://i.loli.net/2020/07/25/T5VUmaKkoGIsQOl.png" alt="微信图片_20200725133445.png"></p>
-<h2 id="todesk">ToDesk</h2>
-<p>ToDesk 是一款新入局的电脑桌面远程控制软件，主打「流畅」以及「个人免费」的特点。软件的体积很小仅 3MB 左右，但麻雀虽小五脏俱全，ToDesk 的功能还是足够实用的：远程桌面控制、文件传输、语音沟通、文字聊天都一应俱全。不必考虑受控的机器是否位于内网、有无公网 IP、端口映射或者网络防火墙，操作延迟低。缺点是现在还处于测试阶段，支持windows和ios，但现在还不支持Android，MacOS，Linux等平台。</p>
-<p>官网地址：<a href="https://www.todesk.com/" target="_blank" rel="noopener">ToDesk</a></p>
-<p><img src="https://i.loli.net/2020/07/25/WU9pirqkzfjTGwQ.png" alt="微信图片_20200725133726.png"></p>
-<p>从当前使用体验来看，ToDesk是最让人用的舒服的一款了。当然，除了以上介绍的远程控制软件，还有<a href="https://www.zerotier.com/download/" target="_blank" rel="noopener">ZeroTier</a>，<a href="https://www.radmin.cn/" target="_blank" rel="noopener">Radmin</a>，<a href="https://www.nomachine.com/" target="_blank" rel="noopener">nomachine</a>，<a href="https://www.cloudberry.com/" target="_blank" rel="noopener">CloudBerry Remote Assistance</a>等等软件，如果对以上软件都不太满意的话可以试试这些远程控制软件。</p>
+<p>实现这个功能需要用到Opencv的鼠标回调事件，这基于OpenCV的内置函数cv2.setMouseCallback()，官方文档是这样写的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># mouse callback function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">draw_circle</span><span class="params">(event,x,y,flags,param)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDBLCLK:</span><br><span class="line">        cv2.circle(img,(x,y),<span class="number">100</span>,(<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a black image, a window and bind the function to window</span></span><br><span class="line">img = np.zeros((<span class="number">512</span>,<span class="number">512</span>,<span class="number">3</span>), np.uint8)</span><br><span class="line">cv2.namedWindow(<span class="string">'image'</span>)</span><br><span class="line">cv2.setMouseCallback(<span class="string">'image'</span>,draw_circle)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(<span class="number">1</span>):</span><br><span class="line">    cv2.imshow(<span class="string">'image'</span>,img)</span><br><span class="line">    <span class="keyword">if</span> cv2.waitKey(<span class="number">20</span>) &amp; <span class="number">0xFF</span> == <span class="number">27</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure>
+<p>这段代码的主要流程是<strong>如果检测到鼠标事件，则在鼠标双击的坐标处画一个大小为100的圆</strong>，因此由此我们可以得到鼠标点击处的像素坐标。</p>
+<p>对于单张图片：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">img1=cv2.imread(<span class="string">'wallhaven-mdjwjy.jpg'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#像素点坐标初定义</span></span><br><span class="line">pro_x = []</span><br><span class="line">pro_y = []</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义鼠标点击事件并将点击坐标输入数组</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mouse_img_cod</span><span class="params">(event, cod_x, cod_y, flags, param)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDOWN:</span><br><span class="line">        xy = <span class="string">"%d,%d"</span> % (cod_x,cod_y)</span><br><span class="line">        cv2.circle(img1, (cod_x,cod_y), <span class="number">1</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), thickness = <span class="number">-1</span>)</span><br><span class="line">        cv2.putText(img1, xy, (cod_x,cod_y), cv2.FONT_HERSHEY_PLAIN,<span class="number">1.0</span>, (<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>), thickness = <span class="number">1</span>) <span class="comment">#将坐标值放在图片内</span></span><br><span class="line">        cv2.imshow(<span class="string">"image"</span>, img1)</span><br><span class="line">        pro_x.append(cod_x)</span><br><span class="line">        pro_y.append(cod_y)</span><br><span class="line">        </span><br><span class="line">cv2.namedWindow(<span class="string">'image'</span>, cv2.WINDOW_AUTOSIZE) <span class="comment">#创建一个名为image的窗口</span></span><br><span class="line">cv2.setMouseCallback(<span class="string">"image"</span>, mouse_img_cod) <span class="comment">#鼠标事件回调</span></span><br><span class="line">cv2.imshow(<span class="string">'image'</span>,img1) <span class="comment">#显示图片</span></span><br><span class="line">cv2.waitKey(<span class="number">0</span>) <span class="comment">#按下任意键退出窗口</span></span><br><span class="line">cv2.destroyAllWindows()</span><br><span class="line"></span><br><span class="line">print(pro_x[<span class="number">0</span>],pro_y[<span class="number">0</span>]) <span class="comment">#打印坐标值</span></span><br></pre></td></tr></table></figure>
+<p>运行后效果如图：</p>
+<p><img src="https://i.loli.net/2020/10/24/fdG739S4ji6Lqmb.png" alt="imagepoint.png"></p>
+<p>对于一系列图片：</p>
+<p>想要提取视频中的某个特征点的像素点坐标的话，也可以通过人为的鼠标点击获得这些坐标数据，在进行这个操作的前提是已经将视频每一帧转成图片。在这里我截取了辉告中会长向藤原书记学习唱歌的片段，主要想要得到的是得到藤原书记手指指尖挥动的轨迹坐标点。</p>
+<p>运行程序的时候只需要鼠标点击藤原书记指尖位置，然后按下任意键切换下一帧图片，继续点击，直至循环结束，指尖挥动的轨迹坐标点则存入trajectory_cod列表中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入所需要的库</span></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">img_num = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unlock_movie</span><span class="params">(path)</span>:</span></span><br><span class="line"><span class="comment"># 将视频转换成图片</span></span><br><span class="line"><span class="comment"># path: 视频路径</span></span><br><span class="line">  cap = cv2.VideoCapture(path)</span><br><span class="line">  suc = cap.isOpened()  <span class="comment"># 是否成功打开</span></span><br><span class="line">  frame_count = <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> suc:</span><br><span class="line">      frame_count += <span class="number">1</span></span><br><span class="line">      suc, frame = cap.read()</span><br><span class="line">      params = []</span><br><span class="line">      params.append(<span class="number">2</span>)  <span class="comment"># params.append(1)</span></span><br><span class="line">      <span class="keyword">if</span> frame_count % <span class="number">3</span> == <span class="number">0</span>:  <span class="comment"># 调整帧数</span></span><br><span class="line">          <span class="keyword">if</span> frame <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">              cv2.imwrite(<span class="string">'./output/video1_'</span> + str(frame_count) + <span class="string">".jpg"</span>, frame, params)</span><br><span class="line">              img_num.append(frame_count) <span class="comment"># 得到图片后缀名编号</span></span><br><span class="line"></span><br><span class="line">  cap.release()</span><br><span class="line">  print(<span class="string">'unlock movie: '</span>, frame_count)</span><br><span class="line"></span><br><span class="line">videoFile = <span class="string">'书记教会长唱歌.mp4'</span> <span class="comment"># 读取视频文件</span></span><br><span class="line">unlock_movie(videoFile)  <span class="comment"># 视频转图片</span></span><br><span class="line"></span><br><span class="line">star_num = img_num[<span class="number">0</span>] <span class="comment">#图片开始编号</span></span><br><span class="line">end_num = img_num[len(img_num)<span class="number">-1</span>] <span class="comment">#图片结束编号</span></span><br><span class="line">file_name = <span class="string">'video1_'</span> <span class="comment">#图片前缀名</span></span><br><span class="line">trajectory_cod = np.zeros( ((end_num-star_num)//<span class="number">3</span>+<span class="number">1</span>,<span class="number">2</span>) ) <span class="comment">#初始定义轨迹坐标数组</span></span><br><span class="line">cod_i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#头部轨迹点手动提取</span></span><br><span class="line"><span class="keyword">for</span> num_p <span class="keyword">in</span> range(star_num,end_num,<span class="number">3</span>):</span><br><span class="line">    <span class="comment">#像素点坐标初定义</span></span><br><span class="line">    pro_x = []</span><br><span class="line">    pro_y = []</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#定义鼠标点击事件并将点击坐标输入数组</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mouse_img_cod</span><span class="params">(event, cod_x, cod_y, flags, param)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> event == cv2.EVENT_LBUTTONDOWN:</span><br><span class="line">            xy = <span class="string">"%d,%d"</span> % (cod_x,cod_y)</span><br><span class="line">            cv2.circle(img1, (cod_x,cod_y), <span class="number">1</span>, (<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>), thickness = <span class="number">-1</span>)</span><br><span class="line">            cv2.putText(img1, xy, (cod_x,cod_y), cv2.FONT_HERSHEY_PLAIN,<span class="number">1.0</span>, (<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>), thickness = <span class="number">1</span>)</span><br><span class="line">            cv2.imshow(<span class="string">"image"</span>, img1)</span><br><span class="line">            pro_x.append(cod_x)</span><br><span class="line">            pro_y.append(cod_y)</span><br><span class="line">    </span><br><span class="line">    file_read = <span class="string">'./output/video1_'</span>+str(num_p)+<span class="string">'.jpg'</span> <span class="comment">#图片路径</span></span><br><span class="line">    img1 = cv2.imread(file_read) <span class="comment">#读入图片</span></span><br><span class="line">    cv2.namedWindow(<span class="string">'image'</span>, cv2.WINDOW_AUTOSIZE) <span class="comment">#创建一个名为image的窗口</span></span><br><span class="line">    cv2.setMouseCallback(<span class="string">"image"</span>, mouse_img_cod) <span class="comment">#鼠标事件回调</span></span><br><span class="line">    cv2.imshow(<span class="string">'image'</span>,img1) <span class="comment">#显示图片</span></span><br><span class="line">    cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">    cv2.destroyAllWindows() </span><br><span class="line">    print(pro_x[<span class="number">0</span>],pro_y[<span class="number">0</span>]) <span class="comment">#打印坐标值</span></span><br><span class="line">    trajectory_cod[cod_i,<span class="number">0</span>] = pro_x[<span class="number">0</span>]</span><br><span class="line">    trajectory_cod[cod_i,<span class="number">1</span>] = pro_y[<span class="number">0</span>]</span><br><span class="line">    cod_i = cod_i+<span class="number">1</span></span><br><span class="line">    </span><br><span class="line">save_file = file_name + <span class="string">'藤原书记手指指尖挥动的轨迹坐标.txt'</span></span><br><span class="line">np.savetxt(save_file,trajectory_cod)</span><br></pre></td></tr></table></figure>
+<p>运行后效果如图：</p>
+<p><img src="https://i.loli.net/2020/10/24/a6V95XyQhrg2cRS.gif" alt="tengyuanshuji.gif"></p>
 <h2 id="参考链接">参考链接</h2>
-<p><a href="https://www.zhihu.com/question/20780129/answer/1316886104" target="_blank" rel="noopener">请推荐好的远程控制软件？</a><br>
-<a href="https://www.zhihu.com/question/372188717/answer/1345789801" target="_blank" rel="noopener">有哪些比较好用的远程控制软件？</a></p>
+<p><a href="https://blog.csdn.net/qq_41360787/article/details/103258773" target="_blank" rel="noopener">python-利用OpenCV获取图像中鼠标点击处像素点的坐标</a></p>
+<p><a href="https://www.cnblogs.com/YanQing1998/p/11910030.html" target="_blank" rel="noopener">OpenCV/python读取，显示，保存图像</a></p>
+<p><a href="https://www.jianshu.com/p/b2dec074d270" target="_blank" rel="noopener">Python+cv2 视频转换为图片 与 图片转换为视频</a></p>
 
       
 
@@ -338,7 +324,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/07/25/Remote-control-software/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/10/24/鼠标点击获取图像中某点像素坐标/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -352,18 +338,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/10/24/鼠标点击获取图像中某点像素坐标/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          鼠标点击获取图像/视频中某点像素坐标
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/06/25/Dragon-Boat-Festival/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">端午小记</div>
+    <a href="/2020/07/25/Remote-control-software/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">远程控制软件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -390,7 +367,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#teamviewer"><span class="toc-number">1.</span> <span class="toc-text">TeamViewer</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows-快速助手"><span class="toc-number">2.</span> <span class="toc-text">Windows 快速助手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#windows-远程桌面连接"><span class="toc-number">3.</span> <span class="toc-text">Windows 远程桌面连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#anydesk"><span class="toc-number">4.</span> <span class="toc-text">AnyDesk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#向日葵"><span class="toc-number">5.</span> <span class="toc-text">向日葵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#qq-远程桌面"><span class="toc-number">6.</span> <span class="toc-text">QQ 远程桌面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#todesk"><span class="toc-number">7.</span> <span class="toc-text">ToDesk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">8.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">1.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
