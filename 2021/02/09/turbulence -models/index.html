@@ -17,7 +17,7 @@
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2021-02-09T13:53:39.356Z">
+<meta property="og:updated_time" content="2021-02-09T13:56:16.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常用的湍流模型">
 <meta name="twitter:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
@@ -216,7 +216,7 @@ var _hmt = _hmt || [];
 \frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{U^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{U^{2}}{2}\right )\vec{\boldsymbol{U}} \right ]&=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}\\\\
 &-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}\\\\
 &+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \vec{\boldsymbol{U}}
-\end{align}</script><h2 id="雷诺平均方法-RANS"><a href="#雷诺平均方法-RANS" class="headerlink" title="雷诺平均方法(RANS)"></a>雷诺平均方法(RANS)</h2><p>在雷诺平均法中，把瞬时速度$u<em>{i}$分解为时均速度$\overline{u</em>{i}}$和脉动速度${u_{i}}’$，<br>则对于速度分量： </p>
+\end{align}</script><h2 id="雷诺平均方法-RANS"><a href="#雷诺平均方法-RANS" class="headerlink" title="雷诺平均方法(RANS)"></a>雷诺平均方法(RANS)</h2><p>在雷诺平均法中，把瞬时速度$u<em>{i}$分解为时均速度$\overline{u</em>{i} }$和脉动速度${u_{i} }’$，<br>则对于速度分量： </p>
 <script type="math/tex; mode=display">
 u_{i}=\overline{u_{i}}+{u_{i}}'</script><p>同样，对于压力和能量、相分数或其他标量也采用这种方式进行分解。</p>
 <script type="math/tex; mode=display">
@@ -243,7 +243,7 @@ u_{i}=\overline{u_{i}}+{u_{i}}'</script><p>同样，对于压力和能量、相�
 \overline{\alpha \phi + \beta \xi} = \alpha \overline{\phi} + \beta \overline{\xi} \quad (\alpha 和 \beta 为常数)
 \end{equation}</script><script type="math/tex; mode=display">
 \frac{\overline{\partial \phi}}{\partial t} = \frac{\partial \overline{\phi}}{\partial t}, \quad \frac{\overline{\partial \phi}}{\partial x_i} = \frac{\partial \overline{\phi}}{\partial x_i}\\\\
-\frac{\overline{\partial^2 \phi} }{\partial x_{i}^2}=\frac{\partial^2 \overline{\phi} }{\partial x_{i}^2}, \quad \frac{\overline{\partial \phi'}}{\partial x_i} =0, \quad \frac{\overline{\partial^2 \phi'} }{\partial x_{i}^2}=0</script><p>对于连续性方程，将三个坐标方向的瞬时速度表示为时均速度$\overline{u<em>{i}}$和脉动速度${u</em>{i}}’$之和并代入，再对该式作时均运算，得到：</p>
+\frac{\overline{\partial^2 \phi} }{\partial x_{i}^2}=\frac{\partial^2 \overline{\phi} }{\partial x_{i}^2}, \quad \frac{\overline{\partial \phi'}}{\partial x_i} =0, \quad \frac{\overline{\partial^2 \phi'} }{\partial x_{i}^2}=0</script><p>对于连续性方程，将三个坐标方向的瞬时速度表示为时均速度$\overline{u<em>{i} }$和脉动速度${u</em>{i} }’$之和并代入，再对该式作时均运算，得到：</p>
 
       
 
