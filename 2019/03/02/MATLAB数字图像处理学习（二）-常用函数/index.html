@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
-  <meta name="baidu-site-verification" content="xW173eR3BR">
-  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="xW173eR3BR" />
+  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
   <title>MATLAB数字图像处理学习（二）|常用函数 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》">
-<meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MATLAB数字图像处理学习（二）|常用函数">
-<meta property="og:url" content="https://ink-bottle.github.io/2019/03/02/MATLAB数字图像处理学习（二）-常用函数/index.html">
+<meta property="og:url" content="https://ink-bottle.github.io/2019/03/02/MATLAB%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a1d6b3fafa.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a207a79d61.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a28ec7cdc7.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a2c37060db.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a2e3e30923.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/02/5c7a2f7bbae07.png">
-<meta property="og:updated_time" content="2020-01-01T04:47:38.867Z">
+<meta property="article:published_time" content="2019-03-02T05:05:46.000Z">
+<meta property="article:modified_time" content="2020-01-01T04:47:38.867Z">
+<meta property="article:author" content="inkbottle">
+<meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MATLAB数字图像处理学习（二）|常用函数">
-<meta name="twitter:description" content="以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/02/5c7a1d6b3fafa.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
@@ -53,8 +53,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -67,10 +67,8 @@ var _hmt = _hmt || [];
 			<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inkbottle</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">信号连通在人海里，迎面的人满是笑意</p>
 		
 
 		<nav class="header-menu">
@@ -78,7 +76,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/心记">心记</a></li>
+				<li><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 	        
 				<li><a href="/message-boards">留言板</a></li>
 	        
@@ -135,10 +133,8 @@ var _hmt = _hmt || [];
 				<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inkbottle</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>信号连通在人海里，迎面的人满是笑意<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -172,7 +168,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/心记">心记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/message-boards">留言板</a></li>
 		        
@@ -201,7 +197,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2019/03/02/MATLAB数字图像处理学习（二）-常用函数/" class="archive-article-date">
+        <a href="/2019/03/02/MATLAB%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" class="archive-article-date">
   	<time datetime="2019-03-02T05:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-02</time>
 </a>
         
@@ -238,7 +234,7 @@ BW = edge(I,method,threshold,h)<br>
 [BW,threshOut,Gv,Gh] = edge(—)</p>
 </blockquote>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">% 将索引彩色图象转换为灰度图像</span><br><span class="line">bw1=edge(I,&apos;roberts&apos;);</span><br><span class="line">bw2=edge(I,&apos;sobel&apos;);</span><br><span class="line">bw3=edge(I,&apos;prewitt&apos;);</span><br><span class="line">bw4=edge(I,&apos;log&apos;);</span><br><span class="line">bw5=edge(I,&apos;canny&apos;,[0.032,0.08],1);</span><br><span class="line">figure</span><br><span class="line">subplot(2,3,1),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(2,3,2),imshow(bw1);</span><br><span class="line">title(&apos;roberts&apos;);</span><br><span class="line">subplot(2,3,3),imshow(bw2);</span><br><span class="line">title(&apos;sobel&apos;);</span><br><span class="line">subplot(2,3,4),imshow(bw3);</span><br><span class="line">title(&apos;prewitt&apos;);</span><br><span class="line">subplot(2,3,5),imshow(bw4);</span><br><span class="line">title(&apos;log&apos;);</span><br><span class="line">subplot(2,3,6),imshow(bw5);</span><br><span class="line">title(&apos;canny&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">% 将索引彩色图象转换为灰度图像</span><br><span class="line">bw1&#x3D;edge(I,&#39;roberts&#39;);</span><br><span class="line">bw2&#x3D;edge(I,&#39;sobel&#39;);</span><br><span class="line">bw3&#x3D;edge(I,&#39;prewitt&#39;);</span><br><span class="line">bw4&#x3D;edge(I,&#39;log&#39;);</span><br><span class="line">bw5&#x3D;edge(I,&#39;canny&#39;,[0.032,0.08],1);</span><br><span class="line">figure</span><br><span class="line">subplot(2,3,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(2,3,2),imshow(bw1);</span><br><span class="line">title(&#39;roberts&#39;);</span><br><span class="line">subplot(2,3,3),imshow(bw2);</span><br><span class="line">title(&#39;sobel&#39;);</span><br><span class="line">subplot(2,3,4),imshow(bw3);</span><br><span class="line">title(&#39;prewitt&#39;);</span><br><span class="line">subplot(2,3,5),imshow(bw4);</span><br><span class="line">title(&#39;log&#39;);</span><br><span class="line">subplot(2,3,6),imshow(bw5);</span><br><span class="line">title(&#39;canny&#39;);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/02/5c7a207a79d61.png" alt="2333"></p>
 <h2 id="strel">strel</h2>
 <p>功能：构造结构元素（Structuring element）。所谓结构元素，可以看做是一张小图像，它通常用于图像的形态学运算（如膨胀、腐蚀、开运算、闭运算）。<br>
@@ -271,7 +267,7 @@ J = imerode(—,packopt,m)<br>
 J = imerode(—,shape)</p>
 </blockquote>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">sel1=strel(&apos;disk&apos;,2);%创建一个指定半径1的平面圆盘形的结构元素</span><br><span class="line">im1=imdilate(I,sel1);</span><br><span class="line">im2=imerode(I,sel1);</span><br><span class="line">subplot(2,2,1),imshow(I1);</span><br><span class="line">title(&apos;彩色图像&apos;);</span><br><span class="line">subplot(2,2,2),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(2,2,3),imshow(im1);</span><br><span class="line">title(&apos;图像膨胀&apos;);</span><br><span class="line">subplot(2,2,4),imshow(im2);</span><br><span class="line">title(&apos;图像腐蚀&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">sel1&#x3D;strel(&#39;disk&#39;,2);%创建一个指定半径1的平面圆盘形的结构元素</span><br><span class="line">im1&#x3D;imdilate(I,sel1);</span><br><span class="line">im2&#x3D;imerode(I,sel1);</span><br><span class="line">subplot(2,2,1),imshow(I1);</span><br><span class="line">title(&#39;彩色图像&#39;);</span><br><span class="line">subplot(2,2,2),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(2,2,3),imshow(im1);</span><br><span class="line">title(&#39;图像膨胀&#39;);</span><br><span class="line">subplot(2,2,4),imshow(im2);</span><br><span class="line">title(&#39;图像腐蚀&#39;);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/02/5c7a28ec7cdc7.png" alt="23333"></p>
 <h2 id="imfill">imfill</h2>
 <p>功能：该函数用于填充图像区域和“空洞”。<br>
@@ -289,7 +285,7 @@ I2 = imfill(I)<br>
 这种调用格式将填充灰度图像中所有的空洞区域。</p>
 </blockquote>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">im3=imfill(I,&apos;hole&apos;);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(1,2,2),imshow(im3);</span><br><span class="line">title(&apos;图像填充&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">im3&#x3D;imfill(I,&#39;hole&#39;);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(1,2,2),imshow(im3);</span><br><span class="line">title(&#39;图像填充&#39;);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/02/5c7a2c37060db.png" alt="2333"></p>
 <h2 id="bwareaopen">bwareaopen</h2>
 <p>功能：删除二值图像BW中小面积对象，默认情况下使用8邻域。<br>
@@ -299,10 +295,10 @@ I2 = imfill(I)<br>
 BW2 = bwareaopen(BW,P,conn)</p>
 </blockquote>
 <p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1=imread(&apos;C:\Users\huayang\Desktop\MATLAB photo\测试.png&apos;);</span><br><span class="line">I=im2bw(I1);</span><br><span class="line">im1=bwareaopen(I,1200);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&apos;原始图像&apos;);</span><br><span class="line">subplot(1,2,2),imshow(im1);</span><br><span class="line">title(&apos;删除对象&apos;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">im1&#x3D;bwareaopen(I,1200);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(1,2,2),imshow(im1);</span><br><span class="line">title(&#39;删除对象&#39;);</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/02/5c7a2e3e30923.png" alt="23333"></p>
-<p>关于matlab函数_连通区域得详解，可参考<a href="https://www.cnblogs.com/saliency/p/3593308.html" target="_blank" rel="noopener">matlab函数bwareaopen的详解</a><br>
-关于matlab图像处理的更多知识，可参考<a href="https://cristal-yin.github.io/2017/06/21/%E5%BD%A2%E6%80%81%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" target="_blank" rel="noopener">形态学图像处理</a><br>
+<p>关于matlab函数_连通区域得详解，可参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/saliency/p/3593308.html">matlab函数bwareaopen的详解</a><br>
+关于matlab图像处理的更多知识，可参考<a target="_blank" rel="noopener" href="https://cristal-yin.github.io/2017/06/21/%E5%BD%A2%E6%80%81%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">形态学图像处理</a><br>
 最后，再奉上一个表情包用于测试：</p>
 <p><img src="https://i.loli.net/2019/03/02/5c7a2f7bbae07.png" alt="23333"></p>
 
@@ -394,7 +390,7 @@ BW2 = bwareaopen(BW,P,conn)</p>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2019/03/02/MATLAB数字图像处理学习（二）-常用函数/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2019/03/02/MATLAB%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -408,7 +404,7 @@ BW2 = bwareaopen(BW,P,conn)</p>
   
 <nav id="article-nav">
   
-    <a href="/2019/03/03/hexo-博客增加Valine-gitalk评论插件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -418,7 +414,7 @@ BW2 = bwareaopen(BW,P,conn)</p>
     </a>
   
   
-    <a href="/2019/02/28/MATLAB数字图像处理学习（一）-MATLAB中图像的基本操作/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/02/28/MATLAB%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89-MATLAB%E4%B8%AD%E5%9B%BE%E5%83%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">MATLAB数字图像处理学习（一）|MATLAB中图像的基本操作</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -446,7 +442,7 @@ BW2 = bwareaopen(BW,P,conn)</p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#im2bw"><span class="toc-number">1.</span> <span class="toc-text">im2bw</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#edge"><span class="toc-number">2.</span> <span class="toc-text">edge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strel"><span class="toc-number">3.</span> <span class="toc-text">strel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#imdilate与imerode"><span class="toc-number">4.</span> <span class="toc-text">imdilate与imerode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#imfill"><span class="toc-number">5.</span> <span class="toc-text">imfill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bwareaopen"><span class="toc-number">6.</span> <span class="toc-text">bwareaopen</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#im2bw"><span class="toc-number">1.</span> <span class="toc-text">im2bw</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#edge"><span class="toc-number">2.</span> <span class="toc-text">edge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#strel"><span class="toc-number">3.</span> <span class="toc-text">strel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#imdilate%E4%B8%8Eimerode"><span class="toc-number">4.</span> <span class="toc-text">imdilate与imerode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#imfill"><span class="toc-number">5.</span> <span class="toc-text">imfill</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#bwareaopen"><span class="toc-number">6.</span> <span class="toc-text">bwareaopen</span></a></li></ol>
                     </div>
                 </span>
             </div>

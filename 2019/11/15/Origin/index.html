@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
-  <meta name="baidu-site-verification" content="xW173eR3BR">
-  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="xW173eR3BR" />
+  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
   <title>matlab和Origin作图的一系列问题和解决方案 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="论文作图软件有很多，数据类的图小白一次接触的应该就是Excel，matlab等，流程图使用visio，除此之外进阶一些的还有Gnuplot，Matplotlib，Tikz，Origin和Python等，统计数据可视化使用R-ggplot2，流场图使用Tecplot，Paraview等。当然，利用这些作图软件画好图后存为eps格式矢量图出来再用illustrator进行后期美化。如果实在没有时间而需">
-<meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="matlab和Origin作图的一系列问题和解决方案">
 <meta property="og:url" content="https://ink-bottle.github.io/2019/11/15/Origin/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="论文作图软件有很多，数据类的图小白一次接触的应该就是Excel，matlab等，流程图使用visio，除此之外进阶一些的还有Gnuplot，Matplotlib，Tikz，Origin和Python等，统计数据可视化使用R-ggplot2，流场图使用Tecplot，Paraview等。当然，利用这些作图软件画好图后存为eps格式矢量图出来再用illustrator进行后期美化。如果实在没有时间而需">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/11/15/CeVYRudEUN1ykhf.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/15/HMotJfp7FQaRGyT.png">
-<meta property="og:updated_time" content="2020-01-10T14:04:20.489Z">
+<meta property="article:published_time" content="2019-11-15T11:05:46.000Z">
+<meta property="article:modified_time" content="2020-01-10T14:04:20.489Z">
+<meta property="article:author" content="inkbottle">
+<meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="matlab和Origin作图的一系列问题和解决方案">
-<meta name="twitter:description" content="论文作图软件有很多，数据类的图小白一次接触的应该就是Excel，matlab等，流程图使用visio，除此之外进阶一些的还有Gnuplot，Matplotlib，Tikz，Origin和Python等，统计数据可视化使用R-ggplot2，流场图使用Tecplot，Paraview等。当然，利用这些作图软件画好图后存为eps格式矢量图出来再用illustrator进行后期美化。如果实在没有时间而需">
 <meta name="twitter:image" content="https://i.loli.net/2019/11/15/CeVYRudEUN1ykhf.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
@@ -49,8 +49,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -63,10 +63,8 @@ var _hmt = _hmt || [];
 			<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inkbottle</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">信号连通在人海里，迎面的人满是笑意</p>
 		
 
 		<nav class="header-menu">
@@ -74,7 +72,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/心记">心记</a></li>
+				<li><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 	        
 				<li><a href="/message-boards">留言板</a></li>
 	        
@@ -131,10 +129,8 @@ var _hmt = _hmt || [];
 				<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inkbottle</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>信号连通在人海里，迎面的人满是笑意<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -168,7 +164,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/心记">心记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/message-boards">留言板</a></li>
 		        
@@ -205,21 +201,21 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>论文作图软件有很多，数据类的图小白一次接触的应该就是Excel，matlab等，流程图使用visio，除此之外进阶一些的还有<a href="http://gnuplot.sourceforge.net/" target="_blank" rel="noopener">Gnuplot</a>，Matplotlib，Tikz，<a href="https://www.originlab.com/" target="_blank" rel="noopener">Origin</a>和Python等，统计数据可视化使用R-ggplot2，流场图使用Tecplot，Paraview等。当然，利用这些作图软件画好图后存为eps格式矢量图出来再用illustrator进行后期美化。如果实在没有时间而需要急着出图，PPT也是一个不错的选择😛。</p>
+        <p>论文作图软件有很多，数据类的图小白一次接触的应该就是Excel，matlab等，流程图使用visio，除此之外进阶一些的还有<a target="_blank" rel="noopener" href="http://gnuplot.sourceforge.net/">Gnuplot</a>，Matplotlib，Tikz，<a target="_blank" rel="noopener" href="https://www.originlab.com/">Origin</a>和Python等，统计数据可视化使用R-ggplot2，流场图使用Tecplot，Paraview等。当然，利用这些作图软件画好图后存为eps格式矢量图出来再用illustrator进行后期美化。如果实在没有时间而需要急着出图，PPT也是一个不错的选择😛。</p>
 <a id="more"></a>
 <blockquote>
 <p>作为论文数据的主要载体，图片直接呈现了文章的叙事逻辑和主要结论，并且反映出文章的重点和创新点。很多读者（包括审稿人）的阅读习惯都是先看图，如果图片质量高，读者就有兴趣一探究竟；如果图片看起来不太顺眼，那么读者（审稿人）的印象就不会太好，甚至会认为作者科研素养不高或者是准备稿件时不够认真，进而质疑文章数据及结论的可靠性。</p>
 </blockquote>
 <p>有关matlab和origin作图，我将我遇到的一些问题和方法整理如下。</p>
-<h2 id="matlab">MATLAB</h2>
+<h2 id="MATLAB">MATLAB</h2>
 <p><strong>坐标格式设置</strong><br>
 对于matlab作图时需要的一些操作，例如设置坐标轴粗细，保留左边和下边的刻度，去掉上边和右边的刻度等等可以通过下面的代码实现，而不必要每次点开属性检查器去修改了。</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">axis equal; <span class="comment">%坐标平均</span></span><br><span class="line">set(gca,<span class="string">'tickdir'</span>,<span class="string">'out'</span>);<span class="comment">%刻度线朝外</span></span><br><span class="line">box off;<span class="comment">%去除右边框和上边框</span></span><br><span class="line">line([<span class="number">-80</span>,<span class="number">240</span>],[<span class="number">50</span> <span class="number">50</span>],<span class="string">'Color'</span>,[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>],<span class="string">'LineWidth'</span>,<span class="number">1.5</span>)<span class="comment">%画上边框</span></span><br><span class="line">line([<span class="number">240</span>,<span class="number">240</span>],[<span class="number">-350</span> <span class="number">50</span>],<span class="string">'Color'</span>,[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>],<span class="string">'LineWidth'</span>,<span class="number">1.5</span>)<span class="comment">%画下边框</span></span><br><span class="line">set(gca,<span class="string">'LineWidth'</span>,<span class="number">1.5</span>,<span class="string">'fontsize'</span>,<span class="number">15</span>,<span class="string">'fontname'</span>,<span class="string">'Times New Roman'</span>);<span class="comment">%坐标轴粗细，刻度数字字体大小格式设置</span></span><br><span class="line">xlabel(<span class="string">'Distance to the impact point (mm)'</span>,<span class="string">'Fontname'</span>, <span class="string">'Times New Roman'</span>,<span class="string">'FontSize'</span>,<span class="number">15</span>);<span class="comment">%x轴标题，字体大小格式设置</span></span><br><span class="line">ylabel(<span class="string">'Distance to the water surface (mm)'</span>,<span class="string">'Fontname'</span>, <span class="string">'Times New Roman'</span>,<span class="string">'FontSize'</span>,<span class="number">15</span>);<span class="comment">%y轴标题，字体大小格式设置</span></span><br><span class="line">set(gca,<span class="string">'XTick'</span>,[<span class="number">-80</span>:<span class="number">40</span>:<span class="number">240</span>]);<span class="comment">%设置x轴刻度范围和增量</span></span><br><span class="line">axis([<span class="number">-80</span> <span class="number">240</span> <span class="number">-350</span> <span class="number">50</span>]);<span class="comment">%设置x轴y轴刻度范围</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">axis equal; <span class="comment">%坐标平均</span></span><br><span class="line">set(gca,<span class="string">&#x27;tickdir&#x27;</span>,<span class="string">&#x27;out&#x27;</span>);<span class="comment">%刻度线朝外</span></span><br><span class="line">box off;<span class="comment">%去除右边框和上边框</span></span><br><span class="line">line([<span class="number">-80</span>,<span class="number">240</span>],[<span class="number">50</span> <span class="number">50</span>],<span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>],<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">1.5</span>)<span class="comment">%画上边框</span></span><br><span class="line">line([<span class="number">240</span>,<span class="number">240</span>],[<span class="number">-350</span> <span class="number">50</span>],<span class="string">&#x27;Color&#x27;</span>,[<span class="number">0.15</span> <span class="number">0.15</span> <span class="number">0.15</span>],<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">1.5</span>)<span class="comment">%画下边框</span></span><br><span class="line">set(gca,<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">1.5</span>,<span class="string">&#x27;fontsize&#x27;</span>,<span class="number">15</span>,<span class="string">&#x27;fontname&#x27;</span>,<span class="string">&#x27;Times New Roman&#x27;</span>);<span class="comment">%坐标轴粗细，刻度数字字体大小格式设置</span></span><br><span class="line">xlabel(<span class="string">&#x27;Distance to the impact point (mm)&#x27;</span>,<span class="string">&#x27;Fontname&#x27;</span>, <span class="string">&#x27;Times New Roman&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>);<span class="comment">%x轴标题，字体大小格式设置</span></span><br><span class="line">ylabel(<span class="string">&#x27;Distance to the water surface (mm)&#x27;</span>,<span class="string">&#x27;Fontname&#x27;</span>, <span class="string">&#x27;Times New Roman&#x27;</span>,<span class="string">&#x27;FontSize&#x27;</span>,<span class="number">15</span>);<span class="comment">%y轴标题，字体大小格式设置</span></span><br><span class="line">set(gca,<span class="string">&#x27;XTick&#x27;</span>,[<span class="number">-80</span>:<span class="number">40</span>:<span class="number">240</span>]);<span class="comment">%设置x轴刻度范围和增量</span></span><br><span class="line">axis([<span class="number">-80</span> <span class="number">240</span> <span class="number">-350</span> <span class="number">50</span>]);<span class="comment">%设置x轴y轴刻度范围</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>封闭离散点的曲线绘制</strong><br>
 除了数据曲线图之外，我们可能需要对一堆轮廓数据点进行相互连接，即利用散点画闭合不规则曲线，但是plot函数是按点的顺序连接的，也就是说想要连成曲线你必须对各个点进行编号然后再连接，在数据点较少的情况下可以实现，但是如果有上百个数据点这样就不太现实。不过我们可以通过寻找相邻点互连的思路来做，具体代码如下：其中<em>2073.txt</em>为导入的数据点。</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">clc;clear;</span><br><span class="line">file_number=load(<span class="string">'2073.txt'</span>);</span><br><span class="line">file_number_x=file_number(:,<span class="number">1</span>);<span class="comment">%取数据点的x坐标</span></span><br><span class="line">file_number_y=file_number(:,<span class="number">2</span>);<span class="comment">%取数据点的y坐标</span></span><br><span class="line">temporary_file_number=file_number;<span class="comment">%创建临时的数据点文件</span></span><br><span class="line">initial_point=[file_number(<span class="number">1</span>,<span class="number">1</span>),file_number(<span class="number">1</span>,<span class="number">2</span>)];<span class="comment">%给定初始点</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(file_number_x)</span><br><span class="line">    new_number(<span class="built_in">i</span>,<span class="number">1</span>)=initial_point(<span class="number">1</span>);new_number(<span class="built_in">i</span>,<span class="number">2</span>)=initial_point(<span class="number">2</span>);<span class="comment">%将寻找的点重新排序放入新的矩阵</span></span><br><span class="line">    point_find=<span class="built_in">ismember</span>(temporary_file_number,initial_point,<span class="string">'rows'</span>);<span class="comment">%找出点所在的行数的位置</span></span><br><span class="line">    point_location=<span class="built_in">find</span>(point_find==<span class="number">1</span>);</span><br><span class="line">    temporary_file_number(point_location,:)=[];<span class="comment">%删除需要连接的点，防止连接到上一个点</span></span><br><span class="line">    temporary_file_number_x=temporary_file_number(:,<span class="number">1</span>);</span><br><span class="line">    temporary_file_number_y=temporary_file_number(:,<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">length</span>(temporary_file_number_x)&gt;=<span class="number">1</span>    <span class="comment">%寻找连通的下一个最近的点</span></span><br><span class="line">        <span class="keyword">for</span> k=<span class="number">1</span>:<span class="built_in">length</span>(temporary_file_number_x)</span><br><span class="line">            search_pointx=temporary_file_number(k,<span class="number">1</span>);</span><br><span class="line">            search_pointy=temporary_file_number(k,<span class="number">2</span>);</span><br><span class="line">            point_disance(k)=<span class="built_in">sqrt</span>((search_pointx-initial_point(<span class="number">1</span>))^<span class="number">2</span>+(search_pointy-initial_point(<span class="number">2</span>))^<span class="number">2</span>);<span class="comment">%求点距</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        [min_point_disance, min_point_disance_location] = <span class="built_in">min</span>(point_disance);<span class="comment">%找出最小距离和最小距离点所处的位置</span></span><br><span class="line">        initial_point=[temporary_file_number(min_point_disance_location,<span class="number">1</span>),temporary_file_number(min_point_disance_location,<span class="number">2</span>)];<span class="comment">%初始点替换</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    point_disance=[];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">plot</span>(new_number(:,<span class="number">1</span>),new_number(:,<span class="number">2</span>),<span class="string">'-'</span>,<span class="string">'Color'</span>,[<span class="number">0</span>,<span class="number">0.79</span>,<span class="number">0.34</span>],<span class="string">'LineWidth'</span>,<span class="number">1.5</span>);</span><br><span class="line">axis equal;</span><br></pre></td></tr></table></figure>
-<h2 id="origin">Origin</h2>
-<p>Origin在网络上有很丰富的教程，但有些过于老旧，个人推荐使用Origin2016-2018版本，Origin2019使用过程中发现不少问题，不够稳定。这里给出一个Origin2016使用教程下载链接：<a href="https://pan.baidu.com/s/1Y-bUfCWsZZUvYvp_OrCeGA" target="_blank" rel="noopener">https://pan.baidu.com/s/1Y-bUfCWsZZUvYvp_OrCeGA</a> 提取码：5h4v Origin2016下载链接：<a href="https://pan.baidu.com/s/1FP0P3xnRZCN_9QcmjO4cYw" target="_blank" rel="noopener">https://pan.baidu.com/s/1FP0P3xnRZCN_9QcmjO4cYw</a> 提取码：teai</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">clc;clear;</span><br><span class="line">file_number=load(<span class="string">&#x27;2073.txt&#x27;</span>);</span><br><span class="line">file_number_x=file_number(:,<span class="number">1</span>);<span class="comment">%取数据点的x坐标</span></span><br><span class="line">file_number_y=file_number(:,<span class="number">2</span>);<span class="comment">%取数据点的y坐标</span></span><br><span class="line">temporary_file_number=file_number;<span class="comment">%创建临时的数据点文件</span></span><br><span class="line">initial_point=[file_number(<span class="number">1</span>,<span class="number">1</span>),file_number(<span class="number">1</span>,<span class="number">2</span>)];<span class="comment">%给定初始点</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="built_in">length</span>(file_number_x)</span><br><span class="line">    new_number(<span class="built_in">i</span>,<span class="number">1</span>)=initial_point(<span class="number">1</span>);new_number(<span class="built_in">i</span>,<span class="number">2</span>)=initial_point(<span class="number">2</span>);<span class="comment">%将寻找的点重新排序放入新的矩阵</span></span><br><span class="line">    point_find=<span class="built_in">ismember</span>(temporary_file_number,initial_point,<span class="string">&#x27;rows&#x27;</span>);<span class="comment">%找出点所在的行数的位置</span></span><br><span class="line">    point_location=<span class="built_in">find</span>(point_find==<span class="number">1</span>);</span><br><span class="line">    temporary_file_number(point_location,:)=[];<span class="comment">%删除需要连接的点，防止连接到上一个点</span></span><br><span class="line">    temporary_file_number_x=temporary_file_number(:,<span class="number">1</span>);</span><br><span class="line">    temporary_file_number_y=temporary_file_number(:,<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">length</span>(temporary_file_number_x)&gt;=<span class="number">1</span>    <span class="comment">%寻找连通的下一个最近的点</span></span><br><span class="line">        <span class="keyword">for</span> k=<span class="number">1</span>:<span class="built_in">length</span>(temporary_file_number_x)</span><br><span class="line">            search_pointx=temporary_file_number(k,<span class="number">1</span>);</span><br><span class="line">            search_pointy=temporary_file_number(k,<span class="number">2</span>);</span><br><span class="line">            point_disance(k)=<span class="built_in">sqrt</span>((search_pointx-initial_point(<span class="number">1</span>))^<span class="number">2</span>+(search_pointy-initial_point(<span class="number">2</span>))^<span class="number">2</span>);<span class="comment">%求点距</span></span><br><span class="line">        <span class="keyword">end</span></span><br><span class="line">        [min_point_disance, min_point_disance_location] = <span class="built_in">min</span>(point_disance);<span class="comment">%找出最小距离和最小距离点所处的位置</span></span><br><span class="line">        initial_point=[temporary_file_number(min_point_disance_location,<span class="number">1</span>),temporary_file_number(min_point_disance_location,<span class="number">2</span>)];<span class="comment">%初始点替换</span></span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">    point_disance=[];</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">plot</span>(new_number(:,<span class="number">1</span>),new_number(:,<span class="number">2</span>),<span class="string">&#x27;-&#x27;</span>,<span class="string">&#x27;Color&#x27;</span>,[<span class="number">0</span>,<span class="number">0.79</span>,<span class="number">0.34</span>],<span class="string">&#x27;LineWidth&#x27;</span>,<span class="number">1.5</span>);</span><br><span class="line">axis equal;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Origin">Origin</h2>
+<p>Origin在网络上有很丰富的教程，但有些过于老旧，个人推荐使用Origin2016-2018版本，Origin2019使用过程中发现不少问题，不够稳定。这里给出一个Origin2016使用教程下载链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Y-bUfCWsZZUvYvp_OrCeGA">https://pan.baidu.com/s/1Y-bUfCWsZZUvYvp_OrCeGA</a> 提取码：5h4v Origin2016下载链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1FP0P3xnRZCN_9QcmjO4cYw">https://pan.baidu.com/s/1FP0P3xnRZCN_9QcmjO4cYw</a> 提取码：teai</p>
 <p><strong>关于Origin的汉化问题</strong><br>
 安装过程中安装序列号有中文版序列号为DF2W8-9089-7991320；英文版序列号为GF3S4-9089-7991320，必须采用中文版序列号。<br>
 改变语言：运行regedit。进入HKEY_CURRENT_USER\Software\OriginLab\Origin 9.5-&gt;Language，输入C是中文，E是英文。</p>
@@ -229,9 +225,9 @@ var _hmt = _hmt || [];
 有的origin破解完成后，使用没问题，但导出的图有demo水印。其实不需要重装，只需要下载一个补丁即可解决。<br>
 把下载到的origin.exe复制到安装文件夹，双击执行以下即可。双击后没有任何提示，但其实去水印破解已经完成。<br>
 补丁下载如下<br>
-链接: <a href="https://pan.baidu.com/s/1cFDAxg" target="_blank" rel="noopener">https://pan.baidu.com/s/1cFDAxg</a> 提取码：h9t9<br>
+链接: <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1cFDAxg">https://pan.baidu.com/s/1cFDAxg</a> 提取码：h9t9<br>
 但是7天后会失效，因此需要Windows计划任务里建立任务，每七天执行一次“双击origin.exe”的任务。<br>
-有关如和设置定时任务执行，点击该教程：<a href="https://jingyan.baidu.com/article/39810a2396cef6b637fda67c.html" target="_blank" rel="noopener">windows server 2012 定时任务执行</a></p>
+有关如和设置定时任务执行，点击该教程：<a target="_blank" rel="noopener" href="https://jingyan.baidu.com/article/39810a2396cef6b637fda67c.html">windows server 2012 定时任务执行</a></p>
 <p><strong>x-y轴交换</strong><br>
 当曲线走向是“C”型时，即在同一x轴坐标下存在两个不同的点如（x1,y1）和（x1,y2）时，由于Origin作图按照给定的顺序（一般是按x轴大小顺序）连线，此时作图会出错。解决方法是通过将x-y轴数据交换再画图，之后再通过图→x-y轴交换将图片还原至正常状态。</p>
 <p><strong>主题保存</strong><br>
@@ -241,15 +237,15 @@ var _hmt = _hmt || [];
 在新的一张图中点击 工具→主题管理器→选择主题→立即应用<br>
 <img src="https://i.loli.net/2019/11/15/HMotJfp7FQaRGyT.png" alt="TIM图片20191115190951.png"></p>
 <h2 id="参考链接">参考链接</h2>
-<p><a href="http://www.sztspi.com/archives/64146.html" target="_blank" rel="noopener">论文作图经验谈</a><br>
-<a href="https://blog.csdn.net/FnqTyr45/article/details/81784597" target="_blank" rel="noopener">这些论文绘图软件，你一个都不会用</a><br>
-<a href="https://www.zhihu.com/question/29557377?sort=created" target="_blank" rel="noopener">科研画图都用什么软件？</a><br>
-<a href="http://muchong.com/html/201603/10021818.html" target="_blank" rel="noopener">MATLAB作图，如何保留左边和下边的刻度，去掉上边和右边的刻度？</a><br>
-<a href="https://www.cnblogs.com/ileanj1998/p/9060664.html" target="_blank" rel="noopener">matlab绘图与可视化</a><br>
-<a href="https://blog.csdn.net/qing101hua/article/details/78425567" target="_blank" rel="noopener">Matlab绘图-很详细，很全面</a><br>
-<a href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREdxOWJmbC9oM1NjYkZCbDdrNTBKaUxSY2Urdzg2SjBCMXpPV2QxaHQ=$R1yZ0H6jyaa0en3RxVUd8df-oHi7XMMDo7mtKT6mSmEvTuk11l2gFA!!&amp;v=MTQ2MDBlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSTE9lWnVkcUZ5SGxXN3ZOTHlITWQ3RzRIOVRNclk5RVlZUjg=" target="_blank" rel="noopener">封闭离散点的曲线拟合方法</a><br>
-<a href="https://blog.csdn.net/dingchenxixi/article/details/50904543" target="_blank" rel="noopener">Origin作图出现锯齿状以及出现大C字母问题解决方案</a><br>
-<a href="https://tieba.baidu.com/p/5384403387?red_tag=2404435738" target="_blank" rel="noopener">Origin去除demo水印方法</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.sztspi.com/archives/64146.html">论文作图经验谈</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/FnqTyr45/article/details/81784597">这些论文绘图软件，你一个都不会用</a><br>
+<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/29557377?sort=created">科研画图都用什么软件？</a><br>
+<a target="_blank" rel="noopener" href="http://muchong.com/html/201603/10021818.html">MATLAB作图，如何保留左边和下边的刻度，去掉上边和右边的刻度？</a><br>
+<a target="_blank" rel="noopener" href="https://www.cnblogs.com/ileanj1998/p/9060664.html">matlab绘图与可视化</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/qing101hua/article/details/78425567">Matlab绘图-很详细，很全面</a><br>
+<a target="_blank" rel="noopener" href="https://kns.cnki.net/KCMS/detail/detail.aspx?dbcode=CJFQ&amp;dbname=CJFDLAST2015&amp;filename=JLGY201502015&amp;uid=WEEvREdxOWJmbC9oM1NjYkZCbDdrNTBKaUxSY2Urdzg2SjBCMXpPV2QxaHQ=$R1yZ0H6jyaa0en3RxVUd8df-oHi7XMMDo7mtKT6mSmEvTuk11l2gFA!!&amp;v=MTQ2MDBlWDFMdXhZUzdEaDFUM3FUcldNMUZyQ1VSTE9lWnVkcUZ5SGxXN3ZOTHlITWQ3RzRIOVRNclk5RVlZUjg=">封闭离散点的曲线拟合方法</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/dingchenxixi/article/details/50904543">Origin作图出现锯齿状以及出现大C字母问题解决方案</a><br>
+<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/5384403387?red_tag=2404435738">Origin去除demo水印方法</a></p>
 
       
 
@@ -402,7 +398,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#matlab"><span class="toc-number">1.</span> <span class="toc-text">MATLAB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#origin"><span class="toc-number">2.</span> <span class="toc-text">Origin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#MATLAB"><span class="toc-number">1.</span> <span class="toc-text">MATLAB</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Origin"><span class="toc-number">2.</span> <span class="toc-text">Origin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>

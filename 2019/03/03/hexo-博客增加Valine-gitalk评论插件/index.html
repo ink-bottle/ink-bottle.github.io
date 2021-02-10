@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
-  <meta name="baidu-site-verification" content="xW173eR3BR">
-  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="xW173eR3BR" />
+  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
   <title>hexo 博客增加Valine/gitalk评论插件 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine/gitalk这两款评论插件，大家可以看到，我现在的博客使用的是Valine这款评论插件。">
-<meta name="keywords" content="inkbottle">
+  <meta name="description" content="hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine&#x2F;gitalk这两款评论插件，大家可以看到，我现在的博客使用的是Valine这款评论插件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo 博客增加Valine&#x2F;gitalk评论插件">
-<meta property="og:url" content="https://ink-bottle.github.io/2019/03/03/hexo-博客增加Valine-gitalk评论插件/index.html">
+<meta property="og:url" content="https://ink-bottle.github.io/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine/gitalk这两款评论插件，大家可以看到，我现在的博客使用的是Valine这款评论插件。">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:description" content="hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine&#x2F;gitalk这两款评论插件，大家可以看到，我现在的博客使用的是Valine这款评论插件。">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b47f114b43.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b4ca85deef.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b4fc25d25d.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/03/5c7b50ceb9feb.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/21/5d0c9a81bf9e219729.jpg">
-<meta property="og:updated_time" content="2020-01-27T05:03:32.509Z">
+<meta property="article:published_time" content="2019-03-03T03:03:58.000Z">
+<meta property="article:modified_time" content="2020-01-27T05:03:32.509Z">
+<meta property="article:author" content="inkbottle">
+<meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hexo 博客增加Valine&#x2F;gitalk评论插件">
-<meta name="twitter:description" content="hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine/gitalk这两款评论插件，大家可以看到，我现在的博客使用的是Valine这款评论插件。">
 <meta name="twitter:image" content="https://i.loli.net/2019/03/03/5c7b47f114b43.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
@@ -52,8 +52,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -66,10 +66,8 @@ var _hmt = _hmt || [];
 			<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inkbottle</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">信号连通在人海里，迎面的人满是笑意</p>
 		
 
 		<nav class="header-menu">
@@ -77,7 +75,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/心记">心记</a></li>
+				<li><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 	        
 				<li><a href="/message-boards">留言板</a></li>
 	        
@@ -134,10 +132,8 @@ var _hmt = _hmt || [];
 				<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inkbottle</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>信号连通在人海里，迎面的人满是笑意<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -171,7 +167,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/心记">心记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/message-boards">留言板</a></li>
 		        
@@ -200,7 +196,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2019/03/03/hexo-博客增加Valine-gitalk评论插件/" class="archive-article-date">
+        <a href="/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" class="archive-article-date">
   	<time datetime="2019-03-03T03:03:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-03</time>
 </a>
         
@@ -208,14 +204,14 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine/gitalk这两款评论插件，大家可以看到，我现在的博客使用的是<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a>这款评论插件。</p>
+        <p>hexo博客建立后，希望在自己的博客下添加评论功能，由于多说、网易云跟帖已经凉凉，畅言需要备案，来必力经常显示异常，Disqus国内无法访问，gitment也有许多问题，因此我今天主要来介绍Valine/gitalk这两款评论插件，大家可以看到，我现在的博客使用的是<a target="_blank" rel="noopener" href="https://valine.js.org/">Valine</a>这款评论插件。</p>
 <a id="more"></a>
 <h2 id="gitalk">gitalk</h2>
-<p>gitalk官网：<a href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md" target="_blank" rel="noopener">gitalk官网</a></p>
+<p>gitalk官网：<a target="_blank" rel="noopener" href="https://github.com/gitalk/gitalk/blob/master/readme-cn.md">gitalk官网</a></p>
 <p>安装步骤：</p>
 <hr>
 <p><strong>注册 OAuth Application</strong></p>
-<p>当别人评论你的文章时，会需要它是授权。点击<a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">注册 OAuth Application</a>进行注册，注册界面如下：<br>
+<p>当别人评论你的文章时，会需要它是授权。点击<a target="_blank" rel="noopener" href="https://github.com/settings/applications/new">注册 OAuth Application</a>进行注册，注册界面如下：<br>
 <img src="https://i.loli.net/2019/03/03/5c7b47f114b43.png" alt="2333"></p>
 <ul>
 <li>Application name：填写你的应用名称（这个随意，最好是英文）</li>
@@ -226,49 +222,49 @@ var _hmt = _hmt || [];
 <p>点击注册，会获取到 Client ID/scerct 。接下来就是将信息填入配置文件中。</p>
 <p><strong>配置 _config.yml 文件</strong></p>
 <p>打开themes\yilia_config.yml ,增加如下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#6、gitalk评论</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true</span><br><span class="line">  githubID: 填写你的 github 账户名即可  </span><br><span class="line">  repo: 'repo 名字为可新建一个repo 或者使用博客托管的 repo 都行。'</span><br><span class="line">  ClientID: '就是上步骤中注册的获取的信息'</span><br><span class="line">  ClientSecret: '就是上步骤中注册的获取的信息'</span><br><span class="line">  adminUser: 填写你的 github 账户名即可</span><br><span class="line">  distractionFreeMode: true</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#6、gitalk评论</span><br><span class="line">gitalk:</span><br><span class="line">  enable: true</span><br><span class="line">  githubID: 填写你的 github 账户名即可  </span><br><span class="line">  repo: &#x27;repo 名字为可新建一个repo 或者使用博客托管的 repo 都行。&#x27;</span><br><span class="line">  ClientID: &#x27;就是上步骤中注册的获取的信息&#x27;</span><br><span class="line">  ClientSecret: &#x27;就是上步骤中注册的获取的信息&#x27;</span><br><span class="line">  adminUser: 填写你的 github 账户名即可</span><br><span class="line">  distractionFreeMode: true</span><br></pre></td></tr></table></figure>
 <p><strong>新增gitalk.ejs文件</strong></p>
 <p>在themes/yilia/layout/_partial/post目录下新增gitalk.ejs文件,文件内写入如下代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"gitalk-container"</span> <span class="attr">style</span>=<span class="string">"padding: 0px 30px 0px 30px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">if</span>(<span class="xml"><span class="tag">&lt;<span class="name">%=theme.gitalk.enable%</span>&gt;</span>)&#123;</span></span></span><br><span class="line"><span class="actionscript">	<span class="keyword">var</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span></span><br><span class="line"><span class="actionscript">  	clientID: <span class="string">'&lt;%=theme.gitalk.ClientID%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">  	clientSecret: <span class="string">'&lt;%=theme.gitalk.ClientSecret%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">  	repo: <span class="string">'&lt;%=theme.gitalk.repo%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">  	owner: <span class="string">'&lt;%=theme.gitalk.githubID%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">  	admin: [<span class="string">'&lt;%=theme.gitalk.adminUser%&gt;'</span>],</span></span><br><span class="line"><span class="actionscript">  	id: <span class="string">'&lt;%= page.date %&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">  	distractionFreeMode: <span class="string">'&lt;%=theme.gitalk.distractionFreeMode%&gt;'</span></span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="actionscript">gitalk.render(<span class="string">'gitalk-container'</span>) </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;gitalk-container&quot;</span> <span class="attr">style</span>=<span class="string">&quot;padding: 0px 30px 0px 30px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">if(&lt;%=theme.gitalk.enable%&gt;)&#123;</span><br><span class="line"><span class="javascript">	<span class="keyword">var</span> gitalk = <span class="keyword">new</span> Gitalk(&#123;</span></span><br><span class="line"><span class="javascript">  	clientID: <span class="string">&#x27;&lt;%=theme.gitalk.ClientID%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  	clientSecret: <span class="string">&#x27;&lt;%=theme.gitalk.ClientSecret%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  	repo: <span class="string">&#x27;&lt;%=theme.gitalk.repo%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  	owner: <span class="string">&#x27;&lt;%=theme.gitalk.githubID%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  	admin: [<span class="string">&#x27;&lt;%=theme.gitalk.adminUser%&gt;&#x27;</span>],</span></span><br><span class="line"><span class="javascript">  	id: <span class="string">&#x27;&lt;%= page.date %&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">  	distractionFreeMode: <span class="string">&#x27;&lt;%=theme.gitalk.distractionFreeMode%&gt;&#x27;</span></span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="javascript">gitalk.render(<span class="string">&#x27;gitalk-container&#x27;</span>) </span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>修改comment.scss文件</strong></p>
 <p>修改themes/yilia/source-src/css/目录下comment.scss文件</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#disqus_thread, .duoshuo, .cloud-tie-wrapper, #SOHUCS, #gitment-ctn, #gitalk-container &#123;</span><br><span class="line">	padding: 0 30px !important;</span><br><span class="line">	min-height: 20px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">#SOHUCS &#123;</span><br><span class="line">	#SOHU_MAIN .module-cmt-list .block-cont-gw &#123;</span><br><span class="line">		border-bottom: 1px dashed #c8c8c8 !important;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>新增gitalk相关的配置代码</strong></p>
 <p>在themes/yilia/layout/_partial目录下的article.ejs文件内新增gitalk相关的配置代码：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span>(<span class="attr">theme.gitalk.enable</span>)&#123; %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">gitalk</span>', &#123;</span></span><br><span class="line"><span class="tag">      <span class="attr">key:</span> <span class="attr">post.slug</span>,</span></span><br><span class="line"><span class="tag">      <span class="attr">title:</span> <span class="attr">post.title</span>,</span></span><br><span class="line"><span class="tag">      <span class="attr">url:</span> <span class="attr">config.url</span>+<span class="attr">url_for</span>(<span class="attr">post.path</span>)</span></span><br><span class="line"><span class="tag">    &#125;) %&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if(theme.gitalk.enable)&#123; %&gt;</span><br><span class="line">  &lt;%- partial(&#x27;post/gitalk&#x27;, &#123;</span><br><span class="line">      key: post.slug,</span><br><span class="line">      title: post.title,</span><br><span class="line">      url: config.url+url_for(post.path)</span><br><span class="line">    &#125;) %&gt;</span><br><span class="line">  &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <p>注意：这段代码不可在尾部添加，应该添加至</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (!<span class="attr">index</span> &amp;&amp; <span class="attr">post.comments</span>)&#123; %&gt;</span></span><br><span class="line">//添加到这里</span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br><span class="line">//添加到这里</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <p>否则会出现主页冒出评论框的状况。</p>
 <p><strong>重新部署</strong></p>
 <p>配置完毕后，重新部署，即可看到效果。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/03/5c7b4ca85deef.png" alt="23333"></p>
-<h2 id="valine">Valine</h2>
-<p>Valine官网：<a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a><br>
+<h2 id="Valine">Valine</h2>
+<p>Valine官网：<a target="_blank" rel="noopener" href="https://valine.js.org/">Valine</a><br>
 安装步骤：</p>
 <hr>
 <p><strong>获取 APP ID 和 APP KEY</strong></p>
 <ul>
-<li><a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">点击这里</a>登录或注册Leancloud，或者<a href="https://avoscloud.com" target="_blank" rel="noopener">点击这里</a></li>
-<li><a href="https://leancloud.cn/dashboard/applist.html#/newapp" target="_blank" rel="noopener">点击这里</a>创建应用，应用名随意填写。</li>
+<li><a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/login.html#/signup">点击这里</a>登录或注册Leancloud，或者<a target="_blank" rel="noopener" href="https://avoscloud.com">点击这里</a></li>
+<li><a target="_blank" rel="noopener" href="https://leancloud.cn/dashboard/applist.html#/newapp">点击这里</a>创建应用，应用名随意填写。</li>
 <li>选择刚刚创建的应用&gt;设置&gt;选择应用 Key，然后你就能看到你的APP ID和APP KEY了，参考下图：<br>
 <img src="https://i.loli.net/2019/03/03/5c7b4fc25d25d.png" alt="2333"></li>
 <li>为了您的数据安全，请填写应用&gt;设置&gt;安全设置中的Web 安全域名</li>
 </ul>
 <p><strong>修改yilia主题下的_config.yml文件，添加valine配置</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># valine配置</span><br><span class="line">valine_appid: '填写leancloud的appid'</span><br><span class="line">valine_appkey: '填写leancloud的appkey'</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># valine配置</span><br><span class="line">valine_appid: &#x27;填写leancloud的appid&#x27;</span><br><span class="line">valine_appkey: &#x27;填写leancloud的appkey&#x27;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><strong>修改themes/yilia/layout/_partial/article.ejs，添加一段代码</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (<span class="attr">theme.valine_appid</span> &amp;&amp; <span class="attr">theme.valine_appkey</span>)&#123; %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">post</span>/<span class="attr">valine</span>', &#123;</span></span><br><span class="line"><span class="tag">        <span class="attr">key:</span> <span class="attr">post.slug</span>,</span></span><br><span class="line"><span class="tag">        <span class="attr">title:</span> <span class="attr">post.title</span>,</span></span><br><span class="line"><span class="tag">        <span class="attr">url:</span> <span class="attr">config.url</span>+<span class="attr">url_for</span>(<span class="attr">post.path</span>)</span></span><br><span class="line"><span class="tag">      &#125;) %&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (theme.valine_appid &amp;&amp; theme.valine_appkey)&#123; %&gt;</span><br><span class="line">    &lt;%- partial(&#x27;post/valine&#x27;, &#123;</span><br><span class="line">        key: post.slug,</span><br><span class="line">        title: post.title,</span><br><span class="line">        url: config.url+url_for(post.path)</span><br><span class="line">      &#125;) %&gt;</span><br><span class="line">    &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <p>注意：这段代码不可在尾部添加，应该添加至</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">%</span> <span class="attr">if</span> (!<span class="attr">index</span> &amp;&amp; <span class="attr">post.comments</span>)&#123; %&gt;</span></span><br><span class="line">//添加到这里</span><br><span class="line"><span class="tag">&lt;<span class="name">%</span> &#125; %&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (!index &amp;&amp; post.comments)&#123; %&gt;</span><br><span class="line">//添加到这里</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
 <p>否则会出现主页冒出评论框的状况。</p>
 <p><strong>新增themes/yilia/layout/_partial/post/valine.ejs</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'//unpkg.com/valine/dist/Valine.min.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">new</span> Valine(&#123;</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#comment'</span> ,</span></span><br><span class="line"><span class="actionscript">    notify:<span class="literal">false</span>, </span></span><br><span class="line"><span class="actionscript">    verify:<span class="literal">false</span>, </span></span><br><span class="line"><span class="actionscript">    appId: <span class="string">'&lt;%=theme.valine_appid%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">    appKey: <span class="string">'&lt;%=theme.valine_appkey%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">    placeholder: <span class="string">'ヾﾉ≧∀≦)o欢迎评论!'</span>,</span></span><br><span class="line"><span class="javascript">    path:<span class="built_in">window</span>.location.pathname, </span></span><br><span class="line"><span class="actionscript">    avatar:<span class="string">'mm'</span> </span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;comment&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Valine(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#comment&#x27;</span> ,</span></span><br><span class="line"><span class="javascript">    notify:<span class="literal">false</span>, </span></span><br><span class="line"><span class="javascript">    verify:<span class="literal">false</span>, </span></span><br><span class="line"><span class="javascript">    appId: <span class="string">&#x27;&lt;%=theme.valine_appid%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    appKey: <span class="string">&#x27;&lt;%=theme.valine_appkey%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    placeholder: <span class="string">&#x27;ヾﾉ≧∀≦)o欢迎评论!&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    path:<span class="built_in">window</span>.location.pathname, </span></span><br><span class="line"><span class="javascript">    avatar:<span class="string">&#x27;mm&#x27;</span> </span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><strong>重新部署</strong></p>
 <p>配置完毕后，重新部署，即可看到效果。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/03/5c7b50ceb9feb.png" alt="2333"></p>
-<h3 id="valine-评论系统中的邮件提醒设置">Valine 评论系统中的邮件提醒设置</h3>
+<h3 id="Valine-评论系统中的邮件提醒设置">Valine 评论系统中的邮件提醒设置</h3>
 <ul>
 <li>
 <p>进入Leancloud&gt;选择你的评论所存放的应用&gt;设置&gt;邮件模板，按下图设置好用于重置密码的邮件主题&gt;然后保存:<br>
@@ -281,16 +277,16 @@ var _hmt = _hmt || [];
 <p>修改内容：将下面的代码复制到“内容”中，并将其中的你的网址首页链接改为你的网址首页链接。</p>
 </li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hi, &#123;&#123;username&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">你在 &#123;&#123;appname&#125;&#125; 的评论收到了新的回复，请点击查看：</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"你的网址首页链接"</span> <span class="attr">style</span>=<span class="string">"display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;"</span>&gt;</span>马上查看<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>Hi, &#123;&#123;username&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">你在 &#123;&#123;appname&#125;&#125; 的评论收到了新的回复，请点击查看：</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;你的网址首页链接&quot;</span> <span class="attr">style</span>=<span class="string">&quot;display: inline-block; padding: 10px 20px; border-radius: 4px; background-color: #3090e4; color: #fff; text-decoration: none;&quot;</span>&gt;</span>马上查看<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>点击“保存”按钮。</li>
 <li>修改yilia主题配置文件，位置：你的网站根目录\themes\yilia\layout_partial\post\valine.ejs，将notify和verify的属性修改为true。</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"comment"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn1.lncld.net/static/js/3.0.4/av-min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">'//unpkg.com/valine/dist/Valine.min.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="keyword">new</span> Valine(&#123;</span></span><br><span class="line"><span class="actionscript">    el: <span class="string">'#comment'</span> ,</span></span><br><span class="line"><span class="actionscript">    notify:<span class="literal">true</span>, </span></span><br><span class="line"><span class="actionscript">    verify:<span class="literal">true</span>, </span></span><br><span class="line"><span class="actionscript">    appId: <span class="string">'&lt;%=theme.valine_appid%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">    appKey: <span class="string">'&lt;%=theme.valine_appkey%&gt;'</span>,</span></span><br><span class="line"><span class="actionscript">    placeholder: <span class="string">'吾以为inkbottle必有高论，岂期出此鄙言！吾有一言，诸军静听'</span>,</span></span><br><span class="line"><span class="javascript">    path:<span class="built_in">window</span>.location.pathname, </span></span><br><span class="line"><span class="actionscript">    avatar:<span class="string">'mm'</span> </span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;comment&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;//cdn1.lncld.net/static/js/3.0.4/av-min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&#x27;//unpkg.com/valine/dist/Valine.min.js&#x27;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">new</span> Valine(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#comment&#x27;</span> ,</span></span><br><span class="line"><span class="javascript">    notify:<span class="literal">true</span>, </span></span><br><span class="line"><span class="javascript">    verify:<span class="literal">true</span>, </span></span><br><span class="line"><span class="javascript">    appId: <span class="string">&#x27;&lt;%=theme.valine_appid%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    appKey: <span class="string">&#x27;&lt;%=theme.valine_appkey%&gt;&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    placeholder: <span class="string">&#x27;吾以为inkbottle必有高论，岂期出此鄙言！吾有一言，诸军静听&#x27;</span>,</span></span><br><span class="line"><span class="javascript">    path:<span class="built_in">window</span>.location.pathname, </span></span><br><span class="line"><span class="javascript">    avatar:<span class="string">&#x27;mm&#x27;</span> </span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>配置完毕后，重新部署，需等待一段时间。</li>
 </ul>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>进行测试，查看自己评论的回复能否收到邮件提醒。</li>
 <li>配置完成！</li>
@@ -405,7 +401,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2019/03/03/hexo-博客增加Valine-gitalk评论插件/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2019/03/03/hexo-%E5%8D%9A%E5%AE%A2%E5%A2%9E%E5%8A%A0Valine-gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -419,7 +415,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/03/05/MATLAB如何循环读取文件/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/03/05/MATLAB%E5%A6%82%E4%BD%95%E5%BE%AA%E7%8E%AF%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -429,7 +425,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/03/02/MATLAB数字图像处理学习（二）-常用函数/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/03/02/MATLAB%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%BA%8C%EF%BC%89-%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">MATLAB数字图像处理学习（二）|常用函数</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -457,7 +453,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gitalk"><span class="toc-number">1.</span> <span class="toc-text">gitalk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#valine"><span class="toc-number">2.</span> <span class="toc-text">Valine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#valine-评论系统中的邮件提醒设置"><span class="toc-number">2.1.</span> <span class="toc-text">Valine 评论系统中的邮件提醒设置</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#gitalk"><span class="toc-number">1.</span> <span class="toc-text">gitalk</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Valine"><span class="toc-number">2.</span> <span class="toc-text">Valine</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Valine-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E4%B8%AD%E7%9A%84%E9%82%AE%E4%BB%B6%E6%8F%90%E9%86%92%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.1.</span> <span class="toc-text">Valine 评论系统中的邮件提醒设置</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

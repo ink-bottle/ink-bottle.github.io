@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
-  <meta name="baidu-site-verification" content="xW173eR3BR">
-  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="xW173eR3BR" />
+  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
   <title>计算流体力学总结 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
-<meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算流体力学总结">
 <meta property="og:url" content="https://ink-bottle.github.io/2020/05/15/Computational-Fluid-Dynamics/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-17T07:32:14.468Z">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-15T10:38:33.000Z">
+<meta property="article:modified_time" content="2020-05-17T07:32:14.468Z">
+<meta property="article:author" content="inkbottle">
+<meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算流体力学总结">
-<meta name="twitter:description" content="最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -46,8 +46,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -60,10 +60,8 @@ var _hmt = _hmt || [];
 			<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inkbottle</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">信号连通在人海里，迎面的人满是笑意</p>
 		
 
 		<nav class="header-menu">
@@ -71,7 +69,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/心记">心记</a></li>
+				<li><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 	        
 				<li><a href="/message-boards">留言板</a></li>
 	        
@@ -128,10 +126,8 @@ var _hmt = _hmt || [];
 				<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inkbottle</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>信号连通在人海里，迎面的人满是笑意<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -165,7 +161,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/心记">心记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/message-boards">留言板</a></li>
 		        
@@ -205,7 +201,7 @@ var _hmt = _hmt || [];
         <p>最近正在学习偏微分方程数值解法这门课程，发现其中很多内容在《计算流体力学入门》中存在较多的重叠部分，知识点有点多，故对所学习的进行一个大概的整理。</p>
 <a id="more"></a>
 <h2 id="流体力学控制方程">流体力学控制方程</h2>
-<h3 id="黏性流动方程-n-s方程">黏性流动方程（N-S方程）</h3>
+<h3 id="黏性流动方程（N-S方程）">黏性流动方程（N-S方程）</h3>
 <p>对于非定常、三维可压缩黏性流动，其控制方程为<br>
 <strong>连续方程</strong><br>
 非守恒型<br>
@@ -256,7 +252,7 @@ $$<br>
 &amp;+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}<br>
 \end{align}<br>
 $$</p>
-<h3 id="无黏流动方程-欧拉方程">无黏流动方程（欧拉方程）</h3>
+<h3 id="无黏流动方程（欧拉方程）">无黏流动方程（欧拉方程）</h3>
 <p>对于非定常、三维可压缩无黏流动，其控制方程为<br>
 <strong>连续方程</strong><br>
 非守恒型<br>
@@ -277,7 +273,7 @@ x方向表达式：$\frac{\partial\left (  \rho u\right ) }{\partial t}+\boldsym
 $$\rho \frac{D}{Dt}\left ( e+\frac{V^{2}}{2} \right )=\rho \dot{q}-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}$$</p>
 <p>守恒型<br>
 $$\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{V^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{V^{2}}{2}\right )\boldsymbol{V} \right ]=\rho \dot{q}-\frac{\partial \left ( up \right )}{\partial x}-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\rho \boldsymbol{f}\cdot \boldsymbol{V}$$</p>
-<h2 id="适用于cfd的控制方程形式">适用于CFD的控制方程形式</h2>
+<h2 id="适用于CFD的控制方程形式">适用于CFD的控制方程形式</h2>
 <p>守恒型的连续、动量和能量方程均可以表示成统一的形式。由下式给出：<br>
 $$\frac{\partial \boldsymbol{U}}{\partial t}+\frac{\partial \boldsymbol{F}}{\partial x}+\frac{\partial \boldsymbol{G}}{\partial y}+\frac{\partial \boldsymbol{H}}{\partial z}=\boldsymbol{J}$$</p>
 <p>其中<br>
@@ -339,13 +335,13 @@ $\Delta =a_{12}^{2}-a_{11}a_{22}&gt;0$，则称该偏微分方程为双曲型；
 $\Delta =a_{12}^{2}-a_{11}a_{22}=0$，则称该偏微分方程为抛物型；<br>
 $\Delta =a_{12}^{2}-a_{11}a_{22}&lt;0$，则称该偏微分方程为椭圆型；</p>
 <h2 id="参考链接">参考链接</h2>
-<p><a href="https://www.jianshu.com/p/e74eb43960a1" target="_blank" rel="noopener">Markdown数学公式语法</a><br>
-<a href="https://blog.csdn.net/katherine_hsr/article/details/79179622" target="_blank" rel="noopener">Markdown数学符号&amp;公式</a><br>
-<a href="https://blog.csdn.net/weixin_30915951/article/details/96025927" target="_blank" rel="noopener">Latex公式字母加粗</a><br>
-<a href="http://latex.codecogs.com/eqneditor/editor.php" target="_blank" rel="noopener">Latex公式在线编辑器</a><br>
-<a href="http://dyfluid.com/" target="_blank" rel="noopener">东岳流体</a><br>
-<a href="http://www.bookask.com/book/5854.html" target="_blank" rel="noopener">计算流体力学入门</a><br>
-<a href="https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/" target="_blank" rel="noopener">Hexo 书写 LaTeX 公式时的一些问题及解决方法</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e74eb43960a1">Markdown数学公式语法</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/katherine_hsr/article/details/79179622">Markdown数学符号&amp;公式</a><br>
+<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_30915951/article/details/96025927">Latex公式字母加粗</a><br>
+<a target="_blank" rel="noopener" href="http://latex.codecogs.com/eqneditor/editor.php">Latex公式在线编辑器</a><br>
+<a target="_blank" rel="noopener" href="http://dyfluid.com/">东岳流体</a><br>
+<a target="_blank" rel="noopener" href="http://www.bookask.com/book/5854.html">计算流体力学入门</a><br>
+<a target="_blank" rel="noopener" href="https://jdhao.github.io/2017/10/06/hexo-markdown-latex-equation/">Hexo 书写 LaTeX 公式时的一些问题及解决方法</a></p>
 
       
 
@@ -498,7 +494,7 @@ $\Delta =a_{12}^{2}-a_{11}a_{22}&lt;0$，则称该偏微分方程为椭圆型；
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#流体力学控制方程"><span class="toc-number">1.</span> <span class="toc-text">流体力学控制方程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#黏性流动方程-n-s方程"><span class="toc-number">1.1.</span> <span class="toc-text">黏性流动方程（N-S方程）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无黏流动方程-欧拉方程"><span class="toc-number">1.2.</span> <span class="toc-text">无黏流动方程（欧拉方程）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#适用于cfd的控制方程形式"><span class="toc-number">2.</span> <span class="toc-text">适用于CFD的控制方程形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二阶线性偏微分方程的分类"><span class="toc-number">3.</span> <span class="toc-text">二阶线性偏微分方程的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E4%BD%93%E5%8A%9B%E5%AD%A6%E6%8E%A7%E5%88%B6%E6%96%B9%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">流体力学控制方程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%8F%E6%80%A7%E6%B5%81%E5%8A%A8%E6%96%B9%E7%A8%8B%EF%BC%88N-S%E6%96%B9%E7%A8%8B%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">黏性流动方程（N-S方程）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E9%BB%8F%E6%B5%81%E5%8A%A8%E6%96%B9%E7%A8%8B%EF%BC%88%E6%AC%A7%E6%8B%89%E6%96%B9%E7%A8%8B%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">无黏流动方程（欧拉方程）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8%E4%BA%8ECFD%E7%9A%84%E6%8E%A7%E5%88%B6%E6%96%B9%E7%A8%8B%E5%BD%A2%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">适用于CFD的控制方程形式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E9%98%B6%E7%BA%BF%E6%80%A7%E5%81%8F%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">3.</span> <span class="toc-text">二阶线性偏微分方程的分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>

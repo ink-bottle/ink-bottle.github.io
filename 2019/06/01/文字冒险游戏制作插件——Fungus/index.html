@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
-  <meta name="baidu-site-verification" content="xW173eR3BR">
-  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="xW173eR3BR" />
+  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
   <title>文字冒险游戏制作插件——Fungus | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="制作文字冒险游戏的引擎有很多，比如新人容易上手的橙光，免费的nvlmaker，BKEngine，twine，Ren’Py，开源的krkr，AVGPlus，付费的RPG Maker等等，我个人也有动手做一款自娱自乐的文字冒险游戏的想法，但是由于时间繁忙，拖延症爆发，没有完整的框架，文笔水平低，不会画好看的立绘也不会制作美妙的音乐等一系列致命的缺点，所以我的个人文字冒险游戏到如今还是空中楼阁，不过我还">
-<meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文字冒险游戏制作插件——Fungus">
-<meta property="og:url" content="https://ink-bottle.github.io/2019/06/01/文字冒险游戏制作插件——Fungus/index.html">
+<meta property="og:url" content="https://ink-bottle.github.io/2019/06/01/%E6%96%87%E5%AD%97%E5%86%92%E9%99%A9%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E6%8F%92%E4%BB%B6%E2%80%94%E2%80%94Fungus/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="制作文字冒险游戏的引擎有很多，比如新人容易上手的橙光，免费的nvlmaker，BKEngine，twine，Ren’Py，开源的krkr，AVGPlus，付费的RPG Maker等等，我个人也有动手做一款自娱自乐的文字冒险游戏的想法，但是由于时间繁忙，拖延症爆发，没有完整的框架，文笔水平低，不会画好看的立绘也不会制作美妙的音乐等一系列致命的缺点，所以我的个人文字冒险游戏到如今还是空中楼阁，不过我还">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/06/08/5cfb9e5cf1e1983388.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/08/5cfb9ed6707dd98775.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/15/5d05024dc8cba70982.png">
@@ -25,10 +24,11 @@
 <meta property="og:image" content="https://i.loli.net/2019/06/15/5d050343b2eb738860.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/15/5d050379bf57d89422.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/15/5d0504027f6c699495.png">
-<meta property="og:updated_time" content="2020-01-01T04:43:51.133Z">
+<meta property="article:published_time" content="2019-06-01T08:31:36.000Z">
+<meta property="article:modified_time" content="2020-01-01T04:43:51.133Z">
+<meta property="article:author" content="inkbottle">
+<meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文字冒险游戏制作插件——Fungus">
-<meta name="twitter:description" content="制作文字冒险游戏的引擎有很多，比如新人容易上手的橙光，免费的nvlmaker，BKEngine，twine，Ren’Py，开源的krkr，AVGPlus，付费的RPG Maker等等，我个人也有动手做一款自娱自乐的文字冒险游戏的想法，但是由于时间繁忙，拖延症爆发，没有完整的框架，文笔水平低，不会画好看的立绘也不会制作美妙的音乐等一系列致命的缺点，所以我的个人文字冒险游戏到如今还是空中楼阁，不过我还">
 <meta name="twitter:image" content="https://i.loli.net/2019/06/08/5cfb9e5cf1e1983388.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
@@ -55,8 +55,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -69,10 +69,8 @@ var _hmt = _hmt || [];
 			<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inkbottle</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">信号连通在人海里，迎面的人满是笑意</p>
 		
 
 		<nav class="header-menu">
@@ -80,7 +78,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/心记">心记</a></li>
+				<li><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 	        
 				<li><a href="/message-boards">留言板</a></li>
 	        
@@ -137,10 +135,8 @@ var _hmt = _hmt || [];
 				<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inkbottle</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>信号连通在人海里，迎面的人满是笑意<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -174,7 +170,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/心记">心记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/message-boards">留言板</a></li>
 		        
@@ -203,7 +199,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2019/06/01/文字冒险游戏制作插件——Fungus/" class="archive-article-date">
+        <a href="/2019/06/01/%E6%96%87%E5%AD%97%E5%86%92%E9%99%A9%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E6%8F%92%E4%BB%B6%E2%80%94%E2%80%94Fungus/" class="archive-article-date">
   	<time datetime="2019-06-01T08:31:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-01</time>
 </a>
         
@@ -211,21 +207,21 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>制作文字冒险游戏的引擎有很多，比如新人容易上手的<a href="https://www.66rpg.com/" target="_blank" rel="noopener">橙光</a>，免费的<a href="http://www.nvlmaker.net/" target="_blank" rel="noopener">nvlmaker</a>，<a href="https://bke.bakery.moe/" target="_blank" rel="noopener">BKEngine</a>，<a href="https://twinery.org/2/#!/stories" target="_blank" rel="noopener">twine</a>，<a href="https://www.renpy.org/" target="_blank" rel="noopener">Ren’Py</a>，开源的<a href="http://kuon.cp68.org/wp/kirikiri2/" target="_blank" rel="noopener">krkr</a>，<a href="http://avg-engine.com/" target="_blank" rel="noopener">AVGPlus</a>，付费的<a href="http://www.rpgmakerweb.com/" target="_blank" rel="noopener">RPG Maker</a>等等，我个人也有动手做一款自娱自乐的文字冒险游戏的想法，但是由于时间繁忙，拖延症爆发，没有完整的框架，文笔水平低，不会画好看的立绘也不会制作美妙的音乐等一系列致命的缺点，所以我的个人文字冒险游戏到如今还是空中楼阁，不过我还是要介绍一个unity上使用的文字冒险游戏制作插件——<a href="http://fungusgames.com/" target="_blank" rel="noopener">Fungus</a>。它的主要优点是免费和开源，拥有直观的可视化脚本，无需制作者编写代码，配合unity可以打包发布到各个平台。</p>
+        <p>制作文字冒险游戏的引擎有很多，比如新人容易上手的<a target="_blank" rel="noopener" href="https://www.66rpg.com/">橙光</a>，免费的<a target="_blank" rel="noopener" href="http://www.nvlmaker.net/">nvlmaker</a>，<a target="_blank" rel="noopener" href="https://bke.bakery.moe/">BKEngine</a>，<a target="_blank" rel="noopener" href="https://twinery.org/2/#!/stories">twine</a>，<a target="_blank" rel="noopener" href="https://www.renpy.org/">Ren’Py</a>，开源的<a target="_blank" rel="noopener" href="http://kuon.cp68.org/wp/kirikiri2/">krkr</a>，<a target="_blank" rel="noopener" href="http://avg-engine.com/">AVGPlus</a>，付费的<a target="_blank" rel="noopener" href="http://www.rpgmakerweb.com/">RPG Maker</a>等等，我个人也有动手做一款自娱自乐的文字冒险游戏的想法，但是由于时间繁忙，拖延症爆发，没有完整的框架，文笔水平低，不会画好看的立绘也不会制作美妙的音乐等一系列致命的缺点，所以我的个人文字冒险游戏到如今还是空中楼阁，不过我还是要介绍一个unity上使用的文字冒险游戏制作插件——<a target="_blank" rel="noopener" href="http://fungusgames.com/">Fungus</a>。它的主要优点是免费和开源，拥有直观的可视化脚本，无需制作者编写代码，配合unity可以打包发布到各个平台。</p>
 <a id="more"></a>
-<p><a href="http://fungusgames.com/" target="_blank" rel="noopener">Fungus</a>能以标签来触发对话过程中的事件以及各种条件与逻辑处理，并且支持本地化，对相机、Sprite及音乐音效的控制。提供了一个交互式的界面，能够快速构建一个对话系统。</p>
-<h2 id="fungus的安装">Fungus的安装</h2>
+<p><a target="_blank" rel="noopener" href="http://fungusgames.com/">Fungus</a>能以标签来触发对话过程中的事件以及各种条件与逻辑处理，并且支持本地化，对相机、Sprite及音乐音效的控制。提供了一个交互式的界面，能够快速构建一个对话系统。</p>
+<h2 id="Fungus的安装">Fungus的安装</h2>
 <p>共有三种方式可以安装Fungus</p>
 <ul>
-<li>从<a href="http://u3d.as/f0T" target="_blank" rel="noopener">Unity资源商店</a>下载Fungus 。</li>
-<li>阅读<a href="http://fungusdocs.snozbot.com/installation.html" target="_blank" rel="noopener">安装Fungus</a>的指南。</li>
-<li>在<a href="https://github.com/snozbot/fungus" target="_blank" rel="noopener">github页面</a>上获取源代码。</li>
+<li>从<a target="_blank" rel="noopener" href="http://u3d.as/f0T">Unity资源商店</a>下载Fungus 。</li>
+<li>阅读<a target="_blank" rel="noopener" href="http://fungusdocs.snozbot.com/installation.html">安装Fungus</a>的指南。</li>
+<li>在<a target="_blank" rel="noopener" href="https://github.com/snozbot/fungus">github页面</a>上获取源代码。</li>
 </ul>
 <p>我是在Unity的Assets Store里安装好这个插件的。</p>
 <p><img src="https://i.loli.net/2019/06/08/5cfb9e5cf1e1983388.png" alt="TIM图片20190608193838.png"></p>
 <p>安装完成之后，菜单栏会多一个Tools：</p>
 <p><img src="https://i.loli.net/2019/06/08/5cfb9ed6707dd98775.png" alt="TIM图片20190608194100.png"></p>
-<h2 id="fungus的使用">Fungus的使用</h2>
+<h2 id="Fungus的使用">Fungus的使用</h2>
 <p>首先我们在Tools里找到Fungus。事先我们需要在Unity的Assets Store里安装这个插件。</p>
 <p><img src="https://i.loli.net/2019/06/15/5d05024dc8cba70982.png" alt="1037202-20180404232709469-1265030447.png"></p>
 <p>创建一个Flowchart。这样我们可以发现左边的树里已经多了一项Flowchart。接下来我们打开Fungus的Flowchart窗口。</p>
@@ -239,9 +235,9 @@ var _hmt = _hmt || [];
 <p>如果需要多段叙述，可以继续添加不同的块。</p>
 <p>至此一个简单的游戏开头就做好了。</p>
 <h2 id="参考链接">参考链接</h2>
-<p><a href="https://blog.csdn.net/ha1f_awake/article/details/86937401" target="_blank" rel="noopener">【Fungus笔记】No.1：初步认识 Fungus(真菌)，Game Starts!</a></p>
-<p><a href="https://fungusgames.com/" target="_blank" rel="noopener">Fungus官网</a></p>
-<p><a href="https://www.cnblogs.com/ldzhangyx/p/8720168.html" target="_blank" rel="noopener">【零基础】【Fungus首个中文教程】10分钟快速构建Unity中的万能对话系统 / 叙事系统 / 剧情系统</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ha1f_awake/article/details/86937401">【Fungus笔记】No.1：初步认识 Fungus(真菌)，Game Starts!</a></p>
+<p><a target="_blank" rel="noopener" href="https://fungusgames.com/">Fungus官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ldzhangyx/p/8720168.html">【零基础】【Fungus首个中文教程】10分钟快速构建Unity中的万能对话系统 / 叙事系统 / 剧情系统</a></p>
 
       
 
@@ -342,7 +338,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2019/06/01/文字冒险游戏制作插件——Fungus/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2019/06/01/%E6%96%87%E5%AD%97%E5%86%92%E9%99%A9%E6%B8%B8%E6%88%8F%E5%88%B6%E4%BD%9C%E6%8F%92%E4%BB%B6%E2%80%94%E2%80%94Fungus/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -356,7 +352,7 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2019/06/07/端午节随记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/06/07/%E7%AB%AF%E5%8D%88%E8%8A%82%E9%9A%8F%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -366,7 +362,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2019/05/12/Word书写论文时技巧总结（长期更新）/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/05/12/Word%E4%B9%A6%E5%86%99%E8%AE%BA%E6%96%87%E6%97%B6%E6%8A%80%E5%B7%A7%E6%80%BB%E7%BB%93%EF%BC%88%E9%95%BF%E6%9C%9F%E6%9B%B4%E6%96%B0%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">Word书写论文时技巧总结</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -394,7 +390,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fungus的安装"><span class="toc-number">1.</span> <span class="toc-text">Fungus的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#fungus的使用"><span class="toc-number">2.</span> <span class="toc-text">Fungus的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fungus%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">Fungus的安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Fungus%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">Fungus的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>

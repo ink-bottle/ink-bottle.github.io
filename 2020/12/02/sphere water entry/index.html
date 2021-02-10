@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head><meta name="generator" content="Hexo 3.9.0">
+<head>
   <meta charset="utf-8">
   
-  <meta name="baidu-site-verification" content="xW173eR3BR">
-  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="baidu-site-verification" content="xW173eR3BR" />
+  <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
   <title>小球入水Fluent仿真（局部重构，动态层铺，嵌套网格） | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="初学者在进行相关流体仿真时，小球入水往往是一个非常经典的案例。重要的是，许多研究者曾对小球入水进行了大量的实验研究，保留了丰富的实验成果。这使得人们在进行入水领域的仿真工作时，往往利用小球入水来进行数值算法的验证。本文将利用ANSYS Fluent中的动网格局部重构法（Local Remeshing），动态层铺法（Dynamic Layering）以及嵌套网格（Overset mesh）三种手段对">
-<meta name="keywords" content="inkbottle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小球入水Fluent仿真（局部重构，动态层铺，嵌套网格）">
-<meta property="og:url" content="https://ink-bottle.github.io/2020/12/02/sphere water entry/index.html">
+<meta property="og:url" content="https://ink-bottle.github.io/2020/12/02/sphere%20water%20entry/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
 <meta property="og:description" content="初学者在进行相关流体仿真时，小球入水往往是一个非常经典的案例。重要的是，许多研究者曾对小球入水进行了大量的实验研究，保留了丰富的实验成果。这使得人们在进行入水领域的仿真工作时，往往利用小球入水来进行数值算法的验证。本文将利用ANSYS Fluent中的动网格局部重构法（Local Remeshing），动态层铺法（Dynamic Layering）以及嵌套网格（Overset mesh）三种手段对">
-<meta property="og:locale" content="zh-CN">
+<meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2020/11/05/hZHEd4trnKaMDwY.png">
 <meta property="og:image" content="https://i.loli.net/2020/11/09/gutjw8DmIa75db3.png">
 <meta property="og:image" content="https://i.loli.net/2020/11/09/6MqkVijdbYhO3Fz.png">
@@ -109,10 +108,11 @@
 <meta property="og:image" content="https://i.loli.net/2020/11/30/smtluYhVBE7UQck.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/11/30/hiYLIHpzPEUuJTX.jpg">
 <meta property="og:image" content="https://i.loli.net/2020/11/30/ujhD1gNy6GqFYBP.jpg">
-<meta property="og:updated_time" content="2020-12-20T01:29:39.588Z">
+<meta property="article:published_time" content="2020-12-02T03:25:07.000Z">
+<meta property="article:modified_time" content="2020-12-20T01:29:39.588Z">
+<meta property="article:author" content="inkbottle">
+<meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小球入水Fluent仿真（局部重构，动态层铺，嵌套网格）">
-<meta name="twitter:description" content="初学者在进行相关流体仿真时，小球入水往往是一个非常经典的案例。重要的是，许多研究者曾对小球入水进行了大量的实验研究，保留了丰富的实验成果。这使得人们在进行入水领域的仿真工作时，往往利用小球入水来进行数值算法的验证。本文将利用ANSYS Fluent中的动网格局部重构法（Local Remeshing），动态层铺法（Dynamic Layering）以及嵌套网格（Overset mesh）三种手段对">
 <meta name="twitter:image" content="https://i.loli.net/2020/11/05/hZHEd4trnKaMDwY.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
@@ -139,8 +139,8 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-</head>
-</html>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
 <body>
   <div id="container" q-class="show:isCtnShow">
     <canvas id="anm-canvas" class="anm-canvas"></canvas>
@@ -153,10 +153,8 @@ var _hmt = _hmt || [];
 			<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">inkbottle</a></h1>
+		  <h1 class="header-author"><a href="/"></a></h1>
 		</hgroup>
-		
-		<p class="header-subtitle">信号连通在人海里，迎面的人满是笑意</p>
 		
 
 		<nav class="header-menu">
@@ -164,7 +162,7 @@ var _hmt = _hmt || [];
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/心记">心记</a></li>
+				<li><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 	        
 				<li><a href="/message-boards">留言板</a></li>
 	        
@@ -221,10 +219,8 @@ var _hmt = _hmt || [];
 				<img src="https://i.loli.net/2019/05/07/5cd0ea6109a12.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">inkbottle</h1>
+			  <h1 class="header-author js-header-author"></h1>
 			</hgroup>
-			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>信号连通在人海里，迎面的人满是笑意<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -258,7 +254,7 @@ var _hmt = _hmt || [];
 				
 					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/心记">心记</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/%E5%BF%83%E8%AE%B0">心记</a></li>
 		        
 					<li style="width: 33.333333333333336%"><a href="/message-boards">留言板</a></li>
 		        
@@ -287,7 +283,7 @@ var _hmt = _hmt || [];
   
 
         
-        <a href="/2020/12/02/sphere water entry/" class="archive-article-date">
+        <a href="/2020/12/02/sphere%20water%20entry/" class="archive-article-date">
   	<time datetime="2020-12-02T03:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-02</time>
 </a>
         
@@ -301,8 +297,8 @@ var _hmt = _hmt || [];
 <p>真实模型是三维的，这里为了方便起见，采用二维模型考虑。模型尺寸如图所示。单位为mm。重心坐标(0,0,0)，惯性矩Ixx = 20431.71mm^4，Iyy= 20431.71mm<sup>4，Izz=40863.42mm</sup>4，面积A=506.71mm^2。</p>
 <p><img src="https://i.loli.net/2020/11/05/hZHEd4trnKaMDwY.png" alt="屏幕截图 2020-11-05 092730.png"></p>
 <p>对于平面模型计算，fluent默认拉伸厚度为1m，假设小球为钢质小球，密度7800kg/m^3，因此可以计算小球质量mass=7800*506.71e-6=3.952kg。因此UDF采用DEFINE_SDOF_PROPERTIES宏，给质量及三方向惯性矩赋值即可。将以下代码保存为sphere.cpp文件。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"udf.h"</span></span></span><br><span class="line"></span><br><span class="line">DEFINE_SDOF_PROPERTIES(test_box, prop, dt, time, dtime)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_MASS] = <span class="number">3.952</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IXX] = <span class="number">20431e-12</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IYY] = <span class="number">20431e-12</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IZZ] = <span class="number">40863e-12</span>;</span><br><span class="line">    </span><br><span class="line">    prop[SDOF_ZERO_TRANS_X] = TRUE;</span><br><span class="line">	 </span><br><span class="line">	prop[SDOF_ZERO_TRANS_Y] = FALSE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_TRANS_Z] = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_X]   = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_Y]   = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_Z]   = TRUE;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="局部重构法-local-remeshing">局部重构法（Local Remeshing）</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;udf.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">DEFINE_SDOF_PROPERTIES(test_box, prop, dt, time, dtime)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_MASS] = <span class="number">3.952</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IXX] = <span class="number">20431e-12</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IYY] = <span class="number">20431e-12</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IZZ] = <span class="number">40863e-12</span>;</span><br><span class="line">    </span><br><span class="line">    prop[SDOF_ZERO_TRANS_X] = TRUE;</span><br><span class="line">	 </span><br><span class="line">	prop[SDOF_ZERO_TRANS_Y] = FALSE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_TRANS_Z] = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_X]   = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_Y]   = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_Z]   = TRUE;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="局部重构法（Local-Remeshing）">局部重构法（Local Remeshing）</h2>
 <p>在使用非结构网格的区域上一般采用弹簧光顺模型进行动网格划分，但是如果运动边界的位移远远大于网格尺寸，则采用弹簧光顺模型可能导致网格质量下降，甚至出现体积为负值的网格，或因网格畸变过大导致计算不收敛。为了解决这个问题，Fluent 在计算过程中将畸变率过大，或尺寸变化过于剧烈的网格集中在一起进行局部网格的重新划分，如果重新划分后的网格可以满足畸变率要求和尺寸要求，则用新的网格代替原来的网格，如果新的网格仍然无法满足要求，则放弃重新划分的结果。</p>
 <h3 id="网格划分">网格划分</h3>
 <p>在ICEM CFD中划分网格，根据几何模型创建点线，如图所示。</p>
@@ -377,7 +373,7 @@ var _hmt = _hmt || [];
 <h3 id="仿真结果">仿真结果</h3>
 <p>可见入水空泡壁面非常粗糙，但是大致给出了入水空泡的扩张和颈缩状态，这主要是因为网格本身密度不够以及网格变形的问题。如果要得到更加精细的结果，可以对水面处的网格和小球运动区域的网格进行加密处理，另外，调整网格变形的参数也能得到很好的效果。</p>
 <p><img src="https://i.loli.net/2020/11/10/CPfls12ALJUYdXj.jpg" alt="fluent-1-03000.jpg"></p>
-<h2 id="动态层铺法-dynamic-layering">动态层铺法（Dynamic Layering）</h2>
+<h2 id="动态层铺法（Dynamic-Layering）">动态层铺法（Dynamic Layering）</h2>
 <p>对于棱柱型网格区域（六面体和或者三棱柱），可以应用动态层铺法。动态层铺法的中心思想是根据紧邻运动边界网格层高度的变化，添加或者减少动态层，即在边界发生运动时，如果紧邻边界的网格层高度增大到一定程度，就将其划分为两个网格层；如果网格层高度降低到一定程度，就将紧邻边界的两个网格层合并为一个层。</p>
 <h3 id="几何模型-v2">几何模型</h3>
 <p>几何模型示意图如图：</p>
@@ -437,7 +433,7 @@ var _hmt = _hmt || [];
 <p><img src="https://i.loli.net/2020/12/02/C9j8gSvTa7yAWbd.jpg" alt="layermesh-1-02600.jpg"><br>
 <img src="https://i.loli.net/2020/12/02/NfLygr5XaFskEPl.jpg" alt="layermesh-1-03200.jpg"><br>
 <img src="https://i.loli.net/2020/12/02/ce9dn6I8GHDZyqu.jpg" alt="layermesh-1-03400.jpg"></p>
-<h2 id="嵌套网格-overset-mesh">嵌套网格（Overset mesh）</h2>
+<h2 id="嵌套网格（Overset-mesh）">嵌套网格（Overset mesh）</h2>
 <p>嵌套网格（overset）又称重叠网格，该网格由两部分组成：包含主要流体区域的背景网格（background），围绕部件的构建的单独的组件网格（component）。此时，部件网格的外边界指定为overset（特有的边界类型），其他的边界和通常的网格则没有区别。相比于传统的MDM动网格方式，嵌套网格有以下优势：</p>
 <ul>
 <li>
@@ -519,13 +515,13 @@ var _hmt = _hmt || [];
 <img src="https://i.loli.net/2020/11/30/hiYLIHpzPEUuJTX.jpg" alt="frontmesh-1-03200.jpg"><br>
 <img src="https://i.loli.net/2020/11/30/ujhD1gNy6GqFYBP.jpg" alt="frontmesh-1-03400.jpg"></p>
 <h2 id="参考链接">参考链接</h2>
-<p><a href="http://blog.sina.com.cn/s/blog_599d8faa010121yc.html" target="_blank" rel="noopener">利用6DOF模型计算小球自空气中跌落水中</a></p>
-<p><a href="https://blog.csdn.net/MouGang/article/details/108274611" target="_blank" rel="noopener">fluent问题之结果云图显示总有网格</a></p>
-<p><a href="https://mp.weixin.qq.com/s/qBMZsAh3nlABQnIsfr6p_A" target="_blank" rel="noopener">【案例分享】6DOF动网格</a></p>
-<p><a href="https://mp.weixin.qq.com/s/4VFC3v9rajq3HmqH1Dvmiw" target="_blank" rel="noopener">【Fluent案例】23：重叠网格</a></p>
-<p><a href="https://wenku.baidu.com/view/b5fd2194daef5ef7ba0d3c10.html" target="_blank" rel="noopener">FLUENT动网格之铺层应用</a></p>
-<p><a href="https://wenku.baidu.com/view/305ae919ba1aa8114431d9a0.html" target="_blank" rel="noopener">FLUENT动网格之铺层应用1</a></p>
-<p><a href="https://mp.weixin.qq.com/s/8SbtXPU1YXoVd0m_0fCAYw" target="_blank" rel="noopener">Fluent动网格【3】：运动指定UDF</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_599d8faa010121yc.html">利用6DOF模型计算小球自空气中跌落水中</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/MouGang/article/details/108274611">fluent问题之结果云图显示总有网格</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/qBMZsAh3nlABQnIsfr6p_A">【案例分享】6DOF动网格</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/4VFC3v9rajq3HmqH1Dvmiw">【Fluent案例】23：重叠网格</a></p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/b5fd2194daef5ef7ba0d3c10.html">FLUENT动网格之铺层应用</a></p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/305ae919ba1aa8114431d9a0.html">FLUENT动网格之铺层应用1</a></p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8SbtXPU1YXoVd0m_0fCAYw">Fluent动网格【3】：运动指定UDF</a></p>
 
       
 
@@ -626,7 +622,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/12/02/sphere water entry/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/12/02/sphere%20water%20entry/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -650,7 +646,7 @@ var _hmt = _hmt || [];
     </a>
   
   
-    <a href="/2020/10/24/鼠标点击获取图像中某点像素坐标/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2020/10/24/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E8%8E%B7%E5%8F%96%E5%9B%BE%E5%83%8F%E4%B8%AD%E6%9F%90%E7%82%B9%E5%83%8F%E7%B4%A0%E5%9D%90%E6%A0%87/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">鼠标点击获取图像/视频中某点像素坐标</div>
       <i class="icon-circle-right"></i>
     </a>
@@ -678,7 +674,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#几何模型"><span class="toc-number">1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#局部重构法-local-remeshing"><span class="toc-number">2.</span> <span class="toc-text">局部重构法（Local Remeshing）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#网格划分"><span class="toc-number">2.1.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真计算"><span class="toc-number">2.2.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真结果"><span class="toc-number">2.3.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#动态层铺法-dynamic-layering"><span class="toc-number">3.</span> <span class="toc-text">动态层铺法（Dynamic Layering）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#几何模型-v2"><span class="toc-number">3.1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网格划分-v2"><span class="toc-number">3.2.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真计算-v2"><span class="toc-number">3.3.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真结果-v2"><span class="toc-number">3.4.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#嵌套网格-overset-mesh"><span class="toc-number">4.</span> <span class="toc-text">嵌套网格（Overset mesh）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#几何模型-v3"><span class="toc-number">4.1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#网格划分-v3"><span class="toc-number">4.2.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真计算-v3"><span class="toc-number">4.3.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#仿真结果-v3"><span class="toc-number">4.4.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参考链接"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E9%87%8D%E6%9E%84%E6%B3%95%EF%BC%88Local-Remeshing%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">局部重构法（Local Remeshing）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%88%92%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97"><span class="toc-number">2.2.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C"><span class="toc-number">2.3.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%B1%82%E9%93%BA%E6%B3%95%EF%BC%88Dynamic-Layering%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">动态层铺法（Dynamic Layering）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A8%A1%E5%9E%8B-v2"><span class="toc-number">3.1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%88%92%E5%88%86-v2"><span class="toc-number">3.2.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97-v2"><span class="toc-number">3.3.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C-v2"><span class="toc-number">3.4.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E7%BD%91%E6%A0%BC%EF%BC%88Overset-mesh%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">嵌套网格（Overset mesh）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A8%A1%E5%9E%8B-v3"><span class="toc-number">4.1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%88%92%E5%88%86-v3"><span class="toc-number">4.2.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97-v3"><span class="toc-number">4.3.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C-v3"><span class="toc-number">4.4.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
