@@ -17,7 +17,7 @@
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-09T05:49:11.000Z">
-<meta property="article:modified_time" content="2021-02-10T13:32:01.916Z">
+<meta property="article:modified_time" content="2021-02-10T14:15:57.016Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
@@ -296,20 +296,20 @@ u_{i}=\overline{u_{i}}+{u_{i}}&#39;
 <p><span class="math display">\[
 \begin{align}
 \overline{\frac{\partial\left(\overline{u}+u^\prime\right)}{\partial t}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)^2}{\partial x}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{v}+v^\prime\right)}{\partial y}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{\omega}+\omega^\prime\right)}{\partial z}}=\\
--\frac{1}{\rho}\overline{\frac{\partial\left(\overline{p}+p^\prime\right)}{\partial x}}+\upsilon\left[\overline{\frac{\partial^2\left(\overline{u}+u^\prime\right)}{\partial x^2}}+\overline{\frac{\partial^2\left(\overline{v}+v^\prime\right)}{\partial y^2}}+\overline{\frac{\partial^2\left(\overline{\omega}+\omega^\prime\right)}{\partial z^2}}\right]
+-\frac{1}{\rho}\overline{\frac{\partial\left(\overline{p}+p^\prime\right)}{\partial x}}+\nu\left[\overline{\frac{\partial^2\left(\overline{u}+u^\prime\right)}{\partial x^2}}+\overline{\frac{\partial^2\left(\overline{v}+v^\prime\right)}{\partial y^2}}+\overline{\frac{\partial^2\left(\overline{\omega}+\omega^\prime\right)}{\partial z^2}}\right]
 \nonumber
 \end{align}
 \]</span></p>
 <p>利用上面给出的关系式可得</p>
 <p><span class="math display">\[
 \begin{align}
-\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}+\frac{\overline{\partial\left(u^\prime\right)^2}}{\partial x}+\frac{\overline{\partial\left(u^\prime v^\prime\right)}}{\partial y}+\frac{\overline{\partial\left(u^\prime\omega^\prime\right)}}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\upsilon\left[\frac{\partial^2\overline{u}}{\partial x^2}+\frac{\partial^2\overline{v}}{\partial y^2}+\frac{\partial^2\overline{\omega}}{\partial z^2}\right]
+\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}+\frac{\overline{\partial\left(u^\prime\right)^2}}{\partial x}+\frac{\overline{\partial\left(u^\prime v^\prime\right)}}{\partial y}+\frac{\overline{\partial\left(u^\prime\omega^\prime\right)}}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\nu\left[\frac{\partial^2\overline{u}}{\partial x^2}+\frac{\partial^2\overline{v}}{\partial y^2}+\frac{\partial^2\overline{\omega}}{\partial z^2}\right]
 \end{align}
 \]</span></p>
 <p>将左端脉动分量乘积的时均值放到右端粘性项中，即</p>
 <p><span class="math display">\[
 \begin{align}
-\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\frac{\partial}{\partial x}\left[\upsilon\frac{\partial\overline{u}}{\partial x}-\overline{\left(u^\prime\right)^2}\right]+\frac{\partial}{\partial y}\left[\upsilon\frac{\partial\overline{v}}{\partial y}-\overline{\left(u^\prime v^\prime\right)}\right]+\frac{\partial}{\partial z}\left[\upsilon\frac{\partial\overline{\omega}}{\partial z}-\overline{\left(u^\prime\omega^\prime\right)}\right]
+\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\frac{\partial}{\partial x}\left[\nu\frac{\partial\overline{u}}{\partial x}-\overline{\left(u^\prime\right)^2}\right]+\frac{\partial}{\partial y}\left[\nu\frac{\partial\overline{v}}{\partial y}-\overline{\left(u^\prime v^\prime\right)}\right]+\frac{\partial}{\partial z}\left[\nu\frac{\partial\overline{\omega}}{\partial z}-\overline{\left(u^\prime\omega^\prime\right)}\right]
 \end{align}
 \]</span></p>
 <p>对其他两个方向也可以做类似的推导，对不可压缩流体，常写作张量符号形式，可得到下列时均形式的N-S方程，即Reynolds方程</p>
