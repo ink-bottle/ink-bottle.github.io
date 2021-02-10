@@ -17,7 +17,7 @@
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-09T05:49:11.000Z">
-<meta property="article:modified_time" content="2021-02-10T09:30:15.038Z">
+<meta property="article:modified_time" content="2021-02-10T10:25:45.066Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
@@ -213,8 +213,8 @@ var _hmt = _hmt || [];
 \frac{\partial\left (  \rho \vec{\boldsymbol{U}}\right ) }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \vec{\boldsymbol{U}} \vec{\boldsymbol{U}}\right )= -\boldsymbol{\nabla}p+\boldsymbol{\nabla}\cdot\tau +\rho \vec{f}
 \]</span> <strong>能量方程</strong> <span class="math display">\[
 \begin{align}
-\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{U^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{U^{2}}{2}\right )\vec{\boldsymbol{U}} \right ]&amp;=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}\\\\
-&amp;-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}\\\\
+\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{U^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{U^{2}}{2}\right )\vec{\boldsymbol{U}} \right ]&amp;=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}\\
+&amp;-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}\\
 &amp;+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \vec{\boldsymbol{U}}
 \end{align}
 \]</span></p>
@@ -224,10 +224,11 @@ var _hmt = _hmt || [];
 u_{i}=\overline{u_{i}}+{u_{i}}&#39;
 \]</span></p>
 <p>同样，对于压力和能量、相分数或其他标量也采用这种方式进行分解。</p>
-<p><span class="math display">\[\begin{align}
+<p><span class="math display">\[
+\begin{align}
 \phi(x_i, t) = \underbrace{\overline{\phi}(x_i)}_{时间平均项} + \underbrace{\phi&#39;(x_i, t)}_{脉动项}
-\end{align}\]</span></p>
-<p>对于稳态问题，方程中的时间平均项可以表示为</p>
+\end{align}
+\]</span> 对于稳态问题，方程中的时间平均项可以表示为</p>
 <p><span class="math display">\[
 \begin{equation}
 \overline{\phi}(x_i) = \lim_{T \to \infty} \frac{1}{T} \int_0^T \phi(x_i, t) \mathrm{d}t
@@ -236,7 +237,7 @@ u_{i}=\overline{u_{i}}+{u_{i}}&#39;
 <p>设<span class="math inline">\(\phi\)</span>及<span class="math inline">\(\xi\)</span>是两个瞬时值，<span class="math inline">\({\phi}&#39;\)</span>及<span class="math inline">\({\xi}&#39;\)</span>是相应的脉动值，则有以下关系成立：</p>
 <p><span class="math display">\[
 \begin{equation}
-\overline{\overline{\phi}} = \overline{\phi}, \quad \overline{\phi&#39;} = 0\\\\
+\overline{\overline{\phi}} = \overline{\phi}, \quad \overline{\phi&#39;} = 0\\
 \overline{\overline{\phi}+{\phi&#39;}}=\overline{\phi}, \quad \overline{\overline{\phi}\overline{\xi}}=\overline{\phi \xi}
 \end{equation}
 \]</span></p>
@@ -244,9 +245,9 @@ u_{i}=\overline{u_{i}}+{u_{i}}&#39;
 \begin{equation}
 \begin{aligned}
 \overline{\phi \xi} 
-&amp;= \overline{(\overline{\phi}+\phi&#39;)(\overline{\xi}+\xi&#39;)} \\\\
-&amp;= \overline{(\overline{\phi}\overline{\xi} + \overline{\xi} \phi&#39; + \overline{\phi}\xi&#39; + \xi&#39; \xi&#39;)} \\\\
-&amp;= \overline{\overline{\phi}\overline{\xi}} + \overline{\overline{\xi} \phi&#39;} + \overline{\overline{\phi}\xi&#39;} + \overline{\phi&#39; \xi&#39;} \\\\
+&amp;= \overline{(\overline{\phi}+\phi&#39;)(\overline{\xi}+\xi&#39;)} \\
+&amp;= \overline{(\overline{\phi}\overline{\xi} + \overline{\xi} \phi&#39; + \overline{\phi}\xi&#39; + \xi&#39; \xi&#39;)} \\
+&amp;= \overline{\overline{\phi}\overline{\xi}} + \overline{\overline{\xi} \phi&#39;} + \overline{\overline{\phi}\xi&#39;} + \overline{\phi&#39; \xi&#39;} \\
 &amp;= \overline{\phi}\overline{\xi} + \overline{\phi&#39; \xi&#39;}
 \end{aligned}
 \end{equation}
@@ -258,7 +259,7 @@ u_{i}=\overline{u_{i}}+{u_{i}}&#39;
 \]</span></p>
 <p><span class="math display">\[
 \begin{align}
-\frac{\overline{\partial \phi}}{\partial t} = \frac{\partial \overline{\phi}}{\partial t}, \quad \frac{\overline{\partial \phi}}{\partial x_i} = \frac{\partial \overline{\phi}}{\partial x_i}\\\\
+\frac{\overline{\partial \phi}}{\partial t} = \frac{\partial \overline{\phi}}{\partial t}, \quad \frac{\overline{\partial \phi}}{\partial x_i} = \frac{\partial \overline{\phi}}{\partial x_i}\\
 \frac{\overline{\partial^2 \phi} }{\partial x_{i}^2}=\frac{\partial^2 \overline{\phi} }{\partial x_{i}^2}, \quad \frac{\overline{\partial \phi&#39;}}{\partial x_i} =0, \quad \frac{\overline{\partial^2 \phi&#39;} }{\partial x_{i}^2}=0
 \end{align}
 \]</span></p>
@@ -276,7 +277,7 @@ u_{i}=\overline{u_{i}}+{u_{i}}&#39;
 <p>对于动量方程，以x方向为例，作类似于上面的处理可得</p>
 <p><span class="math display">\[
 \begin{align}
-\overline{\frac{\partial\left(\overline{u}+u^\prime\right)}{\partial t}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)^2}{\partial x}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{v}+v^\prime\right)}{\partial y}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{\omega}+\omega^\prime\right)}{\partial z}}=\\\\
+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)}{\partial t}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)^2}{\partial x}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{v}+v^\prime\right)}{\partial y}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{\omega}+\omega^\prime\right)}{\partial z}}=\\
 -\frac{1}{\rho}\overline{\frac{\partial\left(\overline{p}+p^\prime\right)}{\partial x}}+\upsilon\left[\overline{\frac{\partial^2\left(\overline{u}+u^\prime\right)}{\partial x^2}}+\overline{\frac{\partial^2\left(\overline{v}+v^\prime\right)}{\partial y^2}}+\overline{\frac{\partial^2\left(\overline{\omega}+\omega^\prime\right)}{\partial z^2}}\right]
 \end{align}
 \]</span></p>
@@ -305,9 +306,9 @@ u_{i}=\overline{u_{i}}+{u_{i}}&#39;
 \begin{equation}
 R_{ij} \equiv - \overline{u_i&#39; u_j&#39;} = -\left (
 \begin{matrix}
-\overline{u&#39; u&#39;} &amp; \overline{u&#39; v&#39;} &amp; \overline{u&#39; w&#39;}  \\\\
-\overline{v&#39; u&#39;} &amp; \overline{v&#39; v&#39;} &amp; \overline{v&#39; w&#39;}  \\\\
-\overline{w&#39; u&#39;} &amp; \overline{w&#39; v&#39;} &amp; \overline{w&#39; w&#39;}  \\\\
+\overline{u&#39; u&#39;} &amp; \overline{u&#39; v&#39;} &amp; \overline{u&#39; w&#39;}  \\
+\overline{v&#39; u&#39;} &amp; \overline{v&#39; v&#39;} &amp; \overline{v&#39; w&#39;}  \\
+\overline{w&#39; u&#39;} &amp; \overline{w&#39; v&#39;} &amp; \overline{w&#39; w&#39;}  \\
 \end{matrix}
 \right )
 \end{equation}
