@@ -17,7 +17,7 @@
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-09T05:49:11.000Z">
-<meta property="article:modified_time" content="2021-02-10T13:13:08.147Z">
+<meta property="article:modified_time" content="2021-02-10T13:16:15.101Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
@@ -214,7 +214,9 @@ var _hmt = _hmt || [];
 \]</span> <strong>能量方程</strong> <span class="math display">\[
 \begin{align}
 \frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{U^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{U^{2}}{2}\right )\vec{\boldsymbol{U}} \right ]&amp;=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}\\
+\nonumber
 &amp;-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}\\
+\nonumber
 &amp;+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \vec{\boldsymbol{U}}
 \nonumber
 \end{align}
@@ -319,7 +321,7 @@ R_{ij} \equiv - \overline{u_i&#39; u_j&#39;} = -\left (
 <p>从数学形式上看，雷诺应力很像二阶应力张量。因此 Boussinesq 仿照分子粘性应力与速度变形率的关系，提出了关于涡粘性（eddy viscosity）的 Boussinesq 假设，认为雷诺应力与平均速度变形率成线性关系：</p>
 <p><span class="math display">\[
 \begin{equation}
--\overline{u_i&#39;u_j&#39;} = \nu_t \left( \frac{\partial \overline{u}_i}{\partial x_j} + \frac{\partial \overline{u}_j}{\partial x_i} - \frac{2}{3} \frac{\partial \overline{u}_k}{\partial x_k} \delta_{ij} \right) - \frac{2}{3} k \delta_{ij} \label{eq:boussinesq}
+-\overline{u_i&#39;u_j&#39;} = \nu_t \left( \frac{\partial \overline{u}_i}{\partial x_j} + \frac{\partial \overline{u}_j}{\partial x_i} - \frac{2}{3} \frac{\partial \overline{u}_k}{\partial x_k} \delta_{ij} \right) - \frac{2}{3} k \delta_{ij}
 \end{equation}
 \]</span> 式 (14) 中的 <span class="math inline">\(k\)</span>为湍动能（turbulence kinetic energy），定义为<span class="math inline">\(k=\frac{1}{2}(\overline{u&#39;u&#39;}+\overline{v&#39;v&#39;}+\overline{w&#39;w&#39;})\)</span>，<span class="math inline">\(\delta_{ij}\)</span>为 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kronecker_delta">Kronecker delta</a>。<span class="math inline">\(\nu_t\)</span>被称为<strong>湍流粘度</strong>或<strong>涡粘系数</strong>，湍流粘度和一般流体粘度不同，它不是流体的固有物理属性，而和当地的湍流强度有很大关系。对于流场中不同位置的点，<span class="math inline">\(\nu_t\)</span>的值都不尽相同，也就是说它是空间坐标的函数。</p>
 <p>基于以上假设的模型被称为涡粘模型（Eddy Viscosity Model, EVM）。Boussinesq 假设被用于Spalart-Allmaras单方程模型和双方程模型，其优点是与求解湍流粘性系数有关的计算花费时间较少，但缺点是认为湍流粘性系数是各向同性标量，对于一些复杂的流动条件下并不严格成立，所以具有其应用限制性。工业界常用的涡粘模型有一方程 Spalart-Allmaras 模型，两方程 k−ε 及 k−ω 模型等。</p>
