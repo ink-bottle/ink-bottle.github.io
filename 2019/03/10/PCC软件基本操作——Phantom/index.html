@@ -9,12 +9,12 @@
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
   <title>PCC软件基本操作——Phantom | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="首先介绍一下什么是PCC软件。	PCC软件，全称为：Phantom® Camera Control Software，又称高速摄像机软件。">
+  <meta name="description" content="首先介绍一下什么是PCC软件。 PCC软件，全称为：Phantom® Camera Control Software，又称高速摄像机软件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PCC软件基本操作——Phantom">
 <meta property="og:url" content="https://ink-bottle.github.io/2019/03/10/PCC%E8%BD%AF%E4%BB%B6%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E2%80%94%E2%80%94Phantom/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="首先介绍一下什么是PCC软件。	PCC软件，全称为：Phantom® Camera Control Software，又称高速摄像机软件。">
+<meta property="og:description" content="首先介绍一下什么是PCC软件。 PCC软件，全称为：Phantom® Camera Control Software，又称高速摄像机软件。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://i.loli.net/2019/03/11/5c86086452a0d.png">
 <meta property="og:image" content="https://i.loli.net/2019/03/11/5c860b90a6f47.png">
@@ -206,41 +206,41 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>首先介绍一下什么是PCC软件。	PCC软件，全称为：Phantom® Camera Control Software，又称高速摄像机软件。</p>
-<a id="more"></a>
-<p>其功能有:</p>
+        <p>首先介绍一下什么是PCC软件。 PCC软件，全称为：Phantom® Camera Control Software，又称高速摄像机软件。 <a id="more"></a> 其功能有:</p>
 <ul>
 <li>可完成对Phantom®系列高速数字摄像机的参数设置、数据采集、数据卸载及图像分析工作。</li>
 <li>可对高速数字摄像机所存储的图像进行读取并分析，文件格式为美国VRI专有的Cine文件，且是“无损的”，意味着所有的传感器数据完好无损，没有任何损失或压缩。</li>
 <li>可对Cine文件进行分析回放、测量（直线及角度测量；位移及速度测量；产生测量报告）、图像处理（平滑、锐化、伪彩色、负像及边缘检测；亮度、对比度及反衬度调整）及文件处理。</li>
 </ul>
 <p>其基本界面如下:</p>
-<p><img src="https://i.loli.net/2019/03/11/5c86086452a0d.png" alt="2333"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/11/5c86086452a0d.png" alt="2333" /><figcaption aria-hidden="true">2333</figcaption>
+</figure>
 <p>右边是基本的功能栏：</p>
-<p><img src="https://i.loli.net/2019/03/11/5c860b90a6f47.png" alt="2333"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/11/5c860b90a6f47.png" alt="2333" /><figcaption aria-hidden="true">2333</figcaption>
+</figure>
 <h2 id="运动体测速">运动体测速</h2>
 <p>一般拍摄的文件中有我们拍摄的运动物体，我们需要大概知道它的运动速度，接下来介绍如何进行测速：</p>
 <p>点开功能栏的Measurements，在Calibration下点击Calibrate，用十字光标在显示界面点上两点，随即会出现下面一个小窗口：</p>
-<p><img src="https://i.loli.net/2019/03/11/5c860d1cf3d85.png" alt="2333"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/11/5c860d1cf3d85.png" alt="2333" /><figcaption aria-hidden="true">2333</figcaption>
+</figure>
 <p>其默认单位是英尺，不过我们可以不管，填入真实的这两点的距离，比如200mm。</p>
 <p>以上基本单位的确定和尺寸校准完成以后，便可以开始对实验工况进行测量所需的实验数据。在Measurements功能栏Instant Measurement下勾选Active，接着选择下拉列表Select measurement，其中有“原点+一点法”，“两点法”，“三点法”，“四点法”等。通常实验采用“两点法”，选择“两点法”后，若要测量此时模型的姿态角，可用光标分别点击模型头部中点与尾部中点，在result中将计算出这两点的距离以及这两点连线与x轴的夹角大小；若要测量此时模型的运动速度，可在当前播放窗口上选取航行器模型的一个特征点（最好是比较明显且特殊的点），点击播放至模型运动一小段距离后暂停（根据实际情况调整），再点击同一特征点即可。</p>
 <p>此时，在右侧的Result一栏会显示位移，速度，加速度，角度等信息。</p>
 <h2 id="另存文件为一系列照片">另存文件为一系列照片</h2>
 <p>如果想要将该相机文件以一帧一帧图片的形式保存下来，不断地截图显然不现实，因此可采用以下方法：</p>
-<p>点击绿色按钮的Save Cine To File；<br>
-<img src="https://i.loli.net/2019/03/11/5c8610841428e.png" alt="2333"><br>
-在文件保存窗口中保存类型中可选择jpg、png、tif等等格式，文件名的格式为：</p>
-<pre><code>文件名！帧数的数量级+1
-</code></pre>
+<p>点击绿色按钮的Save Cine To File； <img src="https://i.loli.net/2019/03/11/5c8610841428e.png" alt="2333" /> 在文件保存窗口中保存类型中可选择jpg、png、tif等等格式，文件名的格式为：</p>
+<pre><code>文件名！帧数的数量级+1</code></pre>
 <p>例如：我的相机文件一共2000帧，数量级为3，因此我的文件名应该为：</p>
-<pre><code>myphoto!4
-</code></pre>
-<p>如图所示：<br>
-<img src="https://i.loli.net/2019/03/11/5c86112a939af.png" alt="2333"></p>
-<p>同时，在Border Data中可以选择照片要携带的信息，视个人而定：<br>
-<img src="https://i.loli.net/2019/03/11/5c86133f298f2.png" alt="2333"></p>
+<pre><code>myphoto!4</code></pre>
+<p>如图所示： <img src="https://i.loli.net/2019/03/11/5c86112a939af.png" alt="2333" /></p>
+<p>同时，在Border Data中可以选择照片要携带的信息，视个人而定： <img src="https://i.loli.net/2019/03/11/5c86133f298f2.png" alt="2333" /></p>
 <p>点击保存，可以看到该相机文件已经以一帧一帧图片的形式保存至指定文件夹了。</p>
-<p><img src="https://i.loli.net/2019/03/11/5c8613e33b3c2.png" alt="2333"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/11/5c8613e33b3c2.png" alt="2333" /><figcaption aria-hidden="true">2333</figcaption>
+</figure>
 <p>以上便是我整理的PCC软件基本操作，希望我以后不会忘记。</p>
 <p>最后，放上该软件的下载地址：<a target="_blank" rel="noopener" href="https://mailnwpueducn-my.sharepoint.com/:u:/g/personal/lin_chuanhua_mail_nwpu_edu_cn/EYGo8tKvkm1HrEcxwPvta5gBy4wKxJb36vpagwtlatabnw?e=w4lRgL">PCC软件</a></p>
 

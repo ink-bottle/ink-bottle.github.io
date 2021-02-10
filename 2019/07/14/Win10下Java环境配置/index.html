@@ -214,58 +214,78 @@ var _hmt = _hmt || [];
       
         <p>OpenRocket是一款免费的全功能模型火箭模拟器，可让用户在实际构建和飞行之前设计和模拟火箭。并且该程序是一个基于Java的应用程序，因此它应该在大多数安装了Java引擎的平台上运行。在本文中，将详细介绍如何在Win10下进行Java环境配置。</p>
 <a id="more"></a>
-<h2 id="JDK下载与安装">JDK下载与安装</h2>
+<h2 id="jdk下载与安装">JDK下载与安装</h2>
 <p>（若已有JDK和JRE安装包，则可跳过该步骤）</p>
 <p>首先我们需要下载java开发工具包JDK，这里是<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK官网下载地址</a>，之后点击如图所示按钮。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a07ad6360391806.png" alt="TIM图片20190714003227.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a07ad6360391806.png" alt="TIM图片20190714003227.png" /><figcaption aria-hidden="true">TIM图片20190714003227.png</figcaption>
+</figure>
 <p>点击后显示以下界面，点击接受许可协议，然后点击箭头所指位置下载JDK。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a08751cfb257299.png" alt="TIM图片20190714003556.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a08751cfb257299.png" alt="TIM图片20190714003556.png" /><figcaption aria-hidden="true">TIM图片20190714003556.png</figcaption>
+</figure>
 <p>下载完后得到一个可执行文件，点击运行进入安装。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a094034f6f68079.png" alt="TIM图片20190714003918.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a094034f6f68079.png" alt="TIM图片20190714003918.png" /><figcaption aria-hidden="true">TIM图片20190714003918.png</figcaption>
+</figure>
 <p>选择你要安装到的路径，注意这个路径不能包含中文名，一般默认路径即可，无需修改。安装jdk的过程中安装向导会检查到你未安装jre，然后提示你安装jre。</p>
 <p>但是，我在安装完成的时候安装向导并未提示我安装jre，为了解决这个问题，只需要去官网下载相应的jre然后再安装即可。这里是<a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html">JRE官网下载地址</a></p>
 <p>同上，点击接受许可协议，然后点击箭头所指位置下载JRE，得到一个可执行文件后点击运行进入安装，注意要将jre和jdk安装在同一个文件夹下（如果路径没有更改，保持默认即可）。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0a7009ab171079.png" alt="TIM图片20190714004418.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0a7009ab171079.png" alt="TIM图片20190714004418.png" /><figcaption aria-hidden="true">TIM图片20190714004418.png</figcaption>
+</figure>
 <p>安装完成后安装目录下会出现这样两个文件夹即表示安装成功。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0b59b518a26273.png" alt="TIM图片20190714004737.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0b59b518a26273.png" alt="TIM图片20190714004737.png" /><figcaption aria-hidden="true">TIM图片20190714004737.png</figcaption>
+</figure>
 <h2 id="环境变量配置">环境变量配置</h2>
 <p>进入控制面板→系统和安全→系统→高级系统设置→环境变量</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0bbebb15477377.png" alt="TIM图片20190714004953.png"></p>
-<p>首先在系统变量下新建（注意，不要在用户变量下新建）一个变量名为“JAVA_HOME”的系统变量，变量值为“C:\Program Files\Java\jdk-12.0.1”（jdk的安装目录，根据个人所安装的目录修改，如果前面默认安装路径这里也就填入C:\Program Files\Java\jdk-12.0.1即可），如图所示：</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0cabbbadc94254.png" alt="TIM图片20190714005350.png"></p>
-<p>点击确定，再在系统变量下新建一个变量名为“CLASSPATH”，变量值为“.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;”的系统变量，注意前面的点号和分号都是有的。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0ce92a52a81483.png" alt="TIM图片20190714005458.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0bbebb15477377.png" alt="TIM图片20190714004953.png" /><figcaption aria-hidden="true">TIM图片20190714004953.png</figcaption>
+</figure>
+<p>首先在系统变量下新建（注意，不要在用户变量下新建）一个变量名为“JAVA_HOME”的系统变量，变量值为“C:Files.1”（jdk的安装目录，根据个人所安装的目录修改，如果前面默认安装路径这里也就填入C:Files.1即可），如图所示：</p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0cabbbadc94254.png" alt="TIM图片20190714005350.png" /><figcaption aria-hidden="true">TIM图片20190714005350.png</figcaption>
+</figure>
+<p>点击确定，再在系统变量下新建一个变量名为“CLASSPATH”，变量值为“.;%JAVA_HOME%.jar;%JAVA_HOME%.jar;”的系统变量，注意前面的点号和分号都是有的。</p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0ce92a52a81483.png" alt="TIM图片20190714005458.png" /><figcaption aria-hidden="true">TIM图片20190714005458.png</figcaption>
+</figure>
 <p>在系统变量下找到Path”系统变量，双击它。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0d171fadf87170.png" alt="TIM图片20190714005541.png"></p>
-<p>在弹出的窗口中点击新建，添加“%JAVA_HOME%\bin”和“%JAVA_HOME%\jre\bin”两个系统变量。Path使得系统可以在任何路径下识别java命令，如图所示：</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0da7458e013972.png" alt="TIM图片20190714005803.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0d171fadf87170.png" alt="TIM图片20190714005541.png" /><figcaption aria-hidden="true">TIM图片20190714005541.png</figcaption>
+</figure>
+<p>在弹出的窗口中点击新建，添加“%JAVA_HOME%”和“%JAVA_HOME%”两个系统变量。Path使得系统可以在任何路径下识别java命令，如图所示：</p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0da7458e013972.png" alt="TIM图片20190714005803.png" /><figcaption aria-hidden="true">TIM图片20190714005803.png</figcaption>
+</figure>
 <p>点击确定保存。</p>
 <h2 id="测试环境">测试环境</h2>
 <p>至此JAVA环境应该配置完成，为了检测是否确确实实安装成功，进行如下步骤。</p>
 <p>按window+R，输入cmd，打开命令行窗口。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0ea15cc3565248.png" alt="TIM图片20190714010216.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0ea15cc3565248.png" alt="TIM图片20190714010216.png" /><figcaption aria-hidden="true">TIM图片20190714010216.png</figcaption>
+</figure>
 <p>分别输入java和java -version和javac都正常运行即代表java已经正确安装，其中java -version代表你安装的java的版本。下图是输入java -version后的正常显示结果。</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a0ec85429478022.png" alt="TIM图片20190714010122.png"></p>
-<p>如果出现类似&quot;javac不是内部或外部命令&quot;等提示语句，请再三检查你的环境变量是否正确配置，或者JDK和JRE安装目录是否重复，如果重复，可以选择再次运行下载的jdk安装程序重新安装。</p>
-<h2 id="打开OpenRocket">打开OpenRocket</h2>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a0ec85429478022.png" alt="TIM图片20190714010122.png" /><figcaption aria-hidden="true">TIM图片20190714010122.png</figcaption>
+</figure>
+<p>如果出现类似"javac不是内部或外部命令"等提示语句，请再三检查你的环境变量是否正确配置，或者JDK和JRE安装目录是否重复，如果重复，可以选择再次运行下载的jdk安装程序重新安装。</p>
+<h2 id="打开openrocket">打开OpenRocket</h2>
 <p>首先先下载OpenRocket，这里是官方网站<a target="_blank" rel="noopener" href="http://openrocket.info/">下载地址</a></p>
-<p>下载完成后，将下载好的jar文件拷贝到C:\Program Files\Java\jre1.8.0_212\bin（若前面修改了安装路径，这里也需要放在对应的jre目录下）。</p>
+<p>下载完成后，将下载好的jar文件拷贝到C:Files.0_212（若前面修改了安装路径，这里也需要放在对应的jre目录下）。</p>
 <p>按window+R，输入cmd，打开命令行窗口。输入如下命令转到目标文件夹</p>
-<pre><code>cd C:\Program Files\Java\jre1.8.0_212\bin
-</code></pre>
+<pre><code>cd C:\Program Files\Java\jre1.8.0_212\bin</code></pre>
 <p>回车，然后输入如下命令</p>
-<pre><code>java -jar OpenRocket-15.03.jar
-</code></pre>
+<pre><code>java -jar OpenRocket-15.03.jar</code></pre>
 <p>这里的命令需要根据自己的OpenRocket版本号进行修改，例如，如果你的OpenRocket版本是14.06，则上面的命令改为</p>
-<pre><code>java -jar OpenRocket-14.06.jar
-</code></pre>
+<pre><code>java -jar OpenRocket-14.06.jar</code></pre>
 <p>按下回车键，打开了这个界面就表示已经打开成功啦</p>
-<p><img src="https://i.loli.net/2019/07/14/5d2a83e06f19284842.png" alt="TIM图片20190714092157.png"></p>
+<figure>
+<img src="https://i.loli.net/2019/07/14/5d2a83e06f19284842.png" alt="TIM图片20190714092157.png" /><figcaption aria-hidden="true">TIM图片20190714092157.png</figcaption>
+</figure>
 <h2 id="参考链接">参考链接</h2>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-environment-setup.html">Java 开发环境配置</a><br>
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/afei__/article/details/51464783">Java环境搭建，以win10为例</a><br>
-<a target="_blank" rel="noopener" href="https://blog.csdn.net/LINXISHUIJI/article/details/81565036">再次安装jdk时不会自动安装jre的解决方案</a><br>
-<a target="_blank" rel="noopener" href="http://cn.voidcc.com/question/p-hbspryux-rm.html">.Jar文件将不会打开</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-environment-setup.html">Java 开发环境配置</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/afei__/article/details/51464783">Java环境搭建，以win10为例</a> <a target="_blank" rel="noopener" href="https://blog.csdn.net/LINXISHUIJI/article/details/81565036">再次安装jdk时不会自动安装jre的解决方案</a> <a target="_blank" rel="noopener" href="http://cn.voidcc.com/question/p-hbspryux-rm.html">.Jar文件将不会打开</a></p>
 
       
 
@@ -418,7 +438,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JDK%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">JDK下载与安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">环境变量配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80OpenRocket"><span class="toc-number">4.</span> <span class="toc-text">打开OpenRocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jdk%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">JDK下载与安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">环境变量配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">测试环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80openrocket"><span class="toc-number">4.</span> <span class="toc-text">打开OpenRocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>

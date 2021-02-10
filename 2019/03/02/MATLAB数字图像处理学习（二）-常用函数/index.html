@@ -205,102 +205,30 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》</p>
-<a id="more"></a>
+        <p>以下的学习整理来自《数字图像处理原理与实践（MATLAB版）》 <a id="more"></a></p>
 <h2 id="im2bw">im2bw</h2>
-<p>功能：将索引图象、灰度图像和RGB彩色图像转换为二值图像<br>
-调用形式：</p>
-<blockquote>
-<p>BW = im2bw(I,level)<br>
-BW = im2bw(X,cmap,level)<br>
-BW = im2bw(RGB,level)</p>
-</blockquote>
-<p>其中level用于设置阈值。level取值范围[0, 1]。<br>
-示例：<br>
-<img src="https://i.loli.net/2019/03/02/5c7a1d6b3fafa.png" alt="示例图片"></p>
+<p>功能：将索引图象、灰度图像和RGB彩色图像转换为二值图像 调用形式： &gt;BW = im2bw(I,level) BW = im2bw(X,cmap,level) BW = im2bw(RGB,level)</p>
+<p>其中level用于设置阈值。level取值范围[0, 1]。 示例： <img src="https://i.loli.net/2019/03/02/5c7a1d6b3fafa.png" alt="示例图片" /></p>
 <h2 id="edge">edge</h2>
 <p>功能：功能是采用I作为它的输入，并返回一个与I相同大小的二值化图像BW，在函数检测到边缘的地方为1，其他地方为0。采用灰度或一个二值化图像I作为它的输入，并返回一个与I相同大小的二值化图像BW，在函数检测到边缘的地方为1，其他地方为0。</p>
-<p>调用形式：</p>
-<blockquote>
-<p>BW = edge(I)<br>
-BW = edge(I,method)<br>
-BW = edge(I,‘sobel’)%自动选择阈值用Sobel算子进行边缘检测。<br>
-BW = edge(I,method,threshold)<br>
-BW = edge(I,method,threshold,direction)<br>
-BW = edge(—,‘nothinning’)<br>
-BW = edge(I,method,threshold,sigma)<br>
-BW = edge(I,method,threshold,h)<br>
-[BW,threshOut] = edge(—)<br>
-[BW,threshOut,Gv,Gh] = edge(—)</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">% 将索引彩色图象转换为灰度图像</span><br><span class="line">bw1&#x3D;edge(I,&#39;roberts&#39;);</span><br><span class="line">bw2&#x3D;edge(I,&#39;sobel&#39;);</span><br><span class="line">bw3&#x3D;edge(I,&#39;prewitt&#39;);</span><br><span class="line">bw4&#x3D;edge(I,&#39;log&#39;);</span><br><span class="line">bw5&#x3D;edge(I,&#39;canny&#39;,[0.032,0.08],1);</span><br><span class="line">figure</span><br><span class="line">subplot(2,3,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(2,3,2),imshow(bw1);</span><br><span class="line">title(&#39;roberts&#39;);</span><br><span class="line">subplot(2,3,3),imshow(bw2);</span><br><span class="line">title(&#39;sobel&#39;);</span><br><span class="line">subplot(2,3,4),imshow(bw3);</span><br><span class="line">title(&#39;prewitt&#39;);</span><br><span class="line">subplot(2,3,5),imshow(bw4);</span><br><span class="line">title(&#39;log&#39;);</span><br><span class="line">subplot(2,3,6),imshow(bw5);</span><br><span class="line">title(&#39;canny&#39;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a207a79d61.png" alt="2333"></p>
+<p>调用形式： &gt;BW = edge(I) BW = edge(I,method) BW = edge(I,'sobel')%自动选择阈值用Sobel算子进行边缘检测。 BW = edge(I,method,threshold) BW = edge(I,method,threshold,direction) BW = edge(---,'nothinning') BW = edge(I,method,threshold,sigma) BW = edge(I,method,threshold,h) [BW,threshOut] = edge(---) [BW,threshOut,Gv,Gh] = edge(---)</p>
+<p>示例： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">% 将索引彩色图象转换为灰度图像</span><br><span class="line">bw1&#x3D;edge(I,&#39;roberts&#39;);</span><br><span class="line">bw2&#x3D;edge(I,&#39;sobel&#39;);</span><br><span class="line">bw3&#x3D;edge(I,&#39;prewitt&#39;);</span><br><span class="line">bw4&#x3D;edge(I,&#39;log&#39;);</span><br><span class="line">bw5&#x3D;edge(I,&#39;canny&#39;,[0.032,0.08],1);</span><br><span class="line">figure</span><br><span class="line">subplot(2,3,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(2,3,2),imshow(bw1);</span><br><span class="line">title(&#39;roberts&#39;);</span><br><span class="line">subplot(2,3,3),imshow(bw2);</span><br><span class="line">title(&#39;sobel&#39;);</span><br><span class="line">subplot(2,3,4),imshow(bw3);</span><br><span class="line">title(&#39;prewitt&#39;);</span><br><span class="line">subplot(2,3,5),imshow(bw4);</span><br><span class="line">title(&#39;log&#39;);</span><br><span class="line">subplot(2,3,6),imshow(bw5);</span><br><span class="line">title(&#39;canny&#39;);</span><br></pre></td></tr></table></figure> <img src="https://i.loli.net/2019/03/02/5c7a207a79d61.png" alt="2333" /></p>
 <h2 id="strel">strel</h2>
-<p>功能：构造结构元素（Structuring element）。所谓结构元素，可以看做是一张小图像，它通常用于图像的形态学运算（如膨胀、腐蚀、开运算、闭运算）。<br>
-调用形式：</p>
-<blockquote>
-<p>SE = strel(shape, parameters)%根据shape指定的类型创建一个结构元素SE。<br>
-SE = strel(‘ball’, R, H, N)<br>
-SE = strel(‘diamond’, R)<br>
-SE = strel(‘disk’, R, N)<br>
-SE = strel(‘line’, LEN, DEG)<br>
-SE = strel(‘octagon’, R)<br>
-SE = strel(‘pair’, OFFSET)<br>
-SE = strel(‘periodicline’, P, V)<br>
-SE = strel(‘rectangle’, MN)<br>
-SE = strel(‘square’, W)</p>
-</blockquote>
-<p>示例：<br>
-见下一例。</p>
+<p>功能：构造结构元素（Structuring element）。所谓结构元素，可以看做是一张小图像，它通常用于图像的形态学运算（如膨胀、腐蚀、开运算、闭运算）。 调用形式： &gt;SE = strel(shape, parameters)%根据shape指定的类型创建一个结构元素SE。 SE = strel('ball', R, H, N) SE = strel('diamond', R) SE = strel('disk', R, N) SE = strel('line', LEN, DEG) SE = strel('octagon', R) SE = strel('pair', OFFSET) SE = strel('periodicline', P, V) SE = strel('rectangle', MN) SE = strel('square', W)</p>
+<p>示例： 见下一例。</p>
 <h2 id="imdilate与imerode">imdilate与imerode</h2>
-<p>功能：可以使用imdilate函数进行图像膨胀；可以使用imerode函数进行图像腐蚀。<br>
-调用形式：</p>
-<blockquote>
-<p>J = imdilate(I,SE)<br>
-J = imdilate(I,nhood)<br>
-J = imdilate(—,packopt)<br>
-J = imdilate(—,shape)<br>
-J = imerode(I,SE)<br>
-J = imerode(I,nhood)<br>
-J = imerode(—,packopt,m)<br>
-J = imerode(—,shape)</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">sel1&#x3D;strel(&#39;disk&#39;,2);%创建一个指定半径1的平面圆盘形的结构元素</span><br><span class="line">im1&#x3D;imdilate(I,sel1);</span><br><span class="line">im2&#x3D;imerode(I,sel1);</span><br><span class="line">subplot(2,2,1),imshow(I1);</span><br><span class="line">title(&#39;彩色图像&#39;);</span><br><span class="line">subplot(2,2,2),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(2,2,3),imshow(im1);</span><br><span class="line">title(&#39;图像膨胀&#39;);</span><br><span class="line">subplot(2,2,4),imshow(im2);</span><br><span class="line">title(&#39;图像腐蚀&#39;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a28ec7cdc7.png" alt="23333"></p>
+<p>功能：可以使用imdilate函数进行图像膨胀；可以使用imerode函数进行图像腐蚀。 调用形式： &gt;J = imdilate(I,SE) J = imdilate(I,nhood) J = imdilate(---,packopt) J = imdilate(---,shape) J = imerode(I,SE) J = imerode(I,nhood) J = imerode(---,packopt,m) J = imerode(---,shape)</p>
+<p>示例： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">sel1&#x3D;strel(&#39;disk&#39;,2);%创建一个指定半径1的平面圆盘形的结构元素</span><br><span class="line">im1&#x3D;imdilate(I,sel1);</span><br><span class="line">im2&#x3D;imerode(I,sel1);</span><br><span class="line">subplot(2,2,1),imshow(I1);</span><br><span class="line">title(&#39;彩色图像&#39;);</span><br><span class="line">subplot(2,2,2),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(2,2,3),imshow(im1);</span><br><span class="line">title(&#39;图像膨胀&#39;);</span><br><span class="line">subplot(2,2,4),imshow(im2);</span><br><span class="line">title(&#39;图像腐蚀&#39;);</span><br></pre></td></tr></table></figure> <img src="https://i.loli.net/2019/03/02/5c7a28ec7cdc7.png" alt="23333" /></p>
 <h2 id="imfill">imfill</h2>
-<p>功能：该函数用于填充图像区域和“空洞”。<br>
-调用形式：</p>
-<blockquote>
-<p>BW2 = imfill(BW)<br>
-这种格式将一张二值图像显示在屏幕上， 允许用户使用鼠标在图像上点几个点， 这几个点围成的区域即要填充的区域。要以这种交互方式操作， BW必须是一个二维的图像。用户可以通过按Backspace键或者Delete键来取消之前选择的区域；通过shift+鼠标左键单击或者鼠标右键单击或双击可以确定选择区域。<br>
-[BW2,locations] = imfill(BW)<br>
-这种方式， 将返回用户的取样点索引值。注意这里索引值不是选取样点的坐标。<br>
-BW2 = imfill(BW,locations)<br>
-这种格式允许用户编程时指定选取样点的索引。locations是个多维数组时， 数组每一行指定一个区域。<br>
-BW2 = imfill(BW,‘holes’)<br>
-填充二值图像中的空洞区域。 如， 黑色的背景上有个白色的圆圈。 则这个圆圈内区域将被填充。<br>
-I2 = imfill(I)<br>
-这种调用格式将填充灰度图像中所有的空洞区域。</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">im3&#x3D;imfill(I,&#39;hole&#39;);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(1,2,2),imshow(im3);</span><br><span class="line">title(&#39;图像填充&#39;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a2c37060db.png" alt="2333"></p>
+<p>功能：该函数用于填充图像区域和“空洞”。 调用形式： &gt;BW2 = imfill(BW) 这种格式将一张二值图像显示在屏幕上， 允许用户使用鼠标在图像上点几个点， 这几个点围成的区域即要填充的区域。要以这种交互方式操作， BW必须是一个二维的图像。用户可以通过按Backspace键或者Delete键来取消之前选择的区域；通过shift+鼠标左键单击或者鼠标右键单击或双击可以确定选择区域。 [BW2,locations] = imfill(BW) 这种方式， 将返回用户的取样点索引值。注意这里索引值不是选取样点的坐标。 BW2 = imfill(BW,locations) 这种格式允许用户编程时指定选取样点的索引。locations是个多维数组时， 数组每一行指定一个区域。 BW2 = imfill(BW,'holes') 填充二值图像中的空洞区域。 如， 黑色的背景上有个白色的圆圈。 则这个圆圈内区域将被填充。 I2 = imfill(I) 这种调用格式将填充灰度图像中所有的空洞区域。</p>
+<p>示例： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">im3&#x3D;imfill(I,&#39;hole&#39;);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(1,2,2),imshow(im3);</span><br><span class="line">title(&#39;图像填充&#39;);</span><br></pre></td></tr></table></figure> <img src="https://i.loli.net/2019/03/02/5c7a2c37060db.png" alt="2333" /></p>
 <h2 id="bwareaopen">bwareaopen</h2>
-<p>功能：删除二值图像BW中小面积对象，默认情况下使用8邻域。<br>
-调用形式：</p>
-<blockquote>
-<p>BW2 = bwareaopen(BW,P)<br>
-BW2 = bwareaopen(BW,P,conn)</p>
-</blockquote>
-<p>示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">im1&#x3D;bwareaopen(I,1200);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(1,2,2),imshow(im1);</span><br><span class="line">title(&#39;删除对象&#39;);</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2019/03/02/5c7a2e3e30923.png" alt="23333"></p>
-<p>关于matlab函数_连通区域得详解，可参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/saliency/p/3593308.html">matlab函数bwareaopen的详解</a><br>
-关于matlab图像处理的更多知识，可参考<a target="_blank" rel="noopener" href="https://cristal-yin.github.io/2017/06/21/%E5%BD%A2%E6%80%81%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">形态学图像处理</a><br>
-最后，再奉上一个表情包用于测试：</p>
-<p><img src="https://i.loli.net/2019/03/02/5c7a2f7bbae07.png" alt="23333"></p>
+<p>功能：删除二值图像BW中小面积对象，默认情况下使用8邻域。 调用形式： &gt;BW2 = bwareaopen(BW,P) BW2 = bwareaopen(BW,P,conn)</p>
+<p>示例： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">clear;</span><br><span class="line">% 使用imread()函数读取图像</span><br><span class="line">I1&#x3D;imread(&#39;C:\Users\huayang\Desktop\MATLAB photo\测试.png&#39;);</span><br><span class="line">I&#x3D;im2bw(I1);</span><br><span class="line">im1&#x3D;bwareaopen(I,1200);</span><br><span class="line">subplot(1,2,1),imshow(I);</span><br><span class="line">title(&#39;原始图像&#39;);</span><br><span class="line">subplot(1,2,2),imshow(im1);</span><br><span class="line">title(&#39;删除对象&#39;);</span><br></pre></td></tr></table></figure> <img src="https://i.loli.net/2019/03/02/5c7a2e3e30923.png" alt="23333" /></p>
+<p>关于matlab函数_连通区域得详解，可参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/saliency/p/3593308.html">matlab函数bwareaopen的详解</a> 关于matlab图像处理的更多知识，可参考<a target="_blank" rel="noopener" href="https://cristal-yin.github.io/2017/06/21/%E5%BD%A2%E6%80%81%E5%AD%A6%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/">形态学图像处理</a> 最后，再奉上一个表情包用于测试：</p>
+<figure>
+<img src="https://i.loli.net/2019/03/02/5c7a2f7bbae07.png" alt="23333" /><figcaption aria-hidden="true">23333</figcaption>
+</figure>
 
       
 

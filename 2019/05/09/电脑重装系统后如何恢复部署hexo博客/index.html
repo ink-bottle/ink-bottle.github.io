@@ -202,7 +202,7 @@ var _hmt = _hmt || [];
       
         <p>最近打算给自己电脑装一个固态，但是这不可避免地需要重装系统，但是没了hexo部署环境，需要再重新部署，因此找到一篇博客教程，转载做笔记。原博文链接：<a target="_blank" rel="noopener" href="https://helloqingfeng.github.io/2017/02/25/hexo-rebuilding/">重装系统后，Hexo博客如何重新部署恢复</a></p>
 <a id="more"></a>
-<h2 id="Hexo博客部署恢复">Hexo博客部署恢复</h2>
+<h2 id="hexo博客部署恢复">Hexo博客部署恢复</h2>
 <p>装系统之前先备份一下自己的hexo博客文件夹，现在就是借助这些文件恢复部署一下就好了。具体方法如下：</p>
 <p>一、安装 node.js 和 git for windows</p>
 <p>二、配置 git 个人信息，生成新的 ssh 密钥：</p>
@@ -211,35 +211,27 @@ var _hmt = _hmt || [];
 <p>如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，打开id_rsa.pub文件，复制里面的内容。</p>
 <p>三、将生成的ssh公钥（刚复制的内容）复制到Github的settings里面的ssh选项里去</p>
 <p>四、安装hexo：</p>
-<pre><code>npm install hexo-cli -g
-</code></pre>
+<pre><code>npm install hexo-cli -g</code></pre>
 <p>五、打开原来的hexo博客所在文件夹，只需保留_config.yml，theme/，source/，scaffolds/，package.json，.gitignore 这些项目，删除其他的文件。</p>
 <p>六、然后打开 git bush 运行命令：</p>
-<pre><code>npm install
-</code></pre>
+<pre><code>npm install</code></pre>
 <p>七、安装部署插件：</p>
-<pre><code>npm install hexo-deployer-git --save //hexo d 部署到git插件
-</code></pre>
+<pre><code>npm install hexo-deployer-git --save //hexo d 部署到git插件</code></pre>
 <p>八、接下来直接hexo g hexo d试一下是否成功。</p>
 <pre><code>hexo g
-hexo d
-</code></pre>
+hexo d</code></pre>
 <p>博客部署恢复完成。</p>
-<h2 id="Hexo部署过程中的难点解决：">Hexo部署过程中的难点解决：</h2>
+<h2 id="hexo部署过程中的难点解决">Hexo部署过程中的难点解决：</h2>
 <p>1、如果博客有RSS订阅和站点地图功能，请在第七步安装下面两个插件，命令如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save  &#x2F;&#x2F;RSS订阅插件</span><br><span class="line">npm install hexo-generator-sitemap --save &#x2F;&#x2F;站点地图插件</span><br></pre></td></tr></table></figure>
-<p>2、安装部署过程中，在git bash中使用hexo g或者hexo d等命令，会报错提示： Cannot find module ‘C:\Program Files\Git\node_modules\hexo-cli\bin\hexo’。</p>
+<p>2、安装部署过程中，在git bash中使用hexo g或者hexo d等命令，会报错提示： Cannot find module ‘C:Files_modules-cli’。</p>
 <p>如图所示：</p>
-<p><img src="https://i.loli.net/2019/05/09/5cd447d94e80a.jpg" alt="photo"></p>
-<p>我当时的解决办法：<br>
-在C盘用户目录下，找到这个文件夹：C:\Users\Administrator\AppData\Roaming\npm\node_modules\hexo-cli。<br>
-然后把node_modules这个文件夹复制到Git安装目录下（C:\Program Files\Git）即可。</p>
-<p>3、怎么用hexo上传一个README.md到github?<br>
-因为README.md文件一执行hexo d命令之后，README文件就被渲染变为README.html文件。</p>
-<p>解决办法：<br>
-在Hexo目录下的source根目录下添加一个 <a target="_blank" rel="noopener" href="http://README.md">README.md</a>；<br>
-修改Hexo目录下的_config.yml，设置 skip_render: README.md保存退出即可；<br>
-使用hexo d 命令就不会再渲染 <a target="_blank" rel="noopener" href="http://README.md">README.md</a> 这个文件了。</p>
+<figure>
+<img src="https://i.loli.net/2019/05/09/5cd447d94e80a.jpg" alt="photo" /><figcaption aria-hidden="true">photo</figcaption>
+</figure>
+<p>我当时的解决办法： 在C盘用户目录下，找到这个文件夹：C:_modules-cli。 然后把node_modules这个文件夹复制到Git安装目录下（C:Files）即可。</p>
+<p>3、怎么用hexo上传一个README.md到github? 因为README.md文件一执行hexo d命令之后，README文件就被渲染变为README.html文件。</p>
+<p>解决办法： 在Hexo目录下的source根目录下添加一个 README.md； 修改Hexo目录下的_config.yml，设置 skip_render: README.md保存退出即可； 使用hexo d 命令就不会再渲染 README.md 这个文件了。</p>
 
       
 
@@ -392,7 +384,7 @@ hexo d
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%81%A2%E5%A4%8D"><span class="toc-number">1.</span> <span class="toc-text">Hexo博客部署恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%9A%BE%E7%82%B9%E8%A7%A3%E5%86%B3%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">Hexo部署过程中的难点解决：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E6%81%A2%E5%A4%8D"><span class="toc-number">1.</span> <span class="toc-text">Hexo博客部署恢复</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hexo%E9%83%A8%E7%BD%B2%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%9A%BE%E7%82%B9%E8%A7%A3%E5%86%B3"><span class="toc-number">2.</span> <span class="toc-text">Hexo部署过程中的难点解决：</span></a></li></ol>
                     </div>
                 </span>
             </div>

@@ -226,10 +226,10 @@ var _hmt = _hmt || [];
 <p>因此，当你拥有自己的域名且需要使用服务器（比如VPS或虚拟主机）搭建WordPress网站，这篇教程便非常适合你。</p>
 <h2 id="域名购买">域名购买</h2>
 <p>域名注册服务商有很多，比如<a target="_blank" rel="noopener" href="https://sg.godaddy.com/zh">Godaddy</a>、<a target="_blank" rel="noopener" href="https://v4.gandi.net/login">Gandi</a>、<a target="_blank" rel="noopener" href="https://www.hover.com/">Hover</a>、<a target="_blank" rel="noopener" href="https://www.namesilo.com/">Namesilo</a>、<a target="_blank" rel="noopener" href="https://www.namecheap.com/">Namecheap</a>、<a target="_blank" rel="noopener" href="https://www.hichina.com/">万网</a>等等。他们各有自己的优缺点，大家可以自行挑选。</p>
-<h2 id="VPS选购">VPS选购</h2>
+<h2 id="vps选购">VPS选购</h2>
 <p>一般比较便宜的国外VPS：<a target="_blank" rel="noopener" href="https://www.vultr.com/">Vultr</a>、<a target="_blank" rel="noopener" href="https://bandwagonhost.com/">BandwagonHost（搬瓦工）</a>和<a target="_blank" rel="noopener" href="https://cloud.digitalocean.com">DigitalOcean（DO）</a>。大家可以自行挑选，在这里我介绍的是DigitalOcean。</p>
 <p>接下来介绍搭建Wordpress网站的步骤。</p>
-<h2 id="创建SSH-key">创建SSH key</h2>
+<h2 id="创建ssh-key">创建SSH key</h2>
 <p>在建立主机之前有一个步骤，就是在电脑上创建SSH key。</p>
 <p>因为要用命令行的方式来操作服务器，为此，需要一个能支持SSH登录的软件。下面是推荐的一些工具：</p>
 <ul>
@@ -240,72 +240,74 @@ var _hmt = _hmt || [];
 </ul>
 <p>在这里我使用的是Xshell，它的下载方式在这里：<a target="_blank" rel="noopener" href="https://www.netsarang.com/zh/free-for-home-school/">Xshell</a></p>
 <p>ssh客户端连接服务器有两种方式，一种是使用ssh key连接，另一种是使用密码连接。新建的droplet是使用ssh key连接，所以我们要在新建droplet之前先创建ssh key。安装好xshell后，打开xshell 的工具可以看到”新建用户密钥生成向导”，点击后如下：</p>
-<p><img src="https://i.loli.net/2019/03/20/5c9239df8ad8a.png" alt="2"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c9239df8ad8a.png" alt="2" /><figcaption aria-hidden="true">2</figcaption>
+</figure>
 <p>密钥类型为RSA,密钥长度为2048，我们默认即可。生成后继续下一步。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923a5781d47.png" alt="此处输入图片的描述"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923a5781d47.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
 <p>在这里我们输入密码。然后点击完成。</p>
 <p>在这里我们就可以看到我们生成的密钥了，然后我们选中新生成的密钥，点击属性,在弹出的窗口再选择公钥，可以看到：</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923a6d95fac.png" alt="此处输入图片的描述"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923a6d95fac.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
 <p>公钥格式默认为SSH2-OpenSSH,框中的一串字符就是我们要用到的密钥了。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923a8026ad9.png" alt="此处输入图片的描述"></p>
-<h2 id="注册DigitalOcean并新建主机">注册DigitalOcean并新建主机</h2>
-<p>首先在DigitalOcean上注册账号，这里建议使用PayPal充入至少5$的初始注册费用，但注册成功后会收到50$以上的新用户奖励，另外如果是学生的话，可以使用GitHub的教育优惠获得包含50$ DigitalOcean credit在内的福利。</p>
-<p>当然，也可以点击使用我个人的推荐链接来进行注册：<a target="_blank" rel="noopener" href="https://m.do.co/c/eb084da0cd99">我的推荐链接</a><br>
-注册可获得100$的注册费用，是不是很赞~</p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923a8026ad9.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
+<h2 id="注册digitalocean并新建主机">注册DigitalOcean并新建主机</h2>
+<p>首先在DigitalOcean上注册账号，这里建议使用PayPal充入至少5<span class="math inline">\(的初始注册费用，但注册成功后会收到50\)</span>以上的新用户奖励，另外如果是学生的话，可以使用GitHub的教育优惠获得包含50$ DigitalOcean credit在内的福利。</p>
+<p>当然，也可以点击使用我个人的推荐链接来进行注册：<a target="_blank" rel="noopener" href="https://m.do.co/c/eb084da0cd99">我的推荐链接</a> 注册可获得100$的注册费用，是不是很赞~</p>
 <p>注册成功后，新建一个Droplets。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c92370fca736.png" alt="2333"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c92370fca736.png" alt="2333" /><figcaption aria-hidden="true">2333</figcaption>
+</figure>
 <p>点击Marketplace选项卡，选择最底下的WordPress on 18.04。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923de03e7d8.png" alt="此处输入图片的描述"></p>
-<p>选择1G/25G/1000G的主机size，需要每月花费5$。<br>
-接下来选择datacenter region，建议选择新加坡节点。</p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923de03e7d8.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
+<p>选择1G/25G/1000G的主机size，需要每月花费5$。 接下来选择datacenter region，建议选择新加坡节点。</p>
 <p>在Add your SSH keys中选择New SSH key，填入前面获得的密钥，名字与之前一致。</p>
 <p>最后键入host name然后create，create成功后可以看到主机的ip地址。</p>
-<h2 id="Digital-Ocean添加域名">Digital Ocean添加域名</h2>
+<h2 id="digital-ocean添加域名">Digital Ocean添加域名</h2>
 <p>主机创建好以后，如何把自己的域名添加上去呢，首先，选择添加 Add a domain。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923ca49b1e5.png" alt="此处输入图片的描述"></p>
-<p>然后添加你有的域名 (domain)示例：<a target="_blank" rel="noopener" href="http://example.com">example.com</a></p>
-<p><img src="https://i.loli.net/2019/03/20/5c923cb867fc3.png" alt="此处输入图片的描述"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923ca49b1e5.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
+<p>然后添加你有的域名 (domain)示例：example.com</p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923cb867fc3.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
 <p>点击Add a domain后，域名便已经添加完成。</p>
-<h2 id="将服务器的域名映射到IP">将服务器的域名映射到IP</h2>
+<h2 id="将服务器的域名映射到ip">将服务器的域名映射到IP</h2>
 <p>这一步请参考我的文章：<a href="https://ink-bottle.github.io/2019/03/19/%E5%A6%82%E4%BD%95%E4%BB%8E%E9%BB%98%E8%AE%A4%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8C%87%E5%90%91DigitalOcean%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8/">如何从默认域名服务器指向DigitalOcean域名服务器</a></p>
-<h2 id="利用Xshell完成wordpress设置">利用Xshell完成wordpress设置</h2>
+<h2 id="利用xshell完成wordpress设置">利用Xshell完成wordpress设置</h2>
 <p>打开Xshell，点击“新建会话”。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923f1a07f18.png" alt="此处输入图片的描述"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923f1a07f18.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
 <p>在这里我们填写名称，协议选择SSH, 将新建的droplet中的ip地址复制到主机中，端口默认为22。然后点击“用户身份验证”</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923f2f74a55.png" alt="此处输入图片的描述"></p>
-<p>方法选择Public Key， 用户名为root, 用户密钥为前面生成的密钥及密码。<br>
-完成后确定。然后点击xshell的打开会话。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c923f6134e4a.png" alt="此处输入图片的描述"></p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923f2f74a55.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
+<p>方法选择Public Key， 用户名为root, 用户密钥为前面生成的密钥及密码。 完成后确定。然后点击xshell的打开会话。</p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c923f6134e4a.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
 <p>选择我们创建的会话连接，点击连接后，连接成功后就能看到下面的提示了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">To cancel setup, press Ctrl+C.  This script will run again on your next login</span><br><span class="line">--------------------------------------------------</span><br><span class="line">Enter the domain name for your new WordPress site.</span><br><span class="line">(ex. example.org or test.example.org) do not include www or http&#x2F;s</span><br><span class="line">--------------------------------------------------</span><br><span class="line">Domain&#x2F;Subdomain name:</span><br></pre></td></tr></table></figure>
-<p>输入你的域名，按下回车键，然后会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Would you like to use LetsEncrypt (certbot) to configure SSL(https) for your new site? (y&#x2F;n): </span><br></pre></td></tr></table></figure>
-<p>输入y，按下回车键，然后会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter email address (used for urgent renewal and security notices) (Enter &#39;c&#39; to cancel): </span><br></pre></td></tr></table></figure>
-<p>这一步填入自己的邮箱，按下回车键，然后会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You must</span><br><span class="line">agree in order to register with the ACME server at</span><br><span class="line">https:&#x2F;&#x2F;acme-v02.api.letsencrypt.org&#x2F;directory</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><br><span class="line">(A)gree&#x2F;(C)ancel:</span><br></pre></td></tr></table></figure>
-<p>输入A，按下回车键，然后会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Would you be willing to share your email address with the Electronic Frontier Foundation, a founding partner of the Let&#39;s Encrypt project and the non-profit organization that develops Certbot? We&#39;d like to send you email about our work encrypting the web, EFF news, campaigns, and ways to support digital freedom.</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><br><span class="line">(Y)es&#x2F;(N)o:</span><br></pre></td></tr></table></figure>
-<p>输入Y或者N，按下回车键，然后会出现：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Which names would you like to activate HTTPS for?</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><br><span class="line">1: example.com</span><br><span class="line">2: www.example.com</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Select the appropriate numbers separated by commas and&#x2F;or spaces, or leave input blank to select all options shown (Enter &#39;c&#39; to cancel): </span><br></pre></td></tr></table></figure>
-<p>输入1，按下回车键，然后会看到一条确认消息:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WordPress has been enabled at http:&#x2F;&#x2F;example.org  Please open this URL in a browser to complete the setup of your site.</span><br></pre></td></tr></table></figure>
-<p>此时, 可以访问浏览器中的Droplet的IP地址, 通过web界面完成WordPress安装。</p>
-<p><img src="https://i.loli.net/2019/03/20/5c92428f85fd9.png" alt="此处输入图片的描述"></p>
-<p>接下来, 进入主设置页面。为WordPress网站选择一个名称并选择一个用户名 (建议不要出于安全目的选择 “admin” 之类的内容)。将自动生成强密码。保存此密码或选择其他强密码。输入电子邮件地址, 并选择是否要阻止搜索引擎为你的网站编制索引:</p>
-<p><img src="https://i.loli.net/2019/03/20/5c9242d5c4822.png" alt="此处输入图片的描述"></p>
+<p>输入你的域名，按下回车键，然后会出现： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Would you like to use LetsEncrypt (certbot) to configure SSL(https) for your new site? (y&#x2F;n): </span><br></pre></td></tr></table></figure> 输入y，按下回车键，然后会出现： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Enter email address (used for urgent renewal and security notices) (Enter &#39;c&#39; to cancel): </span><br></pre></td></tr></table></figure> 这一步填入自己的邮箱，按下回车键，然后会出现： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">You must</span><br><span class="line">agree in order to register with the ACME server at</span><br><span class="line">https:&#x2F;&#x2F;acme-v02.api.letsencrypt.org&#x2F;directory</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><br><span class="line">(A)gree&#x2F;(C)ancel:</span><br></pre></td></tr></table></figure> 输入A，按下回车键，然后会出现： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Would you be willing to share your email address with the Electronic Frontier Foundation, a founding partner of the Let&#39;s Encrypt project and the non-profit organization that develops Certbot? We&#39;d like to send you email about our work encrypting the web, EFF news, campaigns, and ways to support digital freedom.</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><br><span class="line">(Y)es&#x2F;(N)o:</span><br></pre></td></tr></table></figure> 输入Y或者N，按下回车键，然后会出现： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Which names would you like to activate HTTPS for?</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </span><br><span class="line">1: example.com</span><br><span class="line">2: www.example.com</span><br><span class="line">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - Select the appropriate numbers separated by commas and&#x2F;or spaces, or leave input blank to select all options shown (Enter &#39;c&#39; to cancel): </span><br></pre></td></tr></table></figure> 输入1，按下回车键，然后会看到一条确认消息: <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WordPress has been enabled at http:&#x2F;&#x2F;example.org  Please open this URL in a browser to complete the setup of your site.</span><br></pre></td></tr></table></figure> 此时, 可以访问浏览器中的Droplet的IP地址, 通过web界面完成WordPress安装。</p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c92428f85fd9.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
+<p>接下来, 进入主设置页面。为WordPress网站选择一个名称并选择一个用户名 (建议不要出于安全目的选择 "admin" 之类的内容)。将自动生成强密码。保存此密码或选择其他强密码。输入电子邮件地址, 并选择是否要阻止搜索引擎为你的网站编制索引:</p>
+<figure>
+<img src="https://i.loli.net/2019/03/20/5c9242d5c4822.png" alt="此处输入图片的描述" /><figcaption aria-hidden="true">此处输入图片的描述</figcaption>
+</figure>
 <p>安装完成后, 便可以使用WordPress管理仪表板进一步自定义新网站。</p>
 <p>自此，大功告成，接下来就是自己慢慢让自己的网站变得丰富美观起来了，丰富的话，当然是自己不断地创建新的文章和内容，美观的话，可以通过更换主题，添加部件等等方式来美化自己的网站。</p>
-<p>参考资料：<br>
-<a target="_blank" rel="noopener" href="https://www.digitalocean.com/docs/marketplace/wordpress/">WordPress One-Click Application</a><br>
-<a target="_blank" rel="noopener" href="https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/putty/">How to Connect to your Droplet with PuTTY on Windows</a><br>
-<a target="_blank" rel="noopener" href="https://www.seoimo.com/wordpress-vps/">WordPress建站: 便宜VPS+LAMP搭建+博客安装/优化教程【Vultr &amp; 搬瓦工VPS亲测】</a><br>
-<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55579024">基于DigitalOcean+LAMP+WordPress搭建个人网站</a><br>
-<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25320604">[Digital Ocean] 如何添加Domain 并且跳转 @ 和 WWW上</a><br>
-<a target="_blank" rel="noopener" href="http://chenyuanming.cn/2015/12/11/digitalocean-install-wordpress-on-ubuntu/">digitalocean ubuntu下搭建wordpress教程</a><br>
-<a target="_blank" rel="noopener" href="https://www.hrwhisper.me/installing-wordpress-on-centos/">digitalocean 下 centos 搭建 wordpress过程</a><br>
-<a target="_blank" rel="noopener" href="https://laishanhai1040.github.io/2017/01/10/shadowsocks-setup-summary/">使用Digital Ocean创建shadowsocks连接</a><br>
-<a target="_blank" rel="noopener" href="https://themeforwp.net/archives/wordpress-website-tutorial/">WordPress建站教程 从零开始服务器搭建网站超详细</a></p>
+<p>参考资料： <a target="_blank" rel="noopener" href="https://www.digitalocean.com/docs/marketplace/wordpress/">WordPress One-Click Application</a> <a target="_blank" rel="noopener" href="https://www.digitalocean.com/docs/droplets/how-to/connect-with-ssh/putty/">How to Connect to your Droplet with PuTTY on Windows</a> <a target="_blank" rel="noopener" href="https://www.seoimo.com/wordpress-vps/">WordPress建站: 便宜VPS+LAMP搭建+博客安装/优化教程【Vultr &amp; 搬瓦工VPS亲测】</a> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/55579024">基于DigitalOcean+LAMP+WordPress搭建个人网站</a> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/25320604">[Digital Ocean] 如何添加Domain 并且跳转 @ 和 WWW上</a> <a target="_blank" rel="noopener" href="http://chenyuanming.cn/2015/12/11/digitalocean-install-wordpress-on-ubuntu/">digitalocean ubuntu下搭建wordpress教程</a> <a target="_blank" rel="noopener" href="https://www.hrwhisper.me/installing-wordpress-on-centos/">digitalocean 下 centos 搭建 wordpress过程</a> <a target="_blank" rel="noopener" href="https://laishanhai1040.github.io/2017/01/10/shadowsocks-setup-summary/">使用Digital Ocean创建shadowsocks连接</a> <a target="_blank" rel="noopener" href="https://themeforwp.net/archives/wordpress-website-tutorial/">WordPress建站教程 从零开始服务器搭建网站超详细</a></p>
 
       
 
@@ -458,7 +460,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%B4%AD%E4%B9%B0"><span class="toc-number">1.</span> <span class="toc-text">域名购买</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VPS%E9%80%89%E8%B4%AD"><span class="toc-number">2.</span> <span class="toc-text">VPS选购</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BASSH-key"><span class="toc-number">3.</span> <span class="toc-text">创建SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8CDigitalOcean%E5%B9%B6%E6%96%B0%E5%BB%BA%E4%B8%BB%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">注册DigitalOcean并新建主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Digital-Ocean%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D"><span class="toc-number">5.</span> <span class="toc-text">Digital Ocean添加域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9F%9F%E5%90%8D%E6%98%A0%E5%B0%84%E5%88%B0IP"><span class="toc-number">6.</span> <span class="toc-text">将服务器的域名映射到IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8Xshell%E5%AE%8C%E6%88%90wordpress%E8%AE%BE%E7%BD%AE"><span class="toc-number">7.</span> <span class="toc-text">利用Xshell完成wordpress设置</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%B4%AD%E4%B9%B0"><span class="toc-number">1.</span> <span class="toc-text">域名购买</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vps%E9%80%89%E8%B4%AD"><span class="toc-number">2.</span> <span class="toc-text">VPS选购</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAssh-key"><span class="toc-number">3.</span> <span class="toc-text">创建SSH key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E5%86%8Cdigitalocean%E5%B9%B6%E6%96%B0%E5%BB%BA%E4%B8%BB%E6%9C%BA"><span class="toc-number">4.</span> <span class="toc-text">注册DigitalOcean并新建主机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#digital-ocean%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D"><span class="toc-number">5.</span> <span class="toc-text">Digital Ocean添加域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E5%9F%9F%E5%90%8D%E6%98%A0%E5%B0%84%E5%88%B0ip"><span class="toc-number">6.</span> <span class="toc-text">将服务器的域名映射到IP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A9%E7%94%A8xshell%E5%AE%8C%E6%88%90wordpress%E8%AE%BE%E7%BD%AE"><span class="toc-number">7.</span> <span class="toc-text">利用Xshell完成wordpress设置</span></a></li></ol>
                     </div>
                 </span>
             </div>

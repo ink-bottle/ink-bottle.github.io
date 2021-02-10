@@ -203,119 +203,113 @@ var _hmt = _hmt || [];
 <p>流体力学中为便于研究，对流体特性引入假设，而将流动分成两大类：无粘流动（有势流动,简称“势流”）和粘性流动（简称“粘流”，包括层流和湍流）。目前势流计算相对成熟，它具有简易、计算量小等特点而成为切实的工程方法。就CFD技术本身功能发展而言，目前主要是处理粘性流动问题，特别是湍流，理论上来说，对于任何空间点，湍流中流体运动都满足非线性N-S方程，所以至少可以用数值计算机做数值运算，然而这一工作量是十分巨大的。数值求解这一方程的方法有三大类：直接数值模拟方法(DNS)，大尺度涡动模拟方法(LES)，雷诺平均方法(RANS)，由于计算机硬件资源的限制，前二种方法暂还没有得到广泛的应用，而雷诺平均方法在工程上得到了大量的应用。而雷诺平均方法(RANS)是一个湍流模型大家族，包含了很多的子模型，因而本文将主要对RANS模型下的一些子模型进行简要介绍。</p>
 <h2 id="控制方程">控制方程</h2>
 <p>在介绍常用的湍流模型之前，先把描述流体流动的控制方程进行罗列。</p>
-<p><strong>连续方程</strong><br>
-$$<br>
-\frac{\partial \rho }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \vec{\boldsymbol{U}} \right )= 0<br>
-$$<br>
-<strong>动量方程</strong><br>
-$$<br>
-\frac{\partial\left (  \rho \vec{\boldsymbol{U}}\right ) }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \vec{\boldsymbol{U}} \vec{\boldsymbol{U}}\right )= -\boldsymbol{\nabla}p+\boldsymbol{\nabla}\cdot\tau +\rho \vec{f}<br>
-$$<br>
-<strong>能量方程</strong><br>
-$$<br>
-\begin{align}<br>
-\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{U^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{U^{2}}{2}\right )\vec{\boldsymbol{U}} \right ]&amp;=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}\\<br>
-&amp;-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}\\<br>
-&amp;+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \vec{\boldsymbol{U}}<br>
-\end{align}<br>
-$$</p>
-<h2 id="雷诺平均方法-RANS">雷诺平均方法(RANS)</h2>
-<p>在雷诺平均法中，把瞬时速度u分解为时均速度$\overline{u_{i}}$ 和脉动速度${u_{i}}'$ ，则对于速度分量：</p>
-<p>$$<br>
-u_{i}=\overline{u_{i}}+{u_{i}}’<br>
-$$</p>
+<p><strong>连续方程</strong> <span class="math display">\[
+\frac{\partial \rho }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \vec{\boldsymbol{U}} \right )= 0
+\]</span> <strong>动量方程</strong> <span class="math display">\[
+\frac{\partial\left (  \rho \vec{\boldsymbol{U}}\right ) }{\partial t}+\boldsymbol{\nabla}\cdot \left ( \rho \vec{\boldsymbol{U}} \vec{\boldsymbol{U}}\right )= -\boldsymbol{\nabla}p+\boldsymbol{\nabla}\cdot\tau +\rho \vec{f}
+\]</span> <strong>能量方程</strong> <span class="math display">\[
+\begin{align}
+\frac{\partial }{\partial t}\left [ \rho \left ( e+\frac{U^{2}}{2}\right ) \right ]+\boldsymbol{\nabla}\cdot \left [ \rho \left ( e+\frac{U^{2}}{2}\right )\vec{\boldsymbol{U}} \right ]&amp;=\rho \dot{q}+\frac{\partial }{\partial x}\left ( K\frac{\partial T}{\partial x} \right )+\frac{\partial }{\partial y}\left ( K\frac{\partial T}{\partial y} \right )+\frac{\partial }{\partial z}\left ( K\frac{\partial T}{\partial z} \right )-\frac{\partial \left ( up \right )}{\partial x}\\\\
+&amp;-\frac{\partial \left ( \upsilon p \right )}{\partial y}-\frac{\partial \left ( \omega  p \right )}{\partial z}+\frac{\partial \left ( u\tau _{xx} \right )}{\partial x}+\frac{\partial \left ( u\tau _{yx} \right )}{\partial y}+\frac{\partial \left ( u\tau _{zx} \right )}{\partial z}+\frac{\partial \left ( \upsilon \tau _{xy} \right )}{\partial x}\\\\
+&amp;+\frac{\partial \left ( \upsilon \tau _{yy} \right )}{\partial y}+\frac{\partial \left ( \upsilon \tau _{zy} \right )}{\partial z}+\frac{\partial \left ( \omega  \tau _{xz} \right )}{\partial x}+\frac{\partial \left ( \omega  \tau _{yz} \right )}{\partial y}+\frac{\partial \left ( \omega  \tau _{zz} \right )}{\partial z}+\rho \boldsymbol{f}\cdot \vec{\boldsymbol{U}}
+\end{align}
+\]</span></p>
+<h2 id="雷诺平均方法rans">雷诺平均方法(RANS)</h2>
+<p>在雷诺平均法中，把瞬时速度u分解为时均速度<span class="math inline">\(\overline{u_{i}}\)</span> 和脉动速度<span class="math inline">\({u_{i}}&#39;\)</span> ，则对于速度分量：</p>
+<p><span class="math display">\[
+u_{i}=\overline{u_{i}}+{u_{i}}&#39;
+\]</span></p>
 <p>同样，对于压力和能量、相分数或其他标量也采用这种方式进行分解。</p>
-<p>\begin{align}<br>
-\phi(x_i, t) = \underbrace{\overline{\phi}(x_i)}<em>{时间平均项} + \underbrace{\phi’(x_i, t)}</em>{脉动项}<br>
-\end{align}</p>
+<p><span class="math display">\[\begin{align}
+\phi(x_i, t) = \underbrace{\overline{\phi}(x_i)}_{时间平均项} + \underbrace{\phi&#39;(x_i, t)}_{脉动项}
+\end{align}\]</span></p>
 <p>对于稳态问题，方程中的时间平均项可以表示为</p>
-<p>$$<br>
-\begin{equation}<br>
-\overline{\phi}(x_i) = \lim_{T \to \infty} \frac{1}{T} \int_0^T \phi(x_i, t) \mathrm{d}t<br>
-\end{equation}<br>
-$$</p>
-<p>设$\phi$及$\xi$是两个瞬时值，${\phi}‘$及${\xi}’$是相应的脉动值，则有以下关系成立：</p>
-<p>$$<br>
-\begin{equation}<br>
-\overline{\overline{\phi}} = \overline{\phi}, \quad \overline{\phi’} = 0\\<br>
-\overline{\overline{\phi}+{\phi’}}=\overline{\phi}, \quad \overline{\overline{\phi}\overline{\xi}}=\overline{\phi \xi}<br>
-\end{equation}<br>
-$$</p>
-<p>$$<br>
-\begin{equation}<br>
-\begin{aligned}<br>
-\overline{\phi \xi}<br>
-&amp;= \overline{(\overline{\phi}+\phi’)(\overline{\xi}+\xi’)} \\<br>
-&amp;= \overline{(\overline{\phi}\overline{\xi} + \overline{\xi} \phi’ + \overline{\phi}\xi’ + \xi’ \xi’)} \\<br>
-&amp;= \overline{\overline{\phi}\overline{\xi}} + \overline{\overline{\xi} \phi’} + \overline{\overline{\phi}\xi’} + \overline{\phi’ \xi’} \\<br>
-&amp;= \overline{\phi}\overline{\xi} + \overline{\phi’ \xi’}<br>
-\end{aligned}<br>
-\end{equation}<br>
-$$</p>
-<p>$$<br>
-\begin{equation}<br>
-\overline{\alpha \phi + \beta \xi} = \alpha \overline{\phi} + \beta \overline{\xi} \quad (\alpha 和 \beta 为常数)<br>
-\end{equation}<br>
-$$</p>
-<p>$$<br>
-\begin{align}<br>
-\frac{\overline{\partial \phi}}{\partial t} = \frac{\partial \overline{\phi}}{\partial t}, \quad \frac{\overline{\partial \phi}}{\partial x_i} = \frac{\partial \overline{\phi}}{\partial x_i}\\<br>
-\frac{\overline{\partial^2 \phi} }{\partial x_{i}<sup>2}=\frac{\partial</sup>2 \overline{\phi} }{\partial x_{i}^2}, \quad \frac{\overline{\partial \phi’}}{\partial x_i} =0, \quad \frac{\overline{\partial^2 \phi’} }{\partial x_{i}^2}=0<br>
-\end{align}<br>
-$$</p>
-<p>对于连续性方程，将三个坐标方向的瞬时速度表示为时均速度$\overline{u_{i}}$和脉动速度${u_{i}}'$之和并代入，再对该式作时均运算，得到：</p>
-<p>$$<br>
-\overline{\frac{\partial\left(\overline{u}+u^\prime\right)}{\partial x}}+\overline{\frac{\partial\left(\overline{v}+v^\prime\right)}{\partial y}}+\overline{\frac{\partial\left(\overline{\omega}+\omega^\prime\right)}{\partial z}}=\frac{\partial\overline{u}}{\partial x}+\frac{\partial\overline{v}}{\partial y}+\frac{\partial\overline{\omega}}{\partial z}+\frac{\partial\overline{u^\prime}}{\partial x}+\frac{\partial\overline{v^\prime}}{\partial y}+\frac{\partial\overline{\omega^\prime}}{\partial z}=0<br>
-$$<br>
-显然可有</p>
-<p>$$<br>
-\frac{\partial\overline{u}}{\partial x}+\frac{\partial\overline{v}}{\partial y}+\frac{\partial\overline{\omega}}{\partial z}=0<br>
-$$</p>
-<p>$$<br>
-\frac{\partial\overline{u^\prime}}{\partial x}+\frac{\partial\overline{v^\prime}}{\partial y}+\frac{\partial\overline{\omega^\prime}}{\partial z}=0<br>
-$$</p>
+<p><span class="math display">\[
+\begin{equation}
+\overline{\phi}(x_i) = \lim_{T \to \infty} \frac{1}{T} \int_0^T \phi(x_i, t) \mathrm{d}t
+\end{equation}
+\]</span></p>
+<p>设<span class="math inline">\(\phi\)</span>及<span class="math inline">\(\xi\)</span>是两个瞬时值，<span class="math inline">\({\phi}&#39;\)</span>及<span class="math inline">\({\xi}&#39;\)</span>是相应的脉动值，则有以下关系成立：</p>
+<p><span class="math display">\[
+\begin{equation}
+\overline{\overline{\phi}} = \overline{\phi}, \quad \overline{\phi&#39;} = 0\\\\
+\overline{\overline{\phi}+{\phi&#39;}}=\overline{\phi}, \quad \overline{\overline{\phi}\overline{\xi}}=\overline{\phi \xi}
+\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}
+\begin{aligned}
+\overline{\phi \xi} 
+&amp;= \overline{(\overline{\phi}+\phi&#39;)(\overline{\xi}+\xi&#39;)} \\\\
+&amp;= \overline{(\overline{\phi}\overline{\xi} + \overline{\xi} \phi&#39; + \overline{\phi}\xi&#39; + \xi&#39; \xi&#39;)} \\\\
+&amp;= \overline{\overline{\phi}\overline{\xi}} + \overline{\overline{\xi} \phi&#39;} + \overline{\overline{\phi}\xi&#39;} + \overline{\phi&#39; \xi&#39;} \\\\
+&amp;= \overline{\phi}\overline{\xi} + \overline{\phi&#39; \xi&#39;}
+\end{aligned}
+\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}
+\overline{\alpha \phi + \beta \xi} = \alpha \overline{\phi} + \beta \overline{\xi} \quad (\alpha 和 \beta 为常数)
+\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+\frac{\overline{\partial \phi}}{\partial t} = \frac{\partial \overline{\phi}}{\partial t}, \quad \frac{\overline{\partial \phi}}{\partial x_i} = \frac{\partial \overline{\phi}}{\partial x_i}\\\\
+\frac{\overline{\partial^2 \phi} }{\partial x_{i}^2}=\frac{\partial^2 \overline{\phi} }{\partial x_{i}^2}, \quad \frac{\overline{\partial \phi&#39;}}{\partial x_i} =0, \quad \frac{\overline{\partial^2 \phi&#39;} }{\partial x_{i}^2}=0
+\end{align}
+\]</span></p>
+<p>对于连续性方程，将三个坐标方向的瞬时速度表示为时均速度<span class="math inline">\(\overline{u_{i}}\)</span>和脉动速度<span class="math inline">\({u_{i}}&#39;\)</span>之和并代入，再对该式作时均运算，得到：</p>
+<p><span class="math display">\[
+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)}{\partial x}}+\overline{\frac{\partial\left(\overline{v}+v^\prime\right)}{\partial y}}+\overline{\frac{\partial\left(\overline{\omega}+\omega^\prime\right)}{\partial z}}=\frac{\partial\overline{u}}{\partial x}+\frac{\partial\overline{v}}{\partial y}+\frac{\partial\overline{\omega}}{\partial z}+\frac{\partial\overline{u^\prime}}{\partial x}+\frac{\partial\overline{v^\prime}}{\partial y}+\frac{\partial\overline{\omega^\prime}}{\partial z}=0
+\]</span> 显然可有</p>
+<p><span class="math display">\[
+\frac{\partial\overline{u}}{\partial x}+\frac{\partial\overline{v}}{\partial y}+\frac{\partial\overline{\omega}}{\partial z}=0
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial\overline{u^\prime}}{\partial x}+\frac{\partial\overline{v^\prime}}{\partial y}+\frac{\partial\overline{\omega^\prime}}{\partial z}=0
+\]</span></p>
 <p>这表明湍流速度的时均值和脉动值仍然满足连续性方程。</p>
 <p>对于动量方程，以x方向为例，作类似于上面的处理可得</p>
-<p>$$<br>
-\begin{align}<br>
-\overline{\frac{\partial\left(\overline{u}+u^\prime\right)}{\partial t}}+\overline{\frac{\partial\left(\overline{u}+u<sup>\prime\right)</sup>2}{\partial x}}+\overline{\frac{\partial\left(\overline{u}+u<sup>\prime\right)\partial\left(\overline{v}+v</sup>\prime\right)}{\partial y}}+\overline{\frac{\partial\left(\overline{u}+u<sup>\prime\right)\partial\left(\overline{\omega}+\omega</sup>\prime\right)}{\partial z}}=\\<br>
--\frac{1}{\rho}\overline{\frac{\partial\left(\overline{p}+p^\prime\right)}{\partial x}}+\upsilon\left[\overline{\frac{\partial<sup>2\left(\overline{u}+u</sup>\prime\right)}{\partial x<sup>2}}+\overline{\frac{\partial</sup>2\left(\overline{v}+v^\prime\right)}{\partial y<sup>2}}+\overline{\frac{\partial</sup>2\left(\overline{\omega}+\omega^\prime\right)}{\partial z^2}}\right]<br>
-\end{align}<br>
-$$</p>
+<p><span class="math display">\[
+\begin{align}
+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)}{\partial t}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)^2}{\partial x}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{v}+v^\prime\right)}{\partial y}}+\overline{\frac{\partial\left(\overline{u}+u^\prime\right)\partial\left(\overline{\omega}+\omega^\prime\right)}{\partial z}}=\\\\
+-\frac{1}{\rho}\overline{\frac{\partial\left(\overline{p}+p^\prime\right)}{\partial x}}+\upsilon\left[\overline{\frac{\partial^2\left(\overline{u}+u^\prime\right)}{\partial x^2}}+\overline{\frac{\partial^2\left(\overline{v}+v^\prime\right)}{\partial y^2}}+\overline{\frac{\partial^2\left(\overline{\omega}+\omega^\prime\right)}{\partial z^2}}\right]
+\end{align}
+\]</span></p>
 <p>利用上面给出的关系式可得</p>
-<p>$$<br>
-\begin{align}<br>
-\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}+\frac{\overline{\partial\left(u<sup>\prime\right)</sup>2}}{\partial x}+\frac{\overline{\partial\left(u^\prime v^\prime\right)}}{\partial y}+\frac{\overline{\partial\left(u<sup>\prime\omega</sup>\prime\right)}}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\upsilon\left[\frac{\partial^2\overline{u}}{\partial x<sup>2}+\frac{\partial</sup>2\overline{v}}{\partial y<sup>2}+\frac{\partial</sup>2\overline{\omega}}{\partial z^2}\right]<br>
-\end{align}<br>
-$$</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}+\frac{\overline{\partial\left(u^\prime\right)^2}}{\partial x}+\frac{\overline{\partial\left(u^\prime v^\prime\right)}}{\partial y}+\frac{\overline{\partial\left(u^\prime\omega^\prime\right)}}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\upsilon\left[\frac{\partial^2\overline{u}}{\partial x^2}+\frac{\partial^2\overline{v}}{\partial y^2}+\frac{\partial^2\overline{\omega}}{\partial z^2}\right]
+\end{align}
+\]</span></p>
 <p>将左端脉动分量乘积的时均值放到右端粘性项中，即</p>
-<p>$$<br>
-\begin{align}<br>
-\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\frac{\partial}{\partial x}\left[\upsilon\frac{\partial\overline{u}}{\partial x}-\overline{\left(u<sup>\prime\right)</sup>2}\right]+\frac{\partial}{\partial y}\left[\upsilon\frac{\partial\overline{v}}{\partial y}-\overline{\left(u^\prime v^\prime\right)}\right]+\frac{\partial}{\partial z}\left[\upsilon\frac{\partial\overline{\omega}}{\partial z}-\overline{\left(u<sup>\prime\omega</sup>\prime\right)}\right]<br>
-\end{align}<br>
-$$</p>
+<p><span class="math display">\[
+\begin{align}
+\frac{\partial\overline{u}}{\partial t}+\frac{\partial\left({\overline{u}}^2\right)}{\partial x}+\frac{\partial\left(\overline{uv}\right)}{\partial y}+\frac{\partial\left(\overline{u\omega}\right)}{\partial z}=-\frac{1}{\rho}\frac{\partial\overline{p}}{\partial x}+\frac{\partial}{\partial x}\left[\upsilon\frac{\partial\overline{u}}{\partial x}-\overline{\left(u^\prime\right)^2}\right]+\frac{\partial}{\partial y}\left[\upsilon\frac{\partial\overline{v}}{\partial y}-\overline{\left(u^\prime v^\prime\right)}\right]+\frac{\partial}{\partial z}\left[\upsilon\frac{\partial\overline{\omega}}{\partial z}-\overline{\left(u^\prime\omega^\prime\right)}\right]
+\end{align}
+\]</span></p>
 <p>对其他两个方向也可以做类似的推导，对不可压缩流体，常写作张量符号形式，可得到下列时均形式的N-S方程，即Reynolds方程</p>
-<p>$$<br>
-\begin{equation}<br>
-\frac {\partial \overline{u}_i}{\partial t} +<br>
-\frac{\partial}{\partial x_j}\left( \overline{u}_i \overline{u}_j \right) -<br>
-\frac{\partial}{\partial x_j}\left[\nu\left( \frac{\partial \overline{u}_i}{\partial x_j} + \frac{\partial \overline{u}<em>j}{\partial x_i} \right) \underbrace{- \overline{u_i’ u_j’}}</em>{雷诺应力} \right] = - \frac{1}{\rho}\frac{\partial \overline{p}}{\partial x_i}<br>
-\end{equation}<br>
-$$</p>
+<p><span class="math display">\[
+\begin{equation}
+\frac {\partial \overline{u}_i}{\partial t} + 
+\frac{\partial}{\partial x_j}\left( \overline{u}_i \overline{u}_j \right) -
+\frac{\partial}{\partial x_j}\left[\nu\left( \frac{\partial \overline{u}_i}{\partial x_j} + \frac{\partial \overline{u}_j}{\partial x_i} \right) \underbrace{- \overline{u_i&#39; u_j&#39;}}_{雷诺应力} \right] = - \frac{1}{\rho}\frac{\partial \overline{p}}{\partial x_i} 
+\end{equation}
+\]</span></p>
 <p>上式的雷诺应力通常记为 Rij。写作分量形式如下</p>
-<p>$$<br>
-\begin{equation}<br>
-R_{ij} \equiv - \overline{u_i’ u_j’} = -\left (<br>
-\begin{matrix}<br>
-\overline{u’ u’} &amp; \overline{u’ v’} &amp; \overline{u’ w’}  \\<br>
-\overline{v’ u’} &amp; \overline{v’ v’} &amp; \overline{v’ w’}  \\<br>
-\overline{w’ u’} &amp; \overline{w’ v’} &amp; \overline{w’ w’}  \\<br>
-\end{matrix}<br>
-\right )<br>
-\end{equation}<br>
-$$</p>
+<p><span class="math display">\[
+\begin{equation}
+R_{ij} \equiv - \overline{u_i&#39; u_j&#39;} = -\left (
+\begin{matrix}
+\overline{u&#39; u&#39;} &amp; \overline{u&#39; v&#39;} &amp; \overline{u&#39; w&#39;}  \\\\
+\overline{v&#39; u&#39;} &amp; \overline{v&#39; v&#39;} &amp; \overline{v&#39; w&#39;}  \\\\
+\overline{w&#39; u&#39;} &amp; \overline{w&#39; v&#39;} &amp; \overline{w&#39; w&#39;}  \\\\
+\end{matrix}
+\right )
+\end{equation}
+\]</span></p>
 <p>Rij 是对角对称的，包含六个未知量：三个正应力分量（对角）和三个切应力分量（非对角）。</p>
-<p>要求解 RANS 方程，直观的做法是求解各应力分量的对流输运方程。对应力分量的对流输运方程进行雷诺平均，会得到更高阶的未知量 $\overline{u_i’ u_j’ u_k’}$。实际上这样下去会得到无限多的未知量，整个方程组永远无法封闭。这就需要采用一些近似的模型来封闭方程组，比如用某些平均量来近似表示雷诺应力。这些不同的近似方法则被统称为湍流模型（turbulence models）。所谓湍流模型就是把湍流的脉动值附加项与时均值联系起来的一些特定关系式。</p>
+<p>要求解 RANS 方程，直观的做法是求解各应力分量的对流输运方程。对应力分量的对流输运方程进行雷诺平均，会得到更高阶的未知量 <span class="math inline">\(\overline{u_i&#39; u_j&#39; u_k&#39;}\)</span>。实际上这样下去会得到无限多的未知量，整个方程组永远无法封闭。这就需要采用一些近似的模型来封闭方程组，比如用某些平均量来近似表示雷诺应力。这些不同的近似方法则被统称为湍流模型（turbulence models）。所谓湍流模型就是把湍流的脉动值附加项与时均值联系起来的一些特定关系式。</p>
 <p>从数学形式上看，雷诺应力很像二阶应力张量。因此 Boussinesq 仿照分子粘性应力与速度变形率的关系，提出了关于涡粘性（eddy viscosity）的 Boussinesq 假设，认为雷诺应力与平均速度变形率成线性关系：</p>
 <h2 id="参考链接">参考链接</h2>
 <p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/0a24bb995727a5e9846a610b.html?rec_flag=default&amp;fr=pc_newview_relate-1001_1-3-wk_rec_doc2-1001_1-6-0a24bb995727a5e9846a610b&amp;sxts=1612882652396">各种湍流模型详细推导</a></p>
@@ -469,7 +463,7 @@ $$</p>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">控制方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B7%E8%AF%BA%E5%B9%B3%E5%9D%87%E6%96%B9%E6%B3%95-RANS"><span class="toc-number">2.</span> <span class="toc-text">雷诺平均方法(RANS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">控制方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B7%E8%AF%BA%E5%B9%B3%E5%9D%87%E6%96%B9%E6%B3%95rans"><span class="toc-number">2.</span> <span class="toc-text">雷诺平均方法(RANS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
