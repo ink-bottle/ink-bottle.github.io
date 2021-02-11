@@ -17,7 +17,7 @@
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-09T05:49:11.000Z">
-<meta property="article:modified_time" content="2021-02-10T14:15:57.016Z">
+<meta property="article:modified_time" content="2021-02-11T10:16:58.448Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
@@ -339,9 +339,112 @@ R_{ij} \equiv - \overline{u_i&#39; u_j&#39;} = -\left (
 \begin{equation}
 -\overline{u_i&#39;u_j&#39;} = \nu_t \left( \frac{\partial \overline{u}_i}{\partial x_j} + \frac{\partial \overline{u}_j}{\partial x_i} - \frac{2}{3} \frac{\partial \overline{u}_k}{\partial x_k} \delta_{ij} \right) - \frac{2}{3} k \delta_{ij}
 \end{equation}
-\]</span> 式 (14) 中的 <span class="math inline">\(k\)</span>为湍动能（turbulence kinetic energy），定义为<span class="math inline">\(k=\frac{1}{2}(\overline{u&#39;u&#39;}+\overline{v&#39;v&#39;}+\overline{w&#39;w&#39;})\)</span>，<span class="math inline">\(\delta_{ij}\)</span>为 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kronecker_delta">Kronecker delta</a>。<span class="math inline">\(\nu_t\)</span>被称为<strong>湍流粘度</strong>或<strong>涡粘系数</strong>，湍流粘度和一般流体粘度不同，它不是流体的固有物理属性，而和当地的湍流强度有很大关系。对于流场中不同位置的点，<span class="math inline">\(\nu_t\)</span>的值都不尽相同，也就是说它是空间坐标的函数。</p>
+\]</span> 式 (14) 中的 <span class="math inline">\(k\)</span>为湍动能（turbulence kinetic energy），定义为<span class="math inline">\(k=\frac{1}{2}(\overline{u&#39;u&#39;}+\overline{v&#39;v&#39;}+\overline{w&#39;w&#39;})\)</span>，<span class="math inline">\(\delta_{ij}\)</span>为 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kronecker_delta">Kronecker delta</a>。<span class="math inline">\(\nu_t\)</span>被称为<strong>湍流粘度</strong>或<strong>涡粘系数</strong>，湍流粘度和一般流体粘度不同，它不是流体的固有物理属性，而和当地的湍流强度有很大关系。对于流场中不同位置的点，<span class="math inline">\(\nu_t\)</span>的值都不尽相同，也就是说它是空间坐标的函数。湍流对流换热的研究归结为确定<span class="math inline">\(\nu_t\)</span>，确定湍流黏性系数所需微分方程的个数成为湍流工程计算模型的名称。</p>
 <p>基于以上假设的模型被称为涡粘模型（Eddy Viscosity Model, EVM）。Boussinesq 假设被用于Spalart-Allmaras单方程模型和双方程模型，其优点是与求解湍流粘性系数有关的计算花费时间较少，但缺点是认为湍流粘性系数是各向同性标量，对于一些复杂的流动条件下并不严格成立，所以具有其应用限制性。工业界常用的涡粘模型有一方程 Spalart-Allmaras 模型，两方程 k−ε 及 k−ω 模型等。</p>
 <p>如果湍流场各向异性很明显，如强旋流动以及应力驱动的二次流等流动中，这时可采用雷诺应力模型（Reynolds Stress Model, RSM）在更高阶的应力上封闭 RANS 方程。具体做法通常是求解六个未知应力分量的方程及其对应的耗散率方程。雷诺应力模型可以较好的模拟具有强烈非线性特征的复杂流动，然而由于它需要求解许多额外的方程，因此计算量相比涡粘模型大得多，对计算机内存也有更高的要求，因此在工程中应用不多。常见的雷诺应力模型有 LRR （Launder-Reece-Rodi）和 SSG（Speziale-Sarkar-Gatski） 模型。</p>
+<h4 id="零方程模型">零方程模型</h4>
+<p>所谓零方程模型是指确定湍流黏性系数不需要微分方程的模型，最简单的零方程模型是常系数模型，对自由剪切层流动，Prandtl提出在同一截面上<span class="math inline">\(\nu_t\)</span>为常数。 <span class="math display">\[
+\nu_t=C\delta\left|{u_{min}-u}_{max}\right|
+\]</span> 其中，<span class="math inline">\(\delta\)</span>为剪切层厚度（对称轴到1%速度点的距离），<span class="math inline">\(u_{max}\)</span>与<span class="math inline">\(u_{min}\)</span>为同一截面上的最大和最小流速。</p>
+<p>在二维坐标系中，湍流切应力表示成为 <span class="math display">\[
+\tau_t=-\rho{u_i&#39;}{u_j&#39;}=\rho\ l^2\left(\frac{\partial U}{\partial y}\right)^2=\rho\ l^2\left|\frac{\partial U}{\partial y}\right|\frac{\partial U}{\partial y}
+\]</span> 则湍流黏性系数可表示为 <span class="math display">\[
+\nu_t=\rho\ l^2\left|\frac{\partial U}{\partial y}\right|
+\]</span> 其中<span class="math inline">\(U\)</span>为主流的时均速度，<span class="math inline">\(y\)</span>是与主流方向相垂直的坐标，<span class="math inline">\(l\)</span>为混合长度，是模型中需要加以确定的参数，确定合适的混合长度是零方程模型的关键。</p>
+<p>混合长度理论适用于一些比较简单的流动，如边界层类型流动；平直通道内的流动；回流较弱接近于边界层类型流动等。但是混合长度理论在物理概念上存在一些不足如，在管道中心线处速度梯度为零，但实际<span class="math inline">\(\nu_t\)</span>不为零；不考虑湍流的历史（上游情况）的影响；不考虑湍流强度的影响。因此需要引入偏微分方程来确定湍流黏性系数来适应这方面的需要。</p>
+<h4 id="一方程模型">一方程模型</h4>
+<p>以Spalart-Allmaras单方程模型为例，它具有良好的鲁棒性和数值收敛性，可以很好的模拟绝大部分的附着流动和薄层自由剪切流动。Spalart-Allmaras单方程模型基于线性涡粘假设，湍流粘度按以下公式计算 <span class="math display">\[
+\begin{equation}
+\nu_t = \tilde \nu f_{v1}
+\end{equation}
+\]</span> 其中，<span class="math inline">\(\tilde{\nu}\)</span>为需要通过输运方程求解的量，<span class="math inline">\(f_{v1}\)</span>是一个关于湍流粘度比<span class="math inline">\(\chi\)</span>的函数，定义如下 <span class="math display">\[
+\begin{equation}
+f_{v1} = \frac{\chi^3}{\chi^3 + C_{v1}^3}
+\end{equation}
+\]</span> 湍流粘度比<span class="math inline">\(\chi\)</span>定义如下： <span class="math display">\[
+\begin{equation}
+\chi =\tilde{\nu}/\nu
+\end{equation}
+\]</span> 在<a target="_blank" rel="noopener" href="https://arc.aiaa.org/doi/abs/10.2514/6.1992-439">A one-equation turbulence model for aerodynamic flows</a>这篇原始文献中，关于<span class="math inline">\(\tilde{\nu}\)</span>的输运方程表示为以下形式： <span class="math display">\[
+\begin{equation}
+\frac{\partial \tilde{\nu}}{\partial t} = M(\tilde{\nu}) + P(\tilde{\nu}) + D(\tilde{\nu}) + T
+\end{equation}
+\]</span> 其中，<span class="math inline">\(M(\tilde{\nu})\)</span>表示 advection+diffusion： <span class="math display">\[
+\begin{equation}
+M(\tilde{\nu}) = - \nabla \cdot ({\tilde{\nu} \mathbf u}) + \frac{1}{\sigma} \left[ \nabla \cdot \left[ (\nu+\tilde{\nu}) \nabla \tilde{\nu} \right] +  C_{b2} (\nabla \tilde{\nu})^2 \right]
+\end{equation}
+\]</span> <span class="math inline">\(P(\tilde{\nu})\)</span>表示 production： <span class="math display">\[
+\begin{equation}
+P(\tilde{\nu}) = C_{b1} (1 - f_{t2}) \tilde{S} \tilde{\nu}
+\end{equation}
+\]</span> <span class="math inline">\(D(\tilde{\nu})\)</span>表示 wall destruction： <span class="math display">\[
+\begin{equation}
+D(\tilde{\nu}) = \left(C_{w1} f_w - \frac{C_{b1}}{\kappa^2} f_{t2}\right) \left( \frac{\tilde{\nu}}{d} \right)^2
+\end{equation}
+\]</span> <span class="math inline">\(T\)</span>表示 trip function： <span class="math display">\[
+\begin{equation}
+T = f_{t1} \Delta \mathbf{u}^2
+\end{equation}
+\]</span> 于是，关于<span class="math inline">\(\tilde{\nu}\)</span>的输运方程可以简化为： <span class="math display">\[
+\begin{equation}
+\frac{\partial \tilde{\nu}}{\partial t} + \underbrace{\nabla \cdot ({\tilde{\nu} \mathbf u})}_{\mathrm{advection}} = \underbrace{\frac{1}{\sigma} \left[ \nabla \cdot \left[ (\nu+\tilde{\nu}) \nabla \tilde{\nu} \right] +  C_{b2} (\nabla \tilde{\nu})^2 \right]}_{\mathrm{diffusion}} + \underbrace{C_{b1} \tilde{S} \tilde{\nu}}_{\mathrm{production}} - \underbrace{\left(C_{w1} f_w \right) \left( \frac{\tilde{\nu}}{d} \right)^2}_{\mathrm{destruction}}
+\end{equation}
+\]</span> <span class="math inline">\(\tilde{S}\)</span>的定义如下： <span class="math display">\[
+\tilde{S} \equiv S + \frac{\tilde \nu}{\kappa^2 d^2} f_{v2}
+\]</span> <span class="math inline">\(S\)</span>的定义如下： <span class="math display">\[
+\begin{equation}
+S=\sqrt{2} |\mathbf S|, \quad \mathbf S = \frac{1}{2}\left( \nabla \mathbf u + (\nabla \mathbf u)^T\right)
+\end{equation}
+\]</span> 计算<span class="math inline">\(\tilde{S}\)</span>时用到的<span class="math inline">\(f_{v2}\)</span>定义如下： <span class="math display">\[
+\begin{equation}
+f_{v2} = 1 - \frac{\chi}{1 + \chi f_{v1}}
+\end{equation}
+\]</span> wall destruction term 中的<span class="math inline">\(f_{w}\)</span>定义如下 <span class="math display">\[
+\begin{align*}
+f_{w} = g \left( \frac{1 + C_{w3}^6}{g^6 + C_{w3}^6} \right)^{1/6}, \quad
+g = r + C_{w2}(r^6 - r), \quad
+r = \min \left( \frac{\tilde \nu}{\tilde S \kappa^2 d^2}, 10 \right)
+\end{align*}
+\]</span> 各系数的默认值如下：</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 48%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 5%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\sigma\)</span></th>
+<th><span class="math inline">\(\kappa\)</span></th>
+<th><span class="math inline">\(C_{b1}\)</span></th>
+<th><span class="math inline">\(C_{b2}\)</span></th>
+<th><span class="math inline">\(C_{w1}\)</span></th>
+<th><span class="math inline">\(C_{w2}\)</span></th>
+<th><span class="math inline">\(C_{w3}\)</span></th>
+<th><span class="math inline">\(C_{v1}\)</span></th>
+<th><span class="math inline">\(C_{s}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0.66666</td>
+<td>0.41</td>
+<td>0.1355</td>
+<td>0.622</td>
+<td><span class="math inline">\(\displaystyle\frac{C_{b1}}{\kappa^2}+\frac{1+C_{b2}}{\sigma}\)</span></td>
+<td>0.3</td>
+<td>2.0</td>
+<td>7.1</td>
+<td>0.3</td>
+</tr>
+</tbody>
+</table>
 <h2 id="参考链接">参考链接</h2>
 <p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/0a24bb995727a5e9846a610b.html?rec_flag=default&amp;fr=pc_newview_relate-1001_1-3-wk_rec_doc2-1001_1-6-0a24bb995727a5e9846a610b&amp;sxts=1612882652396">各种湍流模型详细推导</a></p>
 <p><a target="_blank" rel="noopener" href="https://marinecfd.xyz/post/rans-turbulence-modeling/">雷诺平均 Navier-Stokes 方程</a></p>
@@ -352,6 +455,7 @@ R_{ij} \equiv - \overline{u_i&#39; u_j&#39;} = -\left (
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/127970956">有关湍流模型的一些概念</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.fangzhenxiu.com/post/693404">湍流模型和壁面函数总结</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangxin37/p/8185688.html">在Hexo中渲染MathJax数学公式</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42562856/article/details/106515992">湍流模型（2）——雷诺平均方程</a></p>
 
       
 
@@ -495,7 +599,7 @@ R_{ij} \equiv - \overline{u_i&#39; u_j&#39;} = -\left (
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">控制方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B7%E8%AF%BA%E5%B9%B3%E5%9D%87%E6%96%B9%E6%B3%95rans"><span class="toc-number">2.</span> <span class="toc-text">雷诺平均方法(RANS)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E6%96%B9%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">控制方程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%B7%E8%AF%BA%E5%B9%B3%E5%9D%87%E6%96%B9%E6%B3%95rans"><span class="toc-number">2.</span> <span class="toc-text">雷诺平均方法(RANS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9B%B6%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.0.1.</span> <span class="toc-text">零方程模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.0.2.</span> <span class="toc-text">一方程模型</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">3.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
