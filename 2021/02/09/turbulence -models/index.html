@@ -17,7 +17,7 @@
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-09T05:49:11.000Z">
-<meta property="article:modified_time" content="2021-02-14T12:55:04.698Z">
+<meta property="article:modified_time" content="2021-02-14T14:20:09.554Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
@@ -504,7 +504,46 @@ r = \min \left( \frac{\tilde \nu}{\tilde S \kappa^2 d^2}, 10 \right)
 <p><span class="math display">\[
 \frac{\partial}{\partial t}\left(\rho\omega\right)+\frac{\partial}{\partial x_i}\left(\rho\omega u_i\right)=\frac{\partial}{\partial x_j}\left(\Gamma_\omega\frac{\partial\omega}{\partial x_j}\right)+G_\omega-Y_\omega+S_\omega+G_\omega
 \]</span></p>
-<p>其中<span class="math inline">\(G_k\)</span>表示平均速度梯度产生的湍流动能；<span class="math inline">\(G_w\)</span>表示w的生成；$τ_k $和 <span class="math inline">\(τ_w\)</span>分别代表<span class="math inline">\(k\)</span>和<span class="math inline">\(\omega\)</span>的有效扩散系数；<span class="math inline">\(Y_k\)</span>和<span class="math inline">\(Y_w\)</span>表示<span class="math inline">\(k\)</span>和<span class="math inline">\(\omega\)</span>在湍流作用下的耗散；<span class="math inline">\(S_k\)</span>和<span class="math inline">\(S_w\)</span>是用户定义的源项。</p>
+<p>其中<span class="math inline">\(G_k\)</span>表示平均速度梯度产生的湍流动能；<span class="math inline">\(G_w\)</span>表示w的生成；<span class="math inline">\(\Gamma_k\)</span>和 <span class="math inline">\(\Gamma_\omega\)</span>分别代表<span class="math inline">\(k\)</span>和<span class="math inline">\(\omega\)</span>的有效扩散系数；<span class="math inline">\(Y_k\)</span>和<span class="math inline">\(Y_w\)</span>表示<span class="math inline">\(k\)</span>和<span class="math inline">\(\omega\)</span>在湍流作用下的耗散；<span class="math inline">\(S_k\)</span>和<span class="math inline">\(S_w\)</span>是用户定义的源项。</p>
+<p><span class="math inline">\(k-\omega\)</span>模型的有效扩散系数由下式给出： <span class="math display">\[
+\Gamma_k=\mu+\frac{\mu_t}{\sigma_k}
+\]</span></p>
+<p><span class="math display">\[
+\Gamma_\omega=\mu+\frac{\mu_t}{\sigma_\omega}
+\]</span></p>
+<p><span class="math inline">\(\sigma_k\)</span>和<span class="math inline">\(\sigma_\omega\)</span>分别代表<span class="math inline">\(k\)</span>和<span class="math inline">\(\omega\)</span>的湍流普朗特数，结合<span class="math inline">\(k\)</span>和<span class="math inline">\(\omega\)</span>计算湍流粘度<span class="math inline">\(\mu_t\)</span>: <span class="math display">\[
+\mu_t=\alpha^\ast\frac{\rho k}{\omega}
+\]</span> 系数<span class="math inline">\(\alpha^\ast\)</span>抑制湍流粘度，所以要对低雷诺数修正，它是由下式给出： <span class="math display">\[
+\alpha^\ast=\alpha_\infty^\ast\left(\frac{\alpha_0^\ast+{Re}_t{/}R_k}{1+{Re}_t{/}R_k}\right)
+\]</span> 其中， <span class="math display">\[
+{Re}_t{=}\frac{\rho k}{\mu\omega}, \quad
+R_k=6, \quad
+\alpha_0^\ast=\frac{\beta_i}{3}, \quad
+\beta_i=0.072
+\]</span> 注意,在<span class="math inline">\(k-\omega\)</span>模型的高雷诺数形式下,<span class="math inline">\(\alpha^\ast=\alpha_\infty^\ast=1\)</span>。</p>
+<p><span class="math inline">\(G_k\)</span>表示平均速度梯度产生的湍流动能。由<span class="math inline">\(k\)</span>的输运方程可知，这一项可以定义为： <span class="math display">\[
+G_k=-\rho\overline{u_i&#39; u_j&#39;}\frac{\partial u_j}{\partial x_i}
+\]</span> 用符合Boussinesq假设的方法计算<span class="math inline">\(G_k\)</span>， <span class="math display">\[
+G_k=\mu_tS^2
+\]</span> 其中<span class="math inline">\(S\)</span>是平均应变率张量的模量，定义方式与<span class="math inline">\(k-\varepsilon\)</span>模型相同。</p>
+<p><span class="math inline">\(\omega\)</span>的产生由下式给出： <span class="math display">\[
+G_\omega=\alpha\frac{\omega}{k}G_k
+\]</span> 系数<span class="math inline">\(\alpha\)</span>是 <span class="math display">\[
+\alpha=\frac{\alpha_\infty^\ast}{\alpha^\ast}\left(\frac{\alpha_0^\ast+{Re}_t{/}R_k}{1+{Re}_t{/}R_k}\right)
+\]</span> 其中<span class="math inline">\(R_ω = 2.95\)</span>。注意,在<span class="math inline">\(k-\omega\)</span>模型的高雷诺数形式下,<span class="math inline">\(\alpha^\ast=\alpha_\infty^\ast=1\)</span>。</p>
+<p><span class="math inline">\(k\)</span>的耗散为： <span class="math display">\[
+Y_k=\rho\beta^\ast f_{\beta^\ast}k\omega
+\]</span> 其中， <span class="math display">\[
+f_{\beta^\ast}=\left\{\begin{matrix}\begin{matrix}1&amp;\chi_k\le0\\\end{matrix}\\\begin{matrix}\frac{1+680\chi_k^2}{1+400\chi_k^2}&amp;\chi_k&gt;0\\\end{matrix}\\\end{matrix}\right.
+\]</span></p>
+<p><span class="math display">\[
+\chi_k=\frac{1}{\omega^3}\frac{\partial k}{\partial x_j}\frac{\partial\omega}{\partial x_j}, \quad
+\beta^\ast=\beta_i^\ast\left[1+\zeta^\ast F\left(M_t\right)\right]
+\]</span></p>
+<p><span class="math display">\[
+\beta_i^\ast=\beta_\infty^\ast\left(\frac{4/15+\left({Re}_t{/}R_\beta\right)^4}{1+\left({Re}_t{/}R_\beta\right)^4}\right), \quad
+\zeta^\ast=1.5, \quad R_\beta=8, \quad \beta_\infty^\ast=0.09
+\]</span></p>
 <h2 id="参考链接">参考链接</h2>
 <p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/0a24bb995727a5e9846a610b.html?rec_flag=default&amp;fr=pc_newview_relate-1001_1-3-wk_rec_doc2-1001_1-6-0a24bb995727a5e9846a610b&amp;sxts=1612882652396">各种湍流模型详细推导</a></p>
 <p><a target="_blank" rel="noopener" href="https://marinecfd.xyz/post/rans-turbulence-modeling/">雷诺平均 Navier-Stokes 方程</a></p>
