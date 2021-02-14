@@ -17,7 +17,7 @@
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-09T05:49:11.000Z">
-<meta property="article:modified_time" content="2021-02-13T06:19:08.242Z">
+<meta property="article:modified_time" content="2021-02-14T09:19:16.147Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
@@ -455,7 +455,7 @@ r = \min \left( \frac{\tilde \nu}{\tilde S \kappa^2 d^2}, 10 \right)
 <th><span class="math inline">\(\frac{k^{1/2}}{l}\)</span></th>
 <th><span class="math inline">\(\frac{k^{3/2}}{l}\)</span></th>
 <th><span class="math inline">\(\frac{k}{l}\)</span></th>
-<th><span class="math inline">\(\frac{k^{1/2}}{l^{2}}\)</span></th>
+<th><span class="math inline">\(\frac{k}{l^{2}}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -482,6 +482,16 @@ r = \min \left( \frac{\tilde \nu}{\tilde S \kappa^2 d^2}, 10 \right)
 </tr>
 </tbody>
 </table>
+<p>耗散率<span class="math inline">\(\varepsilon\)</span>的严格定义： <span class="math display">\[
+\varepsilon=\nu\overline{\left(\frac{\partial u_i&#39;}{\partial x_k}\right)\left(\frac{\partial u_i&#39;}{\partial x_k}\right)}
+\]</span></p>
+<p>耗散率<span class="math inline">\(\varepsilon\)</span>的模拟定义： <span class="math display">\[
+\varepsilon=c_D\rho\frac{k^{3/2}}{l}
+\]</span> 它可看作是单位质量流体脉动动能耗散率，<span class="math inline">\(c_D\)</span>为经验常数。这一模拟定义来源可以如下的解：从较大的涡向较小的涡传递能量的速率对单位体积流体正比于<span class="math inline">\(\rho k\)</span>，而反比于传递时间。传递时间与湍流长度标尺<span class="math inline">\(l\)</span>成正比，而与脉动速度<span class="math inline">\(k^{1/2}\)</span>成反比。</p>
+<p>标准<span class="math inline">\(k-\varepsilon\)</span>模型需要求解湍动能及其耗散率方程。湍动能输运方程是通过精确的方程推导得到，但耗散率方程是通过物理推理，数学上模拟相似原形方程得到的。该模型假设流动为完全湍流，分子粘性的影响可以忽略。因此，标准<span class="math inline">\(k-\varepsilon\)</span>模型只适合完全湍流的流动过程模拟。</p>
+<p>标准<span class="math inline">\(k-\varepsilon\)</span>模型的湍动能<span class="math inline">\(k\)</span>及其耗散率<span class="math inline">\(\varepsilon\)</span>方程为如下形式 <span class="math display">\[
+\rho\frac{Dk}{Dt}=\frac{\partial}{\partial x_i}\left[\left(\mu+\frac{\mu_t}{\sigma_k}\right)\frac{\partial k}{\partial x_i}\right]+G_k+G_b-\rho\varepsilon-Y_M
+\]</span></p>
 <h2 id="参考链接">参考链接</h2>
 <p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/0a24bb995727a5e9846a610b.html?rec_flag=default&amp;fr=pc_newview_relate-1001_1-3-wk_rec_doc2-1001_1-6-0a24bb995727a5e9846a610b&amp;sxts=1612882652396">各种湍流模型详细推导</a></p>
 <p><a target="_blank" rel="noopener" href="https://marinecfd.xyz/post/rans-turbulence-modeling/">雷诺平均 Navier-Stokes 方程</a></p>
@@ -493,6 +503,7 @@ r = \min \left( \frac{\tilde \nu}{\tilde S \kappa^2 d^2}, 10 \right)
 <p><a target="_blank" rel="noopener" href="https://www.fangzhenxiu.com/post/693404">湍流模型和壁面函数总结</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wangxin37/p/8185688.html">在Hexo中渲染MathJax数学公式</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42562856/article/details/106515992">湍流模型（2）——雷诺平均方程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/abs/pii/002072259390096D">Evaluation of Two-Equation Turbulence Models for Predicting Transitional Flows</a></p>
 
       
 
