@@ -17,7 +17,7 @@
 <meta property="og:description" content="沃纳·海森堡曾说：“当我见到上帝后，我一定要问他两个问题——什么是相对论，什么是湍流。但我相信他应该只对第一个问题有了答案。”">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-09T05:49:11.000Z">
-<meta property="article:modified_time" content="2021-02-14T14:20:09.554Z">
+<meta property="article:modified_time" content="2021-02-14T14:40:23.003Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
@@ -543,6 +543,40 @@ f_{\beta^\ast}=\left\{\begin{matrix}\begin{matrix}1&amp;\chi_k\le0\\\end{matrix}
 <p><span class="math display">\[
 \beta_i^\ast=\beta_\infty^\ast\left(\frac{4/15+\left({Re}_t{/}R_\beta\right)^4}{1+\left({Re}_t{/}R_\beta\right)^4}\right), \quad
 \zeta^\ast=1.5, \quad R_\beta=8, \quad \beta_\infty^\ast=0.09
+\]</span></p>
+<p><span class="math inline">\(\omega\)</span>的耗散由下式给出： <span class="math display">\[
+Y_k=\rho\beta f_{\beta}\omega^2
+\]</span> 其中， <span class="math display">\[
+f_\beta=\frac{1+70\chi_\omega}{1+80\chi_\omega}, \quad
+\chi_\omega=\left|\frac{\Omega_{ij}\Omega_{jk}S_{ki}}{\left(\beta_\infty^\ast\omega\right)^3}\right|, \quad
+\Omega_{ij}=\frac{1}{2}\left(\frac{\partial u_i}{\partial x_j}-\frac{\partial u_j}{\partial x_i}\right)
+\]</span></p>
+<p><span class="math display">\[
+\beta=\beta_i\left[1-\frac{\beta_i^\ast}{\beta_i}\zeta^\ast F\left(M_t\right)\right]
+\]</span></p>
+<p>可压缩函数<span class="math inline">\(F\left(M_t\right)\)</span>由下式给出： <span class="math display">\[
+F\left(M_t\right)=\left\{\begin{matrix}0&amp;M_t\le M_{t0}\\M_t^2-M_{t0}^2&amp;M_t&gt;M_{t0}\\\end{matrix}\right.
+\]</span> 其中， <span class="math display">\[
+M_t^2=\frac{2k}{\alpha^2}, \quad
+M_{t0}=0.25, \quad
+\alpha=\sqrt{\gamma RT}
+\]</span> 注意,在<span class="math inline">\(k-\omega\)</span>模型的高雷诺数形式下，<span class="math inline">\(\beta_i^\ast=\beta_\infty^\ast\)</span>，不可压缩形式<span class="math inline">\(\beta^\ast=\beta_i^\ast\)</span>。</p>
+<p>压缩效应在非常有限的自由剪切流实验中进行了校准，不推荐普遍使用。默认情况下是禁用的。</p>
+<p><strong>模型常数</strong>如下： <span class="math display">\[
+\alpha_\infty^\ast=1, \quad
+\alpha_\infty=0.52, \quad
+\alpha_0=\frac{1}{9}, \quad
+\beta_\infty^\ast=0.09, \quad
+\beta_i=0.072, \quad
+R_\beta=8
+\]</span></p>
+<p><span class="math display">\[
+R_k=6, \quad
+R_\omega=2.95, \quad
+\zeta^\ast=1.5, \quad
+M_{t0}=0.25, \quad
+\sigma_k=2.0, \quad
+\sigma_\omega=2.0
 \]</span></p>
 <h2 id="参考链接">参考链接</h2>
 <p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/0a24bb995727a5e9846a610b.html?rec_flag=default&amp;fr=pc_newview_relate-1001_1-3-wk_rec_doc2-1001_1-6-0a24bb995727a5e9846a610b&amp;sxts=1612882652396">各种湍流模型详细推导</a></p>
