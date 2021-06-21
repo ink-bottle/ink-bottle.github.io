@@ -6,7 +6,7 @@
   <link href="https://ink-bottle.github.io/atom.xml" rel="self"/>
   
   <link href="https://ink-bottle.github.io/"/>
-  <updated>2021-05-12T14:45:56.877Z</updated>
+  <updated>2021-06-21T14:35:07.232Z</updated>
   <id>https://ink-bottle.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>利用阿里云OSS自搭建图床</title>
+    <link href="https://ink-bottle.github.io/2021/06/21/photoloader/"/>
+    <id>https://ink-bottle.github.io/2021/06/21/photoloader/</id>
+    <published>2021-06-21T13:33:51.000Z</published>
+    <updated>2021-06-21T14:35:07.232Z</updated>
+    
+    <content type="html"><![CDATA[<p>经常写博客的小伙伴一定会遇到一个问题，那便是图床的选择。图床作为一个储存图片的服务器，可以生成公开的访问链接，如此自己的博客文章里则可以直接插入这些图片链接，从而减小自己博客服务器的压力。一款稳定并且方便快捷的图床是非常重要的，否则我们博客文章中的图片很可能在某一天就无法访问或者消失。常用的免费的图床就是<a href="https://sm.ms/">sm.ms</a>，<a href="i.imgur.com">imgur</a>，虽然免费稳定又好用，但是随着使用人数不断增加，目前访问速度也有所下降，因此本文主要介绍一下如何利用阿里云OSS搭建图床。</p><a id="more"></a><h2 id="开通阿里云OSS">开通阿里云OSS</h2><p>首先第一步，开通阿里云OSS。登录到阿里云，选择「<strong>对象存储OSS</strong>」。</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d82b1aa9bd552f0fbe7a4d70d20dc7a.png" alt="阿里云OSS"></p><p>直接选择标准套餐即可，可见还是非常非常实惠的。</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/437841ae0c3d6fe64ccf80d81c8797c.png" alt=""></p><p>然后打开阿里云控制台，选择对象存储，点击加号添加 Bucket，如下图所示，填完后点击确认创建Bucket成功。</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d6bef82758dad9fdf6dcd1ece37dcc8.png" alt=""></p><h2 id="获取AccessKey-ID和AccessKey-Secret">获取AccessKey ID和AccessKey Secret</h2><p>鼠标悬停个人头像，点击accesskeys，如图所示：</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/db92329b06704e666b2634f4226fdd9.png" alt=""></p><p>为了安全，我们使用子账户的只拥有OSS权限的accesskey，如图所示：</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/79c15f7f27b92e8d11250eb9e42e7dc.png" alt=""></p><p>填入子账户登录名称，勾选<strong>编程访问</strong>（勿忘），如下图所示：</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/15f19308afe47eba4dfd57a1a4d24e4.png" alt=""></p><p>建立成功后即可见到AccessKey ID和AccessKey Secret了，建议简单把它记在便签里，如下图所示：</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/8185dd79603cc20957d3c528ed79588.png" alt=""></p><h2 id="添加权限">添加权限</h2><p>为了给子账户授予对象存储OSS权限，需要找到用户-&gt;添加权限，如下图所示：</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/afdd08d78cd05eddf31fa09a9cc7d09.png" alt=""></p><p>选择AliyunOSSFullAccess这个权限，确定即可，如下图所示：</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/e1457e7c72cd231b940146ff4bd9aeb.png" alt=""></p><h2 id="PicGo配置">PicGo配置</h2><p>PicGo是一个用于快速上传图片并获取图片 URL 链接的工具，支持7种常见图床对接。其下载链接为：<a href="https://github.com/Molunerfinn/PicGo/releases">PicGo</a></p><p>安装好之后在图床设置里选择阿里云OSS设置，如图所示：</p><p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ecc55dd558cc3e6390d77bbd37bd9aa.png" alt=""></p><p>在填写存储路径时，比如img/的话，上传的图片会默认放在OSS的img文件夹下。不需要你自己去网站创建文件夹，程序就会帮你自动生成。</p><p>点击确定，然后点击设为默认图床即可，现在回到上传区后即可愉快地开始使用啦。</p><h2 id="参考链接">参考链接</h2><p><a href="https://www.jianshu.com/p/c42890141d2f">个人图床搭建简明教程 - 简书 (jianshu.com)</a></p><p><a href="https://zhuanlan.zhihu.com/p/104152479">阿里云OSS PicGo 配置图床教程 超详细</a></p><p><a href="https://product.mdnice.com/article/developer/aliyun-image-hosting/">阿里云图床搭建</a></p><p><a href="https://blog.csdn.net/chen_z_p/article/details/103103808">阿里云OSS搭建博客图床</a></p><p><a href="https://picgo.github.io/PicGo-Doc/zh/guide/">听说你也想用PicGo</a></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;经常写博客的小伙伴一定会遇到一个问题，那便是图床的选择。图床作为一个储存图片的服务器，可以生成公开的访问链接，如此自己的博客文章里则可以直接插入这些图片链接，从而减小自己博客服务器的压力。一款稳定并且方便快捷的图床是非常重要的，否则我们博客文章中的图片很可能在某一天就无法访问或者消失。常用的免费的图床就是&lt;a href=&quot;https://sm.ms/&quot;&gt;sm.ms&lt;/a&gt;，&lt;a href=&quot;i.imgur.com&quot;&gt;imgur&lt;/a&gt;，虽然免费稳定又好用，但是随着使用人数不断增加，目前访问速度也有所下降，因此本文主要介绍一下如何利用阿里云OSS搭建图床。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://ink-bottle.github.io/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>fluent-expressions</title>
@@ -369,25 +388,6 @@
     
     
     <category term="学习" scheme="https://ink-bottle.github.io/categories/%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>毕业随记</title>
-    <link href="https://ink-bottle.github.io/2019/06/27/%E6%AF%95%E4%B8%9A%E9%9A%8F%E8%AE%B0/"/>
-    <id>https://ink-bottle.github.io/2019/06/27/%E6%AF%95%E4%B8%9A%E9%9A%8F%E8%AE%B0/</id>
-    <published>2019-06-27T07:40:19.000Z</published>
-    <updated>2020-01-01T04:43:40.452Z</updated>
-    
-    <content type="html"><![CDATA[<p>转眼已经到了毕业的时候，大学四年以来，我从一个尚带有高中生的稚气和懵懂的新生到现在的已经较为成熟的大四毕业生，在这其中的时间里我不仅仅是学习到了很多知识与技能，还有获得了自我学习的能力以及认识了一群有趣的朋友。虽然大学四年多多少少有一些遗憾，但是从我的整个经历与变化来看，这四年将会是我人生难以外却且宝贵的记忆，我过得充实而多彩。</p><a id="more"></a><p>学校敲定的毕业时间是7月1日，早在毕业设计答辩结束时就已经开始了毕业离校工作。对于我们学生来说，除了准备离校以外，还有参加聚餐，拍毕业照等很多活动。在邀请一系的老师的谢师宴上，我坐在我的研究生导师旁边，由于导师平时很忙，我和他见面的次数寥寥无几。在聊天中，结果发生了以下对话😰：</p><blockquote><p>导师：你是工作还是升学？ 我：升学…… 导师：去了哪所学校啊？ 我：留在本校…… 导师：跟了哪位老师？ 我：我跟着您读研啊…… 导师：……</p></blockquote><p>场面一度极为尴尬😅。</p><figure><img src="https://i.loli.net/2019/06/29/5d1739dc9d8bb68779.jpg" alt="1561803175966.jpg" /><figcaption aria-hidden="true">1561803175966.jpg</figcaption></figure><p>由于是毕业聚餐，各桌敬酒，大家都很激动，短时间内二十多杯酒入肚之后，我的头开始变得有点重，后来没有忍住自己跑到卫生间吐了一波，生平以来第一次不是因为晕车而吐的经历也挺奇妙的。</p><p>在学院举办的院毕业典礼上，我有幸获得了院优秀毕业生和优秀毕设的荣誉，学院给优秀毕业生的奖品是一部kindle，这真的让我十分惊喜。同时，我们穿上学士服，院长一一为我们拨穗，标志着我们正式获得学士学位。在之后的毕业晚会上，我参与了朗诵的节目《少年中国说》，民国学生的衣服穿在身上确实很正气~。晚会的其他节目也都很精彩，有我室友的萨克斯独奏表演，有大艺团的舞蹈表演，有本院学弟的相声表演（相声演员的功底很不错啊），还有毕业生自己谱曲写词的演唱歌曲等等，可以说是很难忘的一次晚会了。</p><figure><img src="https://i.loli.net/2019/06/29/5d17427db85d248009.jpg" alt="qq_pic_merged_1561805047179.jpg" /><figcaption aria-hidden="true">qq_pic_merged_1561805047179.jpg</figcaption></figure><p>接下来的一天晚上班级定下了6小时轰趴馆，我们班剩下能聚在一起的时间也就这么几次了，班里的同学有部分找到工作，有部分去别的学校上研，有部分二战，以后估计也很难聚齐了吧。</p><p>校毕业典礼在新校区举行，虽然个人很不习惯坐车，但一生一次的本科毕业典礼还是要去的🤨，顺便获得了学校黄铜书签一枚。</p><p>毕业季，每个人都要面临的就是搬宿舍了，而两年前我们从新校区搬到老校区时也经历过一回，还记得当时我们把自己的物品打包好装进麻袋或箱子，用记号笔写上自己的信息，然后往车上搬，而整个西安都在下雨，最终到达老校区宿舍时不少物品也都沾了水，当时整个院的学生一起安排搬宿舍，所以电梯口挤满了人群和行李，忙活了很长时间才将宿舍草草收拾好。如今我在本校上研，需要搬宿舍也就是从一栋楼转移到另外一栋楼罢了，搬宿舍的天气一同往日，阴雨绵延不断，幸得室友借来了小推车，搬宿舍的进程就快了许多，但还是花费了一整个白天才堪堪搬完，又花了一晚上将宿舍内擦干净并将物品摆好，搬家确实是一件很费时费力的工作。</p><p>接下来的暑假……别想了，我已经没有暑假了，一切都已经安排得明明白白😢。</p><p>总之，感谢学校四年的培养，接下来的研究生三年，在西安这座古朴而厚重的城市里，我也将继续走下去，成长为自己想象的模样。</p><figure><img src="https://i.loli.net/2019/06/29/5d17576078c3320197.png" alt="8ed55a05926b802e7173e9fa754c1092.png" /><figcaption aria-hidden="true">8ed55a05926b802e7173e9fa754c1092.png</figcaption></figure>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;转眼已经到了毕业的时候，大学四年以来，我从一个尚带有高中生的稚气和懵懂的新生到现在的已经较为成熟的大四毕业生，在这其中的时间里我不仅仅是学习到了很多知识与技能，还有获得了自我学习的能力以及认识了一群有趣的朋友。虽然大学四年多多少少有一些遗憾，但是从我的整个经历与变化来看，这四年将会是我人生难以外却且宝贵的记忆，我过得充实而多彩。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="心记" scheme="https://ink-bottle.github.io/categories/%E5%BF%83%E8%AE%B0/"/>
     
     
   </entry>

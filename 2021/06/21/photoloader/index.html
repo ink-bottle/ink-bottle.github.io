@@ -7,18 +7,31 @@
   <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
-  <title>Archives | inkbottle&#39;s blog</title>
+  <title>利用阿里云OSS自搭建图床 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
-<meta property="og:type" content="website">
-<meta property="og:title" content="inkbottle&#39;s blog">
-<meta property="og:url" content="https://ink-bottle.github.io/archives/page/2/index.html">
+  <meta name="description" content="经常写博客的小伙伴一定会遇到一个问题，那便是图床的选择。图床作为一个储存图片的服务器，可以生成公开的访问链接，如此自己的博客文章里则可以直接插入这些图片链接，从而减小自己博客服务器的压力。一款稳定并且方便快捷的图床是非常重要的，否则我们博客文章中的图片很可能在某一天就无法访问或者消失。常用的免费的图床就是sm.ms，imgur，虽然免费稳定又好用，但是随着使用人数不断增加，目前访问速度也有所下降，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用阿里云OSS自搭建图床">
+<meta property="og:url" content="https://ink-bottle.github.io/2021/06/21/photoloader/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="不捣鼓捣鼓一些东西，生活怎么会变得有趣呢">
+<meta property="og:description" content="经常写博客的小伙伴一定会遇到一个问题，那便是图床的选择。图床作为一个储存图片的服务器，可以生成公开的访问链接，如此自己的博客文章里则可以直接插入这些图片链接，从而减小自己博客服务器的压力。一款稳定并且方便快捷的图床是非常重要的，否则我们博客文章中的图片很可能在某一天就无法访问或者消失。常用的免费的图床就是sm.ms，imgur，虽然免费稳定又好用，但是随着使用人数不断增加，目前访问速度也有所下降，">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d82b1aa9bd552f0fbe7a4d70d20dc7a.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/437841ae0c3d6fe64ccf80d81c8797c.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d6bef82758dad9fdf6dcd1ece37dcc8.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/db92329b06704e666b2634f4226fdd9.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/79c15f7f27b92e8d11250eb9e42e7dc.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/15f19308afe47eba4dfd57a1a4d24e4.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/8185dd79603cc20957d3c528ed79588.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/afdd08d78cd05eddf31fa09a9cc7d09.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/e1457e7c72cd231b940146ff4bd9aeb.png">
+<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ecc55dd558cc3e6390d77bbd37bd9aa.png">
+<meta property="article:published_time" content="2021-06-21T13:33:51.000Z">
+<meta property="article:modified_time" content="2021-06-21T14:35:07.232Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d82b1aa9bd552f0fbe7a4d70d20dc7a.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -180,37 +193,101 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-photoloader" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/11/matlab-change-excel/" class="archive-article-date">
-  	<time datetime="2020-02-11T09:39:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-11</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/11/matlab-change-excel/">MATLAB对excel文件数据的读写</a>
+    <h1 class="article-title" itemprop="name">
+      利用阿里云OSS自搭建图床
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2021/06/21/photoloader/" class="archive-article-date">
+  	<time datetime="2021-06-21T13:33:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>经常写博客的小伙伴一定会遇到一个问题，那便是图床的选择。图床作为一个储存图片的服务器，可以生成公开的访问链接，如此自己的博客文章里则可以直接插入这些图片链接，从而减小自己博客服务器的压力。一款稳定并且方便快捷的图床是非常重要的，否则我们博客文章中的图片很可能在某一天就无法访问或者消失。常用的免费的图床就是<a target="_blank" rel="noopener" href="https://sm.ms/">sm.ms</a>，<a href="i.imgur.com">imgur</a>，虽然免费稳定又好用，但是随着使用人数不断增加，目前访问速度也有所下降，因此本文主要介绍一下如何利用阿里云OSS搭建图床。</p>
+<a id="more"></a>
+<h2 id="开通阿里云OSS">开通阿里云OSS</h2>
+<p>首先第一步，开通阿里云OSS。登录到阿里云，选择「<strong>对象存储OSS</strong>」。</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d82b1aa9bd552f0fbe7a4d70d20dc7a.png" alt="阿里云OSS"></p>
+<p>直接选择标准套餐即可，可见还是非常非常实惠的。</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/437841ae0c3d6fe64ccf80d81c8797c.png" alt=""></p>
+<p>然后打开阿里云控制台，选择对象存储，点击加号添加 Bucket，如下图所示，填完后点击确认创建Bucket成功。</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d6bef82758dad9fdf6dcd1ece37dcc8.png" alt=""></p>
+<h2 id="获取AccessKey-ID和AccessKey-Secret">获取AccessKey ID和AccessKey Secret</h2>
+<p>鼠标悬停个人头像，点击accesskeys，如图所示：</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/db92329b06704e666b2634f4226fdd9.png" alt=""></p>
+<p>为了安全，我们使用子账户的只拥有OSS权限的accesskey，如图所示：</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/79c15f7f27b92e8d11250eb9e42e7dc.png" alt=""></p>
+<p>填入子账户登录名称，勾选<strong>编程访问</strong>（勿忘），如下图所示：</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/15f19308afe47eba4dfd57a1a4d24e4.png" alt=""></p>
+<p>建立成功后即可见到AccessKey ID和AccessKey Secret了，建议简单把它记在便签里，如下图所示：</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/8185dd79603cc20957d3c528ed79588.png" alt=""></p>
+<h2 id="添加权限">添加权限</h2>
+<p>为了给子账户授予对象存储OSS权限，需要找到用户-&gt;添加权限，如下图所示：</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/afdd08d78cd05eddf31fa09a9cc7d09.png" alt=""></p>
+<p>选择AliyunOSSFullAccess这个权限，确定即可，如下图所示：</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/e1457e7c72cd231b940146ff4bd9aeb.png" alt=""></p>
+<h2 id="PicGo配置">PicGo配置</h2>
+<p>PicGo是一个用于快速上传图片并获取图片 URL 链接的工具，支持7种常见图床对接。其下载链接为：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases">PicGo</a></p>
+<p>安装好之后在图床设置里选择阿里云OSS设置，如图所示：</p>
+<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ecc55dd558cc3e6390d77bbd37bd9aa.png" alt=""></p>
+<p>在填写存储路径时，比如img/的话，上传的图片会默认放在OSS的img文件夹下。不需要你自己去网站创建文件夹，程序就会帮你自动生成。</p>
+<p>点击确定，然后点击设为默认图床即可，现在回到上传区后即可愉快地开始使用啦。</p>
+<h2 id="参考链接">参考链接</h2>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c42890141d2f">个人图床搭建简明教程 - 简书 (jianshu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104152479">阿里云OSS PicGo 配置图床教程 超详细</a></p>
+<p><a target="_blank" rel="noopener" href="https://product.mdnice.com/article/developer/aliyun-image-hosting/">阿里云图床搭建</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chen_z_p/article/details/103103808">阿里云OSS搭建博客图床</a></p>
+<p><a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/">听说你也想用PicGo</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a5b43f232.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a59fef129.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -223,373 +300,140 @@ var _hmt = _hmt || [];
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/24/child-of-light/" class="archive-article-date">
-  	<time datetime="2020-01-24T03:38:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/24/child-of-light/">child of light | 光之子</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/游戏//" class="article-tag-list-link color3">游戏</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+
       
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2021/06/21/photoloader/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/31/2020-new-year/" class="archive-article-date">
-  	<time datetime="2019-12-31T13:27:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/31/2020-new-year/">新年前夕</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/心记//" class="article-tag-list-link color3">心记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/12/22/midwinter/" class="archive-article-date">
-  	<time datetime="2019-12-22T14:58:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/02/fluent-expressions/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">fluent-expressions</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/12/22/midwinter/">冬至</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/心记//" class="article-tag-list-link color3">心记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E9%80%9A%E9%98%BF%E9%87%8C%E4%BA%91OSS"><span class="toc-number">1.</span> <span class="toc-text">开通阿里云OSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96AccessKey-ID%E5%92%8CAccessKey-Secret"><span class="toc-number">2.</span> <span class="toc-text">获取AccessKey ID和AccessKey Secret</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E6%9D%83%E9%99%90"><span class="toc-number">3.</span> <span class="toc-text">添加权限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PicGo%E9%85%8D%E7%BD%AE"><span class="toc-number">4.</span> <span class="toc-text">PicGo配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
+  
+  
+
+  
+
+  
+
+  
+
+  
+    <div id="comment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script>
+new Valine({
+    el: '#comment' ,
+    notify:true, 
+    verify:true, 
+    appId: 'gQVYTNyv4vsbPbERTDG1erab-gzGzoHsz',
+    appKey: 'qyhbnJu7Wc96RJczz8KTyCDG',
+    placeholder: '吾以为inkbottle必有高论，岂期出此鄙言！吾有一言，诸军静听',
+    path:window.location.pathname, 
+    avatar:'mm' 
+});
+</script>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/15/Origin/" class="archive-article-date">
-  	<time datetime="2019-11-15T11:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/15/Origin/">matlab和Origin作图的一系列问题和解决方案</a>
-    </h1>
+
   
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/15/Python/" class="archive-article-date">
-  	<time datetime="2019-10-15T05:05:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/15/Python/">Python在sublime text3中不能运行input()的问题（转载）</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/29/%E6%9A%91%E5%81%87%E9%9A%8F%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2019-08-29T06:30:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/29/%E6%9A%91%E5%81%87%E9%9A%8F%E8%AE%B0/">暑假随记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/心记//" class="article-tag-list-link color3">心记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/25/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BA%A7%E5%88%AB%E7%9A%84%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2019-07-25T08:38:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/25/%E5%85%B3%E4%BA%8E%E5%AD%A6%E6%9C%AF%E6%9C%9F%E5%88%8A%E7%BA%A7%E5%88%AB%E7%9A%84%E8%AE%B0%E5%BD%95/">关于学术期刊级别的记录</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/资料//" class="article-tag-list-link color3">资料</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/14/Win10%E4%B8%8BJava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="archive-article-date">
-  	<time datetime="2019-07-13T16:25:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/14/Win10%E4%B8%8BJava%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">Win10下Java环境配置与OpenRocket打开</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/教程//" class="article-tag-list-link color3">教程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/06/30/ICEM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2019-06-30T05:18:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-06-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/06/30/ICEM%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">ICEM学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/学习//" class="article-tag-list-link color3">学习</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/7/">7</a><a class="extend next" rel="next" href="/archives/page/3/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -640,8 +484,8 @@ var _hmt = _hmt || [];
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
