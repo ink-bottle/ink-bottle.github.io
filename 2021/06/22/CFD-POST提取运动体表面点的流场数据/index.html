@@ -7,113 +7,25 @@
   <meta name="google-site-verification" content="xxrtTai0i8Vij1ELA2AzgbkqDApzYkGL2lSqfc6ogDE" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ink-bottle.github.io">
-  <title>小球入水Fluent仿真（局部重构，动态层铺，嵌套网格） | inkbottle&#39;s blog</title>
+  <title>CFD-POST通过session批处理提取运动体表面点的流场数据 | inkbottle&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="初学者在进行相关流体仿真时，小球入水往往是一个非常经典的案例。重要的是，许多研究者曾对小球入水进行了大量的实验研究，保留了丰富的实验成果。这使得人们在进行入水领域的仿真工作时，往往利用小球入水来进行数值算法的验证。本文将利用ANSYS Fluent中的动网格局部重构法（Local Remeshing），动态层铺法（Dynamic Layering）以及嵌套网格（Overset mesh）三种手段对">
+  <meta name="description" content="CFD-post作为ANSYS流场分析后处理的御用软件，自然也少不了宏命令这种可以方便用户自动化操作的神器，本文主要介绍一下CFD-post中Session的使用以及如何通过session批处理提取运动体表面点的流场数据。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小球入水Fluent仿真（局部重构，动态层铺，嵌套网格）">
-<meta property="og:url" content="https://ink-bottle.github.io/2020/12/02/sphere%20water%20entry/index.html">
+<meta property="og:title" content="CFD-POST通过session批处理提取运动体表面点的流场数据">
+<meta property="og:url" content="https://ink-bottle.github.io/2021/06/22/CFD-POST%E6%8F%90%E5%8F%96%E8%BF%90%E5%8A%A8%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%82%B9%E7%9A%84%E6%B5%81%E5%9C%BA%E6%95%B0%E6%8D%AE/index.html">
 <meta property="og:site_name" content="inkbottle&#39;s blog">
-<meta property="og:description" content="初学者在进行相关流体仿真时，小球入水往往是一个非常经典的案例。重要的是，许多研究者曾对小球入水进行了大量的实验研究，保留了丰富的实验成果。这使得人们在进行入水领域的仿真工作时，往往利用小球入水来进行数值算法的验证。本文将利用ANSYS Fluent中的动网格局部重构法（Local Remeshing），动态层铺法（Dynamic Layering）以及嵌套网格（Overset mesh）三种手段对">
+<meta property="og:description" content="CFD-post作为ANSYS流场分析后处理的御用软件，自然也少不了宏命令这种可以方便用户自动化操作的神器，本文主要介绍一下CFD-post中Session的使用以及如何通过session批处理提取运动体表面点的流场数据。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/hZHEd4trnKaMDwY.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/gutjw8DmIa75db3.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/6MqkVijdbYhO3Fz.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/pEWMRuTzvd3fy7t.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d1a9VXDeMiEfIYn.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/JWKv1YDUifRru7Q.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/lYXwRiAqzI6GWsK.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/wQ1nDrybgxLz5Fc.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/52mrehJNSi94oCt.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/3aTbmxUpXNsCJE1.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DKAFLhlZIgdUEu4.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/6z58MLdxOERHjet.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/iUHK6ZN12IGpYaJ.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/u4v6Pt2BVZQ1F5S.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ACqxaOU7wpml9JS.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/OjTBqmtcJd7ewDQ.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ndFVhB25IZbMgLN.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/4PuYMKJeQNW92Xm.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/KSztZCvB4LyO6Qe.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/9jhrGSgDPOLf8Id.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EPkhWXvZnlAN9uf.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/GgTxptQLDj7C8dB.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/KjR5tmMb4hi92kI.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/aph2EDT8WiorJSj.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/gi9FGkAVRPLNrjb.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/MdCwAN1T39FXxhj.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/81chs2DEWjFSRwe.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EO8PjlMwNZSWv6I.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DTyrohNKBGdEaA4.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/hBqyvj38eUfXZYw.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/RyMrETgcYt6iZVl.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/dk8zegm2anuHlUO.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/FPjA1xY3T9ep64W.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DuiyUR23emcN8wt.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/YIetPC2dnjvEF4J.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Hz9UOFYoSNg4Wbm.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/o1QDGWl5vZ8r3Hc.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/QEKPbN3LwygTrSM.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/CPfls12ALJUYdXj.jpg">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Qx4sAHCabWoZT2u.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/aQ3ukUbH5CxhrSF.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/B6kl8Og7hViyp1W.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/9b4WS8MTisKVcoA.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/QYIcqCzR2tf7eaV.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/S2rBVKe9tfvNzo1.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/eC1jUTIruhNRsKw.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/XTDAEshcaPH6G4l.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/TdyYXVLecFgiNG6.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Vkv5pmu2NBeFz8D.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/51fgdT3hRDiqjPo.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/iUHK6ZN12IGpYaJ.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/u4v6Pt2BVZQ1F5S.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Vj2GYMZvsDBEouF.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/OjTBqmtcJd7ewDQ.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/WsaHJczgfq4PbyX.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/RWtajDZfqbouJ7N.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EO8PjlMwNZSWv6I.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DTyrohNKBGdEaA4.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/IxdpgJbDMoKkfsA.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/CwOg8Ph4aXloV2y.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/wTzEofhq4mV6RD2.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/87gU1GprZ2JkfO9.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/yndzmgQ3DsBJNRe.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/C9j8gSvTa7yAWbd.jpg">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/NfLygr5XaFskEPl.jpg">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ce9dn6I8GHDZyqu.jpg">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/dMHmQhpUC43GgnD.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/qKaWBe18kwnm7DV.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/P9fn8UdSuNoXICE.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/YCqJikjwOvQ6zul.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/a4UjZGJrTchuOW9.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/q6MYuIRDZEP72OU.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/kXU9TGFYrO2JxhS.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/g2Xw6NCMp7dSL9f.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/djOJA9BNkHe3RtS.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/TdyYXVLecFgiNG6.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/sUK48inIAZRHMQc.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/uL1zAUOt7ECerBn.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/iUHK6ZN12IGpYaJ.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/u4v6Pt2BVZQ1F5S.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/UeTi9LOD7253IWt.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/USdzC52bLKF3Ajx.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/WtOeBAZuI3gVFpC.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/lretZVDAsMp3nPT.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/i8W1NLFpePaBuxU.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EO8PjlMwNZSWv6I.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DTyrohNKBGdEaA4.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/E3dhojsz1mWaqNR.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/yndzmgQ3DsBJNRe.png">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/smtluYhVBE7UQck.jpg">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/hiYLIHpzPEUuJTX.jpg">
-<meta property="og:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ujhD1gNy6GqFYBP.jpg">
-<meta property="article:published_time" content="2020-12-02T03:25:07.000Z">
-<meta property="article:modified_time" content="2021-06-21T16:01:30.185Z">
+<meta property="og:image" content="https://i.loli.net/2021/06/22/G2Vh8Arwgl3yaKo.png">
+<meta property="og:image" content="https://i.loli.net/2021/06/22/lURYhwTPxuZztbG.png">
+<meta property="og:image" content="https://i.loli.net/2021/06/22/QkMmpY8HRWiILxK.png">
+<meta property="og:image" content="https://i.loli.net/2021/06/22/ZP5rjA8IWusaplx.png">
+<meta property="article:published_time" content="2021-06-22T03:25:07.000Z">
+<meta property="article:modified_time" content="2021-06-22T15:05:24.636Z">
 <meta property="article:author" content="inkbottle">
 <meta property="article:tag" content="inkbottle">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/hZHEd4trnKaMDwY.png">
+<meta name="twitter:image" content="https://i.loli.net/2021/06/22/G2Vh8Arwgl3yaKo.png">
   
     <link rel="alternative" href="/atom.xml" title="inkbottle&#39;s blog" type="application/atom+xml">
   
@@ -275,417 +187,99 @@ var _hmt = _hmt || [];
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-sphere water entry" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-CFD-POST提取运动体表面点的流场数据" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      小球入水Fluent仿真（局部重构，动态层铺，嵌套网格）
+      CFD-POST通过session批处理提取运动体表面点的流场数据
     </h1>
   
 
         
-        <a href="/2020/12/02/sphere%20water%20entry/" class="archive-article-date">
-  	<time datetime="2020-12-02T03:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-02</time>
+        <a href="/2021/06/22/CFD-POST%E6%8F%90%E5%8F%96%E8%BF%90%E5%8A%A8%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%82%B9%E7%9A%84%E6%B5%81%E5%9C%BA%E6%95%B0%E6%8D%AE/" class="archive-article-date">
+  	<time datetime="2021-06-22T03:25:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>初学者在进行相关流体仿真时，小球入水往往是一个非常经典的案例。重要的是，许多研究者曾对小球入水进行了大量的实验研究，保留了丰富的实验成果。这使得人们在进行入水领域的仿真工作时，往往利用小球入水来进行数值算法的验证。本文将利用ANSYS Fluent中的动网格局部重构法（Local Remeshing），动态层铺法（Dynamic Layering）以及嵌套网格（Overset mesh）三种手段对小球入水进行简单的仿真模拟。</p>
+        <p>CFD-post作为ANSYS流场分析后处理的御用软件，自然也少不了宏命令这种可以方便用户自动化操作的神器，本文主要介绍一下CFD-post中Session的使用以及如何通过session批处理提取运动体表面点的流场数据。</p>
 <a id="more"></a>
-<h2 id="几何模型">几何模型</h2>
-<p>真实模型是三维的，这里为了方便起见，采用二维模型考虑。模型尺寸如图所示。单位为mm。重心坐标(0,0,0)，惯性矩Ixx = 20431.71mm^4，Iyy= 20431.71mm<sup>4，Izz=40863.42mm</sup>4，面积A=506.71mm^2。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/hZHEd4trnKaMDwY.png" alt="屏幕截图 2020-11-05 092730.png" /><figcaption aria-hidden="true">屏幕截图 2020-11-05 092730.png</figcaption>
-</figure>
-<p>对于平面模型计算，fluent默认拉伸厚度为1m，假设小球为钢质小球，密度7800kg/m^3，因此可以计算小球质量mass=7800*506.71e-6=3.952kg。因此UDF采用DEFINE_SDOF_PROPERTIES宏，给质量及三方向惯性矩赋值即可。将以下代码保存为sphere.cpp文件。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;udf.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">DEFINE_SDOF_PROPERTIES(test_box, prop, dt, time, dtime)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_MASS] = <span class="number">3.952</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IXX] = <span class="number">20431e-12</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IYY] = <span class="number">20431e-12</span>;</span><br><span class="line"></span><br><span class="line">	prop[SDOF_IZZ] = <span class="number">40863e-12</span>;</span><br><span class="line">    </span><br><span class="line">    prop[SDOF_ZERO_TRANS_X] = TRUE;</span><br><span class="line">	 </span><br><span class="line">	prop[SDOF_ZERO_TRANS_Y] = FALSE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_TRANS_Z] = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_X]   = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_Y]   = TRUE;</span><br><span class="line">	</span><br><span class="line">	prop[SDOF_ZERO_ROT_Z]   = TRUE;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="局部重构法local-remeshing">局部重构法（Local Remeshing）</h2>
-<p>在使用非结构网格的区域上一般采用弹簧光顺模型进行动网格划分，但是如果运动边界的位移远远大于网格尺寸，则采用弹簧光顺模型可能导致网格质量下降，甚至出现体积为负值的网格，或因网格畸变过大导致计算不收敛。为了解决这个问题，Fluent 在计算过程中将畸变率过大，或尺寸变化过于剧烈的网格集中在一起进行局部网格的重新划分，如果重新划分后的网格可以满足畸变率要求和尺寸要求，则用新的网格代替原来的网格，如果新的网格仍然无法满足要求，则放弃重新划分的结果。</p>
-<h3 id="网格划分">网格划分</h3>
-<p>在ICEM CFD中划分网格，根据几何模型创建点线，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/gutjw8DmIa75db3.png" alt="屏幕截图 2020-11-05 095127.png" /><figcaption aria-hidden="true">屏幕截图 2020-11-05 095127.png</figcaption>
-</figure>
-<p>根据四条矩形边线创建面，然后以小球边线为划分线划分整个面，之后删除小球内部的面，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/6MqkVijdbYhO3Fz.png" alt="屏幕截图 2020-11-05 101104.png" /><figcaption aria-hidden="true">屏幕截图 2020-11-05 101104.png</figcaption>
-</figure>
-<p>点击创建体，根据矩形对角的两个点进行创建体BODY。接下来创建各个part，分别将上边界（OUTLET），左右边界（SIDEWALL），下边界（DOWNWALL），小球边界（SPHEREWALL），流场面（FLUID）创建为part，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/pEWMRuTzvd3fy7t.png" alt="屏幕截图 2020-11-05 102415.png" /><figcaption aria-hidden="true">屏幕截图 2020-11-05 102415.png</figcaption>
-</figure>
-<p>设置全局网格参数如下，生成全三角形计算网格。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/d1a9VXDeMiEfIYn.png" alt="屏幕截图 2020-11-05 101834.png" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/JWKv1YDUifRru7Q.png" alt="a1be62fbb89e262ec8f5020ce47bfa1.png" /></p>
-<p>各个part的网格划分参数如下。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/lYXwRiAqzI6GWsK.png" alt="屏幕截图 2020-11-05 102707.png" /><figcaption aria-hidden="true">屏幕截图 2020-11-05 102707.png</figcaption>
-</figure>
-<p>点击compute mesh创建面网格，得到粗略的网格划分如图，可见，小球外层应有明显的边界层网格。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/wQ1nDrybgxLz5Fc.png" alt="dd45f5da5c08374ded92bd586746483.png" /><figcaption aria-hidden="true">dd45f5da5c08374ded92bd586746483.png</figcaption>
-</figure>
-<p>查看网格质量如图。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/52mrehJNSi94oCt.png" alt="1dabd765a3676e3fa1fa5cf00c3aa8d.png" /><figcaption aria-hidden="true">1dabd765a3676e3fa1fa5cf00c3aa8d.png</figcaption>
-</figure>
-<p>点击smooth elements globally，进行网格光顺，参数如下。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/3aTbmxUpXNsCJE1.png" alt="c8a5d0cd3fcb7c2ddaae01d7cffa594.png" /><figcaption aria-hidden="true">c8a5d0cd3fcb7c2ddaae01d7cffa594.png</figcaption>
-</figure>
-<p>光顺后的网格质量如下，网格质量在0.5以上。由于这个例子只做简单的教程，因而不进一步完善网格。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DKAFLhlZIgdUEu4.png" alt="ca1d35241baa368f4e8858bde9e0912.png" /><figcaption aria-hidden="true">ca1d35241baa368f4e8858bde9e0912.png</figcaption>
-</figure>
-<h3 id="仿真计算">仿真计算</h3>
-<p>点击保存,注意路径不能有中文。点击OUTPUT，选择求解器Fluent，点击保存，选择刚才的prj，弹出选项框，可修改命名，保存为msh。点击保存并输出msh文件。Fluent读入msh文件，scale网格设定合适的单位。将网格尺寸设为mm，显示尺寸设为m。如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/6z58MLdxOERHjet.png" alt="eab56865dd58d6bbcb4390eceb2c3b3.png" /><figcaption aria-hidden="true">eab56865dd58d6bbcb4390eceb2c3b3.png</figcaption>
-</figure>
-<p>设置VOF多相流模型，（models-Multiphase:多相设置，流体中有两相或以上的介质），设置body force formulation为Implicit Body Force。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/iUHK6ZN12IGpYaJ.png" alt="72b844c7c431d94fed9526cc0d63860.png" /><figcaption aria-hidden="true">72b844c7c431d94fed9526cc0d63860.png</figcaption>
-</figure>
-<p>Viscous表示粘性方程设置，（可选择无粘流动、层流流动、S-A方程湍流模型、k-e两方程湍流模型、k-Ω两方程湍流模型、雷诺应力模型、离散涡模型、大涡模型等）。选择湍流模型为标准k-epsilon模型，采用增强壁面函数Near-Wall。材料数据库中添加water-liquid（Materials-Fluid-Air-Fluent Database-Copy）。设置水为主相，空气为第二相(Multiphase-phases-phase1-water-phase2-air)。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/u4v6Pt2BVZQ1F5S.png" alt="bad6a24c971b8de8e0202cab220c1c7.png" /><figcaption aria-hidden="true">bad6a24c971b8de8e0202cab220c1c7.png</figcaption>
-</figure>
-<p>本例中需要设置的边界条件为出口边界。该边界设置为压力出口，静压为0。设置第二相空气相的体积分数为1。压力出口边界点击operating conditions，将参考压力边界设置为y=0.1m(即上边界所处的y轴坐标)，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ACqxaOU7wpml9JS.png" alt="f574f4a5ee7cf3e4446ecefe6253b24.png" /><figcaption aria-hidden="true">f574f4a5ee7cf3e4446ecefe6253b24.png</figcaption>
-</figure>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/OjTBqmtcJd7ewDQ.png" alt="微信截图_20201202102109.png" /><figcaption aria-hidden="true">微信截图_20201202102109.png</figcaption>
-</figure>
-<p>点击initialization对流场进行初始化设置，在弹出的框中下方点击initialize。之后右键cell registers→new→field variable（19前的版本选择iso value）</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ndFVhB25IZbMgLN.png" alt="93f5728f64fc488f847255322d249a7.png" /><figcaption aria-hidden="true">93f5728f64fc488f847255322d249a7.png</figcaption>
-</figure>
-<p>在弹出的窗口中，选择field value of 分别为cell info 和 cell element type，type选择为cells in range，iso-min和iso-max均设置为3，点击save/display。这一步的主要目的是选择出小球的边界层网格，如图所示。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/4PuYMKJeQNW92Xm.png" alt="af424a3c3041e16f51bc98498a0a036.png" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/KSztZCvB4LyO6Qe.png" alt="7d367cf2b0ab8cad94a2362a2572fac.png" /></p>
-<p>点击separate→cells，进行网格剖分，如图所示。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/9jhrGSgDPOLf8Id.png" alt="d20a56b44265245bea5b373195f9719.png" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EPkhWXvZnlAN9uf.png" alt="bcb1d34e75d5d36f7485e36f70a0763.png" /></p>
-<p>现在点击cell zone conditions，可以发现，多了一个fluid:008。之后在菜单栏中的surface点击create→zone，在左侧选择fluid:008，点击create。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/GgTxptQLDj7C8dB.png" alt="dd2e34a935159ac5334d96c13b5a192.png" /><figcaption aria-hidden="true">dd2e34a935159ac5334d96c13b5a192.png</figcaption>
-</figure>
-<p>点击菜单栏中的user-defined→functions→complied，编译并load此UDF。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/KjR5tmMb4hi92kI.png" alt="5ec7362fc795b314746702de3555dd2.png" /><figcaption aria-hidden="true">5ec7362fc795b314746702de3555dd2.png</figcaption>
-</figure>
-<p>激活动网格。在Dynamic mesh面板中，激活smoothing与Remeshing方法，同时勾选Six DOF选项。点击mesh methods 下的settings，选择spring layer。然后点击remeshing，点击default，然后点击ok。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/aph2EDT8WiorJSj.png" alt="b18fdd9b62a3bd35cdd11c9bd093bc7.png" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/gi9FGkAVRPLNrjb.png" alt="1d860e821744b1b3dd9844ae8b956cb.png" /></p>
-<p>关闭mesh method settings面板，进入six dof setting面板。勾选Write Motion History，这样运动数据即可写入文本文件。设置完毕后关闭6DOF设置面板。Create创建运动区域，如图所示，指定运动区域为spherewall，勾选six dof options中的on选项。点击create。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/MdCwAN1T39FXxhj.png" alt="f31180428b5f4120502cc1fcb657ebb.png" /><figcaption aria-hidden="true">f31180428b5f4120502cc1fcb657ebb.png</figcaption>
-</figure>
-<p>之后指定运动区域为fluid:008，勾选six dof options中的on选项和passive选项。点击create。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/81chs2DEWjFSRwe.png" alt="d19ee54f4c6a7682671708e17dbc017.png" /><figcaption aria-hidden="true">d19ee54f4c6a7682671708e17dbc017.png</figcaption>
-</figure>
-<p>之后右键cell registers→new→region，创建参数如下。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EO8PjlMwNZSWv6I.png" alt="微信截图_20201202102546.png" /><figcaption aria-hidden="true">微信截图_20201202102546.png</figcaption>
-</figure>
-<p>设置水的静压梯度。点击菜单栏中的user-defined→field functions→custom，将静压表达式P=rou×g×h写入，由于在这个例子中水面所处坐标为y=-0.24m，因此表达式写为998.2×9.8×(-0.24-y)，点击define即可定义该场函数，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DTyrohNKBGdEaA4.png" alt="微信截图_20201201215511.png" /><figcaption aria-hidden="true">微信截图_20201201215511.png</figcaption>
-</figure>
-<p>设置完毕后，保存case与data文件。点击initialization，之后点击patch，设置参数如图。点击patch。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/hBqyvj38eUfXZYw.png" alt="34e39c1364087511a86541cba3f5ba2.png" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/RyMrETgcYt6iZVl.png" alt="a4cefc444b860da68e7c981bd8006c7.png" /></p>
-<p>设置水的静压梯度。设置参数如下，勾选field function，选择之前定义的场函数，对划分好的region进行patch(也就是对水域进行静压梯度设置)。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/dk8zegm2anuHlUO.png" alt="微信截图_20201202110618.png" /><figcaption aria-hidden="true">微信截图_20201202110618.png</figcaption>
-</figure>
-<p>点击results→graphics→contours，新建一个云图，选择各相的体积分数云图。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/FPjA1xY3T9ep64W.png" alt="355431627d82341ba37f2e42cbbaa67.png" /><figcaption aria-hidden="true">355431627d82341ba37f2e42cbbaa67.png</figcaption>
-</figure>
-<p>如果显示如图，则patch无误。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DuiyUR23emcN8wt.png" alt="7b7e60d3b173b1b3dc9e9bbde188c25.png" /><figcaption aria-hidden="true">7b7e60d3b173b1b3dc9e9bbde188c25.png</figcaption>
-</figure>
-<p>另外，再新建一个压力云图，如果显示如图，则水的静压梯度设置无误。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/YIetPC2dnjvEF4J.png" alt="微信截图_20201202110715.png" /><figcaption aria-hidden="true">微信截图_20201202110715.png</figcaption>
-</figure>
-<p>点击calculation activities→autosave，设置每100步自动保存。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Hz9UOFYoSNg4Wbm.png" alt="0be193ff6cee75ee8267b6830838ab2.png" /><figcaption aria-hidden="true">0be193ff6cee75ee8267b6830838ab2.png</figcaption>
-</figure>
-<p>点击calculation activities→solution animations，设置每100步自动保存动画文件。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/o1QDGWl5vZ8r3Hc.png" alt="2fcaaaeb8781c4d60739de4fe98acc3.png" /><figcaption aria-hidden="true">2fcaaaeb8781c4d60739de4fe98acc3.png</figcaption>
-</figure>
-<p>设置时间步长time size为0.0001s，时间步数time step为4000，即计算0.4s情况。设置内迭代数量为20，然后进行计算。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/QEKPbN3LwygTrSM.png" alt="39077954517b68b11639c76108a83c8.png" /><figcaption aria-hidden="true">39077954517b68b11639c76108a83c8.png</figcaption>
-</figure>
-<h3 id="仿真结果">仿真结果</h3>
-<p>可见入水空泡壁面非常粗糙，但是大致给出了入水空泡的扩张和颈缩状态，这主要是因为网格本身密度不够以及网格变形的问题。如果要得到更加精细的结果，可以对水面处的网格和小球运动区域的网格进行加密处理，另外，调整网格变形的参数也能得到很好的效果。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/CPfls12ALJUYdXj.jpg" alt="fluent-1-03000.jpg" /><figcaption aria-hidden="true">fluent-1-03000.jpg</figcaption>
-</figure>
-<h2 id="动态层铺法dynamic-layering">动态层铺法（Dynamic Layering）</h2>
-<p>对于棱柱型网格区域（六面体和或者三棱柱），可以应用动态层铺法。动态层铺法的中心思想是根据紧邻运动边界网格层高度的变化，添加或者减少动态层，即在边界发生运动时，如果紧邻边界的网格层高度增大到一定程度，就将其划分为两个网格层；如果网格层高度降低到一定程度，就将紧邻边界的两个网格层合并为一个层。</p>
-<h3 id="几何模型-1">几何模型</h3>
-<p>几何模型示意图如图：</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Qx4sAHCabWoZT2u.png" alt="微信截图_20201111155232.png" /><figcaption aria-hidden="true">微信截图_20201111155232.png</figcaption>
-</figure>
-<h3 id="网格划分-1">网格划分</h3>
-<p>在ICEM CFD中划分网格，需要进行两套网格划分然后进行网格拼接，这里均采用结构化网格划分方式。最需要注意的一点是要对各个边界进行清晰命名，这样在设置interface时就不会弄混。</p>
-<p>侧边网格的最终划分及part设置如图，并save mesh as保存为sidemesh.uns。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/aQ3ukUbH5CxhrSF.png" alt="sidemeshpartcreate.png" /><figcaption aria-hidden="true">sidemeshpartcreate.png</figcaption>
-</figure>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/B6kl8Og7hViyp1W.png" alt="sidemesh.png" /><figcaption aria-hidden="true">sidemesh.png</figcaption>
-</figure>
-<p>变形网格的划分需要多点步骤，其part设置为：</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/9b4WS8MTisKVcoA.png" alt="slipmeshpartcreate.png" /><figcaption aria-hidden="true">slipmeshpartcreate.png</figcaption>
-</figure>
-<p>点击blocking→create block，选择Type为2D planar，将part命名为slipmesh，点击apply。</p>
-<p>点击blocking→split block，创建（±50，±50）四个几何点，并采用点划分的方式对block进行划分。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/QYIcqCzR2tf7eaV.png" alt="splitblock.png" /><figcaption aria-hidden="true">splitblock.png</figcaption>
-</figure>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/S2rBVKe9tfvNzo1.png" alt="splitblock-2.png" /><figcaption aria-hidden="true">splitblock-2.png</figcaption>
-</figure>
-<p>点击blocking→split block，点击ogrid block，点击select blcoks，选择小球周围的block，并中键确定，点击apply，完成ogrid block创建，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/eC1jUTIruhNRsKw.png" alt="originblock.png" /><figcaption aria-hidden="true">originblock.png</figcaption>
-</figure>
-<p>点击blocking→associate，完成edge与curve之间的关联，在对小球边界进行关联时，需要勾选project vertices，然后点击apply即可，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/XTDAEshcaPH6G4l.png" alt="微信截图_20201201161420.png" /><figcaption aria-hidden="true">微信截图_20201201161420.png</figcaption>
-</figure>
-<p>点击blocking→Delete block，点击小球内部的block并删除。</p>
-<p>点击blocking→Pre-Mesh Params，点击Edge Params，外围的边线节点分布数量均与其长度相等，切均匀分布，并勾选copy parameters。内部四条斜边的节点分布数量为58，且由内向外由密集到稀疏，参数设置如下：</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/TdyYXVLecFgiNG6.png" alt="微信截图_20201130185917.png" /><figcaption aria-hidden="true">微信截图_20201130185917.png</figcaption>
-</figure>
-<p>点击Pre-Mesh，进行网格划分如图，并save mesh as保存为slipmesh.uns。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Vkv5pmu2NBeFz8D.png" alt="微信截图_20201201162310.png" /><figcaption aria-hidden="true">微信截图_20201201162310.png</figcaption>
-</figure>
-<p>打开slipmesh.uns，点击file→mesh→open mesh，导入sidemesh.uns，点击merge，点击covert to unstruct mesh，随即导出网格layermesh.msh。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/51fgdT3hRDiqjPo.png" alt="微信截图_20201201162748.png" /><figcaption aria-hidden="true">微信截图_20201201162748.png</figcaption>
-</figure>
-<h3 id="仿真计算-1">仿真计算</h3>
-<p>Fluent读入msh文件，scale网格设定合适的单位。将网格尺寸设为mm，显示尺寸设为m。选择基于压力的瞬态求解器，开启重力。点击菜单栏中的user-defined→functions→complied，编译并load之前保存好的UDF。</p>
-<p>设置VOF多相流模型，设置body force formulation为Implicit Body Force。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/iUHK6ZN12IGpYaJ.png" alt="72b844c7c431d94fed9526cc0d63860.png" /><figcaption aria-hidden="true">72b844c7c431d94fed9526cc0d63860.png</figcaption>
-</figure>
-<p>选择湍流模型为标准k-epsilon模型，采用增强壁面函数。材料数据库中添加water-liquid。设置水为主相，空气为第二相。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/u4v6Pt2BVZQ1F5S.png" alt="bad6a24c971b8de8e0202cab220c1c7.png" /><figcaption aria-hidden="true">bad6a24c971b8de8e0202cab220c1c7.png</figcaption>
-</figure>
-<p>在boundary conditions将四个交界面设置为interface，顶端边界均设置为压力出口，静压为0。设置第二相空气相的体积分数为1。压力出口边界点击operating conditions，将参考压力边界设置为y=0.1m(即上边界所处的y轴坐标)，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/Vj2GYMZvsDBEouF.png" alt="微信截图_20201201164355.png" /><figcaption aria-hidden="true">微信截图_20201201164355.png</figcaption>
-</figure>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/OjTBqmtcJd7ewDQ.png" alt="微信截图_20201202102109.png" /><figcaption aria-hidden="true">微信截图_20201202102109.png</figcaption>
-</figure>
-<p>在mesh interface中用Manual create对交界面进行配对，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/WsaHJczgfq4PbyX.png" alt="微信截图_20201201164757.png" /><figcaption aria-hidden="true">微信截图_20201201164757.png</figcaption>
-</figure>
-<p>激活动网格。在Dynamic mesh面板中，激活smoothing与Layering方法，同时勾选Six DOF选项。点击mesh methods 下的settings，选择spring layer。然后点击Layering，采用默认设置，然后点击ok。进入six dof setting面板，勾选Write Motion History，这样运动数据即可写入文本文件。设置完毕后关闭6DOF设置面板。</p>
-<p>创建运动与变形区域，如图所示，指定运动区域为spherewall，勾选six dof options中的on选项。在mesh option 中设置层高为0.5mm，点击create。之后指定运动区域为slipmesh，勾选six dof options中的on选项和passive选项。点击create。接下来设置变形区域的顶端边界和底端边界为stationary类型，在mesh option 中设置层高为0.5mm，点击create。如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/RWtajDZfqbouJ7N.png" alt="微信截图_20201201170440.png" /><figcaption aria-hidden="true">微信截图_20201201170440.png</figcaption>
-</figure>
-<p>之后右键cell registers→new→region，创建参数如下。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EO8PjlMwNZSWv6I.png" alt="微信截图_20201202102546.png" /><figcaption aria-hidden="true">微信截图_20201202102546.png</figcaption>
-</figure>
-<p>设置水的静压梯度。点击菜单栏中的user-defined→field functions→custom，将静压表达式P=rou×g×h写入，由于在这个例子中水面所处坐标为y=-0.24m，因此表达式写为998.2×9.8×(-0.24-y)，点击define即可定义该场函数，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DTyrohNKBGdEaA4.png" alt="微信截图_20201201215511.png" /><figcaption aria-hidden="true">微信截图_20201201215511.png</figcaption>
-</figure>
-<p>设置完毕后，保存case与data文件。点击initialization，之后点击patch，设置参数如图所示，从而选出水域所在的网格。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/IxdpgJbDMoKkfsA.png" alt="微信截图_20201202103801.png" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/CwOg8Ph4aXloV2y.png" alt="微信截图_20201202103810.png" /></p>
-<p>设置水的静压梯度。设置参数如下，勾选field function，选择之前定义的场函数，对划分好的region进行patch(也就是对水域进行静压梯度设置)。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/wTzEofhq4mV6RD2.png" alt="微信截图_20201202103538.png" /><figcaption aria-hidden="true">微信截图_20201202103538.png</figcaption>
-</figure>
-<p>点击results→graphics→contours，新建一个云图，选择各相的体积分数云图。如果显示如图，则水域patch无误。(由于网格划分的问题，初始气液界面处存在一些起伏，这主要是因为O-BLOCK划分造成的)</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/87gU1GprZ2JkfO9.png" alt="微信截图_20201201170735.png" /><figcaption aria-hidden="true">微信截图_20201201170735.png</figcaption>
-</figure>
-<p>另外，再新建一个压力云图，如果显示如图，则水的静压梯度设置无误。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/yndzmgQ3DsBJNRe.png" alt="微信截图_20201202104018.png" /><figcaption aria-hidden="true">微信截图_20201202104018.png</figcaption>
-</figure>
-<p>点击calculation activities→autosave，设置每100步自动保存。点击calculation activities→solution animations，设置每100步自动保存动画文件。设置时间步长time size为0.0001s，时间步数time step为4000，即计算0.4s情况。设置内迭代数量为20，然后进行计算。</p>
-<h3 id="仿真结果-1">仿真结果</h3>
-<p>下面分别给出了0.26s，0.32s，0.34s时刻下的体积分数云图，可见小球入水后形成了一个较长的入水空泡，并在液面处形成了明显的飞溅，空泡在不断拉长的过程中先是扩张然后颈缩，并在入水深度约1/2处完成了空泡深闭合。0.26s时，已经能观察到空泡趋于表面闭合，但是很不明显。同时，空泡的最大直径仅略大于小球直径，可见空泡的扩张也非常弱。在0.34s时甚至观察到了空泡多次闭合的现象。可见相对于网格重构法的入水空泡壁面，动态层铺方法计算的壁面更加光滑，对于自由边界的行为也有着较好的捕捉。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/C9j8gSvTa7yAWbd.jpg" alt="layermesh-1-02600.jpg" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/NfLygr5XaFskEPl.jpg" alt="layermesh-1-03200.jpg" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ce9dn6I8GHDZyqu.jpg" alt="layermesh-1-03400.jpg" /></p>
-<h2 id="嵌套网格overset-mesh">嵌套网格（Overset mesh）</h2>
-<p>嵌套网格（overset）又称重叠网格，该网格由两部分组成：包含主要流体区域的背景网格（background），围绕部件的构建的单独的组件网格（component）。此时，部件网格的外边界指定为overset（特有的边界类型），其他的边界和通常的网格则没有区别。相比于传统的MDM动网格方式，嵌套网格有以下优势：</p>
+<h2 id="session的使用">Session的使用</h2>
+<p>Session是cfd-post里面类似宏的批处理文件，主要功能就是通过命令语句（条件语句、循环等）实现批量自动化的后处理功能。通过Session可以可以录制你在CFD Post中的每一步操作。其具体使用步骤如下：</p>
 <ul>
-<li><p>更简单的网格划分方式（边界更为简单）</p></li>
-<li><p>当算例需要更改网格布局的时候，仅需要添加/删除部件网格即可</p></li>
-<li><p>当涉及到边界运动的时候，通常仅需要部件网格独立进行运动即可</p></li>
-<li><p>不会出现负体积</p></li>
-<li><p>网格质量不随边界移动而变化</p></li>
-<li><p>不需要思考复杂的边界运动逻辑</p></li>
+<li><p>点击菜单栏中的Session→new Session，从而新建一个.cse文件；</p>
+<p><img src="https://i.loli.net/2021/06/22/G2Vh8Arwgl3yaKo.png" /></p></li>
+<li><p>点击start recording，开始录制接下来的所有操作；</p></li>
+<li><p>点击stop recording，停止录制宏，并保存。</p></li>
+<li><p>点击play Session，播放宏命令操作。</p></li>
 </ul>
-<p>总的来讲，嵌套网格的最大特点，就是让流体仿真变得更为简单和快捷，提高流体工程师的工作效率。</p>
-<h3 id="几何模型-2">几何模型</h3>
-<p>背景网格（background）如图所示：</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/dMHmQhpUC43GgnD.png" alt="背景网格.png" /><figcaption aria-hidden="true">背景网格.png</figcaption>
-</figure>
-<p>组件网格（component）如图所示：</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/qKaWBe18kwnm7DV.png" alt="前景网格.png" /><figcaption aria-hidden="true">前景网格.png</figcaption>
-</figure>
-<h3 id="网格划分-2">网格划分</h3>
-<p>在ICEM CFD中划分网格，这里对背景网格和组件网格均采用结构化网格划分方式。由于背景网格划分十分简单，因此这里只对前景网格的O-BLOCK做一点记录。</p>
-<p>在ICEM中建立好几何模型后（记得删除小球内部的面）进行part创建，将外围4条边命名为OVERSETWALL，将小球边界命名为SPHEREWALL，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/P9fn8UdSuNoXICE.png" alt="part创建.png" /><figcaption aria-hidden="true">part创建.png</figcaption>
-</figure>
-<p>点击blocking→create block，选择Type为2D planar，将part命名为frontmesh，点击apply。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/YCqJikjwOvQ6zul.png" alt="block create.png" /><figcaption aria-hidden="true">block create.png</figcaption>
-</figure>
-<p>点击blocking→split block，点击ogrid block，点击select blcoks，选择屏幕中的block，并中键确定，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/a4UjZGJrTchuOW9.png" alt="微信截图_20201130173303.png" /><figcaption aria-hidden="true">微信截图_20201130173303.png</figcaption>
-</figure>
-<p>点击apply，完成ogrid block创建，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/q6MYuIRDZEP72OU.png" alt="微信截图_20201130173348.png" /><figcaption aria-hidden="true">微信截图_20201130173348.png</figcaption>
-</figure>
-<p>点击blocking→associate，完成edge与curve之间的关联，在对小球边界进行关联时，需要勾选project vertices，然后点击apply即可，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/kXU9TGFYrO2JxhS.png" alt="微信截图_20201130173700.png" /><figcaption aria-hidden="true">微信截图_20201130173700.png</figcaption>
-</figure>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/g2Xw6NCMp7dSL9f.png" alt="微信截图_20201130173803.png" /><figcaption aria-hidden="true">微信截图_20201130173803.png</figcaption>
-</figure>
-<p>点击blocking→Delete block，点击小球内部的block并删除，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/djOJA9BNkHe3RtS.png" alt="微信截图_20201130185507.png" /><figcaption aria-hidden="true">微信截图_20201130185507.png</figcaption>
-</figure>
-<p>点击blocking→Pre-Mesh Params，点击Edge Params，外围4条边节点分布数量均为100，切均匀分布，并勾选copy parameters。内部四条斜边的节点分布数量为58，且由内向外由密集到稀疏，参数设置如下：</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/TdyYXVLecFgiNG6.png" alt="微信截图_20201130185917.png" /><figcaption aria-hidden="true">微信截图_20201130185917.png</figcaption>
-</figure>
-<p>点击Pre-Mesh，进行网格划分如图。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/sUK48inIAZRHMQc.png" alt="微信截图_20201130190050.png" /><figcaption aria-hidden="true">微信截图_20201130190050.png</figcaption>
-</figure>
-<p>右键Pre-Mesh，点击covert to unstruct mesh，随即导出前景网格frontmesh.msh。此外，对背景网格进行划分，并保存为background.msh。</p>
-<h3 id="仿真计算-2">仿真计算</h3>
-<p>Fluent读入background.msh文件，点击Append→append case file，读入frontmesh.msh文件，scale网格设定合适的单位。将网格尺寸设为mm，显示尺寸设为m。选择基于压力的瞬态求解器，开启重力。点击菜单栏中的user-defined→functions→complied，编译并load之前保存好的UDF。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/uL1zAUOt7ECerBn.png" alt="01fcbcde1f7ecf44183f017469d3ac7.png" /><figcaption aria-hidden="true">01fcbcde1f7ecf44183f017469d3ac7.png</figcaption>
-</figure>
-<p>设置VOF多相流模型，设置body force formulation为Implicit Body Force。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/iUHK6ZN12IGpYaJ.png" alt="72b844c7c431d94fed9526cc0d63860.png" /><figcaption aria-hidden="true">72b844c7c431d94fed9526cc0d63860.png</figcaption>
-</figure>
-<p>选择湍流模型为标准k-epsilon模型，采用增强壁面函数。材料数据库中添加water-liquid。设置水为主相，空气为第二相。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/u4v6Pt2BVZQ1F5S.png" alt="bad6a24c971b8de8e0202cab220c1c7.png" /><figcaption aria-hidden="true">bad6a24c971b8de8e0202cab220c1c7.png</figcaption>
-</figure>
-<p>点击cell zone conditions→frontmesh，在弹出的窗口中勾选Mesh Motion，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/UeTi9LOD7253IWt.png" alt="微信截图_20201130200435.png" /><figcaption aria-hidden="true">微信截图_20201130200435.png</figcaption>
-</figure>
-<p>本例中需要设置的边界条件为出口边界。该边界设置为压力出口，静压为0。设置第二相空气相的体积分数为1。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/USdzC52bLKF3Ajx.png" alt="微信截图_20201130200801.png" /><figcaption aria-hidden="true">微信截图_20201130200801.png</figcaption>
-</figure>
-<p>将oversetwall边界条件type设为overset，其余边界条件均为壁面。</p>
-<p>双击overset interfaces，弹出的窗口中命名为oversetinterface，选择background和frontmesh，点击create即可。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/WtOeBAZuI3gVFpC.png" alt="微信截图_20201130201224.png" /><figcaption aria-hidden="true">微信截图_20201130201224.png</figcaption>
-</figure>
-<p>激活动网格。在Dynamic mesh面板中，激活smoothing方法，同时勾选Six DOF选项。进入six dof setting面板，勾选Write Motion History，这样运动数据即可写入文本文件。设置完毕后关闭6DOF设置面板。创建运动区域，如图所示，指定运动区域为spherewall，勾选six dof options中的on选项。点击create。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/lretZVDAsMp3nPT.png" alt="微信截图_20201130201415.png" /><figcaption aria-hidden="true">微信截图_20201130201415.png</figcaption>
-</figure>
-<p>之后指定运动区域为frontmesh，勾选six dof options中的on选项和passive选项。点击create。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/i8W1NLFpePaBuxU.png" alt="微信截图_20201130201534.png" /><figcaption aria-hidden="true">微信截图_20201130201534.png</figcaption>
-</figure>
-<p>之后右键cell registers→new→region，创建参数如下。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/EO8PjlMwNZSWv6I.png" alt="微信截图_20201202102546.png" /><figcaption aria-hidden="true">微信截图_20201202102546.png</figcaption>
-</figure>
-<p>设置水的静压梯度。点击菜单栏中的user-defined→field functions→custom，将静压表达式P=rou×g×h写入，由于在这个例子中水面所处坐标为y=-0.24m，因此表达式写为998.2×9.8×(-0.24-y)，点击define即可定义该场函数，如图所示。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/DTyrohNKBGdEaA4.png" alt="微信截图_20201201215511.png" /><figcaption aria-hidden="true">微信截图_20201201215511.png</figcaption>
-</figure>
-<p>设置完毕后，保存case与data文件。点击initialization，之后点击patch，设置参数如动态层铺一节所示，从而选出水域所在的网格并patch水域的静压梯度。</p>
-<p>点击results→graphics→contours，新建一个云图，选择各相的体积分数云图。如果显示如图，则patch无误。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/E3dhojsz1mWaqNR.png" alt="微信截图_20201130202117.png" /><figcaption aria-hidden="true">微信截图_20201130202117.png</figcaption>
-</figure>
-<p>另外，再新建一个压力云图，如果显示如图，则水的静压梯度设置无误。</p>
-<figure>
-<img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/yndzmgQ3DsBJNRe.png" alt="微信截图_20201202104018.png" /><figcaption aria-hidden="true">微信截图_20201202104018.png</figcaption>
-</figure>
-<p>点击calculation activities→autosave，设置每100步自动保存。点击calculation activities→solution animations，设置每100步自动保存动画文件。设置时间步长time size为0.0001s，时间步数time step为4000，即计算0.4s情况。设置内迭代数量为20，然后进行计算。</p>
-<h3 id="仿真结果-2">仿真结果</h3>
-<p>下面分别给出了0.26s，0.32s，0.34s时刻下的体积分数云图，可见小球入水后形成了一个较长的入水空泡，并在液面处形成了明显的飞溅，空泡在不断拉长的过程中先是扩张然后颈缩，并在入水深度约1/2处完成了空泡深闭合。在这个例子中，空泡的最大直径接近于两倍的小球直径，可见空泡的扩张速度较高，但是空泡表面闭合现象没有观察到，0.34s时可以观察到初生的沃辛顿射流。可见相对于网格重构法的入水空泡壁面，重叠网格方法计算的壁面更加光滑，对于自由边界的行为也有着较好的捕捉。</p>
-<p><img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/smtluYhVBE7UQck.jpg" alt="frontmesh-1-02600.jpg" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/hiYLIHpzPEUuJTX.jpg" alt="frontmesh-1-03200.jpg" /> <img src="https://mybolg-photoloder.oss-cn-beijing.aliyuncs.com/img/ujhD1gNy6GqFYBP.jpg" alt="frontmesh-1-03400.jpg" /></p>
+<h2 id="session的修改">Session的修改</h2>
+<p>CFD-post 使用perl语言，但与一般的perl语言有所不同，在可执行语句（如for循环）前面加!（英文!），CFD Post操作命令语句前面加 &gt;（一般默认就有）。</p>
+<blockquote>
+<p>Perl 是 Practical Extraction and Report Language 的缩写，可翻译为 "实用报表提取语言"。</p>
+<p>Perl 是高级、通用、直译式、动态的程序语言。</p>
+<p>Perl 最初的设计者为拉里·沃尔（Larry Wall），于1987年12月18日发表。</p>
+<p>Perl 借用了C、sed、awk、shell脚本以及很多其他编程语言的特性。</p>
+<p>Perl 最重要的特性是Perl内部集成了正则表达式的功能，以及巨大的第三方代码库CPAN。</p>
+</blockquote>
+<p>使用Perl是为了实现循环,判断等自动化的内容，因此本文仅介绍一些基本语法，想要更详细的内容可参考<a target="_blank" rel="noopener" href="https://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a>。</p>
+<h3 id="声明变量">声明变量</h3>
+<ul>
+<li>标量是 Perl 语言中最简单的一种数据类型。这种数据类型的变量可以是数字，字符串，浮点数，不作严格的区分。在使用时在变量的名字前面加上一个 $，表示是标量。例如：</li>
+</ul>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$myfirst=<span class="number">123</span>;　    <span class="comment">#数字123　</span></span><br><span class="line"></span><br><span class="line">$mysecond=<span class="string">&quot;123&quot;</span>;   <span class="comment">#字符串123</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>数组变量以字符 @ 开头，索引从 0 开始，如：</li>
+</ul>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@arr=(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 数组变量以 @ 开头。访问数组元素使用 $ + 变量名称 + [索引值] 格式来读取，实例如下：</span></span><br><span class="line">@hits = (<span class="number">25</span>, <span class="number">30</span>, <span class="number">40</span>);             </span><br><span class="line">@names = (<span class="string">&quot;google&quot;</span>, <span class="string">&quot;runoob&quot;</span>, <span class="string">&quot;taobao&quot;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;\$hits[0] = $hits[0]\n&quot;</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;\$hits[1] = $hits[1]\n&quot;</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;\$hits[2] = $hits[2]\n&quot;</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;\$names[0] = $names[0]\n&quot;</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;\$names[1] = $names[1]\n&quot;</span>;</span><br><span class="line"><span class="keyword">print</span> <span class="string">&quot;\$names[2] = $names[2]\n&quot;</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="判断语句">判断语句</h3>
+<p>这里仅介绍最基本的if else语句。一个 if 语句后可跟一个可选的 elsif 语句，然后再跟另一个 else 语句。举例如下所示：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="number">100</span>;</span><br><span class="line"><span class="comment"># 使用 == 判断两个数是否相等</span></span><br><span class="line"><span class="keyword">if</span>( $a  ==  <span class="number">20</span> )&#123;</span><br><span class="line">    <span class="comment"># 条件为 true 时执行</span></span><br><span class="line">    <span class="keyword">printf</span> <span class="string">&quot;a 的值为 20\n&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">elsif</span>( $a ==  <span class="number">30</span> )&#123;</span><br><span class="line">    <span class="comment"># 条件为 true 时执行</span></span><br><span class="line">    <span class="keyword">printf</span> <span class="string">&quot;a 的值为 30\n&quot;</span>;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="comment"># 以上所有的条件为 false 时执行</span></span><br><span class="line">    <span class="keyword">printf</span> <span class="string">&quot;a 的值为 $a\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="循环语句">循环语句</h3>
+<p>这里仅介绍最基本的for循环语句。语法格式如下所示：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 语法格式</span></span><br><span class="line"><span class="keyword">for</span> ( init; condition; increment )&#123;</span><br><span class="line">   statement(s);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 实例</span></span><br><span class="line"><span class="comment"># 执行 for 循环</span></span><br><span class="line"><span class="keyword">for</span>( $a = <span class="number">0</span>; $a &lt; <span class="number">10</span>; $a = $a + <span class="number">1</span> )&#123;</span><br><span class="line">    <span class="keyword">print</span> <span class="string">&quot;a 的值为: $a\n&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文件操作">文件操作</h3>
+<p>在Session中我们可能需要对某些数据文件进行读写，因此了解如何进行文件操作是必不可少的。Perl 使用一种叫做文件句柄类型的变量来操作文件。从文件读取或者写入数据需要使用文件句柄。</p>
+<p>以下代码我们使用 open 函数以只读的方式(&lt;)打开文件 file.txt：</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 语法格式</span></span><br><span class="line"><span class="keyword">open</span>(DATA, <span class="string">&quot;&lt;file.txt&quot;</span>);</span><br><span class="line"><span class="comment"># &lt;表示只读方式。</span></span><br><span class="line"><span class="comment"># 代码中的 DATA 为文件句柄用于读取文件，以下实例将打开文件并将文件内容输出：</span></span><br><span class="line"><span class="keyword">open</span>(DATA, <span class="string">&quot;&lt;file.txt&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span> <span class="string">&quot;file.txt 文件无法打开, $!&quot;</span>;</span><br><span class="line"><span class="keyword">while</span>(&lt;DATA&gt;)&#123;</span><br><span class="line">   <span class="keyword">print</span> <span class="string">&quot;$_&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此，我们可以完成对Session的修改以满足我们的大部分功能需求了，接下来介绍如何通过session批处理提取运动体表面点的流场数据。</p>
+<h2 id="标记并提取点数据">标记并提取点数据</h2>
+<p>CFD-post若想提取流场中某个点上的数据，可以通过两种方式实现。</p>
+<ul>
+<li><p>其一是通过insert→location→point的方式插入数据点的坐标，然后利用export导出数据点上的流场信息。或者再insert→location→chart插入一个图表，在general里选择XY-transient or sequence，在Y axis中选择压力，温度或者其它流场信息，然后在data series的location的下拉列表中选择相应的数据点，点击apply，即可得到该点的流场信息随着时间的变化曲线，点击export，即可导出曲线数据。</p>
+<p><img src="https://i.loli.net/2021/06/22/lURYhwTPxuZztbG.png" /></p></li>
+<li><p>其二是通过tools→probe的方式，提取指定坐标点的流场信息，这种方式的好处是能够快速得到指定点的数据，但不能获得这个点随时间变化的数据信息，也不能直接导出。</p>
+<p><img src="https://i.loli.net/2021/06/22/QkMmpY8HRWiILxK.png" /></p></li>
+</ul>
+<h2 id="批处理提取运动体表面点的流场数据">批处理提取运动体表面点的流场数据</h2>
+<p>上面提到的方式可以轻松获取指定坐标点的流场数据，但是若是想要提取移动点的信息便显得无能为力。例如对于一个小球从空中自由落体运动落到水中这样一个模拟仿真工况，如果我想要提取小球表面上某一点的压力随时间变化的数据，这个时候便需要用到Session了。</p>
+<p>当然，我可以在画网格的过程中，标记这个点所处的网格，然后在fluent仿真过程中监测这个网格所有节点的平均压力值，这样也可以实现之前的需求。但问题是，往往我们是在仿真结束后才需要对某些点进行数据提取，而这个时候再进行一遍仿真的话花费时间又太长，因此Session便显得非常必要了。</p>
+<p>要想获取运动体表面点的流场数据，首先要获得不同时刻下目标点的坐标数据。仍然以小球入水仿真为例，我们可以在cfd-post中得到小球表面上某一特殊点的坐标数据，比如z坐标最大的那个点的坐标数据，可以通过以下步骤得到：</p>
+<p>点击insert→location→point的方式插入一个point 1的标记点，在method中选择variable maximum，然后在location的下拉列表中选择小球壁面，在variable下拉列表中选择z，点击apply，即可在流场中标记该点。如图所示：</p>
+<p><img src="https://i.loli.net/2021/06/22/ZP5rjA8IWusaplx.png" /></p>
+<p>点击insert→location→chart插入一个图表，在general里选择XY-transient or sequence，在Y axis中选择z，然后在data series的location的下拉列表中选择相应的标记点point 1，点击apply，即可得到该点的z坐标随着时间变化的曲线，点击export，即可导出曲线数据。</p>
+<p>如此，我们便得到了这个特殊标记点的坐标随时间变化的数据文件，然后通过其它的运动体表面监测点与这个特殊标记点的相对坐标位置关系，就可以获得其余所有运动体表面监测点的坐标随时间变化的数据了！</p>
+<p>假设运动体只沿着z轴运动，则其余所有运动体表面监测点的xy坐标不变，然后我们对上面的数据文件处理后得到特殊标记点的z坐标随时间变化的数据文件，假设这个文件名为toumao_z.txt。</p>
+<p>接下来，就是准备我们的Session文件了。下面这段代码是我自己使用的一个例子，为阅读方便添加了一些注释，可以批处理提取运动体表面点的流场数据。</p>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开数据文件</span></span><br><span class="line">!<span class="keyword">open</span>(DATA, <span class="string">&quot;&lt;E:/XX2Low/3/New Folder/data_pressure_point/toumao_z.txt&quot;</span>) <span class="keyword">or</span> <span class="keyword">die</span> <span class="string">&quot;toumao_z.txt 文件无法打开, $!&quot;</span>;</span><br><span class="line"><span class="comment"># 将特殊点的z坐标数组赋给lines</span></span><br><span class="line">!@lines = &lt;DATA&gt;;</span><br><span class="line"><span class="comment"># 关闭数据文件</span></span><br><span class="line">!<span class="keyword">close</span>(DATA);</span><br><span class="line"></span><br><span class="line">!$numsteps = <span class="number">1090</span>;<span class="comment"># case文件的最大编号</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 开始循环</span></span><br><span class="line">!<span class="keyword">for</span>( $a = <span class="number">10</span>; $a &lt; $numsteps+<span class="number">1</span>; $a = $a + <span class="number">10</span> )&#123;</span><br><span class="line">    !$c_num = $a/<span class="number">10</span>-<span class="number">1</span>;</span><br><span class="line">    <span class="comment"># 下面这个判断过程是创建case文件名字符串</span></span><br><span class="line">    !<span class="keyword">if</span>($a&lt;<span class="number">10</span>)&#123;</span><br><span class="line">        !$str_end = <span class="string">&quot;713b-1-0000&quot;</span>.<span class="string">&quot;$a&quot;</span>;</span><br><span class="line">    !&#125;</span><br><span class="line">    !<span class="keyword">elsif</span>($a&lt;<span class="number">100</span>)&#123;</span><br><span class="line">        !$str_end = <span class="string">&quot;713b-1-000&quot;</span>.<span class="string">&quot;$a&quot;</span>;</span><br><span class="line">    !&#125;</span><br><span class="line">    !<span class="keyword">elsif</span>($a&lt;<span class="number">1000</span>)&#123;</span><br><span class="line">        !$str_end = <span class="string">&quot;713b-1-00&quot;</span>.<span class="string">&quot;$a&quot;</span>;</span><br><span class="line">    !&#125;</span><br><span class="line">    !<span class="keyword">else</span>&#123;</span><br><span class="line">        !$str_end = <span class="string">&quot;713b-1-0&quot;</span>.<span class="string">&quot;$a&quot;</span>;</span><br><span class="line">    !&#125;</span><br><span class="line">    &gt;load filename=E:<span class="regexp">/XX2Low/</span><span class="number">3</span>/$str_end.dat, force_reload=true <span class="comment">#打开指定目录下的date文件</span></span><br><span class="line">    </span><br><span class="line">    &gt; update</span><br><span class="line">    <span class="comment"># 插入点Point 1</span></span><br><span class="line">    !$deta_z = <span class="number">6.205</span> - <span class="number">6.258</span>;<span class="comment"># 相对坐标位置关系</span></span><br><span class="line">    !$now_z = @lines[$c_num]-$deta_z;<span class="comment"># 该时刻下的位置z坐标</span></span><br><span class="line">    POINT:Point <span class="number">1</span></span><br><span class="line">      Apply Instancing Transform = On</span><br><span class="line">      Colour = <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">      Colour Map = Default Colour Map</span><br><span class="line">      Colour Mode = Constant</span><br><span class="line">      Colour Scale = Linear</span><br><span class="line">      Colour Variable = Pressure</span><br><span class="line">      Colour Variable Boundary Values = Conservative</span><br><span class="line">      Culling Mode = No Culling</span><br><span class="line">      Domain List = /DOMAIN GROUP:All Domains</span><br><span class="line">      Draw Faces = On</span><br><span class="line">      Draw Lines = Off</span><br><span class="line">      Instancing Transform = /DEFAULT INSTANCE TRANSFORM:Default Transform</span><br><span class="line">      Lighting = On</span><br><span class="line">      Line Width = <span class="number">2</span></span><br><span class="line">      Max = <span class="number">0</span>.<span class="number">0</span></span><br><span class="line">      Min = <span class="number">0</span>.<span class="number">0</span></span><br><span class="line">      Node Number = <span class="number">1</span></span><br><span class="line">      Option = XYZ</span><br><span class="line">      Point = -<span class="number">0</span>.<span class="number">2305</span> [m], <span class="number">0</span>.<span class="number">233</span> [m], $now_z [m] <span class="comment"># 将该时刻下的坐标赋予点Point 1</span></span><br><span class="line">      Point Symbol = Crosshair</span><br><span class="line">      Range = Global</span><br><span class="line">      Specular Lighting = On</span><br><span class="line">      Surface Drawing = Smooth Shading</span><br><span class="line">      Symbol Size = <span class="number">1.0</span></span><br><span class="line">      Transparency = <span class="number">0</span>.<span class="number">0</span></span><br><span class="line">      Variable = Pressure</span><br><span class="line">      Variable Boundary Values = Conservative</span><br><span class="line">      OBJECT VIEW TRANSFORM:</span><br><span class="line">        Apply Reflection = Off</span><br><span class="line">        Apply Rotation = Off</span><br><span class="line">        Apply Scale = Off</span><br><span class="line">        Apply Translation = Off</span><br><span class="line">        Principal Axis = Z</span><br><span class="line">        Reflection Plane Option = XY Plane</span><br><span class="line">        Rotation Angle = <span class="number">0</span>.<span class="number">0</span> [degree]</span><br><span class="line">        Rotation Axis From = <span class="number">0</span> [m], <span class="number">0</span> [m], <span class="number">0</span> [m]</span><br><span class="line">        Rotation Axis To = <span class="number">0</span> [m], <span class="number">0</span> [m], <span class="number">0</span> [m]</span><br><span class="line">        Rotation Axis Type = Principal Axis</span><br><span class="line">        Scale Vector = <span class="number">1</span> , <span class="number">1</span> , <span class="number">1</span></span><br><span class="line">        Translation Vector = <span class="number">0</span> [m], <span class="number">0</span> [m], <span class="number">0</span> [m]</span><br><span class="line">        X = <span class="number">0</span>.<span class="number">0</span> [m]</span><br><span class="line">        Y = <span class="number">0</span>.<span class="number">0</span> [m]</span><br><span class="line">        Z = <span class="number">0</span>.<span class="number">0</span> [m]</span><br><span class="line">      END</span><br><span class="line">    END</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># ……此处略去其余22个点，实际上上一段代码可以复制粘贴多次，以插入多个相对坐标点</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 导出所有监测点的温度随时间变化的数据文件</span></span><br><span class="line">    EXPORT:</span><br><span class="line">      ANSYS Export Data = Element Heat Flux</span><br><span class="line">      ANSYS File Format = ANSYS</span><br><span class="line">      ANSYS Reference Temperature = <span class="number">0</span>.<span class="number">0</span> [K]</span><br><span class="line">      ANSYS Specify Reference Temperature = Off</span><br><span class="line">      ANSYS Supplemental HTC = <span class="number">0</span>.<span class="number">0</span> [W m^-<span class="number">2</span> K^-<span class="number">1</span>]</span><br><span class="line">      Additional Variable List =</span><br><span class="line">      BC Profile Type = Inlet Velocity</span><br><span class="line">      CSV Type = CSV</span><br><span class="line">      Case Name = Case <span class="number">713</span>b <span class="number">1</span> <span class="number">00010</span></span><br><span class="line">      Export Connectivity = Off</span><br><span class="line">      Export Coord Frame = Global</span><br><span class="line">      Export File = E:<span class="regexp">/XX2Low/</span><span class="number">3</span>/process-<span class="number">2</span>/export-pressure-$str_end.csv <span class="comment"># 将数据文件置于指定目录下</span></span><br><span class="line">      Export Geometry = On</span><br><span class="line">      Export Location Aliases =</span><br><span class="line">      Export Node Numbers = Off</span><br><span class="line">      Export Null Data = On</span><br><span class="line">      Export Type = Generic</span><br><span class="line">      Export Units System = Current</span><br><span class="line">      Export Variable Type = Current</span><br><span class="line">      External Export Data = None</span><br><span class="line">      Include File Information = Off</span><br><span class="line">      Include Header = On</span><br><span class="line">      Location = missle wall</span><br><span class="line">      Location List = <span class="regexp">/POINT:Point 1,/</span>POINT:Point <span class="number">2</span>,<span class="regexp">/POINT:Point 3,/</span>POINT:Point <span class="number">4</span>,<span class="regexp">/POINT:Point 5,/</span>POINT:Point <span class="number">6</span>,<span class="regexp">/POINT:Point 7,/</span>POINT:Point <span class="number">8</span>,<span class="regexp">/POINT:Point 9,/</span>POINT:Point <span class="number">10</span>,<span class="regexp">/POINT:Point 11,/</span>POINT:Point <span class="number">12</span>,<span class="regexp">/POINT:Point 13,/</span>POINT:Point <span class="number">14</span>,<span class="regexp">/POINT:Point 15,/</span>POINT:Point <span class="number">16</span>,<span class="regexp">/POINT:Point 17,/</span>POINT:Point <span class="number">18</span>,<span class="regexp">/POINT:Point 19,/</span>POINT:Point <span class="number">20</span>,<span class="regexp">/POINT:Point 21,/</span>POINT:Point <span class="number">22</span>,/POINT:Point <span class="number">23</span> <span class="comment">#导出23个点的温度信息</span></span><br><span class="line">      Null Token = null</span><br><span class="line">      Overwrite = On</span><br><span class="line">      Precision = <span class="number">8</span></span><br><span class="line">      Separator = <span class="string">&quot;, &quot;</span></span><br><span class="line">      Spatial Variables = X,Y,Z</span><br><span class="line">      Variable List = Temperature <span class="comment">#温度信息</span></span><br><span class="line">      Vector Brackets = ()</span><br><span class="line">      Vector Display = Scalar</span><br><span class="line">    END</span><br><span class="line">    &gt;export</span><br><span class="line">    </span><br><span class="line">    &gt;<span class="keyword">close</span> <span class="comment"># 关闭cfd-post文件</span></span><br><span class="line">!&#125;</span><br><span class="line"><span class="comment"># 结束循环</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="参考链接">参考链接</h2>
-<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_599d8faa010121yc.html">利用6DOF模型计算小球自空气中跌落水中</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/MouGang/article/details/108274611">fluent问题之结果云图显示总有网格</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/qBMZsAh3nlABQnIsfr6p_A">【案例分享】6DOF动网格</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/4VFC3v9rajq3HmqH1Dvmiw">【Fluent案例】23：重叠网格</a></p>
-<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/b5fd2194daef5ef7ba0d3c10.html">FLUENT动网格之铺层应用</a></p>
-<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/305ae919ba1aa8114431d9a0.html">FLUENT动网格之铺层应用1</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8SbtXPU1YXoVd0m_0fCAYw">Fluent动网格【3】：运动指定UDF</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/HalfYouth/article/details/109106629">CFX-post session（批处理文件）的使用_Half-Youth-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/339457253">CFD-post中的编程接口</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Xg4y1B78X">用tecplot获取某点的速度时间曲线并导出</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/87031162">Tecplot宏循环操作</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_62eb77f90100vv9h.html">Tecplot中精确查看某节点坐标等值</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_6979af300102xm7g.html">在几何体上准确地标明提取信息点的位置（Tecplot）</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_a79630990102v4xm.html">tecplot做某点压力（速度）变化曲线</a></p>
+<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_83997b020102x4r5.html">利用fluent进行动网格计算中如何监测某个点的位移？</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/perl/perl-tutorial.html">Perl 教程</a></p>
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a5b43f232.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="https://i.loli.net/2019/05/11/5cd5a59fef129.png">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -752,7 +346,7 @@ var _hmt = _hmt || [];
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2020/12/02/sphere%20water%20entry/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ink-bottle.github.io/2021/06/22/CFD-POST%E6%8F%90%E5%8F%96%E8%BF%90%E5%8A%A8%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%82%B9%E7%9A%84%E6%B5%81%E5%9C%BA%E6%95%B0%E6%8D%AE/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -766,18 +360,9 @@ var _hmt = _hmt || [];
   
 <nav id="article-nav">
   
-    <a href="/2020/12/31/2021newyear/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2021新年
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/24/%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E8%8E%B7%E5%8F%96%E5%9B%BE%E5%83%8F%E4%B8%AD%E6%9F%90%E7%82%B9%E5%83%8F%E7%B4%A0%E5%9D%90%E6%A0%87/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">鼠标点击获取图像/视频中某点像素坐标</div>
+    <a href="/2021/06/21/photoloader/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用阿里云OSS自搭建图床</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -804,7 +389,7 @@ var _hmt = _hmt || [];
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E9%87%8D%E6%9E%84%E6%B3%95local-remeshing"><span class="toc-number">2.</span> <span class="toc-text">局部重构法（Local Remeshing）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%88%92%E5%88%86"><span class="toc-number">2.1.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97"><span class="toc-number">2.2.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C"><span class="toc-number">2.3.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%B1%82%E9%93%BA%E6%B3%95dynamic-layering"><span class="toc-number">3.</span> <span class="toc-text">动态层铺法（Dynamic Layering）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A8%A1%E5%9E%8B-1"><span class="toc-number">3.1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%88%92%E5%88%86-1"><span class="toc-number">3.2.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97-1"><span class="toc-number">3.3.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C-1"><span class="toc-number">3.4.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B5%8C%E5%A5%97%E7%BD%91%E6%A0%BCoverset-mesh"><span class="toc-number">4.</span> <span class="toc-text">嵌套网格（Overset mesh）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E6%A8%A1%E5%9E%8B-2"><span class="toc-number">4.1.</span> <span class="toc-text">几何模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%88%92%E5%88%86-2"><span class="toc-number">4.2.</span> <span class="toc-text">网格划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E8%AE%A1%E7%AE%97-2"><span class="toc-number">4.3.</span> <span class="toc-text">仿真计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BF%E7%9C%9F%E7%BB%93%E6%9E%9C-2"><span class="toc-number">4.4.</span> <span class="toc-text">仿真结果</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#session%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">Session的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#session%E7%9A%84%E4%BF%AE%E6%94%B9"><span class="toc-number">2.</span> <span class="toc-text">Session的修改</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A3%B0%E6%98%8E%E5%8F%98%E9%87%8F"><span class="toc-number">2.1.</span> <span class="toc-text">声明变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.2.</span> <span class="toc-text">判断语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">2.3.</span> <span class="toc-text">循环语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C"><span class="toc-number">2.4.</span> <span class="toc-text">文件操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AE%B0%E5%B9%B6%E6%8F%90%E5%8F%96%E7%82%B9%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">标记并提取点数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%B9%E5%A4%84%E7%90%86%E6%8F%90%E5%8F%96%E8%BF%90%E5%8A%A8%E4%BD%93%E8%A1%A8%E9%9D%A2%E7%82%B9%E7%9A%84%E6%B5%81%E5%9C%BA%E6%95%B0%E6%8D%AE"><span class="toc-number">4.</span> <span class="toc-text">批处理提取运动体表面点的流场数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-number">5.</span> <span class="toc-text">参考链接</span></a></li></ol>
                     </div>
                 </span>
             </div>
